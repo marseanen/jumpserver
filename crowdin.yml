@@ -1,5 +1,13 @@
 files:
-  - source: en.json
-    translation: '%two_letters_code%.json'
   - source: i18n/core/en/LC_MESSAGES/django.po
     translation: i18n/core/%two_letters_code%/LC_MESSAGES/django.po
+  - source: chen/en.json
+    translation: chen/ru.json
+  - source: koko/en.json
+    translation: koko/ru.json
+  - source: lina/en.json
+    translation: lina/ru.json
+  - source: luna/en.json
+    translation: luna/ru.json
+  - source: lion/en.json
+    translation: lion/ru.json
