@@ -1,3 +1,5 @@
 files:
-  - source: en.json
+  - source: '%two_letters_code%.json'
     translation: '%two_letters_code%.json'
+  - source: i18n/core/%two_letters_code%/LC_MESSAGES/django.po
+    translation: i18n/core/%two_letters_code%/LC_MESSAGES/django.po
