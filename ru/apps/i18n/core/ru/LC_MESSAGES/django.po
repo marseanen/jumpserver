@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: jumpserver_rus\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-17 15:02+0800\n"
-"PO-Revision-Date: 2025-09-22 12:13\n"
+"PO-Revision-Date: 2025-09-22 14:10\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -357,7 +357,7 @@ msgstr "Готово"
 
 #: accounts/const/automation.py:123
 msgid "Processing"
-msgstr ""
+msgstr "В процессе"
 
 #: accounts/const/automation.py:127
 msgid "Can login"
@@ -6218,7 +6218,7 @@ msgstr "Аудит заданий"
 
 #: rbac/tree.py:71
 msgid "Report"
-msgstr ""
+msgstr "Отчет"
 
 #: rbac/tree.py:181
 msgid "App organizations"
