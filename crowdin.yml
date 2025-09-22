@@ -3,8 +3,8 @@ language_mapping:
     ru: ru
 preserve_hierarchy: 1
 files:
-  - source: apps/i18n/core/en/LC_MESSAGES/django.po
-    translation: apps/i18n/core/ru/LC_MESSAGES/django.po
+  - source: apps/i18n/core/%two_letters_code%/LC_MESSAGES/django.po
+    translation: apps/i18n/core/%two_letters_code%/LC_MESSAGES/django.po
     type: gettext
   - source: apps/i18n/chen/en.json
     translation: apps/i18n/chen/ru.json
