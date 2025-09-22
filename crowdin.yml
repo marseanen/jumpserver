@@ -3,21 +3,21 @@ language_mapping:
     ru: ru
 preserve_hierarchy: 1
 files:
-  - source: apps/i18n/core/en/LC_MESSAGES/django.po
+  - source: apps/i18n/core/zh/LC_MESSAGES/django.po
     translation: /apps/i18n/core/%two_letters_code%/LC_MESSAGES/django.po
     type: gettext
-  - source: apps/i18n/chen/en.json
+  - source: apps/i18n/chen/zh.json
     translation: /apps/i18n/chen/%two_letters_code%.json
     type: json
-  - source: apps/i18n/koko/en.json
+  - source: apps/i18n/koko/zh.json
     translation: /apps/i18n/koko/%two_letters_code%.json
     type: json
-  - source: apps/i18n/lina/en.json
+  - source: apps/i18n/lina/zh.json
     translation: /apps/i18n/lina/%two_letters_code%.json
     type: json
-  - source: apps/i18n/luna/en.json
+  - source: apps/i18n/luna/zh.json
     translation: /apps/i18n/luna/%two_letters_code%.json
     type: json
-  - source: apps/i18n/lion/en.json
+  - source: apps/i18n/lion/zh.json
     translation: /apps/i18n/lion/%two_letters_code%.json
     type: json
