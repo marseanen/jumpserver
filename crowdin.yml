@@ -1,9 +1,7 @@
-preserve_hierarchy: true
-
 language_mapping:
   two_letters_code:
-    ru: ru    # гарантирует apps/.../ru.json (а не ru-RU.json)
-    
+    ru: ru
+preserve_hierarchy: 1
 files:
   - source: apps/i18n/core/en/LC_MESSAGES/django.po
     translation: apps/i18n/core/ru/LC_MESSAGES/django.po
