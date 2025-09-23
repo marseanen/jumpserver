@@ -20,7 +20,6 @@
     "AvailableHotkeys": "Доступные сочетания клавиш",
     "Backspace as Ctrl+H": "Backspace как Ctrl+H",
     "Batch actions": "Пакетные операции",
-    "Batch actions(select and right click)": "Пакетное действие (выбор и щелчок правой кнопкой мыши)",
     "Batch connect": "Пакетное подключение",
     "BatchCommands": "Пакетные команды",
     "Belgian French keyboard layout": "Бельгийская французская раскладка (Azerty)",
@@ -43,7 +42,6 @@
     "Close split connect": "Закрыть разделенный экран",
     "Command": "Команда",
     "Command Line": "Командная строка",
-    "Command line": "Подключить командную строку",
     "CommandBar": "Панель команд",
     "Confirm": "Подтвердить",
     "ConfirmCreation": "Подтверждение создания",
@@ -78,7 +76,6 @@
     "Don't prompt again": "Больше не показывать",
     "DownArrow": "Стрелка вниз",
     "Download": "Скачать",
-    "Download the client": "Пожалуйста, скачайте",
     "Download the latest client": "Скачать последнюю версию клиента",
     "DownloadClient": "Скачать клиент.",
     "DownloadClientMsg": "Клиент JumpServer не установлен, сейчас нужно скачать и установить.",
@@ -288,5 +285,6 @@
     "start time": "время начала",
     "success": "успешно",
     "system user": "системный пользователь",
-    "user": "пользователь"
+    "user": "пользователь",
+    "Batch actions(select and right click)": "Пакетное действие (выбор и щелчок правой кнопкой мыши)"
 }
