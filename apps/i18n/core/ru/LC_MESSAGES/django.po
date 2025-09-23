@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: jumpserver\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-17 15:21+0800\n"
-"PO-Revision-Date: 2025-09-23 08:02\n"
+"PO-Revision-Date: 2025-09-23 09:42\n"
 "Last-Translator: ibuler <ibuler@qq.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -10101,7 +10101,7 @@ msgstr "Установить приложение"
 
 #: users/templates/users/user_otp_enable_install_app.html:13
 msgid "Download and install the MFA Authenticator application on your phone or applet of WeChat"
-msgstr "Пожалуйста, скачайте и установите приложение для аутентификации МФ Ана мобильном устройстве или или в мини-программе WeChat"
+msgstr "Пожалуйста, скачайте и установите приложение для аутентификации МФА на мобильном устройстве или или в мини-программе WeChat"
 
 #: users/templates/users/user_otp_enable_install_app.html:18
 msgid "Android downloads"
