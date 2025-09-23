@@ -46,7 +46,7 @@
     "AccountResult": "Успешное или неудачное изменение секрета УЗ",
     "AccountSelectHelpText": "В список учетных записей добавляется имя пользователя",
     "AccountSessions": "Сессии учетной записи",
-    "AccountStatisticsReport": "Отчет по учетным записяч",
+    "AccountStatisticsReport": "Отчет по учетным записям",
     "AccountStorage": "Хранилище учетных записей",
     "AccountSummary": "Сводная информация об УЗ",
     "AccountTemplate": "Шаблон учетной записи",
@@ -980,7 +980,7 @@
     "PassKey": "Ключ доступа",
     "Passkey": "Passkey",
     "PasskeyAddDisableInfo": "Ваш источник аутентификации - {source}, добавление Passkey не поддерживается",
-    "PasskeySummary": "Безпарольная биометрическая аутентификация",
+    "PasskeySummary": "Беспарольная биометрическая аутентификация",
     "Passphrase": "Пароль ключа",
     "Password": "Пароль",
     "PasswordAndSSHKey": "Пароль и SSH-ключ",
@@ -1629,8 +1629,8 @@
     "userId": "ID пользователя",
     "userName": "Имя пользовател",
     "description": "Нет данных",
-    "MsgTemplate": "消息模板",
-    "Example": "示例值",
+    "MsgTemplate": "Шаблоны",
+    "Example": "Пример",
     "TemplateVariablesHelpText": "您可以选择一个模板在模板内容中使用 {{ key }} 读取内置变量,注意：只支持 {{ }} 语法，其他语法不支持。例如 {% if title %}",
     "ResetSuccessfully": "重置成功"
 }
