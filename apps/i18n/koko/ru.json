@@ -158,7 +158,7 @@
     "print help": "посмотреть помощь",
     "exit": "выйти",
     "\t%2d) Enter {{.GreenBoldColor}}%s{{.ColorEnd}} to %s.%s": "\t%d) Введите {{.GreenBoldColor}}%s{{.ColorEnd}} чтобы %s.%s",
-    "Announcement: ": "Объявление:",
+    "Announcement: ": "Объявление: ",
     "No Account found.": "Учетная запись не найдена",
     "Username": "Имя пользователя",
     "Tips: Enter asset[%s] account ID": "Подсказка: Введите ID учетной записи актива [%s]",
