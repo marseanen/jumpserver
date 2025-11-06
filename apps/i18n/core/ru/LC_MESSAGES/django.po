@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jumpserver\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-03 10:45+0800\n"
-"PO-Revision-Date: 2025-11-03 03:33\n"
+"POT-Creation-Date: 2025-11-05 18:33+0800\n"
+"PO-Revision-Date: 2025-11-06 03:31\n"
 "Last-Translator: ibuler <ibuler@qq.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -1676,7 +1676,7 @@ msgstr "Успешные УЗ"
 #: accounts/templates/accounts/change_secret_report.html:118
 #: accounts/templates/accounts/push_account_report.html:77
 #: accounts/templates/accounts/push_account_report.html:117
-#: audits/handler.py:128
+#: audits/handler.py:130
 msgid "No"
 msgstr "Нет"
 
@@ -3379,7 +3379,7 @@ msgstr "Задача"
 msgid "-"
 msgstr "-"
 
-#: audits/handler.py:128
+#: audits/handler.py:130
 msgid "Yes"
 msgstr "Да"
 
@@ -5215,7 +5215,7 @@ msgstr "<divL>Koko — это отдельно развёрнутое прило
 msgid "App Labels"
 msgstr "Управление тегами"
 
-#: labels/models.py:15 settings/serializers/security.py:211
+#: labels/models.py:15
 msgid "Color"
 msgstr "Цвет"
 
@@ -7509,28 +7509,32 @@ msgid "Watermark"
 msgstr "Водяной знак"
 
 #: settings/serializers/security.py:205
-msgid "Watermark session content"
-msgstr "Водяной знак в сессиях"
+msgid "Session content"
+msgstr "Настраиваемое содержание водяного знака сессии"
 
 #: settings/serializers/security.py:208
-msgid "Watermark console content"
-msgstr "Водяной знак в Консоли"
+msgid "Console content"
+msgstr "Настраиваемое содержание водяного знака страницы"
+
+#: settings/serializers/security.py:211
+msgid "Font color"
+msgstr "Цвет шрифта"
 
 #: settings/serializers/security.py:214
-msgid "Watermark font size"
-msgstr "Размер шрифта водяного знака"
+msgid "Font size"
+msgstr "Размер шрифта (пиксели)"
 
 #: settings/serializers/security.py:217
-msgid "Watermark height"
-msgstr "Высота водяного знака"
+msgid "Height"
+msgstr "Высота (пиксели)"
 
 #: settings/serializers/security.py:220
-msgid "Watermark width"
-msgstr "Ширина водяного знака"
+msgid "Width"
+msgstr "Ширина (пиксели)"
 
 #: settings/serializers/security.py:223
-msgid "Watermark rotate"
-msgstr "Угол поворота водяного знака"
+msgid "Rotate"
+msgstr "Поворот (градусы)"
 
 #: settings/serializers/security.py:227
 msgid "Max idle time (minute)"
@@ -10952,7 +10956,4 @@ msgstr "Лицензия успешно импортирована"
 #: xpack/plugins/license/api.py:53
 msgid "Invalid license"
 msgstr "Лицензия недействительна"
-
-#~ msgid "domain_name"
-#~ msgstr "域名称"
 
