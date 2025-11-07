@@ -1637,5 +1637,8 @@
     "removeWarningMsg": "Вы уверены, что хотите удалить",
     "setVariable": "Задать переменную",
     "userId": "ID пользователя",
-    "userName": "Имя пользователя"
+    "userName": "Имя пользователя",
+    "selectedAssets": "已选资产",
+    "clickToAdd": "点击添加",
+    "pleaseSelectAssets": "请选择资产"
 }
