@@ -729,7 +729,7 @@
     "InstanceName": "Название экземпляра",
     "InstanceNamePartIp": "Название экземпляра и часть IP",
     "InstancePlatformName": "Название платформы экземпляра",
-    "Integration": "集成",
+    "Integration": "Интеграция",
     "Interface": "Сетевой интерфейс",
     "InterfaceSettings": "Настройки интерфейса",
     "Interval": "Интервал",
@@ -1638,8 +1638,8 @@
     "setVariable": "Задать переменную",
     "userId": "ID пользователя",
     "userName": "Имя пользователя",
-    "overwriteProtocolsAndPortsMsg": "此操作将覆盖所有协议和端口，是否继续？",
-    "selectedAssets": "已选资产",
-    "clickToAdd": "点击添加",
-    "pleaseSelectAssets": "请选择资产"
+    "overwriteProtocolsAndPortsMsg": "Это действие заменит все протоколы и порты. Продолжить?",
+    "selectedAssets": "Выбранные активы",
+    "clickToAdd": "Нажмите, чтобы добавить",
+    "pleaseSelectAssets": "Пожалуйста, выберите актив"
 }
