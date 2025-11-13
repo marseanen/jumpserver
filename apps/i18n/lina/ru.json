@@ -729,7 +729,7 @@
     "InstanceName": "Название экземпляра",
     "InstanceNamePartIp": "Название экземпляра и часть IP",
     "InstancePlatformName": "Название платформы экземпляра",
-    "Integration": "Интеграция приложений",
+    "Integration": "集成",
     "Interface": "Сетевой интерфейс",
     "InterfaceSettings": "Настройки интерфейса",
     "Interval": "Интервал",
