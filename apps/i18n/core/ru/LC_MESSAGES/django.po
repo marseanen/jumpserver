@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: jumpserver\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-05 18:33+0800\n"
-"PO-Revision-Date: 2025-11-07 09:59\n"
+"PO-Revision-Date: 2025-11-13 18:21\n"
 "Last-Translator: ibuler <ibuler@qq.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -1370,7 +1370,7 @@ msgstr "Автоматическая публикация УЗ на активы
 
 #: accounts/serializers/account/template.py:51
 msgid "Associated platform, you can configure push parameters. If not associated, default parameters will be used"
-msgstr "Укажите платформу, чтобы настроить особые параметры публикации УЗ. Если не настраивать отдельные параметры, публикация УЗ будет выполнена с параметрами по умолчанию."
+msgstr "Укажите платформу, чтобы настроить особые параметры публикации УЗ. Если не настраивать отдельные параметры, публикация УЗ будет выполнена с параметрами по умолчанию"
 
 #: accounts/serializers/account/virtual.py:24
 msgid "Current only support login from AD/LDAP. Secret priority: Same account in asset secret > Login secret > Manual input. <br/ >For security, please set config CACHE_LOGIN_PASSWORD_ENABLED to true"
@@ -7079,11 +7079,11 @@ msgstr "Время хранения истории выполнения зада
 
 #: settings/serializers/cleaning.py:43
 msgid "Activity log retention days"
-msgstr "Время хранения 기록 активности"
+msgstr "Время хранения журнала активности"
 
 #: settings/serializers/cleaning.py:46
 msgid "Session log retention days"
-msgstr "Время хранения журнала сеансов"
+msgstr "Время хранения журнала сессий"
 
 #: settings/serializers/cleaning.py:48
 msgid "Session, record, command will be delete if more than duration, only in database, OSS will not be affected."
@@ -7091,7 +7091,7 @@ msgstr "Сессии, видеозаписи и записи команд, пр�
 
 #: settings/serializers/cleaning.py:53
 msgid "Change secret and push record retention days"
-msgstr "Время хранения записей уведомлений о смене пароля аккаунта"
+msgstr "Время хранения записей об изменении и публикации пароля"
 
 #: settings/serializers/feature.py:23 settings/serializers/msg.py:69
 msgid "Subject"
@@ -7505,11 +7505,11 @@ msgstr "Водяной знак"
 
 #: settings/serializers/security.py:205
 msgid "Session content"
-msgstr "Настраиваемое содержание водяного знака сессии"
+msgstr "Настраиваемый водяной знак для сессии"
 
 #: settings/serializers/security.py:208
 msgid "Console content"
-msgstr "Настраиваемое содержание водяного знака страницы"
+msgstr "Настраиваемый водяной знак для консоли"
 
 #: settings/serializers/security.py:211
 msgid "Font color"
