@@ -1642,5 +1642,7 @@
     "selectedAssets": "Выбранные активы",
     "setVariable": "Задать переменную",
     "userId": "ID пользователя",
-    "userName": "Имя пользователя"
+    "userName": "Имя пользователя",
+    "Risk": "风险",
+    "selectFiles": "已选择选择{number}文件"
 }
