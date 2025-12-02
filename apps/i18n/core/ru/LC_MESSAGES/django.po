@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: jumpserver\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-17 17:53+0800\n"
-"PO-Revision-Date: 2025-11-18 03:39\n"
+"PO-Revision-Date: 2025-12-02 13:14\n"
 "Last-Translator: ibuler <ibuler@qq.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -26,7 +26,7 @@ msgstr "Учетная запись уже существует."
 
 #: accounts/api/account/account.py:207
 msgid "No valid assets found for account creation."
-msgstr "Не удалось найти действительные активы для создания учетной записи."
+msgstr "Нет подходящих активов для создания учетной записи."
 
 #: accounts/api/account/application.py:77
 #: authentication/api/connection_token.py:453
