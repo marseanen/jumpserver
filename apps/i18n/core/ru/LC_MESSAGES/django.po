@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: jumpserver\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-17 17:53+0800\n"
-"PO-Revision-Date: 2025-12-02 13:14\n"
+"PO-Revision-Date: 2025-12-02 19:47\n"
 "Last-Translator: ibuler <ibuler@qq.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -5305,7 +5305,7 @@ msgstr "Ошибка параметров выполнения задачи {}"
 
 #: ops/api/job.py:65
 msgid "Login to asset {}({}) is rejected by login asset ACL ({})"
-msgstr ""
+msgstr "Вход на актив {}({}) запрещён правилами доступа к ресурсу ({})"
 
 #: ops/api/job.py:88
 #, python-brace-format
@@ -10804,7 +10804,7 @@ msgstr "Порт %(port)s IP-адреса экземпляра %(ip)s недос
 #: xpack/plugins/cloud/providers/scp.py:108
 #| msgid "empty"
 msgid "Empty"
-msgstr ""
+msgstr "Пусто"
 
 #: xpack/plugins/cloud/serializers/account.py:104
 msgid "Validity display"
