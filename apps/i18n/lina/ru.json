@@ -279,6 +279,7 @@
     "CACertificate": "Сертификат ЦС",
     "CAS": "CAS",
     "CMPP2": "CMPP v2.0",
+    "CTYun": "天翼云",
     "CTYunPrivate": "eCloud Private Cloud",
     "CalculationResults": "Ошибка в выражении cron",
     "CallRecords": "Запись вызовов",
@@ -1644,5 +1645,8 @@
     "userId": "ID пользователя",
     "userName": "Имя пользователя",
     "Risk": "Риск",
-    "selectFiles": "Выбрано файлов: {number}"
+    "selectFiles": "Выбрано файлов: {number}",
+    "AccessToken": "访问令牌",
+    "AccessTokenTip": "访问令牌是通过 JumpServer 客户端使用 OAuth2（授权码授权）流程生成的临时凭证，用于访问受保护的资源。",
+    "Revoke": "撤销"
 }
