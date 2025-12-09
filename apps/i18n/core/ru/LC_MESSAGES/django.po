@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: jumpserver\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-09 10:13+0800\n"
-"PO-Revision-Date: 2025-12-09 10:09\n"
+"PO-Revision-Date: 2025-12-09 16:08\n"
 "Last-Translator: ibuler <ibuler@qq.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -2466,7 +2466,7 @@ msgstr "Включите, если этот экземпляр Redis являе�
 
 #: assets/const/protocol.py:276
 msgid "Namespace"
-msgstr ""
+msgstr "Пространство имён"
 
 #: assets/const/protocol.py:288
 msgid "Safe mode"
@@ -3570,7 +3570,7 @@ msgstr "Способ аутентификации"
 
 #: audits/serializers.py:139
 msgid "Diff"
-msgstr ""
+msgstr "Сравнение"
 
 #: audits/serializers.py:172
 #, python-format
@@ -4141,7 +4141,8 @@ msgstr "Ошибка аутентификации (сбой до проверк�
 #: authentication/mixins.py:166
 msgid "The administrator has enabled \"Only allow existing users to log in\", \n"
 "                    and the current user is not in the user list. Please contact the administrator."
-msgstr ""
+msgstr "Администратор включил параметр «Вход только для существующих пользователей», \n"
+"                    а текущий пользователь отсутствует в списке. Пожалуйста, свяжитесь с администратором."
 
 #: authentication/mixins.py:178
 msgid "User is invalid"
@@ -4151,7 +4152,8 @@ msgstr "Недействительный пользователь"
 #, python-brace-format
 msgid " The administrator has enabled 'Only allow login from user source'. \n"
 "                    The current user source is {}. Please contact the administrator. "
-msgstr ""
+msgstr " Администратор включил параметр «Вход только из источника». \n"
+"                    Текущий источник пользователя — {}. Пожалуйста, свяжитесь с администратором. "
 
 #: authentication/mixins.py:376
 #, python-brace-format
@@ -5266,7 +5268,7 @@ msgstr "JumpServer открытая система управления дост
 
 #: jumpserver/context_processor.py:28
 msgid "FIT2CLOUD"
-msgstr ""
+msgstr "FIT2CLOUD"
 
 #: jumpserver/views/celery_flower.py:22
 msgid "<h1>Flower service unavailable, check it</h1>"
@@ -6391,15 +6393,15 @@ msgstr "Просмотр дерева разрешений"
 
 #: rbac/tree.py:189
 msgid "Access token"
-msgstr ""
+msgstr "Токен доступа"
 
 #: rbac/tree.py:190
 msgid "View access token"
-msgstr ""
+msgstr "Просмотр токена доступа"
 
 #: rbac/tree.py:191
 msgid "Revoke access token"
-msgstr ""
+msgstr "Отзыв токена доступа"
 
 #: reports/views.py:20
 msgid "User login report"
@@ -8046,23 +8048,23 @@ msgstr "Главная страница"
 
 #: templates/redirect_confirm.html:42
 msgid "You are about to be redirected to an external website."
-msgstr ""
+msgstr "Вы собираетесь перейти на внешний сайт."
 
 #: templates/redirect_confirm.html:45
 msgid "Please confirm that you trust this link: "
-msgstr ""
+msgstr "Пожалуйста, убедитесь, что вы доверяете следующей ссылке: "
 
 #: templates/redirect_confirm.html:55
 msgid "Back"
-msgstr ""
+msgstr "Назад"
 
 #: templates/redirect_confirm.html:70
 msgid "Redirecting you to the Desktop App ( JumpServer Client )"
-msgstr ""
+msgstr "Перенаправление в приложение для ПК (клиент JumpServer)"
 
 #: templates/redirect_confirm.html:73
 msgid "You can safely close this window and return to the application."
-msgstr ""
+msgstr "Вы можете закрыть это окно и вернуться в приложение."
 
 #: templates/resource_download.html:20 templates/resource_download.html:36
 #: users/const.py:84
@@ -8071,7 +8073,7 @@ msgstr "Клиент"
 
 #: templates/resource_download.html:22
 msgid "JumpServerClient, currently used to launch the client"
-msgstr ""
+msgstr "Клиент JumpServer, в настоящее время используется для запуска клиентской программы для подключения к активу"
 
 #: templates/resource_download.html:36
 msgid "Microsoft"
@@ -10377,7 +10379,7 @@ msgstr "Volcengine"
 
 #: xpack/plugins/cloud/const.py:22
 msgid "State Cloud"
-msgstr ""
+msgstr "State Cloud"
 
 #: xpack/plugins/cloud/const.py:24
 msgid "VMware"
@@ -10983,7 +10985,7 @@ msgstr "Автоматическая классификация узлов"
 
 #: xpack/plugins/cloud/serializers/account_attrs.py:108
 msgid "domain_name"
-msgstr ""
+msgstr "Имя домена"
 
 #: xpack/plugins/cloud/serializers/account_attrs.py:124
 msgid "Auth url"
@@ -10999,7 +11001,7 @@ msgstr "Домен пользователя"
 
 #: xpack/plugins/cloud/serializers/account_attrs.py:157
 msgid "Project ID"
-msgstr ""
+msgstr "Проект"
 
 #: xpack/plugins/cloud/serializers/account_attrs.py:164
 msgid "Cert File"
