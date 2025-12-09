@@ -279,7 +279,7 @@
     "CACertificate": "Сертификат ЦС",
     "CAS": "CAS",
     "CMPP2": "CMPP v2.0",
-    "CTYun": "天翼云",
+    "CTYun": "Tianyi Cloud",
     "CTYunPrivate": "eCloud Private Cloud",
     "CalculationResults": "Ошибка в выражении cron",
     "CallRecords": "Запись вызовов",
@@ -1431,7 +1431,7 @@
     "TerminalDetail": "Подробности терминала",
     "TerminalUpdate": "Обновление терминала",
     "TerminalUpdateStorage": "Обновить хранилище терминала",
-    "Terminate": "Прервано",
+    "Terminate": "Прервать",
     "TerminateTaskSendSuccessMsg": "Команда на завершение задачи отправлена, пожалуйста, обновите страницу через некоторое время",
     "TermsAndConditions": "Условия и положения",
     "Test": "Тест",
@@ -1646,7 +1646,7 @@
     "userName": "Имя пользователя",
     "Risk": "Риск",
     "selectFiles": "Выбрано файлов: {number}",
-    "AccessToken": "访问令牌",
-    "AccessTokenTip": "访问令牌是通过 JumpServer 客户端使用 OAuth2（授权码授权）流程生成的临时凭证，用于访问受保护的资源。",
-    "Revoke": "撤销"
+    "AccessToken": "Токен доступа",
+    "AccessTokenTip": "Токен доступа создаётся через клиент JumpServer с помощью OAuth2 (авторизация по коду) и используется для временного доступа к защищённым ресурсам.",
+    "Revoke": "Отзыв"
 }
