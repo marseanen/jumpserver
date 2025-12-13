@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jumpserver\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-09 10:13+0800\n"
-"PO-Revision-Date: 2025-12-09 16:08\n"
+"POT-Creation-Date: 2025-12-12 15:12+0800\n"
+"PO-Revision-Date: 2025-12-13 03:31\n"
 "Last-Translator: ibuler <ibuler@qq.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -18,23 +18,22 @@ msgstr ""
 "X-Crowdin-File: /dev/apps/i18n/core/zh/LC_MESSAGES/django.po\n"
 "X-Crowdin-File-ID: 76\n"
 
-#: accounts/api/account/account.py:142
+#: accounts/api/account/account.py:143
 #: accounts/serializers/account/account.py:181
 #: accounts/serializers/account/account.py:362
 msgid "Account already exists"
 msgstr "Учетная запись уже существует."
 
-#: accounts/api/account/account.py:207
+#: accounts/api/account/account.py:208
 msgid "No valid assets found for account creation."
 msgstr "Нет подходящих активов для создания учетной записи."
 
 #: accounts/api/account/application.py:77
-#: authentication/api/connection_token.py:453
+#: authentication/api/connection_token.py:463
 msgid "Account not found"
 msgstr "Учетная запись не найдена"
 
 #: accounts/api/automations/base.py:88 tickets/api/ticket.py:132
-#, python-brace-format
 msgid "The parameter 'action' must be [{}]"
 msgstr "Параметр 'Действие' должен быть [{}]"
 
@@ -117,12 +116,10 @@ msgid "Success: %s, Failed: %s, Total: %s"
 msgstr "Успешных: %s, Не удалось: %s, Всего: %s"
 
 #: accounts/automations/check_account/manager.py:277
-#, python-brace-format
 msgid "Check account report of {}"
 msgstr "Отчет о рисках {}"
 
 #: accounts/automations/check_account/manager.py:283
-#, python-brace-format
 msgid "---\n"
 "Summary: \n"
 "ok: {}, weak password: {}, leaked password: {}, repeated password: {}, no secret: {}, using time: {}s"
@@ -145,7 +142,7 @@ msgstr ">>> Начинаем выполнение задачи по провер
 #: authentication/forms.py:28
 #: authentication/templates/authentication/login.html:368
 #: authentication/templates/authentication/login.html:414
-#: reports/api/users/user.py:101 settings/models.py:246
+#: reports/api/users/user.py:101 settings/models.py:250
 #: settings/serializers/auth/ldap.py:27 settings/serializers/auth/ldap.py:53
 #: settings/serializers/auth/ldap_ha.py:35 settings/serializers/msg.py:37
 #: settings/serializers/terminal.py:32 terminal/serializers/storage.py:123
@@ -154,8 +151,6 @@ msgstr ">>> Начинаем выполнение задачи по провер
 #: users/templates/users/_msg_user_created.html:13
 #: users/templates/users/user_password_verify.html:18
 #: xpack/plugins/cloud/serializers/account_attrs.py:43
-#: xpack/plugins/cloud/serializers/account_attrs.py:105
-#: xpack/plugins/cloud/serializers/account_attrs.py:112
 msgid "Password"
 msgstr "Пароль"
 
@@ -533,7 +528,7 @@ msgstr "Статус изменения секрета"
 #: acls/serializers/base.py:112
 #: acls/templates/acls/asset_login_reminder.html:11
 #: assets/serializers/gateway.py:33 audits/models.py:60 audits/models.py:337
-#: audits/serializers.py:246 authentication/api/connection_token.py:465
+#: audits/serializers.py:246 authentication/api/connection_token.py:475
 #: ops/models/base.py:18 perms/models/asset_permission.py:75
 #: settings/serializers/msg.py:33 terminal/backends/command/models.py:18
 #: terminal/models/session/session.py:31 terminal/notifications.py:291
@@ -623,7 +618,7 @@ msgstr "Иконка"
 
 #: accounts/models/application.py:20 accounts/models/base.py:39
 #: accounts/models/mixins/vault.py:49
-#: accounts/serializers/account/account.py:498
+#: accounts/serializers/account/account.py:499
 #: accounts/serializers/account/base.py:20
 #: authentication/models/temp_token.py:11
 #: authentication/templates/authentication/_access_key_modal.html:31
@@ -903,8 +898,6 @@ msgstr "Повторяющийся пароль"
 #: users/notifications.py:20 users/serializers/profile.py:190
 #: users/templates/users/_msg_user_created.html:12
 #: xpack/plugins/cloud/serializers/account_attrs.py:41
-#: xpack/plugins/cloud/serializers/account_attrs.py:103
-#: xpack/plugins/cloud/serializers/account_attrs.py:110
 msgid "Username"
 msgstr "Имя пользователя"
 
@@ -1015,7 +1008,7 @@ msgid "Verify asset account"
 msgstr "Проверка УЗ актива"
 
 #: accounts/models/base.py:37 accounts/models/base.py:66
-#: accounts/serializers/account/account.py:497
+#: accounts/serializers/account/account.py:498
 #: accounts/serializers/account/base.py:17
 #: accounts/serializers/automations/change_secret.py:50
 #: authentication/serializers/connect_token_secret.py:42
@@ -1099,12 +1092,10 @@ msgid "Notification of account backup route task results"
 msgstr "Уведомление о результатах задачи резервного копирования УЗ"
 
 #: accounts/notifications.py:23 accounts/notifications.py:48
-#, python-brace-format
 msgid "{} - The account backup passage task has been completed. See the attachment for details"
 msgstr "{} - Задача резервного копирования учетных записей выполнена. Подробности во вложении"
 
 #: accounts/notifications.py:26
-#, python-brace-format
 msgid "{} - The account backup passage task has been completed: the encryption password has not been set - please go to personal information -> Basic file encryption password for preference settings"
 msgstr "{} - Задача резервного копирования УЗ завершена: не установлен пароль шифрования - пожалуйста, задайте пароль шифрования файлов, перейдя в Персональные настройки -> Настройки предпочтений"
 
@@ -1113,12 +1104,10 @@ msgid "Notification of implementation result of encryption change plan"
 msgstr "Уведомление о результате выполнения задачи по смене пароля"
 
 #: accounts/notifications.py:69
-#, python-brace-format
 msgid "{} - The encryption change task has been completed. See the attachment for details"
 msgstr "{} - Задача по изменению пароля завершена. Подробности во вложении"
 
 #: accounts/notifications.py:73
-#, python-brace-format
 msgid "{} - The encryption change task has been completed: the encryption password has not been set - please go to personal information -> set encryption password in preferences"
 msgstr "{} - Задача по изменению пароля завершена: не установлен пароль шифрования - пожалуйста, перейдите в Личную информацию -> Настройки предпочтений и задайте пароль шифрования"
 
@@ -1167,7 +1156,6 @@ msgid "Change password and Add"
 msgstr "Изменить пароль и добавить"
 
 #: accounts/risk_handlers.py:127
-#, python-brace-format
 msgid "Execution failed: {}"
 msgstr "Выполнение не удалось: {}"
 
@@ -1264,15 +1252,15 @@ msgstr "Выберите хотя бы один актив или папку"
 msgid "Spec info"
 msgstr "Специальная информация"
 
-#: accounts/serializers/account/account.py:499
+#: accounts/serializers/account/account.py:500
 #: authentication/serializers/connect_token_secret.py:173
 #: authentication/templates/authentication/_access_key_modal.html:30
-#: perms/models/perm_node.py:21 settings/models.py:245
+#: perms/models/perm_node.py:21 settings/models.py:249
 #: users/serializers/group.py:33
 msgid "ID"
 msgstr "ID"
 
-#: accounts/serializers/account/account.py:509 acls/notifications.py:18
+#: accounts/serializers/account/account.py:510 acls/notifications.py:18
 #: acls/notifications.py:68 acls/serializers/base.py:104
 #: acls/templates/acls/asset_login_reminder.html:8
 #: acls/templates/acls/user_login_reminder.html:8
@@ -1296,7 +1284,7 @@ msgstr "ID"
 msgid "User"
 msgstr "Пользователь"
 
-#: accounts/serializers/account/account.py:510
+#: accounts/serializers/account/account.py:511
 #: authentication/templates/authentication/_access_key_modal.html:33
 #: terminal/notifications.py:165 terminal/notifications.py:225
 msgid "Date"
@@ -1816,7 +1804,7 @@ msgstr "Пользователь"
 #: assets/models/automations/base.py:25
 #: assets/serializers/automations/base.py:20 assets/serializers/domain.py:33
 #: assets/serializers/platform.py:182 assets/serializers/platform.py:214
-#: authentication/api/connection_token.py:464 ops/models/base.py:17
+#: authentication/api/connection_token.py:474 ops/models/base.py:17
 #: ops/models/job.py:157 ops/serializers/job.py:21
 #: perms/serializers/permission.py:57
 #: terminal/templates/terminal/_msg_command_execute_alert.html:16
@@ -1861,7 +1849,6 @@ msgid "Command group"
 msgstr "Группа команд"
 
 #: acls/models/command_acl.py:86
-#, python-brace-format
 msgid "The generated regular expression is incorrect: {}"
 msgstr "Созданное регулярное выражение неверно: {}"
 
@@ -2007,23 +1994,19 @@ msgid "Recipients"
 msgstr "Получатели"
 
 #: acls/serializers/base.py:126 tickets/serializers/ticket/ticket.py:79
-#, python-brace-format
 msgid "The organization `{}` does not exist"
 msgstr "Организация `{}` не существует"
 
 #: acls/serializers/base.py:132
-#, python-brace-format
 msgid "None of the reviewers belong to Organization `{}`"
 msgstr "Ни один утверждающий не относится к организации `{}`"
 
 #: acls/serializers/rules/rules.py:22
 #: xpack/plugins/cloud/serializers/task.py:163
-#, python-brace-format
 msgid "IP address invalid: `{}`"
 msgstr "Неверный IP-адрес: `{}`"
 
 #: acls/serializers/rules/rules.py:35
-#, python-brace-format
 msgid "address invalid: `{}`"
 msgstr "неверный адрес: `{}`"
 
@@ -2102,7 +2085,6 @@ msgid "You can't update the root node name"
 msgstr "Нельзя изменять имя корневой папки"
 
 #: assets/api/node.py:65
-#, python-brace-format
 msgid "You can't delete the root node ({})"
 msgstr "Нельзя удалить корневую папку ({})"
 
@@ -2123,12 +2105,10 @@ msgid "App Assets"
 msgstr "Управление активами"
 
 #: assets/automations/base/manager.py:139
-#, python-brace-format
 msgid "Task: {} finished"
 msgstr "Задача: {} Выполнена"
 
 #: assets/automations/base/manager.py:340
-#, python-brace-format
 msgid "  - Platform {} ansible disabled"
 msgstr "  - Ansible отключена на платформе {}, выполнение задачи невозможно"
 
@@ -2160,7 +2140,6 @@ msgid "No account"
 msgstr "Нет учетной записи"
 
 #: assets/automations/ping_gateway/manager.py:36
-#, python-brace-format
 msgid "Asset, {}, using account {}"
 msgstr "Актив, {}, с использованием учетной записи {}"
 
@@ -2274,8 +2253,7 @@ msgstr "Облака"
 msgid "Web"
 msgstr "Веб"
 
-#: assets/const/category.py:16 common/sdk/sms/custom_file.py:47
-#: common/sdk/sms/endpoint.py:20
+#: assets/const/category.py:16 common/sdk/sms/endpoint.py:20
 msgid "Custom type"
 msgstr "Пользовательский тип"
 
@@ -2966,11 +2944,10 @@ msgid "port out of range (0-65535)"
 msgstr "порт вне диапазона (0-65535)"
 
 #: assets/serializers/asset/common.py:315
-#, python-brace-format
 msgid "Protocol is required: {}"
 msgstr "Требуется протокол: {}"
 
-#: assets/serializers/asset/common.py:354 labels/api.py:107
+#: assets/serializers/asset/common.py:354
 msgid "Invalid data"
 msgstr "Недопустимые данные"
 
@@ -3273,17 +3250,14 @@ msgid "When clicking 'Test Connection' in 'Domain Details - Gateway' this task w
 msgstr "При нажатии «Проверка подключения» в «Зоны - Шлюз» будет выполнена эта задача"
 
 #: assets/tasks/utils.py:16
-#, python-brace-format
 msgid "Asset has been disabled, skipped: {}"
 msgstr "Актив был отключен, пропущен: {}"
 
 #: assets/tasks/utils.py:20
-#, python-brace-format
 msgid "Asset may not be support ansible, skipped: {}"
 msgstr "Возможно, актив не поддерживает ansible, пропускаем: {}"
 
 #: assets/tasks/utils.py:38
-#, python-brace-format
 msgid "For security, do not push user {}"
 msgstr "В целях безопасности, публикация пользователя {} запрещена"
 
@@ -3696,40 +3670,39 @@ msgstr "Значение в параметрах должно содержать
 msgid "This action require verify your MFA"
 msgstr "Эта операция требует подтверждения МФА, пожалуйста, сначала включите и настройте её"
 
-#: authentication/api/connection_token.py:304
+#: authentication/api/connection_token.py:314
 msgid "Reusable connection token is not allowed, global setting not enabled"
 msgstr "Повторное использование токена не допускается, глобальная настройка не включена"
 
-#: authentication/api/connection_token.py:426
+#: authentication/api/connection_token.py:436
 msgid "Anonymous account is not supported for this asset"
 msgstr "Анонимная учетная запись не поддерживается для этого актива"
 
-#: authentication/api/connection_token.py:456
+#: authentication/api/connection_token.py:466
 msgid "Permission expired"
 msgstr "Разрешение истекло"
 
-#: authentication/api/connection_token.py:489
-#, python-brace-format
+#: authentication/api/connection_token.py:499
 msgid "ACL action is reject: {}({})"
 msgstr "Действие правила — запрет: {}({})"
 
-#: authentication/api/connection_token.py:493
+#: authentication/api/connection_token.py:503
 msgid "ACL action is review"
 msgstr "Действие правила — проверка"
 
-#: authentication/api/connection_token.py:503
+#: authentication/api/connection_token.py:513
 msgid "ACL action is face verify"
 msgstr "Действие правила — идентификация по лицу"
 
-#: authentication/api/connection_token.py:508
+#: authentication/api/connection_token.py:518
 msgid "ACL action not supported for this asset"
 msgstr "Правило входа в актив не поддерживает текущий актив"
 
-#: authentication/api/connection_token.py:515
+#: authentication/api/connection_token.py:525
 msgid "ACL action is face online"
 msgstr "Действие правила — онлайн распознавание лица."
 
-#: authentication/api/connection_token.py:540
+#: authentication/api/connection_token.py:550
 msgid "No available face feature"
 msgstr "Нет доступных характеристик лица"
 
@@ -3739,13 +3712,11 @@ msgid "Facial comparison failed"
 msgstr "Не удалось сравнить лица"
 
 #: authentication/api/mfa.py:61
-#, python-brace-format
 msgid "Current user not support mfa type: {}"
 msgstr "Текущий пользователь не поддерживает тип МФА: {}."
 
 #: authentication/api/password.py:34 terminal/api/session/session.py:343
 #: users/views/profile/reset.py:63
-#, python-brace-format
 msgid "User does not exist: {}"
 msgstr "Пользователь не существует: {}"
 
@@ -3754,7 +3725,6 @@ msgid "No user matched"
 msgstr "Нет подходящего пользователя"
 
 #: authentication/api/password.py:38
-#, python-brace-format
 msgid "The user is from {}, please go to the corresponding system to change the password"
 msgstr "Пользователь из {}, пожалуйста, измените пароль в соответствующей системе"
 
@@ -3768,7 +3738,6 @@ msgid "Forgot password"
 msgstr "Забыли пароль"
 
 #: authentication/api/password.py:70 authentication/mfa/email.py:42
-#, python-brace-format
 msgid "The validity period of the verification code is {} minute"
 msgstr "Срок действия кода проверки: {} мин"
 
@@ -3839,7 +3808,6 @@ msgid "Authentication failed password incorrect"
 msgstr "Ошибка аутентификации. Неверный пароль"
 
 #: authentication/confirm/relogin.py:11
-#, python-brace-format
 msgid "Login time has exceeded {} minutes, please login again"
 msgstr "Время сеанса превысило {} минут, пожалуйста, войдите снова"
 
@@ -3923,12 +3891,10 @@ msgid "The username or password you entered is incorrect, please enter it again.
 msgstr "Введенное вами имя пользователя или пароль неверны, введите их еще раз. У вас осталось попыток: {times_try}. После этого учетная запись будет временно заблокирована на {block_time} минут"
 
 #: authentication/errors/const.py:47 authentication/errors/const.py:55
-#, python-brace-format
 msgid "The account has been locked (please contact admin to unlock it or try again after {} minutes)"
 msgstr "Учетная запись заблокирована (обратитесь к администратору, чтобы разблокировать ее, или повторите попытку через {} минут)"
 
 #: authentication/errors/const.py:51
-#, python-brace-format
 msgid "The address has been locked (please contact admin to unlock it or try again after {} minutes)"
 msgstr "IP адрес заблокирован (обратитесь к администратору, чтобы разблокировать ее, или повторите попытку через {} минут)"
 
@@ -3954,7 +3920,6 @@ msgid "Wait login confirm ticket for accept"
 msgstr "Ожидание обработки заявки на вход в систему"
 
 #: authentication/errors/const.py:67
-#, python-brace-format
 msgid "Login confirm ticket was {}"
 msgstr "Проверка входа: {}"
 
@@ -4134,7 +4099,6 @@ msgid "Clear phone number to disable"
 msgstr "Удалите номер телефона для отключения"
 
 #: authentication/middleware.py:96 settings/utils/ldap.py:714
-#, python-brace-format
 msgid "Authentication failed (before login check failed): {}"
 msgstr "Ошибка аутентификации (сбой до проверки входа): {}"
 
@@ -4149,14 +4113,12 @@ msgid "User is invalid"
 msgstr "Недействительный пользователь"
 
 #: authentication/mixins.py:195
-#, python-brace-format
 msgid " The administrator has enabled 'Only allow login from user source'. \n"
 "                    The current user source is {}. Please contact the administrator. "
 msgstr " Администратор включил параметр «Вход только из источника». \n"
 "                    Текущий источник пользователя — {}. Пожалуйста, свяжитесь с администратором. "
 
 #: authentication/mixins.py:376
-#, python-brace-format
 msgid "The MFA type ({}) is not enabled"
 msgstr "Способ МФА ({}) не включен"
 
@@ -4225,7 +4187,6 @@ msgid "Connection token inactive"
 msgstr "Токен подключения неактивен"
 
 #: authentication/models/connection_token.py:174
-#, python-brace-format
 msgid "Connection token expired at: {}"
 msgstr "Срок действия токена подключения истек: {}"
 
@@ -4362,7 +4323,6 @@ msgstr "Название организации"
 
 #: authentication/serializers/password_mfa.py:29
 #: users/templates/users/forgot_password.html:153
-#, python-brace-format
 msgid "The {} cannot be empty"
 msgstr "{} не может быть пустым"
 
@@ -4712,7 +4672,6 @@ msgid "Redirecting"
 msgstr "Перенаправление"
 
 #: authentication/views/login.py:173
-#, python-brace-format
 msgid "Redirecting to {} authentication"
 msgstr "Перенаправление на {} для аутентификации"
 
@@ -4721,12 +4680,10 @@ msgid "Login timeout, please try again."
 msgstr "Время входа истекло, пожалуйста, войдите снова"
 
 #: authentication/views/login.py:245
-#, python-brace-format
 msgid "User email already exists ({})"
 msgstr "Электронная почта пользователя уже существует ({})"
 
 #: authentication/views/login.py:338
-#, python-brace-format
 msgid "Wait for <b>{}</b> confirm, You also can copy link to her/him <br/>\n"
 "                  Don't close this page"
 msgstr "Дождитесь подтверждения <b>{}</b>, вы также можете<br/>\n"
@@ -4914,7 +4871,6 @@ msgid "Updated by"
 msgstr "Обновил"
 
 #: common/db/validators.py:9
-#, python-brace-format
 msgid "Invalid port range, should be like and within {}-{}"
 msgstr "Недопустимый диапазон портов. Должно быть в пределах {}-{}."
 
@@ -4927,12 +4883,10 @@ msgid "Org ID"
 msgstr "ID организации"
 
 #: common/drf/parsers/base.py:21
-#, python-brace-format
 msgid "The file content overflowed (The maximum length `{}` bytes)"
 msgstr "Содержимое файла слишком велико (максимальная длина `{}` байт)"
 
 #: common/drf/parsers/base.py:207
-#, python-brace-format
 msgid "Parse file error: {}"
 msgstr "Ошибка анализа файла: {}"
 
@@ -4945,7 +4899,6 @@ msgid "Yes/No"
 msgstr "Да/Нет"
 
 #: common/drf/renders/base.py:143
-#, python-brace-format
 msgid "Text, max length {}"
 msgstr "Текст, максимальная длина {}"
 
@@ -4954,22 +4907,18 @@ msgid "Long text, no length limit"
 msgstr "Длинный текст, без ограничений по длине"
 
 #: common/drf/renders/base.py:147
-#, python-brace-format
 msgid "Number, min {} max {}"
 msgstr "Число, мин {} макс {}"
 
 #: common/drf/renders/base.py:150
-#, python-brace-format
 msgid "Datetime format {}"
 msgstr "Формат даты и времени {}"
 
 #: common/drf/renders/base.py:156
-#, python-brace-format
 msgid "Choices, format name(value), name is optional for human read, value is requisite, options {}"
 msgstr "Опции, формат: имя(значение), имя опционально для удобства чтения, значение обязательно, доступные варианты: {}"
 
 #: common/drf/renders/base.py:159
-#, python-brace-format
 msgid "Choices, options {}"
 msgstr "Опции, доступные варианты: {}"
 
@@ -5002,7 +4951,6 @@ msgid "Objects, format [\"id\", ...]"
 msgstr "Много связанных элементов, формат: [\"id\", ...]"
 
 #: common/drf/renders/base.py:276
-#, python-brace-format
 msgid "{} - The encryption password has not been set - please go to personal information -> file encryption password to set the encryption password"
 msgstr "{} - Не установлен пароль шифрования - пожалуйста, перейдите в Персональные настройки -> Настройки предпочтений"
 
@@ -5084,7 +5032,6 @@ msgid "sp_id is 6 bits"
 msgstr "SP_id должен содержать 6 символов"
 
 #: common/sdk/sms/cmpp2.py:214
-#, python-brace-format
 msgid "Failed to connect to the CMPP gateway server, err: {}"
 msgstr "Не удалось подключиться к серверу шлюза CMPP, ошибка: {}"
 
@@ -5096,10 +5043,6 @@ msgstr "Пользовательский файл SMS недействителе
 #, python-format
 msgid "SMS sending failed[%s]: %s"
 msgstr "Ошибка отправки SMS [%s]: %s"
-
-#: common/sdk/sms/custom_file.py:47 common/serializers/common.py:98
-msgid "File"
-msgstr "Файл"
 
 #: common/sdk/sms/endpoint.py:16
 msgid "Alibaba cloud"
@@ -5122,7 +5065,6 @@ msgid "Custom type (File)"
 msgstr "Пользовательский (файл)"
 
 #: common/sdk/sms/endpoint.py:32
-#, python-brace-format
 msgid "SMS provider not support: {}"
 msgstr "Поставщик услуг SMS не поддерживается: {}"
 
@@ -5139,13 +5081,16 @@ msgid "The verification code is incorrect"
 msgstr "Ошибка кода подтверждения"
 
 #: common/sdk/sms/exceptions.py:18
-#, python-brace-format
 msgid "Please wait {} seconds before sending"
 msgstr "Пожалуйста, отправьте через {} секунд"
 
 #: common/serializers/common.py:90
 msgid "Children"
 msgstr "Узел"
+
+#: common/serializers/common.py:98
+msgid "File"
+msgstr "Файл"
 
 #: common/serializers/fields.py:139
 msgid "Invalid data type"
@@ -5168,11 +5113,10 @@ msgstr "Недопустимый тип данных, ожидается спи�
 #: common/serializers/fields.py:353
 #: xpack/plugins/cloud/serializers/account.py:121
 #: xpack/plugins/cloud/serializers/task.py:122
-#, python-brace-format
 msgid "Invalid choice: {}"
 msgstr "Недопустимый выбор: {}"
 
-#: common/serializers/mixin.py:451 terminal/models/applet/applet.py:45
+#: common/serializers/mixin.py:469 terminal/models/applet/applet.py:45
 #: terminal/models/virtualapp/virtualapp.py:29
 msgid "Tags"
 msgstr "Теги"
@@ -5266,10 +5210,6 @@ msgstr "Ваша учетная запись была успешно созда�
 msgid "JumpServer - An open-source PAM"
 msgstr "JumpServer открытая система управления доступом"
 
-#: jumpserver/context_processor.py:28
-msgid "FIT2CLOUD"
-msgstr "FIT2CLOUD"
-
 #: jumpserver/views/celery_flower.py:22
 msgid "<h1>Flower service unavailable, check it</h1>"
 msgstr "<h1>Сервис Flower недоступен, пожалуйста, проверьте</h1>"
@@ -5280,7 +5220,6 @@ msgstr "Luna — это отдельно развёрнутое приложен
 "Если вы видите эту страницу, значит, вы обратились не к порту, прослушиваемому Nginx. Удачи!"
 
 #: jumpserver/views/other.py:78
-#, python-brace-format
 msgid "Websocket server run on port: {}, you should proxy it on nginx"
 msgstr "Служба Websocket запущена на порту: {}, проверьте, настроен ли прокси-сервер nginx"
 
@@ -5335,7 +5274,6 @@ msgid "User message"
 msgstr "Сообщения пользователя"
 
 #: notifications/models/notification.py:21
-#, python-brace-format
 msgid "{} subscription"
 msgstr "{} подписка"
 
@@ -5371,17 +5309,14 @@ msgid "Waiting task start"
 msgstr "Ожидание запуска задачи"
 
 #: ops/api/celery.py:269
-#, python-brace-format
 msgid "Task {} not found"
 msgstr "Задача {} не найдена"
 
 #: ops/api/celery.py:276
-#, python-brace-format
 msgid "Task {} args or kwargs error"
 msgstr "Ошибка параметров выполнения задачи {}"
 
 #: ops/api/job.py:65
-#, python-brace-format
 msgid "Login to asset {}({}) is rejected by login asset ACL ({})"
 msgstr "Вход на актив {}({}) запрещён правилами доступа к ресурсу ({})"
 
@@ -5660,7 +5595,6 @@ msgid "Celery Task Execution"
 msgstr "Выполнение задачи Celery"
 
 #: ops/models/job.py:82
-#, python-brace-format
 msgid "Module {} is not suitable for this asset"
 msgstr "Модуль {} неприменим к этому активу"
 
@@ -5917,7 +5851,6 @@ msgid "Name of the job"
 msgstr "Название задания"
 
 #: orgs/api.py:60
-#, python-brace-format
 msgid "The current organization ({}) cannot be deleted"
 msgstr "Текущую организацию ({}) нельзя удалить"
 
@@ -5926,7 +5859,6 @@ msgid "LDAP synchronization is set to the current organization. Please switch to
 msgstr "В настройках синхронизации LDAP выбрана текущая организация. Пожалуйста, переключитесь на другую организацию перед удалением"
 
 #: orgs/api.py:75
-#, python-brace-format
 msgid "The organization have resource ({}) cannot be deleted"
 msgstr "Организация содержит ресурсы ({}) и не может быть удалена"
 
@@ -6083,7 +6015,7 @@ msgid "today"
 msgstr "сегодня"
 
 #: perms/notifications.py:12 perms/notifications.py:44
-#: settings/serializers/feature.py:187
+#: settings/serializers/feature.py:199
 msgid "day"
 msgstr "день"
 
@@ -6100,7 +6032,6 @@ msgid "Asset permissions is about to expire"
 msgstr "Срок действия разрешений на активы истекает"
 
 #: perms/notifications.py:64
-#, python-brace-format
 msgid "asset permissions of organization {}"
 msgstr "разрешения на активы организации {}"
 
@@ -6163,7 +6094,6 @@ msgid "Internal role, can't be update"
 msgstr "Встроенную роль нельзя изменить"
 
 #: rbac/api/rolebinding.py:45
-#, python-brace-format
 msgid "{} at least one system role"
 msgstr "{} хотя бы одна системная роль"
 
@@ -6335,7 +6265,7 @@ msgstr "Смена секрета аккаунта"
 msgid "App ops"
 msgstr "Центр задач"
 
-#: rbac/tree.py:60 settings/serializers/feature.py:193
+#: rbac/tree.py:60 settings/serializers/feature.py:205
 msgid "Feature"
 msgstr "Функции"
 
@@ -6378,8 +6308,8 @@ msgstr "Управление организациями"
 msgid "Ticket comment"
 msgstr "Комментарии к заявке"
 
-#: rbac/tree.py:185 settings/serializers/feature.py:174
-#: settings/serializers/feature.py:176 tickets/models/ticket/general.py:310
+#: rbac/tree.py:185 settings/serializers/feature.py:186
+#: settings/serializers/feature.py:188 tickets/models/ticket/general.py:310
 msgid "Ticket"
 msgstr "Заявка"
 
@@ -6455,14 +6385,13 @@ msgstr "Письмо успешно отправлено "
 msgid "Chat AI is not enabled"
 msgstr "Чат AI не включен"
 
-#: settings/api/chat.py:89 settings/api/dingtalk.py:31
+#: settings/api/chat.py:95 settings/api/dingtalk.py:31
 #: settings/api/feishu.py:39 settings/api/slack.py:34 settings/api/sms.py:160
 #: settings/api/vault.py:49 settings/api/wecom.py:37
 msgid "Test success"
 msgstr "Успешное тестирование"
 
 #: settings/api/email.py:22
-#, python-brace-format
 msgid "Test mail sent to {}, please check"
 msgstr "Письмо отправлено {}, пожалуйста, проверьте"
 
@@ -7229,7 +7158,7 @@ msgstr "ID арендатора"
 
 #: settings/serializers/feature.py:112 terminal/serializers/storage.py:68
 #: xpack/plugins/cloud/manager.py:128 xpack/plugins/cloud/manager.py:132
-#: xpack/plugins/cloud/manager.py:169 xpack/plugins/cloud/models.py:293
+#: xpack/plugins/cloud/models.py:293
 msgid "Region"
 msgstr "Регион"
 
@@ -7277,51 +7206,67 @@ msgstr "Модель GPT"
 msgid "DeepSeek Model"
 msgstr "Модель DeepSeek"
 
-#: settings/serializers/feature.py:178
+#: settings/serializers/feature.py:172
+msgid "Custom Model"
+msgstr "Пользовательская модель"
+
+#: settings/serializers/feature.py:173
+msgid "Whether to use a custom model"
+msgstr "Использовать пользовательскую модель?"
+
+#: settings/serializers/feature.py:177
+msgid "Custom gpt model"
+msgstr "Пользовательская модель GPT"
+
+#: settings/serializers/feature.py:181
+msgid "Custom DeepSeek model"
+msgstr "Настройте модель DeepSeek"
+
+#: settings/serializers/feature.py:190
 msgid "Approval without login"
 msgstr "Одобрение без входа"
 
-#: settings/serializers/feature.py:179
+#: settings/serializers/feature.py:191
 msgid "Allow direct approval ticket without login"
 msgstr "Разрешить одобрение заявок без необходимости входа в систему"
 
-#: settings/serializers/feature.py:183
+#: settings/serializers/feature.py:195
 msgid "Period"
 msgstr "Период"
 
-#: settings/serializers/feature.py:184
+#: settings/serializers/feature.py:196
 msgid "The default authorization time period when applying for assets via a ticket"
 msgstr "Стандартный период действия разрешения для заявки на активы"
 
-#: settings/serializers/feature.py:187
+#: settings/serializers/feature.py:199
 msgid "hour"
 msgstr "час"
 
-#: settings/serializers/feature.py:188
+#: settings/serializers/feature.py:200
 msgid "Unit"
 msgstr "Единицы"
 
-#: settings/serializers/feature.py:188
+#: settings/serializers/feature.py:200
 msgid "The unit of period"
 msgstr "Единица периода"
 
-#: settings/serializers/feature.py:196
+#: settings/serializers/feature.py:208
 msgid "Adhoc command"
 msgstr "Быстрые команды"
 
-#: settings/serializers/feature.py:197
+#: settings/serializers/feature.py:209
 msgid "Allow users to execute batch commands in the Workbench - Job Center - Adhoc"
 msgstr "Разрешить пользователю выполнять пакетные команды в разделе Рабочий стол - Центр заданий - Быстрые команды"
 
-#: settings/serializers/feature.py:201
+#: settings/serializers/feature.py:213
 msgid "Command blacklist"
 msgstr "Черный список команд"
 
-#: settings/serializers/feature.py:202
+#: settings/serializers/feature.py:214
 msgid "Command blacklist in Adhoc"
 msgstr "Чёрный список команд Быстрых команд"
 
-#: settings/serializers/feature.py:208
+#: settings/serializers/feature.py:220
 #: terminal/models/virtualapp/provider.py:17
 #: terminal/models/virtualapp/virtualapp.py:36
 #: terminal/models/virtualapp/virtualapp.py:97
@@ -7329,11 +7274,11 @@ msgstr "Чёрный список команд Быстрых команд"
 msgid "Virtual app"
 msgstr "Виртуальное приложение"
 
-#: settings/serializers/feature.py:211
+#: settings/serializers/feature.py:223
 msgid "Virtual App"
 msgstr "Виртуальное приложение"
 
-#: settings/serializers/feature.py:213
+#: settings/serializers/feature.py:225
 msgid "Virtual applications, you can use the Linux operating system as an application server in remote applications."
 msgstr "Виртуальные приложения. Вы можете использовать операционную систему Linux в качестве сервера удаленных приложений."
 
@@ -7804,23 +7749,19 @@ msgid "ldap:// or ldaps:// protocol is used."
 msgstr "Используйте протокол ldap:// или ldaps://"
 
 #: settings/utils/ldap.py:543
-#, python-brace-format
 msgid "Host or port is disconnected: {}"
 msgstr "Не удаётся подключиться к хосту или порту: {}"
 
 #: settings/utils/ldap.py:545
-#, python-brace-format
 msgid "The port is not the port of the LDAP service: {}"
 msgstr "Указанный порт не используется службой LDAP: {}"
 
 #: settings/utils/ldap.py:547
-#, python-brace-format
 msgid "Please add certificate: {}"
 msgstr "Пожалуйста, добавьте сертификат"
 
 #: settings/utils/ldap.py:551 settings/utils/ldap.py:578
 #: settings/utils/ldap.py:608 settings/utils/ldap.py:636
-#, python-brace-format
 msgid "Unknown error: {}"
 msgstr "Неизвестная ошибка: {}"
 
@@ -7829,27 +7770,22 @@ msgid "Bind DN or Password incorrect"
 msgstr "Ошибка привязки: DN или пароль неверны"
 
 #: settings/utils/ldap.py:572
-#, python-brace-format
 msgid "Please enter Bind DN: {}"
 msgstr "Пожалуйста, введите Bind DN: {}"
 
 #: settings/utils/ldap.py:574
-#, python-brace-format
 msgid "Please enter Password: {}"
 msgstr "Пожалуйста, введите пароль: {}"
 
 #: settings/utils/ldap.py:576
-#, python-brace-format
 msgid "Please enter correct Bind DN and Password: {}"
 msgstr "Пожалуйста, введите правильный Bind DN и пароль: {}"
 
 #: settings/utils/ldap.py:594
-#, python-brace-format
 msgid "Invalid User OU or User search filter: {}"
 msgstr "Неверный OU пользователя или фильтр: {}"
 
 #: settings/utils/ldap.py:625
-#, python-brace-format
 msgid "LDAP User attr map not include: {}"
 msgstr "В сопоставлении атрибутов LDAP отсутствует: {}"
 
@@ -7862,57 +7798,46 @@ msgid "LDAP authentication is not enabled"
 msgstr "LDAP аутентификация не включена"
 
 #: settings/utils/ldap.py:669
-#, python-brace-format
 msgid "Error (Invalid LDAP server): {}"
 msgstr "Ошибка (недопустимый адрес LDAP-сервера): {}"
 
 #: settings/utils/ldap.py:671
-#, python-brace-format
 msgid "Error (Invalid Bind DN): {}"
 msgstr "Ошибка (недопустимый Bind DN): {}"
 
 #: settings/utils/ldap.py:673
-#, python-brace-format
 msgid "Error (Invalid LDAP User attr map): {}"
 msgstr "Ошибка (недопустимое сопоставление LDAP-атрибутов): {}"
 
 #: settings/utils/ldap.py:675
-#, python-brace-format
 msgid "Error (Invalid User OU or User search filter): {}"
 msgstr "Ошибка (недопустимый OU пользователя или фильтр поиска пользователей): {}"
 
 #: settings/utils/ldap.py:677
-#, python-brace-format
 msgid "Error (Not enabled LDAP authentication): {}"
 msgstr "Ошибка (LDAP аутентификация не включена): {}"
 
 #: settings/utils/ldap.py:679
-#, python-brace-format
 msgid "Error (Unknown): {}"
 msgstr "Ошибка (неизвестная): {}"
 
 #: settings/utils/ldap.py:682
-#, python-brace-format
 msgid "Succeed: Match {} users"
 msgstr "Успешно сопоставлено {} пользователей"
 
 #: settings/utils/ldap.py:712
-#, python-brace-format
 msgid "Authentication failed (configuration incorrect): {}"
 msgstr "Ошибка аутентификации (неверная конфигурация): {}"
 
 #: settings/utils/ldap.py:716
-#, python-brace-format
 msgid "Authentication failed (username or password incorrect): {}"
 msgstr "Ошибка аутентификации (неверное имя пользователя или пароль): {}"
 
 #: settings/utils/ldap.py:718
-#, python-brace-format
 msgid "Authentication failed (Unknown): {}"
 msgstr "Ошибка аутентификации: (неизвестная): {}"
 
 #: settings/utils/ldap.py:721
-#, python-brace-format
 msgid "Authentication success: {}"
 msgstr "Успешная аутентификация: {}"
 
@@ -7921,12 +7846,10 @@ msgid "No LDAP user was found"
 msgstr "Не удалось получить пользователей из LDAP"
 
 #: settings/ws.py:237
-#, python-brace-format
 msgid "Total {}, success {}, failure {}"
 msgstr "Всего {} , успешно {} , неудачно {}"
 
 #: settings/ws.py:241
-#, python-brace-format
 msgid ", disabled {}"
 msgstr ", отключено {}"
 
@@ -8110,7 +8033,6 @@ msgid "This is enterprise edition applet"
 msgstr "Функция удалённых приложений доступна только в корпоративной версии и недоступна в редакции сообщества"
 
 #: terminal/api/applet/applet.py:91
-#, python-brace-format
 msgid "Applet not found in path: {}"
 msgstr "Не найдено удалённое приложение по пути: {}"
 
@@ -8123,7 +8045,6 @@ msgid "Deleting the default storage is not allowed"
 msgstr "Нельзя удалить конфигурацию хранилища по умолчанию"
 
 #: terminal/api/component/storage.py:36
-#, python-brace-format
 msgid "Cannot delete storage that is being used: {}"
 msgstr "Удаление хранилища, которое используется, невозможно: {}"
 
@@ -8136,7 +8057,6 @@ msgid "Invalid"
 msgstr "Недопустимый"
 
 #: terminal/api/component/storage.py:132 terminal/tasks.py:208
-#, python-brace-format
 msgid "Test failure: {}"
 msgstr "Неудачный тест: {}"
 
@@ -8163,7 +8083,6 @@ msgid "Session replay"
 msgstr "Запись сессий"
 
 #: terminal/api/session/session.py:335
-#, python-brace-format
 msgid "Session does not exist: {}"
 msgstr "Сессия не существует: {}"
 
@@ -8171,7 +8090,7 @@ msgstr "Сессия не существует: {}"
 msgid "Session is finished or the protocol not supported"
 msgstr "Сессия завершена или протокол не поддерживается"
 
-#: terminal/api/session/session.py:351 tickets/api/ticket.py:140
+#: terminal/api/session/session.py:351
 msgid "User does not have permission"
 msgstr "У пользователя нет прав"
 
@@ -8336,12 +8255,10 @@ msgstr "Хосты"
 
 #: terminal/models/applet/applet.py:94
 #: terminal/models/virtualapp/virtualapp.py:66
-#, python-brace-format
 msgid "Applet pkg not valid, Missing file {}"
 msgstr "Недопустимый пакет Applet: отсутствует файл {}"
 
 #: terminal/models/applet/applet.py:113
-#, python-brace-format
 msgid "Load platform.yml failed: {}"
 msgstr "Не удалось загрузить platform.yml: {}"
 
@@ -8852,7 +8769,6 @@ msgid "No asset or invalid asset"
 msgstr "Активы отсутствуют или отключены"
 
 #: terminal/serializers/storage.py:23
-#, python-brace-format
 msgid "Endpoint invalid: remove path `{}`"
 msgstr "Недопустимая конечная точка: путь {} удалён"
 
@@ -9214,7 +9130,6 @@ msgid "Ticket already closed"
 msgstr "Заявка уже закрыта"
 
 #: tickets/handlers/apply_asset.py:39
-#, python-brace-format
 msgid "Created by the ticket ticket title: {} ticket applicant: {} ticket processor: {} ticket ID: {}"
 msgstr "Создано через заявку, Заголовок заявки: {}, Заявитель: {}, Ответственный за обработку: {}, ID заявки: {}"
 
@@ -9231,7 +9146,6 @@ msgid "After change"
 msgstr "После изменения"
 
 #: tickets/handlers/base.py:96
-#, python-brace-format
 msgid "{} {} the ticket"
 msgstr "{} {} заявка"
 
@@ -9371,22 +9285,18 @@ msgid "Ticket applied info"
 msgstr "Информация о заявке"
 
 #: tickets/notifications.py:116
-#, python-brace-format
 msgid "Your has a new ticket, applicant - {}"
 msgstr "У вас новая заявка, заявитель - {}"
 
 #: tickets/notifications.py:120
-#, python-brace-format
 msgid "{}: New Ticket - {} ({})"
 msgstr "{}: Новая заявка - {} ({})"
 
 #: tickets/notifications.py:168
-#, python-brace-format
 msgid "Your ticket has been processed, processor - {}"
 msgstr "Ваша заявка была обработана, обработал - {}"
 
 #: tickets/notifications.py:172
-#, python-brace-format
 msgid "Ticket has processed - {} ({})"
 msgstr "Заявка обработана - {} ({})"
 
@@ -9416,7 +9326,6 @@ msgstr "Запрос действий"
 
 #: tickets/serializers/ticket/common.py:15
 #: tickets/serializers/ticket/common.py:74
-#, python-brace-format
 msgid "Created by ticket ({}-{})"
 msgstr "Создано по заявке ({}-{})"
 
@@ -9425,7 +9334,6 @@ msgid "The expiration date should be greater than the start date"
 msgstr "Срок действия должен быть больше времени начала"
 
 #: tickets/serializers/ticket/common.py:89
-#, python-brace-format
 msgid "Permission named `{}` already exists"
 msgstr "Разрешение с именем `{}` уже существует"
 
@@ -9434,7 +9342,6 @@ msgid "Process map"
 msgstr "Схема процесса"
 
 #: tickets/serializers/ticket/ticket.py:91
-#, python-brace-format
 msgid "The ticket flow `{}` does not exist"
 msgstr "Поток заявок `{}` не существует"
 
@@ -9880,7 +9787,6 @@ msgid "Password does not match security rules"
 msgstr "Пароль не соответствует требованиям безопасности"
 
 #: users/serializers/profile.py:33
-#, python-brace-format
 msgid "The new password cannot be the last {} passwords"
 msgstr "Новый пароль не может совпадать с паролями за последние {} раз"
 
@@ -10277,7 +10183,6 @@ msgid "Password invalid"
 msgstr "Неверное имя пользователя или пароль"
 
 #: users/views/profile/reset.py:66
-#, python-brace-format
 msgid "Non-local users can log in only from third-party platforms and cannot change their passwords: {}"
 msgstr "Пользователи, не являющиеся локальными, могут входить только через сторонние платформы и не могут изменить свой пароль: {}"
 
@@ -10286,7 +10191,6 @@ msgid "Token invalid or expired"
 msgstr "Неверный или истёкший токен"
 
 #: users/views/profile/reset.py:204
-#, python-brace-format
 msgid "User auth from {}, go there change password"
 msgstr "Аутентификация пользователя происходит через {}, пожалуйста, измените пароль в соответствующей системе"
 
@@ -10295,7 +10199,6 @@ msgid "* Your password does not meet the requirements"
 msgstr "* Ваш пароль не соответствует требованиям"
 
 #: users/views/profile/reset.py:217
-#, python-brace-format
 msgid "* The new password cannot be the last {} passwords"
 msgstr "* Новый пароль не может быть одним из последних {} паролей"
 
@@ -10316,12 +10219,10 @@ msgid "Test connection successful"
 msgstr "Тестовое подключение прошло успешно"
 
 #: xpack/plugins/cloud/api.py:75
-#, python-brace-format
 msgid "Test connection failed: {}"
 msgstr "Ошибка при проверке соединения: {}"
 
 #: xpack/plugins/cloud/api.py:203
-#, python-brace-format
 msgid "User {} deleted the current resource and released the assets"
 msgstr "Пользователь {} удалил активы, которые были освобождены в текущем ресурсе"
 
@@ -10519,10 +10420,6 @@ msgstr "Синхронизируемые регионы"
 msgid "Get instances of region \"%s\" error, error: %s"
 msgstr "Произошла ошибка при получении экземпляров региона \"%s\", ошибка: %s"
 
-#: xpack/plugins/cloud/manager.py:169 xpack/plugins/cloud/models.py:290
-msgid "Instance"
-msgstr "Экземпляр"
-
 #: xpack/plugins/cloud/manager.py:195
 #, python-format
 msgid "Failed to synchronize the instance \"%s\""
@@ -10662,6 +10559,10 @@ msgstr "Задача синхронизации"
 #: xpack/plugins/cloud/models.py:287
 msgid "Sync instance task history"
 msgstr "История задач синхронизации экземпляра"
+
+#: xpack/plugins/cloud/models.py:290
+msgid "Instance"
+msgstr "Экземпляр"
 
 #: xpack/plugins/cloud/models.py:307
 msgid "Sync instance detail"
@@ -10983,10 +10884,6 @@ msgstr "Конечная точка API"
 msgid "Auto node classification"
 msgstr "Автоматическая классификация узлов"
 
-#: xpack/plugins/cloud/serializers/account_attrs.py:108
-msgid "domain_name"
-msgstr "Имя домена"
-
 #: xpack/plugins/cloud/serializers/account_attrs.py:124
 msgid "Auth url"
 msgstr "URL аутентификации"
@@ -11020,7 +10917,6 @@ msgid "The file is in JSON format"
 msgstr "Файл в формате JSON"
 
 #: xpack/plugins/cloud/serializers/account_attrs.py:200
-#, python-brace-format
 msgid "IP address invalid `{}`, {}"
 msgstr "Неверный IP-адрес: `{}`, {}"
 
@@ -11124,4 +11020,7 @@ msgstr "Лицензия успешно импортирована"
 #: xpack/plugins/license/api.py:53
 msgid "Invalid license"
 msgstr "Лицензия недействительна"
+
+#~ msgid "domain_name"
+#~ msgstr "域名称"
 
