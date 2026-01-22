@@ -31,7 +31,7 @@
     "AccountDiscoverTask": "Обнаружение учетных записей",
     "AccountDiscoverTaskCreate": "Создать задачу обнаружения учетных записей",
     "AccountDiscoverTaskUpdate": "Обновить задачу обнаружения учетной записи",
-    "AccountExportTips": "导出信息中包含账号密文涉及敏感信息，导出的格式为一个加密的zip文件（若没有设置加密密码，请前往右上角 个人设置 → 偏好设置 中进行进行设置）。",
+    "AccountExportTips": "导出信息中包含账号密文涉及敏感信息，导出的格式为一个加密的zip文件（若没有设置加密密码，请前往右上角 个人设置 → 偏好设置 中进行设置）。",
     "AccountList": "Учетные записи",
     "AccountOverview": "Обзор учетных записей",
     "AccountPasswordChangeTrends": "Тенденции изменения паролей аккаунтов",
