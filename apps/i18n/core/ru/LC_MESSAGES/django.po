@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: jumpserver\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-22 10:51+0800\n"
-"PO-Revision-Date: 2026-01-26 13:01\n"
+"PO-Revision-Date: 2026-01-26 18:58\n"
 "Last-Translator: ibuler <ibuler@qq.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -6433,7 +6433,7 @@ msgstr "Пользовательская модель GPT"
 
 #: settings/const.py:43 settings/serializers/feature.py:177
 msgid "Custom DeepSeek model"
-msgstr "Настройте модель DeepSeek"
+msgstr "Пользовательская модель DeepSeek"
 
 #: settings/models.py:42 users/models/preference.py:14
 msgid "Encrypted"
@@ -9278,7 +9278,7 @@ msgstr "Информация о заявке"
 
 #: tickets/notifications.py:116
 msgid "You have a new ticket from {}"
-msgstr "У вас новый билет от {}"
+msgstr "У вас новая заявка от {}"
 
 #: tickets/notifications.py:120
 msgid "{}: New Ticket - {} ({})"
@@ -9380,7 +9380,7 @@ msgstr "Этот пользователь не имеет права одобр�
 
 #: users/api/user.py:64
 msgid "You cannot delete yourself. Please disable it instead."
-msgstr "Оно не может удалить себя. Пожалуйста, отключите его."
+msgstr "Нельзя удалить себя. Вместо этого отключите."
 
 #: users/api/user.py:66
 msgid "Cannot delete the admin user. Please disable it instead."
@@ -10966,7 +10966,7 @@ msgstr "Каждый день система будет согласно нас�
 
 #: xpack/plugins/cloud/ws.py:84
 msgid "Task not started"
-msgstr "Миссия еще не началась"
+msgstr "Задача ещё не запущена"
 
 #: xpack/plugins/interface/api.py:52
 msgid "Restore default successfully."
