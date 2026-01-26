@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: jumpserver\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-22 10:51+0800\n"
-"PO-Revision-Date: 2026-01-22 03:54\n"
+"PO-Revision-Date: 2026-01-26 13:01\n"
 "Last-Translator: ibuler <ibuler@qq.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -6053,7 +6053,7 @@ msgstr "Количество групп"
 
 #: perms/serializers/permission.py:135
 msgid "Please ensure that the selected account templates use the same username."
-msgstr ""
+msgstr "Убедитесь, что все выбранные шаблоны учётных записей имеют одинаковое имя пользователя."
 
 #: perms/tasks.py:28
 msgid "Check asset permission expired"
