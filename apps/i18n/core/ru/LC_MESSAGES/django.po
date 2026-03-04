@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: jumpserver\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-22 10:51+0800\n"
-"PO-Revision-Date: 2026-01-26 18:58\n"
+"PO-Revision-Date: 2026-03-04 16:01\n"
 "Last-Translator: ibuler <ibuler@qq.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -10046,7 +10046,7 @@ msgstr "МФА была включена принудительно, отклю�
 
 #: users/templates/users/mfa_setting.html:143
 msgid "MFA setting"
-msgstr "Настойки МФА"
+msgstr "Настройки МФА"
 
 #: users/templates/users/mfa_setting.html:171
 msgid "Reset"
