@@ -1651,5 +1651,5 @@
     "Revoke": "Отзыв",
     "AccountSecretReadDisabled": "Администратор отключил возможность просмотра пароля",
     "Automations": "Автоматизация",
-    "UploadFileTooLarge": "上传失败：文件过大"
+    "UploadFileTooLarge": "Ошибка загрузки: файл слишком большой"
 }
