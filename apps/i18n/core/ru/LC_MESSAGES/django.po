@@ -3,20 +3,19 @@ msgstr ""
 "Project-Id-Version: jumpserver\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-19 10:30+0800\n"
-"PO-Revision-Date: 2026-08-28 15:45\n"
-"Last-Translator: ibuler <ibuler@qq.com>\n"
+"PO-Revision-Date: 2026-08-28 16:54\n"
+"Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.3\n"
 "Plural-Forms: nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 && n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 && n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));\n"
 "X-Crowdin-Project: jumpserver\n"
 "X-Crowdin-Project-ID: 832018\n"
 "X-Crowdin-Language: ru\n"
-"X-Crowdin-File: /dev/apps/i18n/core/zh/LC_MESSAGES/django.po\n"
-"X-Crowdin-File-ID: 76\n"
+"X-Crowdin-File: /dev/apps/i18n/core/en/LC_MESSAGES/django.po\n"
+"X-Crowdin-File-ID: 91\n"
 
 #: accounts/api/account/account.py:193
 #: accounts/serializers/account/account.py:182
@@ -50,16 +49,16 @@ msgstr "Параметр 'Действие' должен быть [{}]"
 #: accounts/api/automations/change_secret.py:143
 #: accounts/api/automations/change_secret.py:170
 msgid "Record IDs must be a non-empty list"
-msgstr "ID записей должны быть непустым списком"
+msgstr ""
 
 #: accounts/api/automations/change_secret.py:157
 #: accounts/api/automations/change_secret.py:185
 msgid "No valid records found"
-msgstr "Допустимые записи не найдены"
+msgstr ""
 
 #: accounts/api/automations/change_secret.py:175
 msgid "Force must be a boolean"
-msgstr "Параметр Force должен иметь логическое значение"
+msgstr ""
 
 #: accounts/automations/backup_account/handlers.py:23
 msgid "The account key will be split into two parts and sent"
@@ -103,7 +102,7 @@ msgstr "В задаче резервирования не указан серв�
 
 #: accounts/automations/backup_account/handlers.py:254
 msgid "Recipients not found"
-msgstr "Получатели не найдены"
+msgstr ""
 
 #: accounts/automations/backup_account/handlers.py:268
 msgid "The backup task has no assigned recipient"
@@ -128,12 +127,12 @@ msgstr "Выполнение задачи завершено"
 #: accounts/automations/backup_account/manager.py:32
 #, python-format
 msgid "Backup failed: %(error)s"
-msgstr "Резервное копирование не выполнено: %(error)s"
+msgstr ""
 
 #: accounts/automations/backup_account/manager.py:35
 #, python-format
 msgid "Backed up %(count)s accounts"
-msgstr "Создана резервная копия %(count)s учётных записей"
+msgstr ""
 
 #: accounts/automations/backup_account/manager.py:38
 #: accounts/automations/check_account/manager.py:495
@@ -141,35 +140,35 @@ msgstr "Создана резервная копия %(count)s учётных з
 #: assets/automations/ping_gateway/manager.py:417
 #, python-format
 msgid "Duration: %(duration)s seconds"
-msgstr "Продолжительность: %(duration)s с"
+msgstr ""
 
 #: accounts/automations/base/manager.py:87
 #, python-format
 msgid "Targets: %(accounts)s account(s) on %(assets)s asset(s)"
-msgstr "Цели: %(accounts)s учётных записей на %(assets)s активах"
+msgstr ""
 
 #: accounts/automations/base/manager.py:190
 #, python-format
 msgid "△ %(host)s: operation completed; verification pending"
-msgstr "△ %(host)s: операция выполнена; проверка новых учётных данных ожидает подтверждения"
+msgstr ""
 
 #: accounts/automations/base/manager.py:195
 msgid "secret changed and verified"
-msgstr "секрет изменён, проверка новых учётных данных пройдена"
+msgstr ""
 
 #: accounts/automations/base/manager.py:197
 msgid "account pushed and verified"
-msgstr "учётная запись успешно опубликована, проверка новых учётных данных пройдена"
+msgstr ""
 
 #: accounts/automations/base/manager.py:198
 #: assets/automations/base/manager.py:682
 #, python-format
 msgid "✓ %(host)s: %(result)s"
-msgstr "✓ %(host)s: %(result)s"
+msgstr ""
 
 #: accounts/automations/base/manager.py:265
 msgid "No privileged account"
-msgstr "Привилегированная учётная запись не найдена"
+msgstr ""
 
 #: accounts/automations/base/manager.py:321
 msgid "Windows does not support SSH key authentication"
@@ -182,35 +181,35 @@ msgstr "Не найдено ожидающих учетных записей"
 #: accounts/automations/base/manager.py:345
 #, python-format
 msgid "○ %(asset)s: skipped; no eligible accounts"
-msgstr "○ %(asset)s: пропущен; нет подходящих для обработки учётных данных"
+msgstr ""
 
 #: accounts/automations/base/manager.py:367
 #, python-format
 msgid "Account is already being processed, skipping: %(account)s"
-msgstr "Учётная запись уже обрабатывается, пропуск: %(account)s"
+msgstr ""
 
 #: accounts/automations/base/manager.py:396
 msgid "Account not found, inactive, or not eligible for this task"
-msgstr "Учётная запись не существует, отключена или не подходит для этой задачи"
+msgstr ""
 
 #: accounts/automations/base/manager.py:516
 #, python-format
 msgid "The remote secret may have changed, but the independent credential verification was inconclusive: %(code)s"
-msgstr "Удалённые учётные данные могли измениться, но независимая проверка учётных данных не дала однозначного результата: %(code)s"
+msgstr ""
 
 #: accounts/automations/base/manager.py:592
 #, python-format
 msgid "The remote operation completed, but saving the local account result failed: %(error)s"
-msgstr "Удалённая операция завершена, но сохранить результат для локальной учётной записи не удалось: %(error)s"
+msgstr ""
 
 #: accounts/automations/base/manager.py:700
 msgid "Task ended before the account received a final result"
-msgstr "Задача завершилась до того, как учётная запись получила окончательный результат"
+msgstr ""
 
 #: accounts/automations/change_secret/manager.py:44
 #, python-format
 msgid "Change secret record not found: %(record_id)s"
-msgstr "Запись об изменении секрета не найдена: %(record_id)s"
+msgstr ""
 
 #: accounts/automations/change_secret/manager.py:72
 #: accounts/automations/push_account/manager.py:34
@@ -220,7 +219,7 @@ msgstr "Секрет не может быть пустым"
 #: accounts/automations/change_secret/manager.py:89
 #, python-format
 msgid "Successful: %(success)s, Needs verification: %(unverified)s, Failed: %(failed)s, Total: %(total)s"
-msgstr "Успешно: %(success)s, Ожидают подтверждения: %(unverified)s, Неудачно: %(failed)s, Всего: %(total)s"
+msgstr ""
 
 #: accounts/automations/check_account/manager.py:170
 #: users/templates/users/reset_password.html:24
@@ -249,25 +248,25 @@ msgstr "Слабый пароль"
 
 #: accounts/automations/check_account/manager.py:212
 msgid "No supported account security check selected"
-msgstr "Не выбрана поддерживаемая проверка безопасности учётных записей"
+msgstr ""
 
 #: accounts/automations/check_account/manager.py:221
 msgid "Account security"
-msgstr "Безопасность учётных записей"
+msgstr ""
 
 #: accounts/automations/check_account/manager.py:225
 #, python-format
 msgid "Enabled account security check: %(check)s"
-msgstr "Включена проверка безопасности учётных записей: %(check)s"
+msgstr ""
 
 #: accounts/automations/check_account/manager.py:392
 #, python-format
 msgid "Processing %(count)s accounts"
-msgstr "Обрабатывается учётных записей: %(count)s"
+msgstr ""
 
 #: accounts/automations/check_account/manager.py:403
 msgid "Another account risk check is already running"
-msgstr "Другая проверка рисков учётных записей уже выполняется"
+msgstr ""
 
 #: accounts/automations/check_account/manager.py:427
 msgid "Check account report of {}"
@@ -276,35 +275,33 @@ msgstr "Отчет о рисках {}"
 #: accounts/automations/check_account/manager.py:477
 #, python-format
 msgid "Checked %(total)s accounts: %(normal)s normal, %(risk)s at risk, %(no_secret)s without secrets"
-msgstr "Проверено %(total)s учётных записей: в норме %(normal)s,\n"
-"с рисками %(risk)s, без секретов %(no_secret)s"
+msgstr ""
 
 #: accounts/automations/check_account/manager.py:487
 #, python-format
 msgid "Risk details: %(weak)s weak passwords, %(leaked)s leaked passwords, %(repeated)s repeated passwords"
-msgstr "Подробности рисков: слабые пароли %(weak)s,\n"
-"утекшие пароли %(leaked)s, повторяющиеся пароли %(repeated)s"
+msgstr ""
 
 #: accounts/automations/push_account/manager.py:48
 #, python-format
 msgid "Push secret record not found: %(record_id)s"
-msgstr "Запись о публикации секрета не найдена: %(record_id)s"
+msgstr ""
 
 #: accounts/automations/verify_account/manager.py:90
 msgid "Change secret record not found or does not match account"
-msgstr "Запись об изменении секрета не существует или не соответствует учётной записи"
+msgstr ""
 
 #: accounts/automations/verify_account/manager.py:164
 msgid "Account not found or inactive"
-msgstr "Учётная запись не существует или отключена"
+msgstr ""
 
 #: accounts/automations/verify_account/manager.py:225
 msgid "Verification ended before a final result was received"
-msgstr "Проверка завершилась до получения окончательного результата"
+msgstr ""
 
 #: accounts/automations/verify_gateway_account/manager.py:17
 msgid "Checking gateway account connectivity"
-msgstr "Проверка подключения учётной записи шлюза"
+msgstr ""
 
 #: accounts/const/account.py:6
 #: accounts/serializers/automations/change_secret.py:38
@@ -440,7 +437,7 @@ msgstr "Случайно созданный"
 
 #: accounts/const/automation.py:59 ops/const.py:17
 msgid "Replace (Replace only keys pushed by system) "
-msgstr "Заменить (заменяет только ключи, опубликованные системой) "
+msgstr "Сменить (только опубликованные системой ключи можно сменить) "
 
 #: accounts/const/automation.py:60 ops/const.py:16
 msgid "Empty and append SSH KEY"
@@ -528,7 +525,7 @@ msgstr "В ожидании"
 #: accounts/const/automation.py:118
 #: accounts/serializers/automations/change_secret.py:204
 msgid "Unverified"
-msgstr "Не проверено"
+msgstr ""
 
 #: accounts/const/automation.py:122
 msgid "Queued"
@@ -604,7 +601,7 @@ msgstr "База данных"
 
 #: accounts/const/vault.py:9 settings/serializers/feature.py:92
 msgid "OpenBao"
-msgstr "OpenBao"
+msgstr ""
 
 #: accounts/const/vault.py:10 settings/serializers/feature.py:108
 msgid "HCP Vault"
@@ -624,11 +621,11 @@ msgstr "Операция Vault не удалась, пожалуйста, пов
 
 #: accounts/exceptions.py:25
 msgid "Vault service is unavailable. Unable to synchronize accounts. Please contact your administrator to check the Vault configuration."
-msgstr "Сервис Vault недоступен. Невозможно синхронизировать учётные записи. Обратитесь к администратору для проверки настроек Vault."
+msgstr ""
 
 #: accounts/exceptions.py:35
 msgid "Secret not found in Vault. The local sync marker has been preserved."
-msgstr "Секрет не найден в Vault. Локальная метка синхронизации сохранена."
+msgstr ""
 
 #: accounts/filters.py:93 accounts/filters.py:126 accounts/filters.py:273
 #: accounts/filters.py:292 perms/filters.py:169 terminal/filters.py:35
@@ -641,12 +638,12 @@ msgstr "ID актива"
 #: perms/filters.py:172 terminal/api/session/session.py:70
 #: terminal/filters.py:32 xpack/plugins/cloud/filters.py:41
 msgid "Asset name"
-msgstr "Название актива"
+msgstr ""
 
 #: accounts/filters.py:120 perms/filters.py:174
 #: xpack/plugins/cloud/filters.py:45
 msgid "Asset address"
-msgstr "Адрес актива"
+msgstr ""
 
 #: accounts/filters.py:129 accounts/serializers/account/account.py:286
 msgid "Has secret"
@@ -654,15 +651,15 @@ msgstr "Секрет добавлен"
 
 #: accounts/filters.py:133
 msgid "Platform ID"
-msgstr "ID платформы"
+msgstr ""
 
 #: accounts/filters.py:137 assets/api/asset/asset.py:74
 msgid "Platform category"
-msgstr "Категория платформы"
+msgstr ""
 
 #: accounts/filters.py:142 assets/api/asset/asset.py:64 perms/filters.py:20
 msgid "Platform type"
-msgstr "Тип платформы"
+msgstr ""
 
 #: accounts/filters.py:146 accounts/models/account.py:103
 #: accounts/serializers/account/account.py:230
@@ -672,23 +669,23 @@ msgstr "Источник"
 
 #: accounts/filters.py:149
 msgid "Recently discovered"
-msgstr "Недавно обнаруженные"
+msgstr ""
 
 #: accounts/filters.py:152
 msgid "Recently accessed"
-msgstr "Недавно использованные"
+msgstr ""
 
 #: accounts/filters.py:155
 msgid "Recently updated"
-msgstr "Недавно обновлённые"
+msgstr ""
 
 #: accounts/filters.py:158
 msgid "Recently changed secret"
-msgstr "Недавнее изменение секрета"
+msgstr ""
 
 #: accounts/filters.py:161
 msgid "Recent secret change failed"
-msgstr "Недавний сбой смены секрета"
+msgstr ""
 
 #: accounts/filters.py:164 accounts/models/automations/check_account.py:70
 #: accounts/serializers/automations/check_account.py:37
@@ -697,11 +694,11 @@ msgstr "Риск"
 
 #: accounts/filters.py:168
 msgid "Integration application ID"
-msgstr "ID приложения интеграции"
+msgstr ""
 
 #: accounts/filters.py:171
 msgid "Long time no secret change"
-msgstr "Давно не менялся секрет"
+msgstr ""
 
 #: accounts/filters.py:174 accounts/models/automations/check_account.py:43
 #: users/filters.py:42
@@ -710,7 +707,7 @@ msgstr "Давно не заходил"
 
 #: accounts/filters.py:177
 msgid "Long time no verification"
-msgstr "Давно не выполнялась проверка"
+msgstr ""
 
 #: accounts/filters.py:280 accounts/filters.py:334 accounts/filters.py:365
 #: accounts/filters.py:382 accounts/models/automations/change_secret.py:49
@@ -734,19 +731,19 @@ msgstr "Статус"
 
 #: accounts/filters.py:298
 msgid "Account username"
-msgstr "Имя пользователя учётной записи"
+msgstr ""
 
 #: accounts/filters.py:301 accounts/filters.py:385
 msgid "Execution ID"
-msgstr "ID выполнения"
+msgstr ""
 
 #: accounts/filters.py:304 accounts/filters.py:319
 msgid "Days"
-msgstr "Дни"
+msgstr ""
 
 #: accounts/filters.py:347 audits/filters.py:211 ops/filters.py:52
 msgid "Task ID"
-msgstr "ID задачи"
+msgstr ""
 
 #: accounts/filters.py:350
 #: accounts/templates/accounts/backup_account_report.html:18
@@ -1110,15 +1107,15 @@ msgstr "Новый секрет"
 
 #: accounts/models/automations/change_secret.py:76
 msgid "Account version"
-msgstr "Версия учётной записи"
+msgstr ""
 
 #: accounts/models/automations/change_secret.py:80
 msgid "Verification status"
-msgstr "Статус проверки"
+msgstr ""
 
 #: accounts/models/automations/change_secret.py:83
 msgid "Verification error"
-msgstr "Ошибка проверки"
+msgstr ""
 
 #: accounts/models/automations/change_secret.py:86 assets/models/base.py:19
 #: authentication/models/temp_token.py:13
@@ -1653,13 +1650,7 @@ msgid "length is the length of the password, and the range is 8 to 36.\n"
 "exclude_symbols is used to exclude specific symbols. You can fill in the symbol characters to be excluded (up to 16). \n"
 "If you do not need to exclude symbols, you can leave it blank.\n"
 "default: {\"length\": 16, \"lowercase\": true, \"uppercase\": true, \"digit\": true, \"symbol\": true, \"exclude_symbols\": \"\"}"
-msgstr "length — длина пароля, диапазон от 8 до 36.\n"
-"lowercase — указывает, содержит ли пароль строчные буквы,\n"
-"uppercase — указывает, содержит ли пароль заглавные буквы,\n"
-"digit — указывает, содержит ли пароль цифры, symbol — специальные символы.\n"
-"exclude_symbols используется для исключения определённых символов. Можно указать символы, которые необходимо исключить (не более 16).\n"
-"Если исключать символы не требуется, оставьте поле пустым.\n"
-"Значение по умолчанию: {\"length\": 16, \"lowercase\": true, \"uppercase\": true, \"digit\": true, \"symbol\": true, \"exclude_symbols\": \"\"}"
+msgstr ""
 
 #: accounts/serializers/account/template.py:47
 msgid "Secret generation strategy for account creation"
@@ -1746,7 +1737,7 @@ msgstr "* Длина пароля в диапазоне от 8 до 36 симв�
 
 #: accounts/serializers/automations/change_secret.py:118
 msgid "Secret is required for the custom strategy"
-msgstr "Для пользовательской стратегии необходимо указать секрет"
+msgstr ""
 
 #: accounts/serializers/automations/change_secret.py:144
 #: accounts/serializers/automations/change_secret.py:181
@@ -1770,7 +1761,7 @@ msgstr "Метаданные"
 
 #: accounts/serializers/automations/check_account.py:107
 msgid "At least one engine is required"
-msgstr "Требуется хотя бы один механизм"
+msgstr ""
 
 #: accounts/serializers/automations/check_account.py:109
 msgid "Invalid engine id"
@@ -1817,16 +1808,13 @@ msgstr "Для ручного выполнения записи о смене п
 
 #: accounts/tasks/automation.py:185
 msgid "Recover interrupted account automation tasks"
-msgstr "Восстановление прерванных задач автоматизации учётных записей"
+msgstr ""
 
 #: accounts/tasks/automation.py:187
 msgid "Periodically reconcile account automation executions whose Celery\n"
 "        worker was forcibly terminated before task state and secret records\n"
 "        could be written back"
-msgstr "Периодически проверяет прерванные задачи\n"
-"        автоматизации учётных записей, для которых\n"
-"        из-за принудительного завершения рабочего процесса Celery\n"
-"        не удалось сохранить состояние задачи и записи о секретах."
+msgstr ""
 
 #: accounts/tasks/automation.py:359
 msgid "Clean change secret and push record period"
@@ -1911,11 +1899,11 @@ msgstr "При нажатии «Синхронизировать» в «Сист
 
 #: accounts/tasks/vault.py:318
 msgid "Restore secret from vault"
-msgstr "Восстановление секрета из Vault"
+msgstr ""
 
 #: accounts/tasks/vault.py:320
 msgid "When clicking 'Restore' in 'System Settings - Features - Account Storage' this task will be executed"
-msgstr "При нажатии «Восстановить» в разделе «Системные настройки → Настройки функций → Хранилище учётных записей» выполняется эта задача"
+msgstr ""
 
 #: accounts/tasks/verify_account.py:52
 msgid "Verify asset account availability"
@@ -1931,11 +1919,11 @@ msgstr "Проверка подключения учетных записей"
 
 #: accounts/tasks/verify_account.py:88 accounts/tasks/verify_account.py:137
 msgid "Verify change secret records"
-msgstr "Проверка записи об изменении секрета"
+msgstr ""
 
 #: accounts/tasks/verify_account.py:91
 msgid "Verify the candidate credentials saved by change secret records"
-msgstr "Проверяет учётные данные, сохранённые в записях об изменении секрета, перед их применением"
+msgstr ""
 
 #: accounts/templates/accounts/asset_account_change_info.html:13
 msgid "Deleted account"
@@ -2057,11 +2045,11 @@ msgstr "Потерянных УЗ не обнаружено"
 
 #: accounts/templates/accounts/push_account_report.html:106
 msgid "Unverified accounts"
-msgstr "Непроверенные учётные записи"
+msgstr ""
 
 #: accounts/templates/accounts/push_account_report.html:132
 msgid "No unverified accounts"
-msgstr "Нет непроверенных учётных записей"
+msgstr ""
 
 #: accounts/utils.py:55
 msgid "If the password starts with {{` and ends with }} `, then the password is not allowed."
@@ -2079,15 +2067,15 @@ msgstr "неверный закрытый ключ или ошибка паро�
 #: acls/api/clipboard_acl.py:15 acls/models/clipboard_acl.py:14
 #: acls/serializers/clipboard_acl.py:37
 msgid "Operations"
-msgstr "Операции"
+msgstr ""
 
 #: acls/api/common.py:11 audits/filters.py:52
 msgid "User name, username or ID"
-msgstr "Имя пользователя, имя учётной записи или ID"
+msgstr ""
 
 #: acls/api/common.py:32
 msgid "Asset name, address or ID"
-msgstr "Имя актива, адрес или ID"
+msgstr ""
 
 #: acls/api/connect_method.py:16 acls/models/connect_method.py:10
 msgid "Connect methods"
@@ -2179,31 +2167,31 @@ msgstr "Активы"
 
 #: acls/models/clipboard_acl.py:19
 msgid "Copy text character limit"
-msgstr "Лимит символов копируемого текста"
+msgstr ""
 
 #: acls/models/clipboard_acl.py:20 acls/models/clipboard_acl.py:26
 msgid "0 means unlimited, unit: characters"
-msgstr "0 — без ограничений, единица измерения: символы"
+msgstr ""
 
 #: acls/models/clipboard_acl.py:25
 msgid "Paste text character limit"
-msgstr "Лимит символов вставляемого текста"
+msgstr ""
 
 #: acls/models/clipboard_acl.py:31
 msgid "Download file size limit"
-msgstr "Лимит размера скачиваемого файла"
+msgstr ""
 
 #: acls/models/clipboard_acl.py:32 acls/models/clipboard_acl.py:38
 msgid "0 means unlimited, unit: MB"
-msgstr "0 — без ограничений, единица измерения: МБ"
+msgstr ""
 
 #: acls/models/clipboard_acl.py:37
 msgid "Upload file size limit"
-msgstr "Лимит размера загружаемого файла"
+msgstr ""
 
 #: acls/models/clipboard_acl.py:42
 msgid "Clipboard acl"
-msgstr "Правило контроля буфера обмена"
+msgstr ""
 
 #: acls/models/command_acl.py:16 assets/models/cmd_filter.py:60
 #: ops/serializers/job.py:92 terminal/const.py:88 terminal/filters.py:29
@@ -2396,11 +2384,11 @@ msgstr "Ни один утверждающий не относится к орг
 
 #: acls/serializers/clipboard_acl.py:23
 msgid "At least one clipboard operation is required"
-msgstr "Выберите хотя бы одно действие с буфером обмена"
+msgstr ""
 
 #: acls/serializers/clipboard_acl.py:25
 msgid "Only copy and paste operations are allowed"
-msgstr "Разрешены только операции копирования и вставки"
+msgstr ""
 
 #: acls/serializers/rules/rules.py:22
 #: xpack/plugins/cloud/serializers/task.py:163
@@ -2480,23 +2468,23 @@ msgstr "Шлюз"
 
 #: assets/api/asset/asset.py:54 perms/filters.py:16
 msgid "Platform name or ID"
-msgstr "Название или ID платформы"
+msgstr ""
 
 #: assets/api/asset/asset.py:58
 msgid "Exclude platform name"
-msgstr "Исключить платформы с названием"
+msgstr ""
 
 #: assets/api/asset/asset.py:61 perms/filters.py:26
 msgid "Zone name or ID"
-msgstr "Название или ID зоны"
+msgstr ""
 
 #: assets/api/asset/asset.py:69
 msgid "Exclude platform type"
-msgstr "Исключить платформы с типом"
+msgstr ""
 
 #: assets/api/asset/asset.py:79
 msgid "Exclude platform category"
-msgstr "Исключить платформы с категорией"
+msgstr ""
 
 #: assets/api/asset/asset.py:86 assets/models/platform.py:392
 #: assets/serializers/platform.py:211
@@ -2542,7 +2530,7 @@ msgstr "Количество активов превышает лимит в 500
 
 #: assets/api/asset/asset.py:229
 msgid "The number of assets exceeds the license limit"
-msgstr "Количество активов превышает лимит лицензии"
+msgstr "Количество активов превышает лимит в 5000"
 
 #: assets/api/node.py:58
 msgid "You can't update the root node name"
@@ -2558,19 +2546,19 @@ msgstr "Удаление не удалось, папка содержит акт
 
 #: assets/api/node.py:99
 msgid "Node {} is an ancestor of node {}, can't be added as its child"
-msgstr "Папка {} является родительской для папки {}, поэтому её нельзя добавить как дочернюю"
+msgstr ""
 
 #: assets/api/platform.py:37
 msgid "Name starts with"
-msgstr "Название начинается с"
+msgstr ""
 
 #: assets/api/platform.py:97
 msgid "Invalid platform"
-msgstr "Недопустимая платформа"
+msgstr ""
 
 #: assets/api/platform.py:102
 msgid "The cloned platform category and type must match the source"
-msgstr "Категория и тип клонированной платформы должны совпадать с исходной платформой"
+msgstr ""
 
 #: assets/api/tree.py:48 assets/serializers/node.py:42
 msgid "The same level node name cannot be the same"
@@ -2578,11 +2566,11 @@ msgstr "Имена папок одного уровня не могут повт
 
 #: assets/api/zone.py:22
 msgid "Zone ID"
-msgstr "ID зоны"
+msgstr ""
 
 #: assets/api/zone.py:25
 msgid "Zone name"
-msgstr "Название зоны"
+msgstr ""
 
 #: assets/api/zone.py:84
 msgid "Number required"
@@ -2594,83 +2582,83 @@ msgstr "Управление активами"
 
 #: assets/automations/base/manager.py:159
 msgid "Testing connectivity and credentials"
-msgstr "Проверка подключения и учётных данных"
+msgstr ""
 
 #: assets/automations/base/manager.py:160
 msgid "Verifying account credentials"
-msgstr "Проверка учётных данных УЗ"
+msgstr ""
 
 #: assets/automations/base/manager.py:161
 msgid "Collecting asset information"
-msgstr "Сбор информации об активе"
+msgstr ""
 
 #: assets/automations/base/manager.py:162
 msgid "Collecting account information"
-msgstr "Сбор информации об учётной записи"
+msgstr ""
 
 #: assets/automations/base/manager.py:205
 msgid "Verifying the new credentials"
-msgstr "Проверка новых учётных данных"
+msgstr ""
 
 #: assets/automations/base/manager.py:211
 msgid "Checking the target account"
-msgstr "Проверка целевой учётной записи"
+msgstr ""
 
 #: assets/automations/base/manager.py:212
 msgid "Updating the account credentials"
-msgstr "Обновление учётных данных УЗ"
+msgstr ""
 
 #: assets/automations/base/manager.py:215
 msgid "Removing the account"
-msgstr "Удаление учётной записи"
+msgstr ""
 
 #: assets/automations/base/manager.py:216
 msgid "Checking account removal conditions"
-msgstr "Проверка условий удаления учётной записи"
+msgstr ""
 
 #: assets/automations/base/manager.py:221
 msgid "Executing automation"
-msgstr "Выполнение автоматизации"
+msgstr ""
 
 #: assets/automations/base/manager.py:233
 #, python-format
 msgid "Stage: %(stage)s"
-msgstr "▶ Этап: %(stage)s"
+msgstr ""
 
 #: assets/automations/base/manager.py:239
 #: assets/automations/base/manager.py:1072
 #, python-format
 msgid "• %(host)s: processing"
-msgstr "• %(host)s: выполняется обработка"
+msgstr ""
 
 #: assets/automations/base/manager.py:295
 #: assets/automations/ping_gateway/manager.py:408
 #, python-format
 msgid "Successful: %(count)s"
-msgstr "Успешно: %(count)s"
+msgstr ""
 
 #: assets/automations/base/manager.py:298
 #, python-format
 msgid "Needs verification: %(count)s"
-msgstr "Ожидают подтверждения: %(count)s"
+msgstr ""
 
 #: assets/automations/base/manager.py:302
 #: assets/automations/ping_gateway/manager.py:411
 #, python-format
 msgid "Failed: %(count)s"
-msgstr "Неудачно: %(count)s"
+msgstr ""
 
 #: assets/automations/base/manager.py:304
 #: assets/automations/ping_gateway/manager.py:412
 #, python-format
 msgid "Total: %(count)s"
-msgstr "Всего: %(count)s"
+msgstr ""
 
 #: assets/automations/base/manager.py:314
 #: assets/automations/ping_gateway/manager.py:406
 #, python-format
 msgid "Result: %(result)s"
-msgstr "Результат выполнения: %(result)s"
+msgstr ""
 
 #: assets/automations/base/manager.py:325
 msgid "Task: {} finished"
@@ -2680,313 +2668,313 @@ msgstr "Задача: {} Выполнена"
 #: assets/automations/base/manager.py:812
 #: assets/automations/ping_gateway/manager.py:133
 msgid "Unknown error"
-msgstr "Неизвестная ошибка"
+msgstr ""
 
 #: assets/automations/base/manager.py:370
 #: assets/automations/base/manager.py:817
 #, python-format
 msgid "Operation failed: %(reason)s"
-msgstr "Операция не выполнена: %(reason)s"
+msgstr ""
 
 #: assets/automations/base/manager.py:602
 #, python-format
 msgid "✗ %(asset)s: automation is not configured for its platform"
-msgstr "✗ %(asset)s: для платформы не настроена автоматизация"
+msgstr ""
 
 #: assets/automations/base/manager.py:610
 #, python-format
 msgid "✗ %(asset)s: this automation is not enabled"
-msgstr "✗ %(asset)s: эта автоматизация не включена"
+msgstr ""
 
 #: assets/automations/base/manager.py:619
 #, python-format
 msgid "✗ %(asset)s: automation method is unavailable: %(method)s"
-msgstr "✗ %(asset)s: способ автоматизации недоступен: %(method)s"
+msgstr ""
 
 #: assets/automations/base/manager.py:629
 #, python-format
 msgid "✗ %(asset)s: unable to prepare this automation"
-msgstr "✗ %(asset)s: не удалось подготовить эту автоматизацию"
+msgstr ""
 
 #: assets/automations/base/manager.py:656
 msgid "Test asset connectivity"
-msgstr "Проверка доступности актива"
+msgstr ""
 
 #: assets/automations/base/manager.py:657
 msgid "Gather asset information"
-msgstr "Сбор информации об активе"
+msgstr ""
 
 #: assets/automations/base/manager.py:658
 msgid "Change account secret"
-msgstr "Изменение секрета учётной записи"
+msgstr ""
 
 #: assets/automations/base/manager.py:660
 msgid "Verify account credentials"
-msgstr "Проверка учётных данных УЗ"
+msgstr ""
 
 #: assets/automations/base/manager.py:671
 #, python-format
 msgid "Targets: %(assets)s asset(s)"
-msgstr "Цели: %(assets)s активов"
+msgstr ""
 
 #: assets/automations/base/manager.py:675
 msgid "connection and authentication succeeded"
-msgstr "подключение и аутентификация выполнены успешно"
+msgstr ""
 
 #: assets/automations/base/manager.py:676
 msgid "asset information collected"
-msgstr "информация об активе собрана"
+msgstr ""
 
 #: assets/automations/base/manager.py:677
 msgid "credential verification succeeded"
-msgstr "проверка учётных данных пройдена"
+msgstr ""
 
 #: assets/automations/base/manager.py:678
 msgid "account information collected"
-msgstr "информация об учётной записи собрана"
+msgstr ""
 
 #: assets/automations/base/manager.py:679
 msgid "account removed"
-msgstr "учётная запись удалена"
+msgstr ""
 
 #: assets/automations/base/manager.py:681
 msgid "completed"
-msgstr "выполнено"
+msgstr ""
 
 #: assets/automations/base/manager.py:692
 msgid "verifying the new credential"
-msgstr "проверка новых учётных данных"
+msgstr ""
 
 #: assets/automations/base/manager.py:694
 msgid "checking the target account"
-msgstr "проверка целевой учётной записи"
+msgstr ""
 
 #: assets/automations/base/manager.py:695
 msgid "creating the target account"
-msgstr "создание целевой учётной записи"
+msgstr ""
 
 #: assets/automations/base/manager.py:697
 msgid "configuring sudo privileges"
-msgstr "настройка привилегий sudo"
+msgstr ""
 
 #: assets/automations/base/manager.py:698
 msgid "updating the SSH key"
-msgstr "обновление ключа SSH"
+msgstr ""
 
 #: assets/automations/base/manager.py:699
 msgid "changing the target credential"
-msgstr "изменение целевых учётных данных"
+msgstr ""
 
 #: assets/automations/base/manager.py:700
 msgid "saving the execution result"
-msgstr "сохранение результата выполнения"
+msgstr ""
 
 #: assets/automations/base/manager.py:705
 msgid "executing the automation step"
-msgstr "выполнение шага автоматизации"
+msgstr ""
 
 #: assets/automations/base/manager.py:729
 #, python-format
 msgid "%(step)s failed: the new credential was rejected; the remote credential may already have changed, verify it before retrying"
-msgstr "%(step)s не выполнен: новые учётные данные отклонены; удалённые учётные данные могли быть уже изменены, проверьте их перед повторной попыткой"
+msgstr ""
 
 #: assets/automations/base/manager.py:737
 #, python-format
 msgid "%(step)s failed: %(target)s rejected the execution account %(account)s; the credential change was not reached, check the execution credential or reduce concurrent connections and retry"
-msgstr "%(step)s не выполнен: %(target)s отклонил вход учётной записи для выполнения %(account)s; изменение учётных данных не выполнялось, проверьте учётные данные учётной записи для выполнения или уменьшите количество одновременных подключений и повторите попытку"
+msgstr ""
 
 #: assets/automations/base/manager.py:747
 #, python-format
 msgid "%(step)s failed: authentication was rejected; check the execution or target account credential"
-msgstr "%(step)s не выполнен: аутентификация отклонена, проверьте учётные данные учётной записи для выполнения или целевой учётной записи"
+msgstr ""
 
 #: assets/automations/base/manager.py:755
 msgid "Unable to resolve the asset address; check DNS or the asset address"
-msgstr "Не удалось определить адрес актива, проверьте DNS или адрес актива"
+msgstr ""
 
 #: assets/automations/base/manager.py:762
 msgid "SSH host key verification failed; verify that the asset host key changed as expected"
-msgstr "Проверка ключа хоста SSH не удалась; убедитесь, что ключ хоста актива изменился ожидаемым образом"
+msgstr ""
 
 #: assets/automations/base/manager.py:766
 msgid "Connection timed out; check the network, port, or gateway"
-msgstr "Таймаут соединения; проверьте сеть, порт или шлюз"
+msgstr ""
 
 #: assets/automations/base/manager.py:773
 msgid "Unable to connect; check the network, port, and service"
-msgstr "Не удалось подключиться к цели, проверьте сеть, порт и состояние сервиса"
+msgstr ""
 
 #: assets/automations/base/manager.py:780
 msgid "The SSH connection was interrupted; check connection limits, security policies, or network stability"
-msgstr "SSH подключение прервано, проверьте ограничения на количество подключений, политики безопасности или стабильность сети"
+msgstr ""
 
 #: assets/automations/base/manager.py:787
 msgid "Privilege escalation failed; check the sudo or become configuration of the execution account"
-msgstr "Не удалось повысить привилегии, проверьте настройки sudo или become учётной записи для выполнения"
+msgstr ""
 
 #: assets/automations/base/manager.py:795
 msgid "The target system rejected the new credential because it does not meet the password policy"
-msgstr "Новые учётные данные не соответствуют политике паролей целевой системы и были отклонены целевой системой"
+msgstr ""
 
 #: assets/automations/base/manager.py:800
 #, python-format
 msgid "%(step)s failed: the execution account has insufficient permissions on the target system"
-msgstr "%(step)s не выполнен: у учётной записи для выполнения недостаточно прав в целевой системе"
+msgstr ""
 
 #: assets/automations/base/manager.py:806
 msgid "The target account was not found or is inactive"
-msgstr "Целевая учётная запись не существует или отключена"
+msgstr ""
 
 #: assets/automations/base/manager.py:809
 msgid "The account is being processed by another task; try again later"
-msgstr "Учётная запись обрабатывается другой задачей, повторите попытку позже"
+msgstr ""
 
 #: assets/automations/base/manager.py:879
 msgid "Asset not found or inactive"
-msgstr "Актив не существует или отключён"
+msgstr ""
 
 #: assets/automations/base/manager.py:929
 #, python-format
 msgid "✗ %(host)s: %(error)s"
-msgstr "✗ %(host)s: %(error)s"
+msgstr ""
 
 #: assets/automations/base/manager.py:953
 #, python-format
 msgid "✗ %(host)s: unable to prepare (%(error)s)"
-msgstr "✗ %(host)s: не удалось подготовить (%(error)s)"
+msgstr ""
 
 #: assets/automations/base/manager.py:974
 msgid "Stage: Saving execution results"
-msgstr "▶ Этап: сохранение результатов выполнения"
+msgstr ""
 
 #: assets/automations/base/manager.py:1122
 #, python-format
 msgid "Automation task exceeded the maximum runtime of %(seconds)s seconds"
-msgstr "Время выполнения задачи автоматизации превысило максимальное значение в %(seconds)s секунд"
+msgstr ""
 
 #: assets/automations/base/manager.py:1140
 msgid "Unknown task"
-msgstr "Неизвестная задача"
+msgstr ""
 
 #: assets/automations/base/manager.py:1157
 #, python-format
 msgid " and %(count)s more"
-msgstr " и ещё %(count)s"
+msgstr ""
 
 #: assets/automations/base/manager.py:1220
 #, python-format
 msgid "Still processing %(count)s target(s): %(detail)s"
-msgstr "По-прежнему обрабатываются %(count)s целей: %(detail)s"
+msgstr ""
 
 #: assets/automations/base/manager.py:1226
 #: assets/automations/base/manager.py:1390
 #: assets/automations/ping_gateway/manager.py:319
 #: assets/automations/ping_gateway/manager.py:354
 msgid "Task canceled by user"
-msgstr "Задача отменена пользователем"
+msgstr ""
 
 #: assets/automations/base/manager.py:1342
 #: assets/automations/base/manager.py:1457
 msgid "Hosts still waiting"
-msgstr "Хосты в ожидании"
+msgstr ""
 
 #: assets/automations/base/manager.py:1352
 #, python-format
 msgid "Batch execution failed: %(error)s"
-msgstr "Не удалось выполнить пакет задач: %(error)s"
+msgstr ""
 
 #: assets/automations/base/manager.py:1366
 #, python-format
 msgid "Task: %(task)s"
-msgstr "Задача: %(task)s"
+msgstr ""
 
 #: assets/automations/base/manager.py:1370
 msgid "Stage: Preparing execution"
-msgstr "▶ Этап: подготовка среды выполнения"
+msgstr ""
 
 #: assets/automations/base/manager.py:1374
 #, python-format
 msgid "Task will run in %(count)s batches"
-msgstr "Задача будет выполнена в %(count)s пакетах"
+msgstr ""
 
 #: assets/automations/base/manager.py:1379
 msgid "Targets are ready; starting execution"
-msgstr "Цели готовы, начинается выполнение"
+msgstr ""
 
 #: assets/automations/base/manager.py:1381
 msgid "No eligible targets were found"
-msgstr "Подходящих целей не найдено"
+msgstr ""
 
 #: assets/automations/base/manager.py:1398
 #, python-format
 msgid "Processing batch %(current)s of %(total)s"
-msgstr "Выполняется пакет %(current)s из %(total)s"
+msgstr ""
 
 #: assets/automations/base/manager.py:1445
 #, python-format
 msgid "Ansible runner stopped before completing the batch: %(status)s"
-msgstr "Запуск Ansible остановлен до завершения пакета: %(status)s"
+msgstr ""
 
 #: assets/automations/base/manager.py:1460
 #, python-format
 msgid "Batch did not complete: %(reason)s"
-msgstr "Пакетная операция не завершена: %(reason)s"
+msgstr ""
 
 #: assets/automations/gather_facts/format_asset_info.py:23
 msgid "CPU list format not recognized"
-msgstr "Не удалось распознать формат списка CPU"
+msgstr ""
 
 #: assets/automations/gather_facts/format_asset_info.py:28
 #, python-format
 msgid "Error processing CPU model list: %(error)s"
-msgstr "Ошибка при обработке списка моделей CPU: %(error)s"
+msgstr ""
 
 #: assets/automations/gather_facts/format_asset_info.py:41
 #, python-format
 msgid "Error processing GPU model list: %(error)s"
-msgstr "Ошибка при обработке списка моделей GPU: %(error)s"
+msgstr ""
 
 #: assets/automations/ping_gateway/manager.py:64
 msgid "The gateway account has no usable password or private key; check the gateway account credentials"
-msgstr "У учётной записи шлюза нет доступного пароля или закрытого ключа, проверьте учётные данные УЗ шлюза"
+msgstr ""
 
 #: assets/automations/ping_gateway/manager.py:69
 msgid "Gateway connection timed out; check the gateway address, port, and network"
-msgstr "Тайм-аут подключения к шлюзу; проверьте адрес шлюза, порт и сеть."
+msgstr ""
 
 #: assets/automations/ping_gateway/manager.py:74
 #: assets/automations/ping_gateway/manager.py:107
 #, python-format
 msgid "Connected to the gateway, but it cannot forward to 127.0.0.1:%(port)s; check the SSH service and port on the gateway"
-msgstr "Подключение к шлюзу установлено, но не удаётся перенаправить подключение на 127.0.0.1:%(port)s, проверьте службу SSH и порт на шлюзе"
+msgstr ""
 
 #: assets/automations/ping_gateway/manager.py:80
 #, python-format
 msgid "Unable to establish an SSH session to %(address)s:%(port)s; check the network and gateway account credentials"
-msgstr "Не удалось установить SSH сеанс с %(address)s:%(port)s, проверьте сеть и учётные данные УЗ шлюза"
+msgstr ""
 
 #: assets/automations/ping_gateway/manager.py:92
 msgid "The SSH tunnel is available, but gateway account authentication through the tunnel failed; check the gateway account credentials"
-msgstr "SSH туннель установлен, но не удалось выполнить аутентификацию учётной записи шлюза через туннель, проверьте учётные данные УЗ шлюза"
+msgstr ""
 
 #: assets/automations/ping_gateway/manager.py:97
 msgid "Gateway account authentication failed; check the gateway account credentials"
-msgstr "Не удалось выполнить аутентификацию учётной записи шлюза, проверьте учётные данные УЗ шлюза"
+msgstr ""
 
 #: assets/automations/ping_gateway/manager.py:117
 #, python-format
 msgid "Unable to resolve gateway address %(address)s; check the address and DNS settings"
-msgstr "Не удалось определить адрес шлюза %(address)s, проверьте адрес и настройки DNS"
+msgstr ""
 
 #: assets/automations/ping_gateway/manager.py:126
 #, python-format
 msgid "Unable to connect to gateway %(address)s:%(port)s; check the address, port, and network"
-msgstr "Не удалось подключиться к шлюзу %(address)s:%(port)s, проверьте адрес, порт и сеть"
+msgstr ""
 
 #: assets/automations/ping_gateway/manager.py:134
 #, python-format
 msgid "Gateway check failed: %(error)s"
-msgstr "Проверка шлюза не удалась: %(error)s"
+msgstr ""
 
 #: assets/automations/ping_gateway/manager.py:143
 #: assets/automations/ping_gateway/manager.py:343
@@ -2997,35 +2985,35 @@ msgstr "Нет учетной записи"
 #: assets/automations/ping_gateway/manager.py:155
 #, python-format
 msgid "Checking SSH login and tunnel forwarding: %(gateway)s"
-msgstr "Проверка входа по SSH и перенаправления через SSH туннель: %(gateway)s"
+msgstr ""
 
 #: assets/automations/ping_gateway/manager.py:239
 #, python-format
 msgid "✓ %(gateway)s: SSH login and tunnel forwarding are available"
-msgstr "✓ %(gateway)s: вход по SSH и перенаправление через SSH туннель доступны"
+msgstr ""
 
 #: assets/automations/ping_gateway/manager.py:254
 #, python-format
 msgid "✗ %(gateway)s: %(error)s"
-msgstr "✗ %(gateway)s: %(error)s"
+msgstr ""
 
 #: assets/automations/ping_gateway/manager.py:273
 msgid "Checking gateway connectivity"
-msgstr "Проверка подключения к шлюзу"
+msgstr ""
 
 #: assets/automations/ping_gateway/manager.py:303
 msgid "Gateway not found or inactive"
-msgstr "Шлюз не найден или отключен"
+msgstr ""
 
 #: assets/automations/ping_gateway/manager.py:326
 #: assets/automations/ping_gateway/manager.py:362
 msgid "Task execution timed out"
-msgstr "Время выполнения задачи истекло"
+msgstr ""
 
 #: assets/automations/ping_gateway/manager.py:371
 #, python-brace-format
 msgid "Connectivity succeeded but saving the result failed: {error}"
-msgstr "Проверка подключения выполнена успешно, но сохранить результат не удалось: {error}"
+msgstr ""
 
 #: assets/const/automation.py:6 audits/const.py:6 audits/const.py:48
 #: audits/signal_handlers/activity_log.py:63
@@ -3392,7 +3380,7 @@ msgstr "Папки"
 
 #: assets/models/asset/common.py:217
 msgid "Last login time"
-msgstr "Время последнего входа"
+msgstr ""
 
 #: assets/models/asset/common.py:219 assets/serializers/asset/common.py:495
 #: assets/serializers/asset/host.py:11
@@ -3554,7 +3542,7 @@ msgstr "Правила фильтрации команд"
 
 #: assets/models/favorite_asset.py:22
 msgid "Favorite folder"
-msgstr "Избранное"
+msgstr ""
 
 #: assets/models/favorite_asset.py:38
 msgid "Favorite asset"
@@ -3625,35 +3613,35 @@ msgstr "Не удалось загрузить platform.yml: {}"
 
 #: assets/models/platform.py:97
 msgid "Package automation missing manifest.yml: {}"
-msgstr "В автоматизации пакета платформы отсутствует manifest.yml: {}"
+msgstr ""
 
 #: assets/models/platform.py:101
 msgid "Package automation missing main.yml: {}"
-msgstr "В автоматизации пакета платформы отсутствует main.yml: {}"
+msgstr ""
 
 #: assets/models/platform.py:112
 msgid "Package automation method does not match directory name: {}"
-msgstr "Метод автоматизации пакета не соответствует имени каталога: {}"
+msgstr ""
 
 #: assets/models/platform.py:203
 msgid "Platform automation category must contain platform category: {}"
-msgstr "Категория автоматизации платформы должна содержать категорию платформы: {}"
+msgstr ""
 
 #: assets/models/platform.py:210
 msgid "Platform automation type must contain platform type: {}"
-msgstr "Тип автоматизации платформы должен содержать тип платформы: {}"
+msgstr ""
 
 #: assets/models/platform.py:217
 msgid "Platform automation protocol not found in platform.yml: {}"
-msgstr "Протокол автоматизации платформы не найден в platform.yml: {}"
+msgstr ""
 
 #: assets/models/platform.py:237
 msgid "Platform automation method id already exists: {}"
-msgstr "ID метода автоматизации платформы уже существует: {}"
+msgstr ""
 
 #: assets/models/platform.py:249
 msgid "Only support custom and web platform package"
-msgstr "Поддерживаются только пользовательские пакеты платформы и пакеты Web платформы"
+msgstr ""
 
 #: assets/models/platform.py:254
 msgid "Missing type in platform.yml"
@@ -3661,7 +3649,7 @@ msgstr "Отсутствует тип в platform.yml"
 
 #: assets/models/platform.py:295 assets/models/platform.py:385
 msgid "Platform package"
-msgstr "Пакет платформы"
+msgstr ""
 
 #: assets/models/platform.py:301
 msgid "Primary"
@@ -3916,7 +3904,7 @@ msgstr "Модель GPU"
 
 #: assets/serializers/asset/info/gathered.py:24
 msgid "MAC address"
-msgstr "MAC-адрес"
+msgstr ""
 
 #: assets/serializers/automations/base.py:40
 msgid "Executions"
@@ -4020,7 +4008,7 @@ msgstr "Автоматизация"
 
 #: assets/serializers/platform.py:184
 msgid "Has package"
-msgstr "Имеется пакет платформы"
+msgstr ""
 
 #: assets/serializers/platform.py:206
 msgid "Login with account when accessing assets, then automatically switch to another, similar to logging in with a regular account and then switching to root"
@@ -4154,7 +4142,7 @@ msgstr "SSO"
 
 #: audits/auth_backends.py:18
 msgid "Custom SSO"
-msgstr "Пользовательский SSO"
+msgstr "Пользовательский"
 
 #: audits/auth_backends.py:19
 msgid "Auth Token"
@@ -4335,16 +4323,16 @@ msgstr "Токен аутентификации"
 #: audits/filters.py:97 audits/filters.py:148 audits/filters.py:164
 #: terminal/api/session/session.py:67 terminal/filters.py:26
 msgid "User name"
-msgstr "Имя пользователя"
+msgstr ""
 
 #: audits/filters.py:106 audits/filters.py:154 audits/filters.py:167
 #: terminal/api/component/terminal.py:34
 msgid "Remote address"
-msgstr "Удалённый адрес"
+msgstr ""
 
 #: audits/filters.py:109 terminal/filters.py:20 terminal/filters.py:41
 msgid "Session ID"
-msgstr "ID сессии"
+msgstr ""
 
 #: audits/filters.py:129 audits/models.py:238 audits/reporting.py:231
 #: audits/serializers.py:77
@@ -4368,11 +4356,11 @@ msgstr "ID приложения"
 
 #: audits/filters.py:206 audits/filters.py:223
 msgid "Creator name"
-msgstr "Имя создателя"
+msgstr ""
 
 #: audits/filters.py:226 audits/serializers.py:41
 msgid "Periodic execution"
-msgstr "Периодическое выполнение"
+msgstr ""
 
 #: audits/handler.py:151
 msgid "Yes"
@@ -4461,11 +4449,11 @@ msgstr "Причина"
 
 #: audits/models.py:244
 msgid "Reason code"
-msgstr "Код причины"
+msgstr ""
 
 #: audits/models.py:247
 msgid "Reason params"
-msgstr "Параметр причины"
+msgstr ""
 
 #: audits/models.py:254 authentication/notifications.py:19
 #: authentication/templates/authentication/_msg_different_city.html:10
@@ -4499,60 +4487,60 @@ msgstr "Приложение"
 
 #: audits/reporting.py:11
 msgid "File Transfer Report"
-msgstr "Отчёт о передаче файлов"
+msgstr "Журнал передачи файлов"
 
 #: audits/reporting.py:21 audits/reporting.py:146 audits/reporting.py:264
 #: audits/reporting.py:345 audits/reporting.py:442 audits/reporting.py:529
 #: terminal/reporting.py:23 tickets/reporting.py:16
 msgid "Total records"
-msgstr "Всего записей"
+msgstr "Запись команд"
 
 #: audits/reporting.py:22 audits/reporting.py:94
 msgid "Successful transfers"
-msgstr "Количество успешных передач"
+msgstr "Успешные УЗ"
 
 #: audits/reporting.py:23 audits/reporting.py:94
 msgid "Failed transfers"
-msgstr "Количество неудачных передач"
+msgstr "Журнал передачи файлов"
 
 #: audits/reporting.py:24 audits/reporting.py:94 audits/reporting.py:149
 #: audits/reporting.py:216 audits/reporting.py:533 audits/reporting.py:602
 #: terminal/reporting.py:28 terminal/reporting.py:103
 msgid "Success rate"
-msgstr "Процент успешных передач"
+msgstr "Сообщение об успехе"
 
 #: audits/reporting.py:25
 msgid "Downloadable files"
-msgstr "Кол-во доступных для скачивания"
+msgstr "Скачать"
 
 #: audits/reporting.py:26 audits/reporting.py:150 audits/reporting.py:265
 #: terminal/reporting.py:31
 msgid "Unique users"
-msgstr "Уникальные пользователи"
+msgstr "Проверка неиспользуемых пользователей"
 
 #: audits/reporting.py:27 terminal/reporting.py:32
 msgid "Unique assets"
-msgstr "Уникальные активы"
+msgstr "Просмотр активов, разрешенных пользователю"
 
 #: audits/reporting.py:28
 msgid "Unique accounts"
-msgstr "Уникальные УЗ"
+msgstr "Неудачные УЗ"
 
 #: audits/reporting.py:29 audits/reporting.py:151 audits/reporting.py:267
 #: audits/reporting.py:349
 msgid "Unique IPs"
-msgstr "Уникальные IP"
+msgstr "Уникальные IP-адреса"
 
 #: audits/reporting.py:91 audits/reporting.py:213 audits/reporting.py:309
 #: audits/reporting.py:396 audits/reporting.py:484 audits/reporting.py:599
 #: terminal/reporting.py:100 tickets/reporting.py:62
 msgid "Overview"
-msgstr "Обзор"
+msgstr "Требовать одобрения"
 
 #: audits/reporting.py:93 audits/reporting.py:215 audits/reporting.py:311
 #: audits/reporting.py:398 audits/reporting.py:601 terminal/reporting.py:102
 msgid "Daily Trend"
-msgstr "Динамика по дням"
+msgstr "Дневная динамика"
 
 #: audits/reporting.py:94 audits/reporting.py:216 audits/reporting.py:602
 #: terminal/reporting.py:103
@@ -4561,7 +4549,7 @@ msgstr "Итого"
 
 #: audits/reporting.py:98
 msgid "Transfer Type Distribution"
-msgstr "Распределение по типам передачи"
+msgstr "Распределение типов передачи"
 
 #: audits/reporting.py:99 audits/reporting.py:104 audits/reporting.py:109
 #: audits/reporting.py:114 audits/reporting.py:119 audits/reporting.py:124
@@ -4581,49 +4569,49 @@ msgstr "Распределение по типам передачи"
 #: tickets/reporting.py:70 tickets/reporting.py:75 tickets/reporting.py:80
 #: tickets/reporting.py:85 tickets/reporting.py:90 tickets/reporting.py:95
 msgid "Count"
-msgstr "Количество"
+msgstr "Кол-во CPU"
 
 #: audits/reporting.py:103 audits/reporting.py:316 terminal/reporting.py:117
 msgid "User Top 10"
-msgstr "Топ 10 пользователей"
+msgstr "Группа пользователей"
 
 #: audits/reporting.py:108 terminal/reporting.py:122
 msgid "Asset Top 10"
-msgstr "Топ 10 активов"
+msgstr "Тип актива"
 
 #: audits/reporting.py:113
 msgid "Account Top 10"
-msgstr "Топ 10 УЗ"
+msgstr "ID УЗ"
 
 #: audits/reporting.py:118 audits/reporting.py:326 audits/reporting.py:423
 #: terminal/reporting.py:132
 msgid "IP Top 10"
-msgstr "Топ 10 IP"
+msgstr "Топ-10 IP-адресов"
 
 #: audits/reporting.py:123
 msgid "Filename Top 10"
-msgstr "Топ 10 имён файлов"
+msgstr "Имя файла"
 
 #: audits/reporting.py:128
 msgid "Transfer Time Distribution"
-msgstr "Распределение по времени передачи"
+msgstr "Распределение времени передачи"
 
 #: audits/reporting.py:129 audits/reporting.py:236 audits/reporting.py:332
 #: audits/reporting.py:429
 msgid "Time range"
-msgstr "Временной диапазон"
+msgstr "Время использования"
 
 #: audits/reporting.py:136
 msgid "User Login Report"
-msgstr "Отчёт о входах пользователей"
+msgstr "Отчет о входах пользователей"
 
 #: audits/reporting.py:147 audits/reporting.py:216
 msgid "Successful logins"
-msgstr "Успешные входы"
+msgstr "Успешные УЗ"
 
 #: audits/reporting.py:148 audits/reporting.py:216
 msgid "Failed logins"
-msgstr "Неудачные входы"
+msgstr "Неудачные УЗ"
 
 #: audits/reporting.py:152
 msgid "Unique cities"
@@ -4631,39 +4619,39 @@ msgstr "Уникальные города"
 
 #: audits/reporting.py:153
 msgid "Unique auth backends"
-msgstr "Уникальные модули аутентификации"
+msgstr "Токен аутентификации"
 
 #: audits/reporting.py:220
 msgid "Login Type Distribution"
-msgstr "Распределение по типам входа"
+msgstr "Включить уведомление о перенаправлении при входе"
 
 #: audits/reporting.py:225
 msgid "Auth Backend Distribution"
-msgstr "Распределение по модулям аутентификации"
+msgstr "Способ аутентификации"
 
 #: audits/reporting.py:230
 msgid "MFA Distribution"
-msgstr "Распределение по MFA"
+msgstr "Настойки МФА"
 
 #: audits/reporting.py:235
 msgid "Login Time Distribution"
-msgstr "Распределение по времени входа"
+msgstr "Включить уведомление о перенаправлении при входе"
 
 #: audits/reporting.py:240
 msgid "Failed User Top 10"
-msgstr "Топ 10 пользователей с ошибками входа"
+msgstr "Топ-10 пользователей с ошибками"
 
 #: audits/reporting.py:245
 msgid "Failed IP Top 10"
-msgstr "Топ 10 IP с неудачными входами"
+msgstr "Топ-10 IP-адресов с ошибками"
 
 #: audits/reporting.py:250
 msgid "Failed Reason Top 10"
-msgstr "Топ 10 причин неудачных входов"
+msgstr "Топ-10 причин ошибок"
 
 #: audits/reporting.py:258
 msgid "Password Change Report"
-msgstr "Отчёт об изменении паролей"
+msgstr "Журнал изменения пароля"
 
 #: audits/reporting.py:266 audits/reporting.py:346
 msgid "Unique operators"
@@ -4671,19 +4659,19 @@ msgstr "Уникальные операторы"
 
 #: audits/reporting.py:321 audits/reporting.py:413
 msgid "Operator Top 10"
-msgstr "Топ 10 операторов"
+msgstr "Журнал операций"
 
 #: audits/reporting.py:331
 msgid "Change Time Distribution"
-msgstr "Распределение по времени изменения"
+msgstr "Изменение настроек SMS"
 
 #: audits/reporting.py:339
 msgid "Operate Log Report"
-msgstr "Отчёт об операциях"
+msgstr "Журнал операций"
 
 #: audits/reporting.py:347
 msgid "Unique resource types"
-msgstr "Уникальные типы ресурсов"
+msgstr "Тип ресурса"
 
 #: audits/reporting.py:348
 msgid "Unique resources"
@@ -4691,31 +4679,31 @@ msgstr "Связанные ресурсы"
 
 #: audits/reporting.py:403
 msgid "Action Distribution"
-msgstr "Распределение по типам действий"
+msgstr "Разрешения на действия"
 
 #: audits/reporting.py:408
 msgid "Resource Type Distribution"
-msgstr "Распределение по типам ресурсов"
+msgstr "Тип ресурса"
 
 #: audits/reporting.py:418
 msgid "Resource Top 10"
-msgstr "Топ 10 ресурсов"
+msgstr "Тип ресурса"
 
 #: audits/reporting.py:428
 msgid "Operate Time Distribution"
-msgstr "Распределение по времени операций"
+msgstr "Распределение времени операций"
 
 #: audits/reporting.py:436
 msgid "Job Audit Report"
-msgstr "Отчёт аудита заданий"
+msgstr "Журнал аудита заданий"
 
 #: audits/reporting.py:443
 msgid "Periodic jobs"
-msgstr "Периодические задания"
+msgstr "Периодическое выполнение"
 
 #: audits/reporting.py:444
 msgid "One-time jobs"
-msgstr "Разовые задания"
+msgstr "Одноразовые задания"
 
 #: audits/reporting.py:445
 msgid "Adhoc jobs"
@@ -4736,15 +4724,15 @@ msgstr "Playbook"
 
 #: audits/reporting.py:486 tickets/reporting.py:64
 msgid "Created Trend"
-msgstr "Динамика создания"
+msgstr "Создать тип"
 
 #: audits/reporting.py:491 audits/reporting.py:611
 msgid "Job Type Distribution"
-msgstr "Распределение по типам заданий"
+msgstr "Распределение типов заданий"
 
 #: audits/reporting.py:496
 msgid "Module Distribution"
-msgstr "Распределение по модулям"
+msgstr "Распределение модулей"
 
 #: audits/reporting.py:497 ops/filters.py:19 ops/models/adhoc.py:22
 #: ops/models/job.py:188
@@ -4753,7 +4741,7 @@ msgstr "Модуль"
 
 #: audits/reporting.py:501 audits/reporting.py:616
 msgid "Creator Top 10"
-msgstr "Топ 10 создателей"
+msgstr "Создатель"
 
 #: audits/reporting.py:502 audits/reporting.py:617 audits/serializers.py:33
 #: ops/models/adhoc.py:24 ops/models/base.py:16 ops/models/base.py:53
@@ -4765,7 +4753,7 @@ msgstr "Создатель"
 
 #: audits/reporting.py:506
 msgid "Run as Policy Distribution"
-msgstr "Распределение по политике выполнения"
+msgstr "Политика пользователя"
 
 #: audits/reporting.py:507 ops/models/job.py:201
 msgid "Run as policy"
@@ -4773,19 +4761,19 @@ msgstr "Политика пользователя"
 
 #: audits/reporting.py:514
 msgid "Job Log Report"
-msgstr "Отчёт журналов заданий"
+msgstr "Отчёт"
 
 #: audits/reporting.py:530 audits/reporting.py:602
 msgid "Successful jobs"
-msgstr "Успешные задания"
+msgstr "Успешные УЗ"
 
 #: audits/reporting.py:531 audits/reporting.py:602
 msgid "Finished jobs"
-msgstr "Завершённые задания"
+msgstr "Завершено"
 
 #: audits/reporting.py:532 audits/reporting.py:602
 msgid "Unfinished jobs"
-msgstr "Незавершённые задания"
+msgstr "Завершено"
 
 #: audits/reporting.py:537
 msgid "Unique task ids"
@@ -4793,11 +4781,11 @@ msgstr "Уникальные ID задач"
 
 #: audits/reporting.py:538
 msgid "Average duration"
-msgstr "Средняя продолжительность"
+msgstr "Смена паролей"
 
 #: audits/reporting.py:606
 msgid "Status Distribution"
-msgstr "Распределение по статусам"
+msgstr "Распределение статусов"
 
 #: audits/reporting.py:612 ops/filters.py:57 ops/serializers/job.py:91
 msgid "Job type"
@@ -4805,11 +4793,11 @@ msgstr "Тип задачи"
 
 #: audits/reporting.py:621 terminal/reporting.py:137
 msgid "Duration Distribution"
-msgstr "Распределение по продолжительности"
+msgstr "Распределение длительности"
 
 #: audits/reporting.py:622 terminal/reporting.py:138
 msgid "Duration range"
-msgstr "Диапазон продолжительности"
+msgstr "Продолжительность"
 
 #: audits/serializers.py:39 ops/serializers/celery.py:30
 msgid "Execution cycle"
@@ -5030,59 +5018,59 @@ msgstr "Ошибка SAML2"
 
 #: authentication/backends/ukey/api.py:54
 msgid "Certificate enrollment is not enabled"
-msgstr "Выпуск сертификатов не включён"
+msgstr "LDAP аутентификация не включена"
 
 #: authentication/backends/ukey/api.py:59
 msgid "CSR is required"
-msgstr "Требуется CSR"
+msgstr "тип обязателен"
 
 #: authentication/backends/ukey/api.py:65
 msgid "Certificate signing failed"
-msgstr "Не удалось подписать сертификат"
+msgstr "Ошибка аутентификации"
 
 #: authentication/backends/ukey/exceptions.py:8
 msgid "Certificate authentication failed"
-msgstr "Не удалось выполнить аутентификацию по сертификату"
+msgstr "Может войти с открытым ключем"
 
 #: authentication/backends/ukey/exceptions.py:16
 msgid "User does not exist"
-msgstr "Пользователь не существует"
+msgstr "Пользователь не существует: {}"
 
 #: authentication/backends/ukey/exceptions.py:20
 msgid "UKey SN mismatch"
-msgstr "Серийный номер UKey не совпадает"
+msgstr ""
 
 #: authentication/backends/ukey/exceptions.py:24
 msgid "Invalid certificate format"
-msgstr "Недопустимый формат сертификата"
+msgstr "Неверный код подтверждения"
 
 #: authentication/backends/ukey/exceptions.py:28
 msgid "Certificate chain verification failed"
-msgstr "Не удалось проверить цепочку сертификатов"
+msgstr "Ошибка аутентификации"
 
 #: authentication/backends/ukey/exceptions.py:32
 msgid "Certificate CN does not match the username"
-msgstr "CN сертификата не соответствует имени пользователя"
+msgstr "LDAP аутентификация не включена"
 
 #: authentication/backends/ukey/exceptions.py:36
 msgid "Certificate signature verification failed"
-msgstr "Не удалось проверить подпись сертификата"
+msgstr "Ошибка аутентификации"
 
 #: authentication/backends/ukey/exceptions.py:40
 msgid "Certificate has expired or is not yet valid"
-msgstr "Срок действия сертификата истёк или ещё не начался"
+msgstr "LDAP аутентификация не включена"
 
 #: authentication/backends/ukey/exceptions.py:44
 msgid "Unsupported certificate algorithm"
-msgstr "Неподдерживаемый алгоритм сертификата"
+msgstr "Неподдерживаемое содержимое файла"
 
 #: authentication/backends/ukey/views.py:93
 msgid "Authentication challenge expired, please refresh the page and try again."
-msgstr "Срок действия запроса на аутентификацию истёк, обновите страницу и повторите попытку"
+msgstr ""
 
 #: authentication/backends/ukey/views.py:108
 msgid "Invalid credentials"
-msgstr "Недопустимые учётные данные"
+msgstr "Недопустимые данные"
 
 #: authentication/confirm/password.py:17
 msgid "Authentication failed password incorrect"
@@ -5174,12 +5162,12 @@ msgstr "Введенное вами имя пользователя или па�
 #: authentication/errors/const.py:52 authentication/errors/const.py:60
 #, python-brace-format
 msgid "The account has been locked (please contact admin to unlock it or try again after {block_time} minutes)"
-msgstr "Учётная запись заблокирована (обратитесь к администратору для разблокировки или повторите попытку через {block_time} минут)"
+msgstr ""
 
 #: authentication/errors/const.py:56
 #, python-brace-format
 msgid "The address has been locked (please contact admin to unlock it or try again after {block_time} minutes)"
-msgstr "Адрес заблокирован (обратитесь к администратору для разблокировки или повторите попытку через {block_time} минут)"
+msgstr ""
 
 #: authentication/errors/const.py:64
 #, python-brace-format
@@ -5205,7 +5193,7 @@ msgstr "Ожидание обработки заявки на вход в сис
 #: authentication/errors/const.py:79
 #, python-brace-format
 msgid "Login confirm ticket was {status}"
-msgstr "Проверка входа: {status}"
+msgstr ""
 
 #: authentication/errors/failed.py:172
 msgid "Current login is prohibited by ACL rules"
@@ -5427,7 +5415,7 @@ msgstr "Введите пароль"
 
 #: authentication/models/connection_token.py:47
 msgid "Input secret type"
-msgstr "Тип вводимого секрета"
+msgstr ""
 
 #: authentication/models/connection_token.py:48
 #: authentication/serializers/connect_token_secret.py:128
@@ -5859,16 +5847,16 @@ msgstr "Если вы не можете предоставить код МФА, 
 
 #: authentication/templates/authentication/login_ukey.html:194
 msgid "UKey Authentication"
-msgstr "Аутентификация UKey"
+msgstr ""
 
 #: authentication/templates/authentication/login_ukey.html:199
 #: authentication/templates/authentication/login_ukey.html:244
 msgid "Loading UKey SDK..."
-msgstr "Загрузка драйвера UKey SDK..."
+msgstr ""
 
 #: authentication/templates/authentication/login_ukey.html:214
 msgid "Insert UKey to auto-fetch"
-msgstr "Автоматически получать при подключении UKey"
+msgstr ""
 
 #: authentication/templates/authentication/login_ukey.html:232
 #: xpack/plugins/interface/templates/login_i18n.html:22
@@ -5877,7 +5865,7 @@ msgstr "Другие способы входа"
 
 #: authentication/templates/authentication/login_ukey.html:245
 msgid "Detecting UKey..."
-msgstr "Определение UKey..."
+msgstr ""
 
 #: authentication/templates/authentication/login_ukey.html:246
 msgid "UKey connected"
@@ -5905,7 +5893,7 @@ msgstr "PIN подтвержден"
 
 #: authentication/templates/authentication/login_ukey.html:252
 msgid "PIN verification failed"
-msgstr "Не удалось проверить PIN"
+msgstr "Ошибка проверки PIN"
 
 #: authentication/templates/authentication/login_ukey.html:253
 msgid "Signing challenge code..."
@@ -5913,7 +5901,7 @@ msgstr "Подписание кода запроса..."
 
 #: authentication/templates/authentication/login_ukey.html:254
 msgid "Signing failed"
-msgstr "Не удалось выполнить подписание"
+msgstr "Не удалось выполнить подпись"
 
 #: authentication/templates/authentication/login_ukey.html:255
 msgid "Failed to retrieve UKey cert"
@@ -5955,7 +5943,7 @@ msgstr "Локальная сеть"
 #: authentication/utils.py:150 settings/serializers/auth/ukey.py:11
 #: settings/serializers/auth/ukey.py:14 users/models/user/_source.py:27
 msgid "UKey"
-msgstr "UKey"
+msgstr ""
 
 #: authentication/views/base.py:72
 #: perms/templates/perms/_msg_permed_items_expire.html:18
@@ -6074,7 +6062,7 @@ msgstr "Вы успешно вышли, вернитесь на страницу
 
 #: authentication/views/mfa.py:66
 msgid "Please verify an active MFA before binding OTP."
-msgstr "Перед привязкой OTP сначала пройдите проверку действующего MFA."
+msgstr ""
 
 #: authentication/views/mixins.py:30
 msgid "For your safety, automatic redirection login is not supported on the client. If you need to open it in the client, please log in again"
@@ -6255,11 +6243,11 @@ msgstr "Объект"
 
 #: common/drf/filters.py:524
 msgid "Created days"
-msgstr "Дата создания (дней)"
+msgstr ""
 
 #: common/drf/filters.py:527
 msgid "Created days less than"
-msgstr "Дата создания ранее (дней)"
+msgstr ""
 
 #: common/drf/metadata.py:163
 msgid "Org ID"
@@ -6335,7 +6323,7 @@ msgstr "Много связанных элементов, формат: [\"id\",
 
 #: common/drf/renders/base.py:301
 msgid "{} - Encryption password not set - Please go to Personal Settings → Preferences → File Encryption Password to set it."
-msgstr "{} - Пароль шифрования не установлен - перейдите в Профиль → Настройки предпочтений → Шифрование файлов и установите пароль."
+msgstr "{} - Не установлен пароль шифрования - пожалуйста, перейдите в Персональные настройки -> Настройки предпочтений"
 
 #: common/drf/renders/mixins.py:37 labels/serializers.py:25
 msgid "Resource count"
@@ -6355,7 +6343,7 @@ msgstr "Экспорт отфильтрованных"
 
 #: common/drf/reporting.py:23
 msgid "Data"
-msgstr "Данные"
+msgstr "База данных"
 
 #: common/drf/reporting.py:25 common/drf/reporting.py:180 rbac/tree.py:71
 #: reports/models.py:24
@@ -6364,31 +6352,31 @@ msgstr "Отчёт"
 
 #: common/drf/reporting.py:37 terminal/filters.py:16
 msgid "Date from"
-msgstr "Дата начала"
+msgstr "Дата отключения"
 
 #: common/drf/reporting.py:38 terminal/filters.py:18
 msgid "Date to"
-msgstr "Дата окончания"
+msgstr "Дата отключения"
 
 #: common/drf/reporting.py:116
 msgid "All data"
-msgstr "Все данные"
+msgstr "Все активы"
 
 #: common/drf/reporting.py:181
 msgid "Generated at"
-msgstr "Время формирования"
+msgstr "Основной"
 
 #: common/drf/reporting.py:182
 msgid "Exported rows"
-msgstr "Экспортировано строк"
+msgstr "Экспорт"
 
 #: common/drf/reporting.py:183 reports/models.py:20
 msgid "Filters"
-msgstr "Фильтры"
+msgstr "Фильтр"
 
 #: common/drf/reporting.py:210
 msgid "Report Summary"
-msgstr "Сводка отчёта"
+msgstr "Сводка"
 
 #: common/exceptions.py:15 xpack/plugins/cloud/ws.py:36
 #, python-format
@@ -6425,7 +6413,7 @@ msgstr "Неверная конфигурация Elasticsearch"
 
 #: common/plugins/es.py:49
 msgid "The server is not Elasticsearch or this product is not supported"
-msgstr "Сервер не является Elasticsearch, или текущий продукт не поддерживается"
+msgstr ""
 
 #: common/plugins/es.py:54
 msgid "Not Support Elasticsearch8"
@@ -6685,11 +6673,11 @@ msgstr "Сообщение сайта"
 
 #: notifications/const.py:8
 msgid "Popup"
-msgstr "Всплывающее окно"
+msgstr ""
 
 #: notifications/filters.py:16
 msgid "Has read"
-msgstr "Прочитано"
+msgstr ""
 
 #: notifications/models/notification.py:14
 msgid "receive backend"
@@ -6720,7 +6708,7 @@ msgstr "Эта задача выполняется при необходимос
 #: ops/ansible/docker.py:116
 #, python-format
 msgid "The Ansible Docker image \"%(image)s\" was not found. To run jobs locally instead, disable \"Docker isolation for Ansible\" under System Settings > Feature Settings > Job Center. To continue using the Docker execution environment, run this command on the Ansible worker: docker pull %(image)s"
-msgstr "Образ Ansible Docker «%(image)s» не найден. Чтобы выполнять задания локально, отключите «Изоляция Ansible в Docker» в разделе «Системные настройки > Функции > Центр заданий». Чтобы продолжить использовать среду выполнения Docker, выполните на Ansible Worker: docker pull %(image)s"
+msgstr ""
 
 #: ops/ansible/inventory.py:194 ops/ansible/inventory.py:281
 #: ops/models/job.py:99
@@ -6729,7 +6717,7 @@ msgstr "Нет доступных учетных записей"
 
 #: ops/ansible/inventory.py:216
 msgid "The platform uses su, but the directly connected account does not have a target root credential. Configure su_from or use a root account."
-msgstr "Платформа использует su, но учётная запись для прямого подключения не имеет учётных данных для целевой учётной записи root. Настройте su_from или подключайтесь непосредственно под учётной записью root."
+msgstr ""
 
 #: ops/ansible/inventory.py:406 ops/ansible/inventory.py:467
 msgid "Ansible disabled"
@@ -6741,7 +6729,7 @@ msgstr "Пропустить следующие хосты:"
 
 #: ops/api/celery.py:48
 msgid "Task name or comment"
-msgstr "Имя или описание задачи"
+msgstr ""
 
 #: ops/api/celery.py:209
 msgid "Task {} not found"
@@ -6753,7 +6741,7 @@ msgstr "Ошибка параметров выполнения задачи {}"
 
 #: ops/api/job.py:66
 msgid "Login to asset {}({}) is rejected by login asset ACL ({})"
-msgstr "Вход на актив {}({}) запрещён правилами доступа к ресурсу ({})"
+msgstr "Вход в актив { }({}) был отклонен, ограниченный правилами доступа ACL ({})"
 
 #: ops/api/job.py:173
 msgid "Duplicate file exists"
@@ -6923,15 +6911,15 @@ msgstr "нет доступных точек входа."
 
 #: ops/filters.py:23 ops/filters.py:36 ops/filters.py:60
 msgid "Creator ID"
-msgstr "ID создателя"
+msgstr ""
 
 #: ops/filters.py:39
 msgid "Create method"
-msgstr "Способ создания"
+msgstr ""
 
 #: ops/filters.py:51
 msgid "Job ID"
-msgstr "ID задания"
+msgstr ""
 
 #: ops/mixin.py:34 ops/mixin.py:166 settings/serializers/auth/ldap.py:81
 #: settings/serializers/auth/ldap_ha.py:63
@@ -7415,27 +7403,27 @@ msgstr "ID пользователя"
 
 #: perms/filters.py:73 users/filters.py:20
 msgid "User group ID"
-msgstr "ID группы пользователей"
+msgstr ""
 
 #: perms/filters.py:77 users/filters.py:17
 msgid "User group name"
-msgstr "Название группы пользователей"
+msgstr ""
 
 #: perms/filters.py:163
 msgid "Is effective"
-msgstr "Действует"
+msgstr ""
 
 #: perms/filters.py:165
 msgid "Node ID"
-msgstr "ID папки"
+msgstr ""
 
 #: perms/filters.py:167
 msgid "Node name"
-msgstr "Имя папки"
+msgstr ""
 
 #: perms/filters.py:177
 msgid "No resource"
-msgstr "Нет ресурсов"
+msgstr ""
 
 #: perms/models/asset_permission.py:89
 msgid "Asset permission"
@@ -7529,14 +7517,19 @@ msgid "Send asset permission expired notification"
 msgstr "Отправка уведомлений об истечении действия разрешения на актив"
 
 #: perms/tasks.py:52
+#| msgid ""
+#| "Check every day at 10 a.m. and send a notification message to users "
+#| "associated with \n"
+#| "        assets whose authorization is about to expire, as well as to the "
+#| "organization's \n"
+#| "        administrators in advance, to remind them that the asset "
+#| "authorization\n"
+#| "        expire in a few days"
 msgid "Check every day at 10 a.m. and send a notification message to users associated with \n"
 "        assets whose authorization is about to expire, as well as to the organization's \n"
 "        administrators in advance, to remind them that the asset authorization\n"
 "        will expire in a few days"
-msgstr "Каждый день в 10 часов утра проверять и заранее отправлять уведомления \n"
-"        связанным с активами пользователям и администраторам организации, \n"
-"        если срок действия авторизации активов приближается к окончанию, \n"
-"        напоминая о том, что авторизация активов истечёт через несколько дней"
+msgstr ""
 
 #: perms/templates/perms/_msg_item_permissions_expire.html:7
 #: perms/templates/perms/_msg_permed_items_expire.html:7
@@ -7594,7 +7587,7 @@ msgstr "Пользователь организации"
 
 #: rbac/filters.py:16 rbac/filters.py:28
 msgid "Role name"
-msgstr "Имя роли"
+msgstr ""
 
 #: rbac/models/menu.py:13
 msgid "Menu permission"
@@ -7626,7 +7619,7 @@ msgstr "Просмотр файлового менеджера"
 
 #: rbac/models/menu.py:21
 msgid "Can view jdmc console"
-msgstr "Просмотр консоли JDMC"
+msgstr "Просмотр консоли"
 
 #: rbac/models/menu.py:22
 msgid "Can view System Tools"
@@ -7638,11 +7631,11 @@ msgstr "Просмотр отчетов о входе пользователей
 
 #: rbac/models/menu.py:24
 msgid "Can create user login report"
-msgstr "Создание отчетов о входах пользователей"
+msgstr "Просмотр отчетов о входе пользователей"
 
 #: rbac/models/menu.py:25
 msgid "Can delete user login report"
-msgstr "Удаление отчетов о входах пользователей"
+msgstr "Просмотр отчетов о входе пользователей"
 
 #: rbac/models/menu.py:26
 msgid "Can view user change password report"
@@ -7650,11 +7643,11 @@ msgstr "Просмотр отчетов о смене пароля пользо�
 
 #: rbac/models/menu.py:27
 msgid "Can create user change password report"
-msgstr "Создание отчетов о смене пароля пользователей"
+msgstr "Просмотр отчетов о смене пароля пользователей"
 
 #: rbac/models/menu.py:28
 msgid "Can delete user change password report"
-msgstr "Удаление отчетов о смене пароля пользователей"
+msgstr "Просмотр отчетов о смене пароля пользователей"
 
 #: rbac/models/menu.py:29
 msgid "Can view asset statistics report"
@@ -7662,11 +7655,11 @@ msgstr "Просмотр отчетов по статистике активов
 
 #: rbac/models/menu.py:30
 msgid "Can create asset statistics report"
-msgstr "Создание отчетов со статистикой активов"
+msgstr "Просмотр отчетов по статистике активов"
 
 #: rbac/models/menu.py:31
 msgid "Can delete asset statistics report"
-msgstr "Удаление отчетов со статистикой активов"
+msgstr "Просмотр отчетов по статистике активов"
 
 #: rbac/models/menu.py:32
 msgid "Can view asset activity report"
@@ -7674,11 +7667,11 @@ msgstr "Просмотр отчетов о действиях с активам�
 
 #: rbac/models/menu.py:33
 msgid "Can create asset activity report"
-msgstr "Создание отчетов о действиях с активами"
+msgstr "Просмотр отчетов о действиях с активами"
 
 #: rbac/models/menu.py:34
 msgid "Can delete asset activity report"
-msgstr "Удаление отчетов о действиях с активами"
+msgstr "Просмотр отчетов о действиях с активами"
 
 #: rbac/models/menu.py:35
 msgid "Can view account statistics report"
@@ -7686,11 +7679,11 @@ msgstr "Просмотр отчетов по статистике УЗ"
 
 #: rbac/models/menu.py:36
 msgid "Can create account statistics report"
-msgstr "Создание отчетов по статистике УЗ"
+msgstr "Просмотр отчетов по статистике УЗ"
 
 #: rbac/models/menu.py:37
 msgid "Can delete account statistics report"
-msgstr "Удаление отчетов по статистике УЗ"
+msgstr "Просмотр отчетов по статистике УЗ"
 
 #: rbac/models/menu.py:38
 msgid "Can view account automation report"
@@ -7698,11 +7691,11 @@ msgstr "Просмотр отчетов об автоматизации УЗ"
 
 #: rbac/models/menu.py:39
 msgid "Can create account automation report"
-msgstr "Создание отчетов об автоматизации УЗ"
+msgstr "Просмотр отчетов об автоматизации УЗ"
 
 #: rbac/models/menu.py:40
 msgid "Can delete account automation report"
-msgstr "Удаление отчетов об автоматизации УЗ"
+msgstr "Просмотр отчетов об автоматизации УЗ"
 
 #: rbac/models/permission.py:18
 msgid "ContentType"
@@ -7821,7 +7814,7 @@ msgstr "Аудит заданий"
 
 #: rbac/tree.py:138
 msgid "JDMC console"
-msgstr "Консоль JDMC"
+msgstr "Консоль"
 
 #: rbac/tree.py:202
 msgid "App organizations"
@@ -7858,7 +7851,7 @@ msgstr "Отзыв токена доступа"
 
 #: reports/models.py:19
 msgid "Range days"
-msgstr "Дней в диапазоне"
+msgstr "Изменивший"
 
 #: reports/views.py:22
 msgid "User login report"
@@ -7959,74 +7952,70 @@ msgid "Encrypted"
 msgstr "Зашифровано"
 
 #: settings/models.py:168
-msgid "Can change basic setting"
-msgstr "Изменение основных настроек"
-
-#: settings/models.py:169
 msgid "Can change email setting"
 msgstr "Изменение настроек почты"
 
-#: settings/models.py:170
+#: settings/models.py:169
 msgid "Can change auth setting"
 msgstr "Изменение настроек аутентификации"
 
-#: settings/models.py:171
+#: settings/models.py:170
 msgid "Can change auth ops"
 msgstr "Изменение настроек центра заданий"
 
-#: settings/models.py:172
+#: settings/models.py:171
 msgid "Can change auth ticket"
 msgstr "Изменение настроек заявок"
 
-#: settings/models.py:173
+#: settings/models.py:172
 msgid "Can change virtual app setting"
 msgstr "Изменение настроек виртуальных приложений"
 
-#: settings/models.py:174
+#: settings/models.py:173
 msgid "Can change auth announcement"
 msgstr "Изменение объявления на входе"
 
-#: settings/models.py:175
+#: settings/models.py:174
 msgid "Can change vault setting"
 msgstr "Изменение настроек Vault"
 
-#: settings/models.py:176
+#: settings/models.py:175
 msgid "Can change chat ai setting"
 msgstr "Изменение настроек чат-ИИ"
 
-#: settings/models.py:177
+#: settings/models.py:176
 msgid "Can change system msg sub setting"
 msgstr "Изменение настроек подписки на сообщения"
 
-#: settings/models.py:178
+#: settings/models.py:177
 msgid "Can change sms setting"
 msgstr "Изменение настроек SMS"
 
-#: settings/models.py:179
+#: settings/models.py:178
 msgid "Can change security setting"
 msgstr "Изменение настроек безопасности"
 
-#: settings/models.py:180
+#: settings/models.py:179
 msgid "Can change clean setting"
 msgstr "Изменение настроек регулярной очистки"
 
-#: settings/models.py:181
+#: settings/models.py:180
 msgid "Can change interface setting"
 msgstr "Изменение настроек интерфейса"
 
-#: settings/models.py:182
+#: settings/models.py:181
 msgid "Can change license setting"
 msgstr "Изменение настроек лицензии"
 
-#: settings/models.py:183
+#: settings/models.py:182
 msgid "Can change terminal setting"
 msgstr "Изменение настроек терминала"
 
-#: settings/models.py:184
+#: settings/models.py:183
 msgid "Can change other setting"
 msgstr "Изменение прочих настроек"
 
-#: settings/models.py:194
+#: settings/models.py:193
 msgid "Chat prompt"
 msgstr "Подсказка в чате"
 
@@ -8092,7 +8081,7 @@ msgstr "Аутентификация Passkey"
 
 #: settings/serializers/auth/base.py:27
 msgid "UKey Auth"
-msgstr "Аутентификация UKey"
+msgstr "Аутентификация Passkey"
 
 #: settings/serializers/auth/base.py:29
 msgid "Email suffix"
@@ -8163,7 +8152,7 @@ msgstr "Атрибуты пользователя"
 
 #: settings/serializers/auth/cas.py:36
 msgid "User attribute mapping, where the `key` is the CAS service user attribute name and the `value` is this system user attribute name"
-msgstr "Сопоставление атрибутов пользователя, где \"ключ\" — это название атрибута пользователя CAS, а \"значение\" — название атрибута пользователя этой системы"
+msgstr "Сопоставление атрибутов пользователя, где \"ключ\" — это название атрибута пользователя CAS, а \"значение\" — название атрибута пользователя системы"
 
 #: settings/serializers/auth/dingtalk.py:16
 msgid "Dingtalk"
@@ -8238,7 +8227,7 @@ msgstr "Таймаут соединения (сек)"
 
 #: settings/serializers/auth/ldap.py:95 settings/serializers/auth/ldap_ha.py:77
 msgid "Strict sync"
-msgstr "Строгий режим"
+msgstr "Строгая синхронизация"
 
 #: settings/serializers/auth/ldap.py:96 settings/serializers/auth/ldap_ha.py:78
 msgid "In strict mode, users not found in LDAP will be disabled during full or automatic sync"
@@ -8261,42 +8250,42 @@ msgstr "Размер страницы поиска (шт.)"
 #: settings/serializers/auth/ldap.py:118
 #: settings/serializers/auth/ldap_ha.py:100
 msgid "StartTLS"
-msgstr "StartTLS"
+msgstr ""
 
 #: settings/serializers/auth/ldap.py:119
 #: settings/serializers/auth/ldap_ha.py:101
 msgid "Use StartTLS to upgrade ldap:// connections to TLS"
-msgstr "Использовать StartTLS для перевода соединений ldap:// на TLS"
+msgstr ""
 
 #: settings/serializers/auth/ldap.py:123
 #: settings/serializers/auth/ldap_ha.py:105 settings/serializers/msg.py:76
 msgid "CA certificate"
-msgstr "Сертификат CA"
+msgstr ""
 
 #: settings/serializers/auth/ldap.py:124
 #: settings/serializers/auth/ldap_ha.py:106
 msgid "CA certificate for verifying LDAPS/StartTLS server"
-msgstr "Сертификат CA для проверки сертификата сервера LDAPS/StartTLS"
+msgstr ""
 
 #: settings/serializers/auth/ldap.py:128
 #: settings/serializers/auth/ldap_ha.py:110
 msgid "Client certificate"
-msgstr "Сертификат клиента"
+msgstr ""
 
 #: settings/serializers/auth/ldap.py:129
 #: settings/serializers/auth/ldap_ha.py:111
 msgid "Client certificate for mutual TLS (optional)"
-msgstr "Сертификат клиента для двустороннего TLS (необязательно)"
+msgstr ""
 
 #: settings/serializers/auth/ldap.py:133
 #: settings/serializers/auth/ldap_ha.py:115
 msgid "Client private key"
-msgstr "Закрытый ключ клиента"
+msgstr ""
 
 #: settings/serializers/auth/ldap.py:134
 #: settings/serializers/auth/ldap_ha.py:116
 msgid "Client private key for mutual TLS (optional)"
-msgstr "Закрытый ключ клиента для двустороннего TLS (необязательно)"
+msgstr ""
 
 #: settings/serializers/auth/ldap_ha.py:28
 #: settings/serializers/auth/ldap_ha.py:97
@@ -8502,7 +8491,7 @@ msgstr "Сертификат SP"
 
 #: settings/serializers/auth/saml2.py:37
 msgid "User attribute mapping, where the `key` is the SAML2 service user attribute name and the `value` is this system user attribute name"
-msgstr "Сопоставление атрибутов пользователя, где \"ключ\" — это название атрибута пользователя сервиса SAML2, а \"значение\" — название атрибута пользователя этой системы"
+msgstr "Сопоставление атрибутов пользователя, где \"ключ\" — это имя атрибута пользователя SAML2, а \"значение\" — имя атрибута пользователя системы"
 
 #: settings/serializers/auth/saml2.py:43
 msgid "When the user signs out, they also be logged out from the SAML2 server"
@@ -8510,7 +8499,7 @@ msgstr "При выходе пользователя из системы он т
 
 #: settings/serializers/auth/slack.py:20
 msgid "User attribute mapping, where the `key` is this system user attribute name and the `value` is the Slack service user attribute name"
-msgstr "Сопоставление атрибутов пользователя, где \"ключ\" — это название атрибута пользователя этой системы, а \"значение\" — название атрибута пользователя сервиса Slack"
+msgstr "Сопоставление атрибутов пользователя, где \"ключ\" — это имя атрибута пользователя системы, а \"значение\" — имя атрибута пользователя Slack сервиса"
 
 #: settings/serializers/auth/sms.py:18
 msgid "Enable Short Message Service (SMS)"
@@ -8596,7 +8585,7 @@ msgstr "Включить аутентификацию по SSO-токену"
 
 #: settings/serializers/auth/sso.py:17
 msgid "Other service can using SSO token login to system without password"
-msgstr "Другие сервисы могут использовать SSO-токен для входа в систему без пароля"
+msgstr "Другие системы могут использовать токен SSO для интеграции с JumpServer, исключая процесс входа в систему"
 
 #: settings/serializers/auth/sso.py:20
 msgid "SSO auth key TTL"
@@ -8609,67 +8598,67 @@ msgstr "Единицы: секунды"
 
 #: settings/serializers/auth/ukey.py:20
 msgid "Challenge TTL (seconds)"
-msgstr "Срок действия запроса (сек.)"
+msgstr "Время действия кода подтверждения (мин)"
 
 #: settings/serializers/auth/ukey.py:21
 msgid "Time-to-live (seconds) for authentication challenge codes"
-msgstr "Срок действия запроса аутентификации (сек.)"
+msgstr ""
 
 #: settings/serializers/auth/ukey.py:25
 msgid "UKey Default User PIN"
-msgstr "PIN-код пользователя UKey по умолчанию"
+msgstr ""
 
 #: settings/serializers/auth/ukey.py:26
 msgid "UKey default user PIN used for administrator reset"
-msgstr "PIN-код пользователя UKey по умолчанию, используемый при сбросе администратором"
+msgstr ""
 
 #: settings/serializers/auth/ukey.py:30
 msgid "Enrollment"
-msgstr "Выпуск сертификатов"
+msgstr ""
 
 #: settings/serializers/auth/ukey.py:31
 msgid "Whether to enable user certificate enrollment"
-msgstr "Включение выпуска сертификатов пользователей"
+msgstr ""
 
 #: settings/serializers/auth/ukey.py:34
 msgid "Enrollment Validity Days"
-msgstr "Срок действия сертификата (дни)"
+msgstr ""
 
 #: settings/serializers/auth/ukey.py:35
 msgid "Validity period (days) for issued certificates"
-msgstr "Срок действия выданных сертификатов (дни)"
+msgstr ""
 
 #: settings/serializers/auth/ukey.py:38
 msgid "CA Key"
-msgstr "Закрытый ключ CA"
+msgstr "Содержание"
 
 #: settings/serializers/auth/ukey.py:39
 msgid "PEM content of CA private key used for certificate enrollment"
-msgstr "Содержимое закрытого ключа CA в формате PEM, используемого для выпуска сертификатов"
+msgstr ""
 
 #: settings/serializers/auth/ukey.py:42
 msgid "CA Cert"
-msgstr "Сертификат CA"
+msgstr "Содержание"
 
 #: settings/serializers/auth/ukey.py:43
 msgid "PEM content of CA certificate used for certificate enrollment and authentication"
-msgstr "Содержимое сертификата CA в формате PEM, используемого для выпуска сертификатов и аутентификации"
+msgstr ""
 
 #: settings/serializers/auth/ukey.py:46
 msgid "CA Key Password"
-msgstr "Пароль закрытого ключа CA"
+msgstr "Пароль"
 
 #: settings/serializers/auth/ukey.py:47
 msgid "Password for CA private key used for certificate enrollment (leave blank if not set)"
-msgstr "Пароль для закрытого ключа CA, используемого для выпуска сертификатов (оставьте пустым, если пароль не установлен)"
+msgstr ""
 
 #: settings/serializers/auth/ukey.py:50
 msgid "CA Cert Algorithm"
-msgstr "Алгоритм сертификата CA"
+msgstr ""
 
 #: settings/serializers/auth/ukey.py:56
 msgid "Auto-Detect After Upload"
-msgstr "Автоматическое определение после загрузки сертификата"
+msgstr ""
 
 #: settings/serializers/auth/wecom.py:20
 msgid "User attribute mapping, where the `key` is this system user attribute name and the `value` is the WeCom service user attribute name"
@@ -8769,12 +8758,12 @@ msgstr "Время хранения записей об изменении и п
 
 #: settings/serializers/cleaning.py:56
 msgid "Audit report send record retention days"
-msgstr "Срок хранения записей об отправке отчётов аудита (дни)"
+msgstr "Время хранения записей об изменении и публикации пароля"
 
 #: settings/serializers/feature.py:24
 #, python-format
 msgid "Run Ansible jobs in the Docker execution environment (%(image)s). To run jobs locally instead, disable \"Docker isolation for Ansible\" under System Settings > Feature Settings > Job Center. If the image is missing, run this command on the Ansible worker: docker pull %(image)s"
-msgstr "Запуск заданий Ansible в среде выполнения Docker (%(image)s). Чтобы выполнять задания локально, отключите «Изоляция Ansible в Docker» в разделе «Системные настройки > Функции > Центр заданий». Чтобы продолжить использовать среду выполнения Docker, выполните на Ansible Worker: docker pull %(image)s"
+msgstr ""
 
 #: settings/serializers/feature.py:36 settings/serializers/msg.py:122
 msgid "Subject"
@@ -8807,7 +8796,7 @@ msgstr "Если заданное значение меньше 999, систе�
 
 #: settings/serializers/feature.py:94
 msgid "OpenBao address"
-msgstr "Адрес OpenBao"
+msgstr ""
 
 #: settings/serializers/feature.py:100 settings/serializers/feature.py:116
 msgid "Mount Point"
@@ -8836,54 +8825,6 @@ msgstr "Access key secret(SK)"
 #: settings/serializers/feature.py:151 settings/serializers/feature.py:154
 msgid "Chat AI"
 msgstr "Чат AI"
-
-#: rbac/tree.py
-msgid "Conversations"
-msgstr "Диалоги"
-
-#: rbac/tree.py
-msgid "Messages and attachments"
-msgstr "Сообщения и вложения"
-
-#: rbac/tree.py
-msgid "Runs and approvals"
-msgstr "Выполнения и подтверждения"
-
-#: rbac/tree.py
-msgid "API call audits"
-msgstr "Аудит вызовов API"
-
-#: chat_ai/models.py
-msgid "Chat AI conversation"
-msgstr "Диалог Chat AI"
-
-#: chat_ai/models.py
-msgid "Can use Chat AI"
-msgstr "Можно использовать Chat AI"
-
-#: chat_ai/models.py
-msgid "Chat AI message"
-msgstr "Сообщение Chat AI"
-
-#: chat_ai/models.py
-msgid "Chat AI message file"
-msgstr "Файл сообщения Chat AI"
-
-#: chat_ai/models.py
-msgid "Chat AI message image"
-msgstr "Изображение сообщения Chat AI"
-
-#: chat_ai/models.py
-msgid "Chat AI agent run"
-msgstr "Выполнение агента Chat AI"
-
-#: chat_ai/models.py
-msgid "Chat AI approval"
-msgstr "Подтверждение Chat AI"
-
-#: chat_ai/models.py
-msgid "Chat AI API call audit"
-msgstr "Аудит вызовов API Chat AI"
 
 #: settings/serializers/feature.py:158
 msgid "Method"
@@ -8946,15 +8887,15 @@ msgstr "Единица периода"
 
 #: settings/serializers/feature.py:231
 msgid "Job Center"
-msgstr "Центр заданий"
+msgstr ""
 
 #: settings/serializers/feature.py:232
 msgid "Allow users to use the Job Center to execute jobs"
-msgstr "Разрешить пользователям выполнять задания через Центр заданий"
+msgstr ""
 
 #: settings/serializers/feature.py:236
 msgid "Docker isolation for Ansible"
-msgstr "Изоляция Ansible в Docker"
+msgstr ""
 
 #: settings/serializers/feature.py:241
 msgid "Command blacklist"
@@ -8982,7 +8923,7 @@ msgstr "Виртуальные приложения. Вы можете испо�
 
 #: settings/serializers/luna.py:21
 msgid "Luna default"
-msgstr "Значение Luna по умолчанию"
+msgstr ""
 
 #: settings/serializers/luna.py:24 users/serializers/preference/luna.py:26
 msgid "Async loading of asset tree"
@@ -9058,15 +8999,15 @@ msgstr "Сервер Microsoft Exchange"
 
 #: settings/serializers/msg.py:31
 msgid "Use system trust store"
-msgstr "Использовать системное хранилище доверенных сертификатов"
+msgstr ""
 
 #: settings/serializers/msg.py:32
 msgid "Use custom CA certificate"
-msgstr "Использовать пользовательский сертификат CA"
+msgstr ""
 
 #: settings/serializers/msg.py:33
 msgid "Ignore certificate verification (insecure)"
-msgstr "Игнорировать проверку сертификата (небезопасно)"
+msgstr ""
 
 #: settings/serializers/msg.py:36
 msgid "Service"
@@ -9106,27 +9047,27 @@ msgstr "Использовать ли TLS (защищённое) соедине�
 
 #: settings/serializers/msg.py:70
 msgid "Certificate verification"
-msgstr "Проверка сертификата"
+msgstr ""
 
 #: settings/serializers/msg.py:71
 msgid "Controls verification of the SMTP TLS certificate"
-msgstr "Управление проверкой TLS-сертификата SMTP"
+msgstr ""
 
 #: settings/serializers/msg.py:77
 msgid "PEM certificate used in addition to the system trust store"
-msgstr "Сертификат CA в формате PEM, используемый дополнительно к системному хранилищу доверенных сертификатов"
+msgstr ""
 
 #: settings/serializers/msg.py:92
 msgid "A CA certificate must not contain a private key"
-msgstr "Сертификат CA не должен содержать закрытый ключ"
+msgstr ""
 
 #: settings/serializers/msg.py:98
 msgid "Invalid PEM CA certificate"
-msgstr "Недопустимый сертификат CA в формате PEM"
+msgstr ""
 
 #: settings/serializers/msg.py:108
 msgid "A CA certificate is required"
-msgstr "Требуется сертификат CA"
+msgstr ""
 
 #: settings/serializers/msg.py:118
 msgid "Subject prefix"
@@ -9167,11 +9108,11 @@ msgstr "Размещайте активы с индивидуальными ра
 
 #: settings/serializers/security.py:19
 msgid "Admin password expiration (day)"
-msgstr "Срок действия пароля администратора (дни)"
+msgstr "Срок действия пароля пользователя (дни)"
 
 #: settings/serializers/security.py:21
 msgid "If the admin does not update the password during the time, the admin password will expire failure;The password expiration reminder mail will be automatic sent to the admin by system within 5 days (daily) before the password expires"
-msgstr "Если администратор не изменит пароль в течение этого периода, срок действия пароля истечёт; в течение 5 дней до истечения срока действия система будет ежедневно отправлять администратору напоминание по электронной почте о необходимости сменить пароль"
+msgstr "Пароль пользователя станет недействительным, если не будет обновлён вовремя. За 5 дней до истечения система начнёт ежедневно отправлять напоминания по почте"
 
 #: settings/serializers/security.py:28
 msgid "User password expiration (day)"
@@ -9433,7 +9374,7 @@ msgstr "Оповещение о небезопасной команде"
 
 #: settings/serializers/security.py:271
 msgid "Account username forbidden characters"
-msgstr "Запрещённые символы в имени учетной записи"
+msgstr ""
 
 #: settings/serializers/security.py:275
 msgid "Email recipient"
@@ -9450,15 +9391,15 @@ msgstr "[%s] %s"
 
 #: settings/serializers/task.py:10 settings/serializers/task.py:16
 msgid "First notice"
-msgstr "Первое уведомление"
+msgstr ""
 
 #: settings/serializers/task.py:13 settings/serializers/task.py:19
 msgid "Daily notice"
-msgstr "Ежедневное уведомление"
+msgstr ""
 
 #: settings/serializers/task.py:34
 msgid "First notice days must be greater than or equal to daily notice days."
-msgstr "Дни до первого уведомления ≥ дней до ежедневного уведомления."
+msgstr ""
 
 #: settings/serializers/terminal.py:15
 msgid "Auto"
@@ -9584,7 +9525,7 @@ msgstr "Указанный порт не используется службой
 
 #: settings/utils/ldap.py:601
 msgid "Please add certificate: {}"
-msgstr "Пожалуйста, добавьте сертификат"
+msgstr "Пожалуйста, добавьте сертификат: {}"
 
 #: settings/utils/ldap.py:605 settings/utils/ldap.py:632
 #: settings/utils/ldap.py:662 settings/utils/ldap.py:690
@@ -9818,7 +9759,7 @@ msgstr "Клиент"
 
 #: templates/resource_download.html:22
 msgid "Client, currently used to launch the client"
-msgstr "Клиент, используемый для запуска специального клиентского приложения для подключения к активу"
+msgstr "Клиент в настоящее время используется для запуска конкретной клиентской программы для подключения к активам"
 
 #: templates/resource_download.html:32
 msgid "More download"
@@ -9842,7 +9783,7 @@ msgstr "Не найдено удалённое приложение по пут�
 
 #: terminal/api/applet/applet.py:155
 msgid "Host name, address or ID"
-msgstr "Имя хоста, адрес или ID"
+msgstr ""
 
 #: terminal/api/component/endpoint.py:32
 msgid "Not found protocol query params"
@@ -9866,7 +9807,7 @@ msgstr "Недопустимый"
 
 #: terminal/api/component/storage.py:112
 msgid "Exclude type"
-msgstr "Исключить тип"
+msgstr ""
 
 #: terminal/api/component/storage.py:130
 msgid "Connection refused"
@@ -9903,7 +9844,7 @@ msgstr "Онлайн"
 
 #: terminal/api/component/terminal.py:39
 msgid "Load"
-msgstr "Нагрузка"
+msgstr ""
 
 #: terminal/api/component/terminal.py:76
 msgid "Have online sessions"
@@ -9916,7 +9857,7 @@ msgstr "Пользователь %s %s запись сеанса %s"
 
 #: terminal/api/session/session.py:76
 msgid "Terminal name or ID"
-msgstr "Имя или ID терминала"
+msgstr ""
 
 #: terminal/api/session/session.py:174 terminal/api/session/session.py:308
 #: terminal/models/session/replay.py:12
@@ -10069,11 +10010,11 @@ msgstr "Неверное хранилище"
 
 #: terminal/filters.py:13
 msgid "Command ID"
-msgstr "ID команды"
+msgstr ""
 
 #: terminal/filters.py:23
 msgid "Command storage ID"
-msgstr "ID хранилища команд"
+msgstr ""
 
 #: terminal/filters.py:45 terminal/filters.py:117
 #: terminal/serializers/command.py:22
@@ -10083,7 +10024,7 @@ msgstr "Уровень риска"
 
 #: terminal/filters.py:130
 msgid "Real storage"
-msgstr "Фактическое хранилище"
+msgstr ""
 
 #: terminal/models/applet/applet.py:35
 msgid "Enterprise"
@@ -10119,7 +10060,7 @@ msgstr "Недопустимый пакет Applet: отсутствует фа�
 
 #: terminal/models/applet/applet.py:116
 msgid "Applet automation requires platform.yml"
-msgstr "Для автоматизации апплета требуется platform.yml"
+msgstr ""
 
 #: terminal/models/applet/applet.py:397 terminal/models/applet/host.py:36
 #: terminal/models/applet/host.py:138
@@ -10184,7 +10125,7 @@ msgstr "RDP порт"
 
 #: terminal/models/component/endpoint.py:20
 msgid "Magnus port"
-msgstr "Порт Magnus"
+msgstr ""
 
 #: terminal/models/component/endpoint.py:21
 msgid "VNC port"
@@ -10398,7 +10339,7 @@ msgstr "Уровень"
 
 #: terminal/notifications.py:172 terminal/notifications.py:239
 msgid "Policy"
-msgstr "Политика"
+msgstr ""
 
 #: terminal/notifications.py:263
 msgid "Command and replay storage"
@@ -10418,47 +10359,47 @@ msgstr "Недопустимое хранилище"
 
 #: terminal/reporting.py:10
 msgid "Session Report"
-msgstr "Отчёт о сессиях"
+msgstr "Запись сессии"
 
 #: terminal/reporting.py:24 terminal/reporting.py:103
 msgid "Successful sessions"
-msgstr "Успешные сессии"
+msgstr "Успешные УЗ"
 
 #: terminal/reporting.py:25 terminal/reporting.py:103
 msgid "Failed sessions"
-msgstr "Неудачные сессии"
+msgstr "Прервать сессию"
 
 #: terminal/reporting.py:26
 msgid "Finished sessions"
-msgstr "Завершённые сессии"
+msgstr "Сессии онлайн"
 
 #: terminal/reporting.py:27 terminal/reporting.py:103
 msgid "Active sessions"
-msgstr "Активные сессии"
+msgstr "Просмотр сессии"
 
 #: terminal/reporting.py:29
 msgid "Sessions with replay"
-msgstr "Сессии с записью"
+msgstr "Запись сессий"
 
 #: terminal/reporting.py:30
 msgid "Sessions with commands"
-msgstr "Сессии с командами"
+msgstr "Журнал присоединения к сессии"
 
 #: terminal/reporting.py:33
 msgid "Unique terminals"
-msgstr "Уникальные терминалы"
+msgstr "Просмотр веб-терминала"
 
 #: terminal/reporting.py:107
 msgid "Protocol Distribution"
-msgstr "Распределение протоколов"
+msgstr "Требуется указание протокола"
 
 #: terminal/reporting.py:112
 msgid "Login From Distribution"
-msgstr "Распределение источников входа"
+msgstr "Включить уведомление о перенаправлении при входе"
 
 #: terminal/reporting.py:127
 msgid "Terminal Top 10"
-msgstr "Топ 10 терминалов"
+msgstr "Терминал"
 
 #: terminal/serializers/applet.py:29 terminal/serializers/virtualapp.py:16
 msgid "Icon"
@@ -10484,11 +10425,10 @@ msgid " \n"
 "        <br> \n"
 "        eg: https://172.16.10.110 or https://dev.example.com\n"
 "        "
-msgstr "    Подсказка: машина публикации приложений взаимодействует с сервисом Core  \n"
-"    Если машина публикации и сервис Core находятся в одной подсети,  \n"
-"    рекомендуется указать внутренний адрес, иначе укажите текущий URL сайта  \n"
-"    <br>  \n"
-"    Например: https://172.16.10.110 или https://dev.example.com"
+msgstr "Подсказка: используется для связи между машиной публикации приложений и\n"
+"        службой Core. Если они находятся в одной подсети, рекомендуется указать\n"
+"        внутренний адрес; в противном случае — текущий URL сайта.\n"
+"        Например: https://172.16.10.110 или https://dev.example.com»"
 
 #: terminal/serializers/applet_host.py:46 terminal/serializers/storage.py:207
 msgid "Ignore Certificate Verification"
@@ -10500,7 +10440,7 @@ msgstr "Существующая лицензия RDS"
 
 #: terminal/serializers/applet_host.py:50
 msgid "If not exist, the RDS will be in trial mode, and the trial period is 120 days. <a href=\"https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-client-access-license\" target=\"_blank\">Detail</a>"
-msgstr "Если лицензия отсутствует, RDS будет работать в пробном режиме в течение 120 дней. <a href=\"https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-client-access-license\" target=\"_blank\">Подробнее</a>"
+msgstr "Если лицензия отсутствует, RDS будет работать в пробном режиме в течение 120 дней. <a href='https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-client-access-license' target='_blank'>Подробнее</a>"
 
 #: terminal/serializers/applet_host.py:55
 msgid "RDS License Server"
@@ -10951,7 +10891,7 @@ msgstr "Запрос актива"
 
 #: tickets/const.py:18 tickets/const.py:25
 msgid "Ticket open"
-msgstr "Заявка открыта"
+msgstr "Ожидает утверждения"
 
 #: tickets/const.py:19
 msgid "Ticket closed"
@@ -11003,15 +10943,15 @@ msgstr "Уровень 2"
 
 #: tickets/const.py:52
 msgid "Three level"
-msgstr "Уровень 3"
+msgstr ""
 
 #: tickets/const.py:53
 msgid "Four level"
-msgstr "Уровень 4"
+msgstr ""
 
 #: tickets/const.py:54
 msgid "Five level"
-msgstr "Уровень 5"
+msgstr ""
 
 #: tickets/const.py:58
 msgid "All assets"
@@ -11027,41 +10967,41 @@ msgstr "Активы с действующими правами"
 
 #: tickets/errors.py:13
 msgid "The ticket status has changed. Please refresh the page and try again."
-msgstr "Статус заявки изменён. Обновите страницу и повторите попытку"
+msgstr ""
 
 #: tickets/filters.py:17
 msgid "Applicant ID"
-msgstr "ID заявителя"
+msgstr ""
 
 #: tickets/filters.py:20
 msgid "Assignee ID"
-msgstr "ID исполнителя заявки"
+msgstr ""
 
 #: tickets/filters.py:24
 msgid "Relevant asset name or address"
-msgstr "Имя или адрес связанного актива"
+msgstr ""
 
 #: tickets/filters.py:27
 msgid "Relevant command"
-msgstr "Связанная команда"
+msgstr ""
 
 #: tickets/filters.py:31
 msgid "Applicant name or username"
-msgstr "Имя заявителя или имя пользователя"
+msgstr ""
 
 #: tickets/filters.py:34 tickets/serializers/super_ticket.py:20
 #: tickets/serializers/ticket/ticket.py:28
 msgid "Approval result"
-msgstr "Результат согласования"
+msgstr ""
 
 #: tickets/filters.py:37 tickets/serializers/super_ticket.py:15
 #: tickets/serializers/ticket/ticket.py:23
 msgid "Ticket status"
-msgstr "Статус заявки"
+msgstr ""
 
 #: tickets/filters.py:40
 msgid "Organization name"
-msgstr "Название организации"
+msgstr ""
 
 #: tickets/handlers/apply_asset.py:40
 msgid "Created by the ticket ticket title: {} ticket applicant: {} ticket processor: {} ticket ID: {}"
@@ -11102,13 +11042,13 @@ msgstr "Уровень одобрения"
 
 #: tickets/models/flow.py:26
 msgid "Ticket flow approval rule"
-msgstr "Правило согласования потока заявок"
+msgstr "Правило утверждения потока заявок"
 
 #: tickets/models/flow.py:56 tickets/models/ticket/general.py:318
 #: tickets/serializers/flow.py:43 tickets/serializers/flow.py:116
 #: tickets/serializers/ticket/ticket.py:36
 msgid "CC users"
-msgstr "Пользователи в копии"
+msgstr ""
 
 #: tickets/models/flow.py:60 tickets/serializers/ticket/ticket.py:39
 #: tickets/serializers/ticket/ticket.py:87
@@ -11191,7 +11131,7 @@ msgstr "Снимок заявки"
 
 #: tickets/models/ticket/general.py:432
 msgid "Today's ticket creation limit (9999) has been reached. Please try again tomorrow."
-msgstr "Лимит создания заявок на сегодня исчерпан (9999). Попробуйте завтра."
+msgstr ""
 
 #: tickets/models/ticket/general.py:453
 msgid "Please try again"
@@ -11247,39 +11187,39 @@ msgstr "Заявка обработана - {} ({})"
 
 #: tickets/notifications.py:197
 msgid "A ticket you are copied on has been updated"
-msgstr "Заявка, в которой вы указаны в копии, обновлена"
+msgstr ""
 
 #: tickets/notifications.py:201
 msgid "Ticket updated - {} ({})"
-msgstr "Заявка обновлена - {} ({})"
+msgstr ""
 
 #: tickets/reporting.py:10
 msgid "Ticket Report"
-msgstr "Отчёт по заявкам"
+msgstr "Этапы обработки заявки"
 
 #: tickets/reporting.py:17
 msgid "Open tickets"
-msgstr "Открытые заявки"
+msgstr "Супер-заявка"
 
 #: tickets/reporting.py:18
 msgid "Closed tickets"
-msgstr "Закрытые заявки"
+msgstr "Из заявки"
 
 #: tickets/reporting.py:19
 msgid "Pending tickets"
-msgstr "Заявки на рассмотрении"
+msgstr "В ожидании"
 
 #: tickets/reporting.py:20
 msgid "Approved tickets"
-msgstr "Одобренные заявки"
+msgstr "Управление заявками"
 
 #: tickets/reporting.py:21
 msgid "Rejected tickets"
-msgstr "Отклонённые заявки"
+msgstr ""
 
 #: tickets/reporting.py:22
 msgid "Unique applicants"
-msgstr "Уникальные заявители"
+msgstr "Запрашивающий"
 
 #: tickets/reporting.py:25
 msgid "Unique organizations"
@@ -11287,49 +11227,49 @@ msgstr "Все организации"
 
 #: tickets/reporting.py:69
 msgid "Ticket Type Distribution"
-msgstr "Распределение по типам"
+msgstr "Информация о заявке"
 
 #: tickets/reporting.py:74
 msgid "Ticket State Distribution"
-msgstr "Распределение по состоянию"
+msgstr "Информация о заявке"
 
 #: tickets/reporting.py:79
 msgid "Ticket Status Distribution"
-msgstr "Распределение по статусам"
+msgstr ""
 
 #: tickets/reporting.py:84
 msgid "Organization Top 10"
-msgstr "Топ 10 организаций"
+msgstr "Организационная роль"
 
 #: tickets/reporting.py:89
 msgid "Applicant Top 10"
-msgstr "Топ 10 заявителей"
+msgstr "Запрашивающий"
 
 #: tickets/reporting.py:94
 msgid "Approval Step Distribution"
-msgstr "Распределение по этапам"
+msgstr "Одобрение без входа"
 
 #: tickets/serializers/flow.py:28
 msgid "No approvers matched. Please update the approval rule"
-msgstr "Согласующие не найдены. Обновите правила согласования"
+msgstr ""
 
 #: tickets/serializers/flow.py:69
 msgid "A ticket flow with the same name and type already exists"
-msgstr "Рабочий процесс согласования с таким названием и типом уже существует"
+msgstr ""
 
 #: tickets/serializers/flow.py:77
 msgid "The number of approval rules must match the approval level"
-msgstr "Количество правил согласования должно соответствовать количеству уровней согласования"
+msgstr ""
 
 #: tickets/serializers/super_ticket.py:16
 #: tickets/serializers/ticket/ticket.py:24
 msgid "Indicates whether the ticket is open or finished"
-msgstr "Отражает, открыта заявка или завершена"
+msgstr ""
 
 #: tickets/serializers/super_ticket.py:22
 #: tickets/serializers/ticket/ticket.py:30
 msgid "Indicates the current approval outcome: pending, closed, approved, or rejected"
-msgstr "Отражает текущий результат согласования: на рассмотрении, закрыта, одобрена или отклонена"
+msgstr ""
 
 #: tickets/serializers/super_ticket.py:26
 msgid "Processor"
@@ -11370,11 +11310,11 @@ msgstr "Схема процесса"
 
 #: tickets/serializers/ticket/ticket.py:128
 msgid "The selected ticket flow is not available"
-msgstr "Выбранный рабочий процесс одобрения недоступен"
+msgstr ""
 
 #: tickets/serializers/ticket/ticket.py:132
 msgid "Please select a ticket flow"
-msgstr "Выберите рабочий процесс одобрения"
+msgstr ""
 
 #: tickets/serializers/ticket/ticket.py:136
 msgid "The ticket flow `{}` does not exist"
@@ -11423,7 +11363,7 @@ msgstr "Этот пользователь не имеет права одобр�
 
 #: users/api/preference.py:122 users/api/preference.py:128
 msgid "Invalid preference fields"
-msgstr "Недопустимые поля настроек"
+msgstr ""
 
 #: users/api/user.py:64
 msgid "You cannot delete yourself. Please disable it instead."
@@ -11491,7 +11431,7 @@ msgstr "Перенаправление дисков"
 
 #: users/const.py:34
 msgid "Remote microphone"
-msgstr "Удаленный микрофон"
+msgstr ""
 
 #: users/const.py:38
 msgid "Current window"
@@ -11543,15 +11483,15 @@ msgstr "Ошибка создания, максимальное количест
 
 #: users/filters.py:24
 msgid "Exclude user group ID"
-msgstr "ID исключаемой группы пользователей"
+msgstr ""
 
 #: users/filters.py:27
 msgid "System role name or ID"
-msgstr "Название или ID системной роли"
+msgstr ""
 
 #: users/filters.py:30
 msgid "Org role name or ID"
-msgstr "Название или ID роли организации"
+msgstr ""
 
 #: users/filters.py:45 users/serializers/user.py:126
 msgid "Login blocked"
@@ -11623,7 +11563,7 @@ msgstr "Настройки пользователя"
 
 #: users/models/user/__init__.py:70
 msgid "Email lookup"
-msgstr "Поиск по электронной почте"
+msgstr "Адрес электронной почты"
 
 #: users/models/user/__init__.py:82 users/serializers/user.py:265
 msgid "Is service account"
@@ -11660,7 +11600,7 @@ msgstr "Вектор лица"
 
 #: users/models/user/__init__.py:154
 msgid "UKey SN"
-msgstr "Серийный номер UKey"
+msgstr ""
 
 #: users/models/user/__init__.py:157
 msgid "Date api key used"
@@ -11781,17 +11721,17 @@ msgstr "Шифрование файлов"
 #: users/serializers/preference/luna.py:91
 msgctxt "Luna preference section"
 msgid "General"
-msgstr "Основные настройки"
+msgstr ""
 
 #: users/serializers/preference/luna.py:95
 msgctxt "Luna preference section"
 msgid "GUI"
-msgstr "Графический интерфейс"
+msgstr ""
 
 #: users/serializers/preference/luna.py:99
 msgctxt "Luna preference section"
 msgid "CLI"
-msgstr "Командная строка"
+msgstr ""
 
 #: users/serializers/profile.py:22
 msgid "The old password is incorrect"
@@ -11855,7 +11795,7 @@ msgstr "Может войти с открытым ключем"
 
 #: users/serializers/user.py:145
 msgid "Can UKey authentication"
-msgstr "Аутентификация по UKey"
+msgstr "Может войти с открытым ключем"
 
 #: users/serializers/user.py:149
 msgid "Is face code set"
@@ -11956,8 +11896,7 @@ msgstr "Проверка истечения срока действия поль
 #: users/tasks.py:69
 msgid "Check every day at 2 p.m whether the users in the system are expired, and send a \n"
 "        notification in advance"
-msgstr "Каждый день в 14:00 система проверяет, истёк ли срок действия \n"
-"        учётных записей пользователей, и заранее отправляет уведомление"
+msgstr ""
 
 #: users/tasks.py:99
 msgid "Periodic check user expired"
@@ -12387,7 +12326,7 @@ msgstr "Импортировано"
 
 #: xpack/plugins/cloud/filters.py:37
 msgid "Instance ID"
-msgstr "ID экземпляра"
+msgstr ""
 
 #: xpack/plugins/cloud/manager.py:61
 #, python-format
@@ -12865,7 +12804,7 @@ msgstr "Отображение поставщика"
 
 #: xpack/plugins/cloud/serializers/account.py:135
 msgid "Regions must be a JSON object."
-msgstr "Регионы должны быть объектом JSON."
+msgstr ""
 
 #: xpack/plugins/cloud/serializers/account_attrs.py:32
 msgid "Access key id"
@@ -12925,19 +12864,19 @@ msgstr "Файл в формате JSON"
 
 #: xpack/plugins/cloud/serializers/account_attrs.py:196
 msgid "Local user"
-msgstr "Локальный пользователь"
+msgstr ""
 
 #: xpack/plugins/cloud/serializers/account_attrs.py:197
 msgid "Domain user"
-msgstr "Доменный пользователь"
+msgstr ""
 
 #: xpack/plugins/cloud/serializers/account_attrs.py:198
 msgid "Interface interconnection user"
-msgstr "Пользователь для межсистемного взаимодействия"
+msgstr ""
 
 #: xpack/plugins/cloud/serializers/account_attrs.py:200
 msgid "User type"
-msgstr "Тип пользователя"
+msgstr ""
 
 #: xpack/plugins/cloud/serializers/account_attrs.py:208
 msgid "IP address invalid `{}`, {}"
@@ -13094,5 +13033,5 @@ msgid "Invalid license"
 msgstr "Лицензия недействительна"
 
 #~ msgid "Ticket already closed"
-#~ msgstr "工单已经关闭"
+#~ msgstr "Ticket has been closed"
 
