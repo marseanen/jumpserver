@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: jumpserver\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-19 10:30+0800\n"
-"PO-Revision-Date: 2026-08-27 17:54\n"
+"PO-Revision-Date: 2026-08-28 09:04\n"
 "Last-Translator: ibuler <ibuler@qq.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -6335,7 +6335,7 @@ msgstr "Много связанных элементов, формат: [\"id\",
 
 #: common/drf/renders/base.py:301
 msgid "{} - Encryption password not set - Please go to Personal Settings → Preferences → File Encryption Password to set it."
-msgstr "{} - Не установлен пароль шифрования - пожалуйста, перейдите в Персональные настройки -> Настройки предпочтений"
+msgstr "{} - Пароль шифрования не установлен - перейдите в Профиль → Настройки предпочтений → Шифрование файлов и установите пароль."
 
 #: common/drf/renders/mixins.py:37 labels/serializers.py:25
 msgid "Resource count"
