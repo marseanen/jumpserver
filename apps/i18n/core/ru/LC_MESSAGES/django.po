@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: jumpserver\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-19 10:30+0800\n"
-"PO-Revision-Date: 2026-08-28 09:04\n"
+"PO-Revision-Date: 2026-08-28 13:57\n"
 "Last-Translator: ibuler <ibuler@qq.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -6355,7 +6355,7 @@ msgstr "Экспорт отфильтрованных"
 
 #: common/drf/reporting.py:23
 msgid "Data"
-msgstr "База данных"
+msgstr "Данные"
 
 #: common/drf/reporting.py:25 common/drf/reporting.py:180 rbac/tree.py:71
 #: reports/models.py:24
@@ -6364,31 +6364,31 @@ msgstr "Отчёт"
 
 #: common/drf/reporting.py:37 terminal/filters.py:16
 msgid "Date from"
-msgstr "Дата отключения"
+msgstr "Дата начала"
 
 #: common/drf/reporting.py:38 terminal/filters.py:18
 msgid "Date to"
-msgstr "Дата отключения"
+msgstr "Дата окончания"
 
 #: common/drf/reporting.py:116
 msgid "All data"
-msgstr "Все активы"
+msgstr "Все данные"
 
 #: common/drf/reporting.py:181
 msgid "Generated at"
-msgstr "Основной"
+msgstr "Время формирования"
 
 #: common/drf/reporting.py:182
 msgid "Exported rows"
-msgstr "Экспорт"
+msgstr "Экспортировано строк"
 
 #: common/drf/reporting.py:183 reports/models.py:20
 msgid "Filters"
-msgstr "Фильтр"
+msgstr "Фильтры"
 
 #: common/drf/reporting.py:210
 msgid "Report Summary"
-msgstr "Сводка"
+msgstr "Сводка отчёта"
 
 #: common/exceptions.py:15 xpack/plugins/cloud/ws.py:36
 #, python-format
@@ -6720,7 +6720,7 @@ msgstr "Эта задача выполняется при необходимос
 #: ops/ansible/docker.py:116
 #, python-format
 msgid "The Ansible Docker image \"%(image)s\" was not found. To run jobs locally instead, disable \"Docker isolation for Ansible\" under System Settings > Feature Settings > Job Center. To continue using the Docker execution environment, run this command on the Ansible worker: docker pull %(image)s"
-msgstr "Не найден Docker-образ Ansible «%(image)s». Чтобы переключиться на локальный запуск, перейдите в «Системные настройки > Настройки функций > Центр заданий» и отключите «Изоляцию Ansible Docker»; если вы хотите продолжить использовать среду выполнения Docker, выполните на узле Ansible Worker: docker pull %(image)s"
+msgstr "Образ Ansible Docker «%(image)s» не найден. Чтобы выполнять задания локально, отключите «Изоляция Ansible в Docker» в разделе «Системные настройки > Функции > Центр заданий». Чтобы продолжить использовать среду выполнения Docker, выполните на Ansible Worker: docker pull %(image)s"
 
 #: ops/ansible/inventory.py:194 ops/ansible/inventory.py:281
 #: ops/models/job.py:99
@@ -6729,7 +6729,7 @@ msgstr "Нет доступных учетных записей"
 
 #: ops/ansible/inventory.py:216
 msgid "The platform uses su, but the directly connected account does not have a target root credential. Configure su_from or use a root account."
-msgstr "Платформа использует su, но у учетной записи прямого подключения отсутствуют целевые учетные данные root. Настройте su_from или используйте учетную запись root."
+msgstr "Платформа использует su, но учётная запись для прямого подключения не имеет учётных данных для целевой учётной записи root. Настройте su_from или подключайтесь непосредственно под учётной записью root."
 
 #: ops/ansible/inventory.py:406 ops/ansible/inventory.py:467
 msgid "Ansible disabled"
@@ -7427,15 +7427,15 @@ msgstr "Действует"
 
 #: perms/filters.py:165
 msgid "Node ID"
-msgstr "ID узла"
+msgstr "ID папки"
 
 #: perms/filters.py:167
 msgid "Node name"
-msgstr "Имя узла"
+msgstr "Имя папки"
 
 #: perms/filters.py:177
 msgid "No resource"
-msgstr "Без ресурсов"
+msgstr "Нет ресурсов"
 
 #: perms/models/asset_permission.py:89
 msgid "Asset permission"
@@ -7626,7 +7626,7 @@ msgstr "Просмотр файлового менеджера"
 
 #: rbac/models/menu.py:21
 msgid "Can view jdmc console"
-msgstr "Просмотр консоли"
+msgstr "Просмотр консоли JDMC"
 
 #: rbac/models/menu.py:22
 msgid "Can view System Tools"
@@ -7638,11 +7638,11 @@ msgstr "Просмотр отчетов о входе пользователей
 
 #: rbac/models/menu.py:24
 msgid "Can create user login report"
-msgstr "Просмотр отчетов о входе пользователей"
+msgstr "Создание отчетов о входах пользователей"
 
 #: rbac/models/menu.py:25
 msgid "Can delete user login report"
-msgstr "Просмотр отчетов о входе пользователей"
+msgstr "Удаление отчетов о входах пользователей"
 
 #: rbac/models/menu.py:26
 msgid "Can view user change password report"
@@ -7650,11 +7650,11 @@ msgstr "Просмотр отчетов о смене пароля пользо�
 
 #: rbac/models/menu.py:27
 msgid "Can create user change password report"
-msgstr "Просмотр отчетов о смене пароля пользователей"
+msgstr "Создание отчетов о смене пароля пользователей"
 
 #: rbac/models/menu.py:28
 msgid "Can delete user change password report"
-msgstr "Просмотр отчетов о смене пароля пользователей"
+msgstr "Удаление отчетов о смене пароля пользователей"
 
 #: rbac/models/menu.py:29
 msgid "Can view asset statistics report"
@@ -7662,11 +7662,11 @@ msgstr "Просмотр отчетов по статистике активов
 
 #: rbac/models/menu.py:30
 msgid "Can create asset statistics report"
-msgstr "Просмотр отчетов по статистике активов"
+msgstr "Создание отчетов со статистикой активов"
 
 #: rbac/models/menu.py:31
 msgid "Can delete asset statistics report"
-msgstr "Просмотр отчетов по статистике активов"
+msgstr "Удаление отчетов со статистикой активов"
 
 #: rbac/models/menu.py:32
 msgid "Can view asset activity report"
@@ -7674,11 +7674,11 @@ msgstr "Просмотр отчетов о действиях с активам�
 
 #: rbac/models/menu.py:33
 msgid "Can create asset activity report"
-msgstr "Просмотр отчетов о действиях с активами"
+msgstr "Создание отчетов о действиях с активами"
 
 #: rbac/models/menu.py:34
 msgid "Can delete asset activity report"
-msgstr "Просмотр отчетов о действиях с активами"
+msgstr "Удаление отчетов о действиях с активами"
 
 #: rbac/models/menu.py:35
 msgid "Can view account statistics report"
@@ -7686,11 +7686,11 @@ msgstr "Просмотр отчетов по статистике УЗ"
 
 #: rbac/models/menu.py:36
 msgid "Can create account statistics report"
-msgstr "Просмотр отчетов по статистике УЗ"
+msgstr "Создание отчетов по статистике УЗ"
 
 #: rbac/models/menu.py:37
 msgid "Can delete account statistics report"
-msgstr "Просмотр отчетов по статистике УЗ"
+msgstr "Удаление отчетов по статистике УЗ"
 
 #: rbac/models/menu.py:38
 msgid "Can view account automation report"
@@ -7698,11 +7698,11 @@ msgstr "Просмотр отчетов об автоматизации УЗ"
 
 #: rbac/models/menu.py:39
 msgid "Can create account automation report"
-msgstr "Просмотр отчетов об автоматизации УЗ"
+msgstr "Создание отчетов об автоматизации УЗ"
 
 #: rbac/models/menu.py:40
 msgid "Can delete account automation report"
-msgstr "Просмотр отчетов об автоматизации УЗ"
+msgstr "Удаление отчетов об автоматизации УЗ"
 
 #: rbac/models/permission.py:18
 msgid "ContentType"
@@ -7821,7 +7821,7 @@ msgstr "Аудит заданий"
 
 #: rbac/tree.py:138
 msgid "JDMC console"
-msgstr "Консоль"
+msgstr "Консоль JDMC"
 
 #: rbac/tree.py:202
 msgid "App organizations"
@@ -7858,7 +7858,7 @@ msgstr "Отзыв токена доступа"
 
 #: reports/models.py:19
 msgid "Range days"
-msgstr "Изменивший"
+msgstr "Дней в диапазоне"
 
 #: reports/views.py:22
 msgid "User login report"
@@ -8092,7 +8092,7 @@ msgstr "Аутентификация Passkey"
 
 #: settings/serializers/auth/base.py:27
 msgid "UKey Auth"
-msgstr "Аутентификация Passkey"
+msgstr "Аутентификация UKey"
 
 #: settings/serializers/auth/base.py:29
 msgid "Email suffix"
@@ -8163,7 +8163,7 @@ msgstr "Атрибуты пользователя"
 
 #: settings/serializers/auth/cas.py:36
 msgid "User attribute mapping, where the `key` is the CAS service user attribute name and the `value` is this system user attribute name"
-msgstr "Сопоставление атрибутов пользователя, где \"ключ\" — это название атрибута пользователя CAS, а \"значение\" — название атрибута пользователя системы"
+msgstr "Сопоставление атрибутов пользователя, где \"ключ\" — это название атрибута пользователя CAS, а \"значение\" — название атрибута пользователя этой системы"
 
 #: settings/serializers/auth/dingtalk.py:16
 msgid "Dingtalk"
@@ -8266,27 +8266,27 @@ msgstr "StartTLS"
 #: settings/serializers/auth/ldap.py:119
 #: settings/serializers/auth/ldap_ha.py:101
 msgid "Use StartTLS to upgrade ldap:// connections to TLS"
-msgstr "Использовать StartTLS для обновления соединения ldap:// до TLS-шифрования"
+msgstr "Использовать StartTLS для перевода соединений ldap:// на TLS"
 
 #: settings/serializers/auth/ldap.py:123
 #: settings/serializers/auth/ldap_ha.py:105 settings/serializers/msg.py:76
 msgid "CA certificate"
-msgstr "CA-сертификат"
+msgstr "Сертификат CA"
 
 #: settings/serializers/auth/ldap.py:124
 #: settings/serializers/auth/ldap_ha.py:106
 msgid "CA certificate for verifying LDAPS/StartTLS server"
-msgstr "CA-сертификат для проверки серверного сертификата LDAPS/StartTLS"
+msgstr "Сертификат CA для проверки сертификата сервера LDAPS/StartTLS"
 
 #: settings/serializers/auth/ldap.py:128
 #: settings/serializers/auth/ldap_ha.py:110
 msgid "Client certificate"
-msgstr "Клиентский сертификат"
+msgstr "Сертификат клиента"
 
 #: settings/serializers/auth/ldap.py:129
 #: settings/serializers/auth/ldap_ha.py:111
 msgid "Client certificate for mutual TLS (optional)"
-msgstr "Клиентский сертификат для двустороннего TLS (необязательно)"
+msgstr "Сертификат клиента для двустороннего TLS (необязательно)"
 
 #: settings/serializers/auth/ldap.py:133
 #: settings/serializers/auth/ldap_ha.py:115
@@ -8502,7 +8502,7 @@ msgstr "Сертификат SP"
 
 #: settings/serializers/auth/saml2.py:37
 msgid "User attribute mapping, where the `key` is the SAML2 service user attribute name and the `value` is this system user attribute name"
-msgstr "Сопоставление атрибутов пользователя, где \"ключ\" — это имя атрибута пользователя SAML2, а \"значение\" — имя атрибута пользователя системы"
+msgstr "Сопоставление атрибутов пользователя, где \"ключ\" — это название атрибута пользователя сервиса SAML2, а \"значение\" — название атрибута пользователя этой системы"
 
 #: settings/serializers/auth/saml2.py:43
 msgid "When the user signs out, they also be logged out from the SAML2 server"
@@ -8510,7 +8510,7 @@ msgstr "При выходе пользователя из системы он т
 
 #: settings/serializers/auth/slack.py:20
 msgid "User attribute mapping, where the `key` is this system user attribute name and the `value` is the Slack service user attribute name"
-msgstr "Сопоставление атрибутов пользователя, где \"ключ\" — это имя атрибута пользователя системы, а \"значение\" — имя атрибута пользователя Slack сервиса"
+msgstr "Сопоставление атрибутов пользователя, где \"ключ\" — это название атрибута пользователя этой системы, а \"значение\" — название атрибута пользователя сервиса Slack"
 
 #: settings/serializers/auth/sms.py:18
 msgid "Enable Short Message Service (SMS)"
@@ -8596,7 +8596,7 @@ msgstr "Включить аутентификацию по SSO-токену"
 
 #: settings/serializers/auth/sso.py:17
 msgid "Other service can using SSO token login to system without password"
-msgstr "Другие системы могут использовать токен SSO для интеграции с JumpServer, исключая процесс входа в систему"
+msgstr "Другие сервисы могут использовать SSO-токен для входа в систему без пароля"
 
 #: settings/serializers/auth/sso.py:20
 msgid "SSO auth key TTL"
@@ -8609,19 +8609,19 @@ msgstr "Единицы: секунды"
 
 #: settings/serializers/auth/ukey.py:20
 msgid "Challenge TTL (seconds)"
-msgstr "Время действия кода подтверждения (мин)"
+msgstr "Срок действия запроса (сек.)"
 
 #: settings/serializers/auth/ukey.py:21
 msgid "Time-to-live (seconds) for authentication challenge codes"
-msgstr "Срок действия кода аутентификационного вызова (сек.)"
+msgstr "Срок действия запроса аутентификации (сек.)"
 
 #: settings/serializers/auth/ukey.py:25
 msgid "UKey Default User PIN"
-msgstr "Пользовательский PIN-код UKey по умолчанию"
+msgstr "PIN-код пользователя UKey по умолчанию"
 
 #: settings/serializers/auth/ukey.py:26
 msgid "UKey default user PIN used for administrator reset"
-msgstr "Пользовательский PIN-код по умолчанию, используемый при сбросе администратором"
+msgstr "PIN-код пользователя UKey по умолчанию, используемый при сбросе администратором"
 
 #: settings/serializers/auth/ukey.py:30
 msgid "Enrollment"
@@ -8629,39 +8629,39 @@ msgstr "Выпуск сертификатов"
 
 #: settings/serializers/auth/ukey.py:31
 msgid "Whether to enable user certificate enrollment"
-msgstr "Включить выпуск пользовательских сертификатов"
+msgstr "Включение выпуска сертификатов пользователей"
 
 #: settings/serializers/auth/ukey.py:34
 msgid "Enrollment Validity Days"
-msgstr "Срок действия выпущенного сертификата (в днях)"
+msgstr "Срок действия сертификата (дни)"
 
 #: settings/serializers/auth/ukey.py:35
 msgid "Validity period (days) for issued certificates"
-msgstr "Срок действия выпущенного сертификата (дней)"
+msgstr "Срок действия выданных сертификатов (дни)"
 
 #: settings/serializers/auth/ukey.py:38
 msgid "CA Key"
-msgstr "Содержание"
+msgstr "Закрытый ключ CA"
 
 #: settings/serializers/auth/ukey.py:39
 msgid "PEM content of CA private key used for certificate enrollment"
-msgstr "Содержимое закрытого ключа CA в формате PEM для выпуска сертификатов"
+msgstr "Содержимое закрытого ключа CA в формате PEM, используемого для выпуска сертификатов"
 
 #: settings/serializers/auth/ukey.py:42
 msgid "CA Cert"
-msgstr "Содержание"
+msgstr "Сертификат CA"
 
 #: settings/serializers/auth/ukey.py:43
 msgid "PEM content of CA certificate used for certificate enrollment and authentication"
-msgstr "Содержимое сертификата CA в формате PEM для выпуска сертификатов и аутентификации"
+msgstr "Содержимое сертификата CA в формате PEM, используемого для выпуска сертификатов и аутентификации"
 
 #: settings/serializers/auth/ukey.py:46
 msgid "CA Key Password"
-msgstr "Пароль"
+msgstr "Пароль закрытого ключа CA"
 
 #: settings/serializers/auth/ukey.py:47
 msgid "Password for CA private key used for certificate enrollment (leave blank if not set)"
-msgstr "Пароль шифрования закрытого ключа CA для выпуска сертификатов (оставьте пустым, если пароль не задан)"
+msgstr "Пароль для закрытого ключа CA, используемого для выпуска сертификатов (оставьте пустым, если пароль не установлен)"
 
 #: settings/serializers/auth/ukey.py:50
 msgid "CA Cert Algorithm"
@@ -8669,7 +8669,7 @@ msgstr "Алгоритм сертификата CA"
 
 #: settings/serializers/auth/ukey.py:56
 msgid "Auto-Detect After Upload"
-msgstr "Автоматическое обнаружение после загрузки сертификата"
+msgstr "Автоматическое определение после загрузки сертификата"
 
 #: settings/serializers/auth/wecom.py:20
 msgid "User attribute mapping, where the `key` is this system user attribute name and the `value` is the WeCom service user attribute name"
@@ -8769,12 +8769,12 @@ msgstr "Время хранения записей об изменении и п
 
 #: settings/serializers/cleaning.py:56
 msgid "Audit report send record retention days"
-msgstr "Время хранения записей об изменении и публикации пароля"
+msgstr "Срок хранения записей об отправке отчётов аудита (дни)"
 
 #: settings/serializers/feature.py:24
 #, python-format
 msgid "Run Ansible jobs in the Docker execution environment (%(image)s). To run jobs locally instead, disable \"Docker isolation for Ansible\" under System Settings > Feature Settings > Job Center. If the image is missing, run this command on the Ansible worker: docker pull %(image)s"
-msgstr "Запускайте задания Ansible в среде выполнения Docker (%(image)s). Чтобы запускать задания локально, отключите «Изоляция Docker для Ansible» в разделе Системные настройки > Настройки функций > Центр заданий. Если образ отсутствует, выполните эту команду на рабочем узле Ansible: docker pull %(image)s"
+msgstr "Запуск заданий Ansible в среде выполнения Docker (%(image)s). Чтобы выполнять задания локально, отключите «Изоляция Ansible в Docker» в разделе «Системные настройки > Функции > Центр заданий». Чтобы продолжить использовать среду выполнения Docker, выполните на Ansible Worker: docker pull %(image)s"
 
 #: settings/serializers/feature.py:36 settings/serializers/msg.py:122
 msgid "Subject"
@@ -8902,11 +8902,11 @@ msgstr "Центр заданий"
 
 #: settings/serializers/feature.py:232
 msgid "Allow users to use the Job Center to execute jobs"
-msgstr "Разрешить пользователям использовать Центр заданий для выполнения заданий"
+msgstr "Разрешить пользователям выполнять задания через Центр заданий"
 
 #: settings/serializers/feature.py:236
 msgid "Docker isolation for Ansible"
-msgstr "Изоляция Docker для Ansible"
+msgstr "Изоляция Ansible в Docker"
 
 #: settings/serializers/feature.py:241
 msgid "Command blacklist"
@@ -9010,7 +9010,7 @@ msgstr "Сервер Microsoft Exchange"
 
 #: settings/serializers/msg.py:31
 msgid "Use system trust store"
-msgstr "Использовать системное хранилище доверия"
+msgstr "Использовать системное хранилище доверенных сертификатов"
 
 #: settings/serializers/msg.py:32
 msgid "Use custom CA certificate"
@@ -9066,19 +9066,19 @@ msgstr "Управление проверкой TLS-сертификата SMTP"
 
 #: settings/serializers/msg.py:77
 msgid "PEM certificate used in addition to the system trust store"
-msgstr "Дополнительно доверенные PEM-сертификаты CA (помимо системного хранилища доверия)"
+msgstr "Сертификат CA в формате PEM, используемый дополнительно к системному хранилищу доверенных сертификатов"
 
 #: settings/serializers/msg.py:92
 msgid "A CA certificate must not contain a private key"
-msgstr "Сертификат CA не может содержать закрытый ключ"
+msgstr "Сертификат CA не должен содержать закрытый ключ"
 
 #: settings/serializers/msg.py:98
 msgid "Invalid PEM CA certificate"
-msgstr "Недействительный PEM-сертификат CA"
+msgstr "Недопустимый сертификат CA в формате PEM"
 
 #: settings/serializers/msg.py:108
 msgid "A CA certificate is required"
-msgstr "Необходимо предоставить сертификат CA"
+msgstr "Требуется сертификат CA"
 
 #: settings/serializers/msg.py:118
 msgid "Subject prefix"
@@ -9119,11 +9119,11 @@ msgstr "Размещайте активы с индивидуальными ра
 
 #: settings/serializers/security.py:19
 msgid "Admin password expiration (day)"
-msgstr "Срок действия пароля пользователя (дни)"
+msgstr "Срок действия пароля администратора (дни)"
 
 #: settings/serializers/security.py:21
 msgid "If the admin does not update the password during the time, the admin password will expire failure;The password expiration reminder mail will be automatic sent to the admin by system within 5 days (daily) before the password expires"
-msgstr "Пароль пользователя станет недействительным, если не будет обновлён вовремя. За 5 дней до истечения система начнёт ежедневно отправлять напоминания по почте"
+msgstr "Если администратор не изменит пароль в течение этого периода, срок действия пароля истечёт; в течение 5 дней до истечения срока действия система будет ежедневно отправлять администратору напоминание по электронной почте о необходимости сменить пароль"
 
 #: settings/serializers/security.py:28
 msgid "User password expiration (day)"
@@ -9385,7 +9385,7 @@ msgstr "Оповещение о небезопасной команде"
 
 #: settings/serializers/security.py:271
 msgid "Account username forbidden characters"
-msgstr "Запрещенные символы в имени учетной записи"
+msgstr "Запрещённые символы в имени учетной записи"
 
 #: settings/serializers/security.py:275
 msgid "Email recipient"
@@ -9410,7 +9410,7 @@ msgstr "Ежедневное уведомление"
 
 #: settings/serializers/task.py:34
 msgid "First notice days must be greater than or equal to daily notice days."
-msgstr "Число дней первого уведомления должно быть больше или равно числу дней ежедневного уведомления."
+msgstr "Дни до первого уведомления ≥ дней до ежедневного уведомления."
 
 #: settings/serializers/terminal.py:15
 msgid "Auto"
@@ -9770,7 +9770,7 @@ msgstr "Клиент"
 
 #: templates/resource_download.html:22
 msgid "Client, currently used to launch the client"
-msgstr "Клиент в настоящее время используется для запуска конкретной клиентской программы для подключения к активам"
+msgstr "Клиент, используемый для запуска специального клиентского приложения для подключения к активу"
 
 #: templates/resource_download.html:32
 msgid "More download"
@@ -9818,7 +9818,7 @@ msgstr "Недопустимый"
 
 #: terminal/api/component/storage.py:112
 msgid "Exclude type"
-msgstr "Без типа"
+msgstr "Исключить тип"
 
 #: terminal/api/component/storage.py:130
 msgid "Connection refused"
@@ -9868,7 +9868,7 @@ msgstr "Пользователь %s %s запись сеанса %s"
 
 #: terminal/api/session/session.py:76
 msgid "Terminal name or ID"
-msgstr "Имя терминала или ID"
+msgstr "Имя или ID терминала"
 
 #: terminal/api/session/session.py:174 terminal/api/session/session.py:308
 #: terminal/models/session/replay.py:12
@@ -10035,7 +10035,7 @@ msgstr "Уровень риска"
 
 #: terminal/filters.py:130
 msgid "Real storage"
-msgstr "Реальное хранилище"
+msgstr "Фактическое хранилище"
 
 #: terminal/models/applet/applet.py:35
 msgid "Enterprise"
@@ -10370,47 +10370,47 @@ msgstr "Недопустимое хранилище"
 
 #: terminal/reporting.py:10
 msgid "Session Report"
-msgstr "Запись сессии"
+msgstr "Отчёт о сессиях"
 
 #: terminal/reporting.py:24 terminal/reporting.py:103
 msgid "Successful sessions"
-msgstr "Успешные УЗ"
+msgstr "Успешные сессии"
 
 #: terminal/reporting.py:25 terminal/reporting.py:103
 msgid "Failed sessions"
-msgstr "Прервать сессию"
+msgstr "Неудачные сессии"
 
 #: terminal/reporting.py:26
 msgid "Finished sessions"
-msgstr "Сессии онлайн"
+msgstr "Завершённые сессии"
 
 #: terminal/reporting.py:27 terminal/reporting.py:103
 msgid "Active sessions"
-msgstr "Просмотр сессии"
+msgstr "Активные сессии"
 
 #: terminal/reporting.py:29
 msgid "Sessions with replay"
-msgstr "Запись сессий"
+msgstr "Сессии с записью"
 
 #: terminal/reporting.py:30
 msgid "Sessions with commands"
-msgstr "Журнал присоединения к сессии"
+msgstr "Сессии с командами"
 
 #: terminal/reporting.py:33
 msgid "Unique terminals"
-msgstr "Просмотр веб-терминала"
+msgstr "Уникальные терминалы"
 
 #: terminal/reporting.py:107
 msgid "Protocol Distribution"
-msgstr "Требуется указание протокола"
+msgstr "Распределение протоколов"
 
 #: terminal/reporting.py:112
 msgid "Login From Distribution"
-msgstr "Включить уведомление о перенаправлении при входе"
+msgstr "Распределение источников входа"
 
 #: terminal/reporting.py:127
 msgid "Terminal Top 10"
-msgstr "Терминал"
+msgstr "Топ 10 терминалов"
 
 #: terminal/serializers/applet.py:29 terminal/serializers/virtualapp.py:16
 msgid "Icon"
@@ -10436,10 +10436,11 @@ msgid " \n"
 "        <br> \n"
 "        eg: https://172.16.10.110 or https://dev.example.com\n"
 "        "
-msgstr "Подсказка: используется для связи между машиной публикации приложений и\n"
-"        службой Core. Если они находятся в одной подсети, рекомендуется указать\n"
-"        внутренний адрес; в противном случае — текущий URL сайта.\n"
-"        Например: https://172.16.10.110 или https://dev.example.com»"
+msgstr "    Подсказка: машина публикации приложений взаимодействует с сервисом Core  \n"
+"    Если машина публикации и сервис Core находятся в одной подсети,  \n"
+"    рекомендуется указать внутренний адрес, иначе укажите текущий URL сайта  \n"
+"    <br>  \n"
+"    Например: https://172.16.10.110 или https://dev.example.com"
 
 #: terminal/serializers/applet_host.py:46 terminal/serializers/storage.py:207
 msgid "Ignore Certificate Verification"
@@ -10451,7 +10452,7 @@ msgstr "Существующая лицензия RDS"
 
 #: terminal/serializers/applet_host.py:50
 msgid "If not exist, the RDS will be in trial mode, and the trial period is 120 days. <a href=\"https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-client-access-license\" target=\"_blank\">Detail</a>"
-msgstr "Если лицензия отсутствует, RDS будет работать в пробном режиме в течение 120 дней. <a href='https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-client-access-license' target='_blank'>Подробнее</a>"
+msgstr "Если лицензия отсутствует, RDS будет работать в пробном режиме в течение 120 дней. <a href=\"https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-client-access-license\" target=\"_blank\">Подробнее</a>"
 
 #: terminal/serializers/applet_host.py:55
 msgid "RDS License Server"
@@ -10902,7 +10903,7 @@ msgstr "Запрос актива"
 
 #: tickets/const.py:18 tickets/const.py:25
 msgid "Ticket open"
-msgstr "Ожидает утверждения"
+msgstr "Заявка открыта"
 
 #: tickets/const.py:19
 msgid "Ticket closed"
@@ -10978,7 +10979,7 @@ msgstr "Активы с действующими правами"
 
 #: tickets/errors.py:13
 msgid "The ticket status has changed. Please refresh the page and try again."
-msgstr "Статус заявки изменился. Обновите страницу и повторите попытку."
+msgstr "Статус заявки изменён. Обновите страницу и повторите попытку"
 
 #: tickets/filters.py:17
 msgid "Applicant ID"
@@ -10994,7 +10995,7 @@ msgstr "Имя или адрес связанного актива"
 
 #: tickets/filters.py:27
 msgid "Relevant command"
-msgstr "Связанные команды"
+msgstr "Связанная команда"
 
 #: tickets/filters.py:31
 msgid "Applicant name or username"
@@ -11053,7 +11054,7 @@ msgstr "Уровень одобрения"
 
 #: tickets/models/flow.py:26
 msgid "Ticket flow approval rule"
-msgstr "Правило утверждения потока заявок"
+msgstr "Правило согласования потока заявок"
 
 #: tickets/models/flow.py:56 tickets/models/ticket/general.py:318
 #: tickets/serializers/flow.py:43 tickets/serializers/flow.py:116
@@ -11142,7 +11143,7 @@ msgstr "Снимок заявки"
 
 #: tickets/models/ticket/general.py:432
 msgid "Today's ticket creation limit (9999) has been reached. Please try again tomorrow."
-msgstr "Лимит создания заявок на сегодня исчерпан (9999). Попробуйте завтра"
+msgstr "Лимит создания заявок на сегодня исчерпан (9999). Попробуйте завтра."
 
 #: tickets/models/ticket/general.py:453
 msgid "Please try again"
@@ -11206,31 +11207,31 @@ msgstr "Заявка обновлена - {} ({})"
 
 #: tickets/reporting.py:10
 msgid "Ticket Report"
-msgstr "Этапы обработки заявки"
+msgstr "Отчёт по заявкам"
 
 #: tickets/reporting.py:17
 msgid "Open tickets"
-msgstr "Супер-заявка"
+msgstr "Открытые заявки"
 
 #: tickets/reporting.py:18
 msgid "Closed tickets"
-msgstr "Из заявки"
+msgstr "Закрытые заявки"
 
 #: tickets/reporting.py:19
 msgid "Pending tickets"
-msgstr "В ожидании"
+msgstr "Заявки на рассмотрении"
 
 #: tickets/reporting.py:20
 msgid "Approved tickets"
-msgstr "Управление заявками"
+msgstr "Одобренные заявки"
 
 #: tickets/reporting.py:21
 msgid "Rejected tickets"
-msgstr "Количество отклонённых заявок"
+msgstr "Отклонённые заявки"
 
 #: tickets/reporting.py:22
 msgid "Unique applicants"
-msgstr "Запрашивающий"
+msgstr "Уникальные заявители"
 
 #: tickets/reporting.py:25
 msgid "Unique organizations"
@@ -11238,49 +11239,49 @@ msgstr "Все организации"
 
 #: tickets/reporting.py:69
 msgid "Ticket Type Distribution"
-msgstr "Информация о заявке"
+msgstr "Распределение по типам"
 
 #: tickets/reporting.py:74
 msgid "Ticket State Distribution"
-msgstr "Информация о заявке"
+msgstr "Распределение по состоянию"
 
 #: tickets/reporting.py:79
 msgid "Ticket Status Distribution"
-msgstr "Распределение статусов заявок"
+msgstr "Распределение по статусам"
 
 #: tickets/reporting.py:84
 msgid "Organization Top 10"
-msgstr "Организационная роль"
+msgstr "Топ 10 организаций"
 
 #: tickets/reporting.py:89
 msgid "Applicant Top 10"
-msgstr "Запрашивающий"
+msgstr "Топ 10 заявителей"
 
 #: tickets/reporting.py:94
 msgid "Approval Step Distribution"
-msgstr "Одобрение без входа"
+msgstr "Распределение по этапам"
 
 #: tickets/serializers/flow.py:28
 msgid "No approvers matched. Please update the approval rule"
-msgstr "Подходящие согласующие не найдены. Измените правило согласования"
+msgstr "Согласующие не найдены. Обновите правила согласования"
 
 #: tickets/serializers/flow.py:69
 msgid "A ticket flow with the same name and type already exists"
-msgstr "Поток заявок с таким же именем и типом уже существует"
+msgstr "Рабочий процесс согласования с таким названием и типом уже существует"
 
 #: tickets/serializers/flow.py:77
 msgid "The number of approval rules must match the approval level"
-msgstr "Количество правил утверждения должно соответствовать количеству уровней утверждения"
+msgstr "Количество правил согласования должно соответствовать количеству уровней согласования"
 
 #: tickets/serializers/super_ticket.py:16
 #: tickets/serializers/ticket/ticket.py:24
 msgid "Indicates whether the ticket is open or finished"
-msgstr "Показывает, открыта заявка или завершена"
+msgstr "Отражает, открыта заявка или завершена"
 
 #: tickets/serializers/super_ticket.py:22
 #: tickets/serializers/ticket/ticket.py:30
 msgid "Indicates the current approval outcome: pending, closed, approved, or rejected"
-msgstr "Показывает текущий результат согласования: на рассмотрении, закрыта, одобрена или отклонена"
+msgstr "Отражает текущий результат согласования: на рассмотрении, закрыта, одобрена или отклонена"
 
 #: tickets/serializers/super_ticket.py:26
 msgid "Processor"
@@ -11321,11 +11322,11 @@ msgstr "Схема процесса"
 
 #: tickets/serializers/ticket/ticket.py:128
 msgid "The selected ticket flow is not available"
-msgstr "Выбранный поток заявок недоступен"
+msgstr "Выбранный рабочий процесс одобрения недоступен"
 
 #: tickets/serializers/ticket/ticket.py:132
 msgid "Please select a ticket flow"
-msgstr "Пожалуйста, выберите поток заявок"
+msgstr "Выберите рабочий процесс одобрения"
 
 #: tickets/serializers/ticket/ticket.py:136
 msgid "The ticket flow `{}` does not exist"
@@ -11574,7 +11575,7 @@ msgstr "Настройки пользователя"
 
 #: users/models/user/__init__.py:70
 msgid "Email lookup"
-msgstr "Адрес электронной почты"
+msgstr "Поиск по электронной почте"
 
 #: users/models/user/__init__.py:82 users/serializers/user.py:265
 msgid "Is service account"
@@ -11806,7 +11807,7 @@ msgstr "Может войти с открытым ключем"
 
 #: users/serializers/user.py:145
 msgid "Can UKey authentication"
-msgstr "Может войти с открытым ключем"
+msgstr "Аутентификация по UKey"
 
 #: users/serializers/user.py:149
 msgid "Is face code set"
@@ -11907,8 +11908,8 @@ msgstr "Проверка истечения срока действия поль
 #: users/tasks.py:69
 msgid "Check every day at 2 p.m whether the users in the system are expired, and send a \n"
 "        notification in advance"
-msgstr "Каждый день в 14:00 система проверяет, истёк ли срок действия пользователей,\n"
-"        и заранее отправляет уведомление"
+msgstr "Каждый день в 14:00 система проверяет, истёк ли срок действия \n"
+"        учётных записей пользователей, и заранее отправляет уведомление"
 
 #: users/tasks.py:99
 msgid "Periodic check user expired"
@@ -12884,7 +12885,7 @@ msgstr "Доменный пользователь"
 
 #: xpack/plugins/cloud/serializers/account_attrs.py:198
 msgid "Interface interconnection user"
-msgstr "Пользователь интеграционного интерфейса"
+msgstr "Пользователь для межсистемного взаимодействия"
 
 #: xpack/plugins/cloud/serializers/account_attrs.py:200
 msgid "User type"
