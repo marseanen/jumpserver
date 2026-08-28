@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: jumpserver\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-19 10:30+0800\n"
-"PO-Revision-Date: 2026-08-28 13:57\n"
+"PO-Revision-Date: 2026-08-28 15:45\n"
 "Last-Translator: ibuler <ibuler@qq.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -8836,6 +8836,54 @@ msgstr "Access key secret(SK)"
 #: settings/serializers/feature.py:151 settings/serializers/feature.py:154
 msgid "Chat AI"
 msgstr "Чат AI"
+
+#: rbac/tree.py
+msgid "Conversations"
+msgstr "Диалоги"
+
+#: rbac/tree.py
+msgid "Messages and attachments"
+msgstr "Сообщения и вложения"
+
+#: rbac/tree.py
+msgid "Runs and approvals"
+msgstr "Выполнения и подтверждения"
+
+#: rbac/tree.py
+msgid "API call audits"
+msgstr "Аудит вызовов API"
+
+#: chat_ai/models.py
+msgid "Chat AI conversation"
+msgstr "Диалог Chat AI"
+
+#: chat_ai/models.py
+msgid "Can use Chat AI"
+msgstr "Можно использовать Chat AI"
+
+#: chat_ai/models.py
+msgid "Chat AI message"
+msgstr "Сообщение Chat AI"
+
+#: chat_ai/models.py
+msgid "Chat AI message file"
+msgstr "Файл сообщения Chat AI"
+
+#: chat_ai/models.py
+msgid "Chat AI message image"
+msgstr "Изображение сообщения Chat AI"
+
+#: chat_ai/models.py
+msgid "Chat AI agent run"
+msgstr "Выполнение агента Chat AI"
+
+#: chat_ai/models.py
+msgid "Chat AI approval"
+msgstr "Подтверждение Chat AI"
+
+#: chat_ai/models.py
+msgid "Chat AI API call audit"
+msgstr "Аудит вызовов API Chat AI"
 
 #: settings/serializers/feature.py:158
 msgid "Method"
