@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: jumpserver\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-19 10:30+0800\n"
-"PO-Revision-Date: 2026-08-28 20:34\n"
+"PO-Revision-Date: 2026-08-31 09:45\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -164,7 +164,7 @@ msgstr "учётная запись успешно опубликована, п�
 #: assets/automations/base/manager.py:682
 #, python-format
 msgid "✓ %(host)s: %(result)s"
-msgstr ""
+msgstr "✓ %(host)s: %(result)s"
 
 #: accounts/automations/base/manager.py:265
 msgid "No privileged account"
@@ -603,7 +603,7 @@ msgstr "База данных"
 
 #: accounts/const/vault.py:9 settings/serializers/feature.py:92
 msgid "OpenBao"
-msgstr ""
+msgstr "OpenBao"
 
 #: accounts/const/vault.py:10 settings/serializers/feature.py:108
 msgid "HCP Vault"
@@ -2847,7 +2847,7 @@ msgstr "Актив не существует или отключён"
 #: assets/automations/base/manager.py:929
 #, python-format
 msgid "✗ %(host)s: %(error)s"
-msgstr ""
+msgstr "✗ %(host)s: %(error)s"
 
 #: assets/automations/base/manager.py:953
 #, python-format
@@ -3006,7 +3006,7 @@ msgstr "✓ %(gateway)s: вход по SSH и перенаправление ч�
 #: assets/automations/ping_gateway/manager.py:254
 #, python-format
 msgid "✗ %(gateway)s: %(error)s"
-msgstr ""
+msgstr "✗ %(gateway)s: %(error)s"
 
 #: assets/automations/ping_gateway/manager.py:273
 msgid "Checking gateway connectivity"
@@ -5954,7 +5954,7 @@ msgstr "Локальная сеть"
 #: authentication/utils.py:150 settings/serializers/auth/ukey.py:11
 #: settings/serializers/auth/ukey.py:14 users/models/user/_source.py:27
 msgid "UKey"
-msgstr ""
+msgstr "UKey"
 
 #: authentication/views/base.py:72
 #: perms/templates/perms/_msg_permed_items_expire.html:18
@@ -8264,7 +8264,7 @@ msgstr "Размер страницы поиска (шт.)"
 #: settings/serializers/auth/ldap.py:118
 #: settings/serializers/auth/ldap_ha.py:100
 msgid "StartTLS"
-msgstr ""
+msgstr "StartTLS"
 
 #: settings/serializers/auth/ldap.py:119
 #: settings/serializers/auth/ldap_ha.py:101
