@@ -106,7 +106,7 @@
     "No Account found.": "Учетная запись не найдена",
     "No Assets": "Нет активов",
     "No Databases": "База данных отсутствует",
-    "No account found.": "No account found.",
+    "No account found.": "Учетная запись не найдена.",
     "No found asset": "Совпадений для актива %s не найдено",
     "No kubernetes": "Kubernetes не найден",
     "No protocol found.": "Нет протокола",
