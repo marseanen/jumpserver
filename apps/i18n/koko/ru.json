@@ -124,7 +124,7 @@
     "Page: %d, Count: %d, Total Page: %d, Total Count: %d": "Страница: %d, строк на странице: %d, всего страниц: %d, всего записей: %d",
     "Paste": "Вставить",
     "PauseSession": "Приостановить сессию",
-    "Permission has expired, disconnect": "Permission has expired, disconnect",
+    "Permission has expired, disconnect": "Срок действия разрешения истёк, соединение отключено",
     "PermissionDenied": "Доступ запрещен",
     "PermissionExpired": "Разрешение истекло",
     "PermissionValid": "Доступ разрешен",
