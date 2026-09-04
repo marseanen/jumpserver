@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: jumpserver\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-19 10:30+0800\n"
-"PO-Revision-Date: 2026-09-04 08:02\n"
+"PO-Revision-Date: 2026-09-04 14:59\n"
 "Last-Translator: ibuler <ibuler@qq.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -4087,7 +4087,7 @@ msgid "Manually verifying asset quantities updates the asset count for nodes und
 "        nodes and when the number of nodes exceeds 100"
 msgstr "Ручная проверка количества активов обновляет количество активов в папках\n"
 "        текущей организации. Эта задача будет вызвана в следующих двух случаях:\n"
-"        при обновлении узлов и когда количество узлов превысит 100"
+"        при обновлении папок и когда количество папок превысит 100"
 
 #: assets/tasks/nodes_amount.py:34
 msgid "The task of self-checking is already running and cannot be started repeatedly"
