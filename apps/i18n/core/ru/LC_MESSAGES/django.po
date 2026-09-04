@@ -3,19 +3,20 @@ msgstr ""
 "Project-Id-Version: jumpserver\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-19 10:30+0800\n"
-"PO-Revision-Date: 2026-08-31 09:45\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2026-09-04 08:02\n"
+"Last-Translator: ibuler <ibuler@qq.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.3\n"
 "Plural-Forms: nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 && n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 && n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));\n"
 "X-Crowdin-Project: jumpserver\n"
 "X-Crowdin-Project-ID: 832018\n"
 "X-Crowdin-Language: ru\n"
-"X-Crowdin-File: /dev/apps/i18n/core/en/LC_MESSAGES/django.po\n"
-"X-Crowdin-File-ID: 91\n"
+"X-Crowdin-File: /dev/apps/i18n/core/zh/LC_MESSAGES/django.po\n"
+"X-Crowdin-File-ID: 76\n"
 
 #: accounts/api/account/account.py:193
 #: accounts/serializers/account/account.py:182
@@ -7528,14 +7529,6 @@ msgid "Send asset permission expired notification"
 msgstr "Отправка уведомлений об истечении действия разрешения на актив"
 
 #: perms/tasks.py:52
-#| msgid ""
-#| "Check every day at 10 a.m. and send a notification message to users "
-#| "associated with \n"
-#| "        assets whose authorization is about to expire, as well as to the "
-#| "organization's \n"
-#| "        administrators in advance, to remind them that the asset "
-#| "authorization\n"
-#| "        expire in a few days"
 msgid "Check every day at 10 a.m. and send a notification message to users associated with \n"
 "        assets whose authorization is about to expire, as well as to the organization's \n"
 "        administrators in advance, to remind them that the asset authorization\n"
@@ -7966,70 +7959,74 @@ msgid "Encrypted"
 msgstr "Зашифровано"
 
 #: settings/models.py:168
+msgid "Can change basic setting"
+msgstr "Изменение основных настроек"
+
+#: settings/models.py:169
 msgid "Can change email setting"
 msgstr "Изменение настроек почты"
 
-#: settings/models.py:169
+#: settings/models.py:170
 msgid "Can change auth setting"
 msgstr "Изменение настроек аутентификации"
 
-#: settings/models.py:170
+#: settings/models.py:171
 msgid "Can change auth ops"
 msgstr "Изменение настроек центра заданий"
 
-#: settings/models.py:171
+#: settings/models.py:172
 msgid "Can change auth ticket"
 msgstr "Изменение настроек заявок"
 
-#: settings/models.py:172
+#: settings/models.py:173
 msgid "Can change virtual app setting"
 msgstr "Изменение настроек виртуальных приложений"
 
-#: settings/models.py:173
+#: settings/models.py:174
 msgid "Can change auth announcement"
 msgstr "Изменение объявления на входе"
 
-#: settings/models.py:174
+#: settings/models.py:175
 msgid "Can change vault setting"
 msgstr "Изменение настроек Vault"
 
-#: settings/models.py:175
+#: settings/models.py:176
 msgid "Can change chat ai setting"
 msgstr "Изменение настроек чат-ИИ"
 
-#: settings/models.py:176
+#: settings/models.py:177
 msgid "Can change system msg sub setting"
 msgstr "Изменение настроек подписки на сообщения"
 
-#: settings/models.py:177
+#: settings/models.py:178
 msgid "Can change sms setting"
 msgstr "Изменение настроек SMS"
 
-#: settings/models.py:178
+#: settings/models.py:179
 msgid "Can change security setting"
 msgstr "Изменение настроек безопасности"
 
-#: settings/models.py:179
+#: settings/models.py:180
 msgid "Can change clean setting"
 msgstr "Изменение настроек регулярной очистки"
 
-#: settings/models.py:180
+#: settings/models.py:181
 msgid "Can change interface setting"
 msgstr "Изменение настроек интерфейса"
 
-#: settings/models.py:181
+#: settings/models.py:182
 msgid "Can change license setting"
 msgstr "Изменение настроек лицензии"
 
-#: settings/models.py:182
+#: settings/models.py:183
 msgid "Can change terminal setting"
 msgstr "Изменение настроек терминала"
 
-#: settings/models.py:183
+#: settings/models.py:184
 msgid "Can change other setting"
 msgstr "Изменение прочих настроек"
 
-#: settings/models.py:193
+#: settings/models.py:194
 msgid "Chat prompt"
 msgstr "Подсказка в чате"
 
@@ -8241,7 +8238,7 @@ msgstr "Таймаут соединения (сек)"
 
 #: settings/serializers/auth/ldap.py:95 settings/serializers/auth/ldap_ha.py:77
 msgid "Strict sync"
-msgstr "Строгая синхронизация"
+msgstr "Строгий режим"
 
 #: settings/serializers/auth/ldap.py:96 settings/serializers/auth/ldap_ha.py:78
 msgid "In strict mode, users not found in LDAP will be disabled during full or automatic sync"
@@ -9267,7 +9264,7 @@ msgstr "Регламент безопасности данных ЕС (GDPR) т�
 
 #: settings/serializers/security.py:168
 msgid "Verify code TTL (second)"
-msgstr "Время действия кода подтверждения (мин)"
+msgstr "Время действия кода подтверждения (сек)"
 
 #: settings/serializers/security.py:169
 msgid "Reset password and send SMS code expiration time"
@@ -9539,7 +9536,7 @@ msgstr "Указанный порт не используется службой
 
 #: settings/utils/ldap.py:601
 msgid "Please add certificate: {}"
-msgstr "Пожалуйста, добавьте сертификат: {}"
+msgstr "Пожалуйста, добавьте сертификат"
 
 #: settings/utils/ldap.py:605 settings/utils/ldap.py:632
 #: settings/utils/ldap.py:662 settings/utils/ldap.py:690
@@ -13049,5 +13046,5 @@ msgid "Invalid license"
 msgstr "Лицензия недействительна"
 
 #~ msgid "Ticket already closed"
-#~ msgstr "Ticket has been closed"
+#~ msgstr "工单已经关闭"
 
