@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: jumpserver\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-19 10:30+0800\n"
-"PO-Revision-Date: 2026-09-04 14:59\n"
+"PO-Revision-Date: 2026-09-07 14:39\n"
 "Last-Translator: ibuler <ibuler@qq.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -2963,7 +2963,7 @@ msgstr "Подключение к шлюзу установлено, но не �
 #: assets/automations/ping_gateway/manager.py:80
 #, python-format
 msgid "Unable to establish an SSH session to %(address)s:%(port)s; check the network and gateway account credentials"
-msgstr "Не удалось установить SSH сеанс с %(address)s:%(port)s, проверьте сеть и учётные данные УЗ шлюза"
+msgstr "Не удалось установить SSH сессию с %(address)s:%(port)s, проверьте сеть и учётные данные УЗ шлюза"
 
 #: assets/automations/ping_gateway/manager.py:92
 msgid "The SSH tunnel is available, but gateway account authentication through the tunnel failed; check the gateway account credentials"
@@ -4871,7 +4871,7 @@ msgid "Since the system generates login logs, operation logs, file upload logs, 
 "        'Tasks - Regular clean-up' in the system settings at 2 a.m daily"
 msgstr "Поскольку система генерирует журналы входа в систему, журналы операций,\n"
 "        журналы загрузки файлов, журналы активности, журналы выполнения Celery,\n"
-"        записи сеансов, записи команд и журналы смены паролей, она будет выполнять\n"
+"        записи сессий, записи команд и журналы смены паролей, она будет выполнять\n"
 "        очистку записей, которые превышают лимит времени, в соответствии с\n"
 "        «Системные задачи - Регулярная очистка» в настройках системы в 2 часа ночи ежедневно"
 
@@ -5090,7 +5090,7 @@ msgstr "Ошибка аутентификации. Неверный пароль
 
 #: authentication/confirm/relogin.py:11
 msgid "Login time has exceeded {} minutes, please login again"
-msgstr "Время сеанса превысило {} минут, пожалуйста, войдите снова"
+msgstr "Время сессии превысило {} минут, пожалуйста, войдите снова"
 
 #: authentication/const.py:36
 msgid "OTP"
@@ -5659,11 +5659,11 @@ msgstr "Область"
 
 #: authentication/tasks.py:19
 msgid "Clean expired session"
-msgstr "Очистить просроченные сеансы"
+msgstr "Очистить просроченные сессии"
 
 #: authentication/tasks.py:21
 msgid "Since user logins create sessions, the system will clean up expired sessions every 24 hours"
-msgstr "С момента входа и создания сессии система очищает просроченные сеансы каждые 24 часа"
+msgstr "С момента входа и создания сессии система очищает просроченные сессии каждые 24 часа"
 
 #: authentication/tasks.py:30
 msgid "Clean expired temporary, connection tokens"
@@ -6510,7 +6510,7 @@ msgstr "Пожалуйста, отправьте через {} секунд"
 
 #: common/serializers/common.py:90
 msgid "Children"
-msgstr "Узел"
+msgstr "Дочерние"
 
 #: common/serializers/common.py:98
 msgid "File"
@@ -6566,7 +6566,7 @@ msgstr "Эта задача выполняется для отправки вл�
 
 #: common/tasks.py:107
 msgid "Upload account backup to external storage"
-msgstr "Загрузка записей сеансов на внешнее хранилище"
+msgstr "Загрузка записей сессий на внешнее хранилище"
 
 #: common/tasks.py:109
 msgid "When performing an account backup, this task needs to be executed to external storage (SFTP)"
@@ -8350,7 +8350,7 @@ msgstr "Конечная точка информации о пользовате
 
 #: settings/serializers/auth/oauth2.py:53 settings/serializers/auth/oidc.py:93
 msgid "End session endpoint"
-msgstr "Конечная точка завершения сеанса"
+msgstr "Конечная точка завершения сессии"
 
 #: settings/serializers/auth/oauth2.py:57
 msgid "When the user signs out, they also be logged out from the OAuth2 server"
@@ -9377,7 +9377,7 @@ msgstr "Поделиться сессией"
 
 #: settings/serializers/security.py:262
 msgid "Enabled, Allows user active session to be shared with other users"
-msgstr "Если включено, позволяет использовать активный сеанс пользователя совместно с другими пользователями"
+msgstr "Если включено, позволяет использовать активную сессию пользователя совместно с другими пользователями"
 
 #: settings/serializers/security.py:268
 msgid "Insecure command alert"
@@ -9864,7 +9864,7 @@ msgstr "Есть активные сессии"
 #: terminal/api/session/session.py:52
 #, python-format
 msgid "User %s %s session %s replay"
-msgstr "Пользователь %s %s запись сеанса %s"
+msgstr "Пользователь %s %s запись сессии %s"
 
 #: terminal/api/session/session.py:76
 msgid "Terminal name or ID"
@@ -10476,7 +10476,7 @@ msgstr "Максимальное время разрыва RDS-сессии (м�
 
 #: terminal/serializers/applet_host.py:67
 msgid "Tips: Set the maximum duration for keeping a disconnected session active on the server (log off the session after 60000 milliseconds)."
-msgstr "Подсказка: задаёт максимальное время, в течение которого отключённая сессия может оставаться активной на сервере (после 60000 мс сеанс будет завершён)."
+msgstr "Подсказка: задаёт максимальное время, в течение которого отключённая сессия может оставаться активной на сервере (после 60000 мс сессия будет завершена)."
 
 #: terminal/serializers/applet_host.py:72
 msgid "RDS Remote App Logoff Time Limit (ms)"
