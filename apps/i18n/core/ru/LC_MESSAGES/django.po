@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: jumpserver\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-19 10:30+0800\n"
-"PO-Revision-Date: 2026-11-05 12:46\n"
+"PO-Revision-Date: 2026-11-05 18:46\n"
 "Last-Translator: ibuler <ibuler@qq.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -21,7 +21,7 @@ msgstr ""
 #. Django's single-field uniqueness validation message.
 #, python-format
 msgid "%(model_name)s with this %(field_label)s already exists."
-msgstr "Запись «%(model_name)s» с таким значением поля «%(field_label)s» уже существует. Измените значение поля «%(field_label)s»."
+msgstr "%(model_name)s с таким значением поля %(field_label)s уже существует. Измените значение поля %(field_label)s."
 
 #: accounts/api/account/account.py:193
 #: accounts/serializers/account/account.py:182
@@ -1242,7 +1242,7 @@ msgstr "Проверка механизма"
 
 #: accounts/models/automations/check_account.py:133
 msgid "Check account password strength"
-msgstr "Проверьте надежность своей учетной записи и пароля"
+msgstr "Проверка надёжности пароля учётной записи"
 
 #: accounts/models/automations/check_account.py:135
 msgid "Perform checks and analyses based on the security of account passwords, including password strength, leakage, etc."
@@ -1250,7 +1250,7 @@ msgstr "Анализ безопасности учетной записи и п�
 
 #: accounts/models/automations/check_account.py:142
 msgid "Check whether account passwords are duplicated"
-msgstr "Проверка на дублирование учетных записей и паролей"
+msgstr "Проверка наличия дублирующихся паролей учётных записей"
 
 #: accounts/models/automations/check_account.py:143
 msgid "Check if the account is the same as other accounts."
@@ -3040,7 +3040,7 @@ msgstr "Проверка входа по SSH и перенаправления �
 #: assets/automations/ping_gateway/manager.py
 #, python-format
 msgid "Checking SSH login and tunnel forwarding: %(gateway)s; execution account: %(account)s"
-msgstr "Проверка входа на шлюз и переадресации SSH-туннеля: %(gateway)s; учётная запись выполнения: %(account)s"
+msgstr "Проверка входа через шлюз и перенаправления SSH-туннеля: %(gateway)s; учётная запись выполнения: %(account)s"
 
 #: assets/automations/ping_gateway/manager.py:239
 #, python-format
@@ -5627,11 +5627,11 @@ msgstr "Активность учётных данных"
 
 #: authentication/tasks.py:43
 msgid "Send credential activity summary"
-msgstr "Отправить сводку активности учётных данных"
+msgstr "Отправка сводки активности учётных данных"
 
 #: authentication/tasks.py:44
 msgid "Send users a summary of credential creation and successful use in the past 24 hours"
-msgstr "Отправлять пользователям сводку создания и успешного использования учётных данных за 24 часа"
+msgstr "Отправлять пользователям сводку о создании и успешном использовании учётных данных за 24 часа"
 
 #: authentication/templates/authentication/_msg_credential_activity_digest.html:2
 #: authentication/templates/authentication/_msg_credential_created.html:2
@@ -5649,11 +5649,11 @@ msgstr "Если эта активность вам неизвестна, отз
 
 #: authentication/templates/authentication/_msg_credential_created.html:3
 msgid "A new credential was created for your account."
-msgstr "Для вашего аккаунта созданы новые учётные данные."
+msgstr "Для вашей учётной записи созданы новые учётные данные."
 
 #: authentication/templates/authentication/_msg_credential_created.html:10
 msgid "If this was not you, revoke the credential and contact your administrator immediately."
-msgstr "Если это были не вы, отзовите учётные данные и немедленно свяжитесь с администратором."
+msgstr "Если вы не создавали эти учётные данные, немедленно отзовите их и свяжитесь с администратором."
 
 #: authentication/notifications.py:12
 msgid "Different city login reminder"
@@ -6912,7 +6912,7 @@ msgstr "Ошибка параметров выполнения задачи {}"
 #: ops/const.py:85
 #, python-brace-format
 msgid "Access to asset {asset} ({address}) is denied by a login control policy. Contact your administrator."
-msgstr ""
+msgstr "Доступ к активу {asset} ({address}) запрещён политикой контроля входа. Обратитесь к администратору."
 
 #: ops/api/job.py:173
 msgid "Duplicate file exists"
