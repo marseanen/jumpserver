@@ -73,6 +73,7 @@ class Language(models.TextChoices):
     en = 'en', 'English'
     zh_hans = 'zh-hans', '中文（简体）'
     zh_hant = 'zh-hant', '中文（繁體）'
+    fr = 'fr', 'Français'
     ja = 'ja', '日本語',
     pt_br = 'pt-br', 'Português (Brasil)'
     es = 'es', 'Español'
@@ -96,6 +97,10 @@ class Language(models.TextChoices):
     def get_code_mapper(cls):
         code_mapper = {code: code for code, name in cls.choices}
         code_mapper.update({
+            'fr-fr': cls.fr.value,
+            'fr-ca': cls.fr.value,
+            'fr-be': cls.fr.value,
+            'fr-ch': cls.fr.value,
             'zh': cls.zh_hans.value,
             'zh-cn': cls.zh_hans.value,
             'zh-tw': cls.zh_hant.value,

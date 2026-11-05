@@ -35,12 +35,15 @@ setting_pub_sub = SettingSubPub()
 def refresh_settings_on_changed(sender, instance=None, **kwargs):
     if not instance:
         return
+    from authentication.services.client_login_session import CLIENT_LOGIN_POLICY_CACHE_KEY, POLICY_FIELDS
+    if instance.name in POLICY_FIELDS:
+        from django.core.cache import cache
+        cache.delete(CLIENT_LOGIN_POLICY_CACHE_KEY)
+    from authentication.services.idle_lock import TIME_SETTINGS, IDLE_LOCK_LIMITS_CACHE_KEY
+    if instance.name in TIME_SETTINGS.values():
+        from django.core.cache import cache
+        cache.delete(IDLE_LOCK_LIMITS_CACHE_KEY)
     setting_pub_sub.publish(instance.name)
-    if instance.is_name('PERM_SINGLE_ASSET_TO_UNGROUP_NODE'):
-        """ 过期所有用户授权树 """
-        logger.debug('Expire all user perm tree')
-        from perms.utils import UserPermTreeExpireUtil
-        UserPermTreeExpireUtil().expire_perm_tree_for_all_user()
 
 
 @receiver(django_ready)

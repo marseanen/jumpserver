@@ -1,14 +1,19 @@
 # -*- coding: utf-8 -*-
 #
 import re
+import sys
 import threading
 import time
 import uuid
-from collections import defaultdict
+from collections import defaultdict, OrderedDict
+from weakref import WeakValueDictionary
 
 from django.core.cache import cache
 from django.db import models, transaction
-from django.db.models import F, Q, Manager
+from django.db.models import (
+    Count, Exists, F, IntegerField, Manager, OuterRef, Q, Subquery, Value,
+)
+from django.db.models.functions import Coalesce, Concat
 from django.db.transaction import atomic
 from django.utils.translation import gettext_lazy as _, gettext
 
@@ -30,7 +35,47 @@ def compute_parent_key(key):
 
 
 class NodeQuerySet(models.QuerySet):
-    pass
+    def with_has_children(self, include_assets=False):
+        children = self.model._base_manager.filter(
+            parent_key=OuterRef('key')
+        )
+        has_children = Exists(children)
+        if include_assets:
+            from .asset import Asset
+
+            direct_assets = Asset.nodes.through.objects.filter(
+                node_id=OuterRef('pk')
+            )
+            has_children |= Exists(direct_assets)
+        return self.annotate(has_children=has_children)
+
+    def with_realtime_assets_amount(self, include_descendants=True):
+        """Count distinct direct or subtree assets from current M2M relations.
+
+        The correlated subquery keeps this as one SQL query for a node list and
+        avoids relying on the materialized ``Node.assets_amount`` field.
+        """
+        from .asset import Asset
+
+        relations = Asset.nodes.through.objects.order_by()
+        if include_descendants:
+            relations = relations.filter(
+                Q(node__key=OuterRef('key')) |
+                Q(node__key__startswith=Concat(OuterRef('key'), Value(':')))
+            ).annotate(group=Value(1)).values('group')
+        else:
+            relations = relations.filter(
+                node_id=OuterRef('pk')
+            ).values('node_id')
+        relations = relations.annotate(
+            amount=Count('asset_id', distinct=True)
+        ).values('amount')
+        return self.annotate(
+            assets_amount_realtime=Coalesce(
+                Subquery(relations, output_field=IntegerField()),
+                Value(0),
+            )
+        )
 
 
 class FamilyMixin:
@@ -274,13 +319,25 @@ class FamilyMixin:
 
 class NodeAllAssetsMappingMixin:
     # { org_id: { node_key: [ asset1_id, asset2_id ] } }
-    orgid_nodekey_assetsid_mapping = defaultdict(dict)
-    locks_for_get_mapping_from_cache = defaultdict(threading.Lock)
+    orgid_nodekey_assetsid_mapping = OrderedDict()
+    locks_for_get_mapping_from_cache = WeakValueDictionary()
+    _mapping_cache_lock = threading.RLock()
+    _mapping_cache_metadata = {}
+    # Redis remains the shared source; large organizations are not duplicated
+    # indefinitely in every Web/worker/beat process.
+    _mapping_cache_max_bytes = 8 * 1024 * 1024
+    _mapping_cache_max_orgs = 32
+    _mapping_cache_ttl = 60
 
     @classmethod
     def get_lock(cls, org_id):
-        lock = cls.locks_for_get_mapping_from_cache[str(org_id)]
-        return lock
+        with cls._mapping_cache_lock:
+            org_id = str(org_id)
+            lock = cls.locks_for_get_mapping_from_cache.get(org_id)
+            if lock is None:
+                lock = threading.Lock()
+                cls.locks_for_get_mapping_from_cache[org_id] = lock
+            return lock
 
     @classmethod
     def get_node_all_asset_ids_mapping(cls, org_id):
@@ -296,17 +353,60 @@ class NodeAllAssetsMappingMixin:
     # from memory
     @classmethod
     def get_node_all_asset_ids_mapping_from_memory(cls, org_id):
-        mapping = cls.orgid_nodekey_assetsid_mapping.get(org_id, {})
-        return mapping
+        org_id = str(org_id)
+        with cls._mapping_cache_lock:
+            cls._expire_old_memory_mappings()
+            mapping = cls.orgid_nodekey_assetsid_mapping.get(org_id)
+            if mapping is None:
+                return {}
+            cls.orgid_nodekey_assetsid_mapping.move_to_end(org_id)
+            return mapping
 
     @classmethod
     def set_node_all_asset_ids_mapping_to_memory(cls, org_id, mapping):
-        cls.orgid_nodekey_assetsid_mapping[org_id] = mapping
+        # Conservatively count repeated references too. Stop as soon as this
+        # entry exceeds the budget rather than allocating a recursive seen set.
+        size = sys.getsizeof(mapping)
+        for key, values in mapping.items():
+            size += sys.getsizeof(key) + sys.getsizeof(values)
+            if size > cls._mapping_cache_max_bytes:
+                break
+            for value in values:
+                size += sys.getsizeof(value)
+                if size > cls._mapping_cache_max_bytes:
+                    break
+            if size > cls._mapping_cache_max_bytes:
+                break
+        with cls._mapping_cache_lock:
+            cls.expire_node_all_asset_ids_memory_mapping(org_id)
+            cls._expire_old_memory_mappings()
+            if size > cls._mapping_cache_max_bytes:
+                return
+            total = sum(meta[1] for meta in cls._mapping_cache_metadata.values())
+            while cls.orgid_nodekey_assetsid_mapping and (
+                total + size > cls._mapping_cache_max_bytes
+                or len(cls.orgid_nodekey_assetsid_mapping) >= cls._mapping_cache_max_orgs
+            ):
+                oldest = next(iter(cls.orgid_nodekey_assetsid_mapping))
+                total -= cls._mapping_cache_metadata[oldest][1]
+                cls.expire_node_all_asset_ids_memory_mapping(oldest)
+            org_id = str(org_id)
+            cls.orgid_nodekey_assetsid_mapping[org_id] = mapping
+            cls._mapping_cache_metadata[org_id] = (time.monotonic() + cls._mapping_cache_ttl, size)
+
+    @classmethod
+    def _expire_old_memory_mappings(cls):
+        now = time.monotonic()
+        expired = [key for key, (expires, _) in cls._mapping_cache_metadata.items() if expires <= now]
+        for key in expired:
+            cls.expire_node_all_asset_ids_memory_mapping(key)
 
     @classmethod
     def expire_node_all_asset_ids_memory_mapping(cls, org_id):
-        org_id = str(org_id)
-        cls.orgid_nodekey_assetsid_mapping.pop(org_id, None)
+        with cls._mapping_cache_lock:
+            org_id = str(org_id)
+            cls.orgid_nodekey_assetsid_mapping.pop(org_id, None)
+            cls._mapping_cache_metadata.pop(org_id, None)
 
     @classmethod
     def expire_all_orgs_node_all_asset_ids_memory_mapping(cls):
@@ -335,7 +435,7 @@ class NodeAllAssetsMappingMixin:
 
             _mapping = cls.generate_node_all_asset_ids_mapping(org_id)
             cache_key = cls._get_cache_key_for_node_all_asset_ids_mapping(org_id)
-            cache.set(cache_key, mapping, timeout=None)
+            cache.set(cache_key, _mapping, timeout=None)
             return _mapping
 
     @classmethod
@@ -559,6 +659,12 @@ class Node(JMSOrgBaseModel, SomeNodesMixin, FamilyMixin, NodeAssetsMixin):
     class Meta:
         verbose_name = _("Node")
         ordering = ['parent_key', 'value']
+        indexes = [
+            models.Index(
+                fields=['org_id', 'parent_key', 'value', 'id'],
+                name='assets_node_org_parent_val_idx',
+            ),
+        ]
         permissions = [
             ('match_node', _('Can match node')),
         ]

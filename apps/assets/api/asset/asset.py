@@ -5,6 +5,7 @@ from django.db import transaction
 from django.shortcuts import get_object_or_404
 from django.utils.translation import gettext, gettext_lazy as _
 from django_filters import rest_framework as drf_filters
+from drf_spectacular.utils import extend_schema
 from rest_framework import status
 from rest_framework.decorators import action
 from rest_framework.response import Response
@@ -17,6 +18,7 @@ from assets.exceptions import NotSupportedTemporarilyError
 from assets.filters import IpInFilterBackend, NodeFilterBackend
 from assets.models import Asset, Gateway, Platform, Protocol
 from assets.tasks import test_assets_connectivity_manual, update_assets_hardware_info_manual
+from assets.utils.cidr import filter_assets_by_cidrs
 from assets.const import AllTypes, Category
 from common.api import SuggestionMixin
 from common.drf.filters import BaseFilterSet, AttrRulesFilterBackend
@@ -47,6 +49,8 @@ def get_license_asset_limit():
 
 
 class AssetFilterSet(BaseFilterSet):
+    cidrs = drf_filters.CharFilter(method='filter_cidrs', label=_('CIDR ranges'))
+    exclude_zone = drf_filters.UUIDFilter(field_name='zone_id', exclude=True, label=_('Exclude zone'))
     is_gateway = drf_filters.BooleanFilter(
         method='filter_is_gateway', label=_("Gateway")
     )
@@ -114,6 +118,7 @@ class AssetFilterSet(BaseFilterSet):
         model = Asset
         fields = [
             "id", "name", "address",
+            "cidrs", "exclude_zone",
             "protocols", "comment", "is_active", "zone",
             "type", "exclude_type", "category", "exclude_category",
             "platform", "exclude_platform",
@@ -126,6 +131,11 @@ class AssetFilterSet(BaseFilterSet):
             'protocols': ('in',),
             'zone': ('icontains',),
         }
+
+    @staticmethod
+    def filter_cidrs(queryset, name, value):
+        cidrs = serializers.CIDRListField(allow_empty=False).run_validation(value.split(','))
+        return filter_assets_by_cidrs(queryset, cidrs)
 
     @staticmethod
     def filter_platform(queryset, name, value):
@@ -233,6 +243,9 @@ class BaseAssetViewSet(OrgBulkModelViewSet):
 
 
 class AssetViewSet(SuggestionMixin, BaseAssetViewSet):
+    # Core rejects direct creation on /assets/assets/; use a typed asset API.
+    chat_ai_excluded_actions = ('create',)
+
     @action(methods=["GET"], detail=True, url_path="platform")
     def platform(self, *args, **kwargs):
         asset = super().get_object()
@@ -248,10 +261,12 @@ class AssetViewSet(SuggestionMixin, BaseAssetViewSet):
             gateways = asset.zone.gateways
         return self.get_paginated_response_from_queryset(gateways)
 
+    @extend_schema(request=serializers.SyncPlatformProtocolsSerializer, responses={200: None})
     @action(methods=['post'], detail=False, url_path='sync-platform-protocols')
     def sync_platform_protocols(self, request, *args, **kwargs):
-        platform_id = request.data.get('platform_id')
-        platform = get_object_or_404(Platform, pk=platform_id)
+        serializer = serializers.SyncPlatformProtocolsSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        platform = get_object_or_404(Platform, pk=serializer.validated_data['platform_id'])
         asset_ids = list(platform.assets.values_list('id', flat=True))
         platform_protocols = list(platform.protocols.values('name', 'port'))
 

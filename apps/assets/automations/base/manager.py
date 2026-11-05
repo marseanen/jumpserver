@@ -22,7 +22,7 @@ from common.db.utils import safe_atomic_db_connection
 from common.tasks import send_mail_async
 from common.utils import get_logger, lazyproperty, is_openssh_format_key, ssh_pubkey_gen
 from libs.ansible.modules_utils.ssh_tunnel import TimeoutSSHTunnelForwarder
-from ops.ansible import JMSInventory, DefaultCallback, SuperPlaybookRunner
+from ops.ansible import JMSInventory, DefaultCallback, SuperPlaybookRunner, escape_jinja2_syntax
 from ops.ansible.interface import interface
 from users.utils import activate_user_language
 
@@ -257,6 +257,15 @@ class BaseManager:
         return self.execution.all_assets_group_by_platform()
 
     @staticmethod
+    def get_asset_result_metadata(asset):
+        """Snapshot asset identity for reports without querying live assets later."""
+        return {
+            'asset_id': str(asset.id) if asset else '',
+            'asset_name': asset.name if asset else '',
+            'asset_address': asset.address if asset else '',
+        }
+
+    @staticmethod
     def print_log(message, level='info'):
         print_automation_log(message, level)
 
@@ -428,7 +437,10 @@ class PlaybookPrepareMixin:
         if not data:
             data = automation_params.get(method_id, {})
         params = serializer(data).data
-        return params
+
+        # JSON inventory cannot preserve Ansible unsafe wrappers. Escape after
+        # serialization so task parameters and platform defaults stay literal.
+        return escape_jinja2_syntax(params)
 
     @property
     def platform_automation_methods(self):
@@ -538,13 +550,31 @@ class PlaybookPrepareMixin:
             exclude_localhost=True,
             task_type=self.__class__.method_type(),
             protocol=protocol,
+            account_selector=self.get_inventory_account_selector(),
         )
         inventory.write_to_file(inventory_path)
+        asset_details = self.result.setdefault('asset_details', {})
+        for host, detail in {
+            **self.get_inventory_hosts(inventory_path),
+            **inventory.exclude_host_details,
+        }.items():
+            asset = detail.get('jms_asset') or {}
+            if not asset.get('id'):
+                continue
+            # Keep only display metadata, never credentials from the inventory.
+            asset_details[host] = {
+                'asset_id': str(asset['id']),
+                'asset_name': asset.get('name', ''),
+                'asset_address': asset.get('origin_address') or asset.get('address', ''),
+            }
         self._inventory_host_labels = {
             host: self.format_inventory_host_label(host, detail)
             for host, detail in inventory.exclude_host_details.items()
         }
         return dict(inventory.exclude_hosts)
+
+    def get_inventory_account_selector(self):
+        return None
 
     @lazyproperty
     def runtime_dir(self):
@@ -649,7 +679,12 @@ class BasePlaybookManager(PlaybookPrepareMixin, BaseManager):
         self._inventory_host_labels = {}
 
     def get_assets_group_by_platform(self):
-        return self.execution.all_assets_group_by_platform()
+        groups = super().get_assets_group_by_platform()
+        asset_details = self.result.setdefault('asset_details', {})
+        for assets in groups.values():
+            for asset in assets:
+                asset_details[str(asset)] = self.get_asset_result_metadata(asset)
+        return groups
 
     def get_task_display_name(self):
         labels = {
@@ -875,6 +910,11 @@ class BasePlaybookManager(PlaybookPrepareMixin, BaseManager):
         missing_asset_ids = requested_asset_ids - available_asset_ids
         self.summary["total_assets"] += len(missing_asset_ids)
         for asset_id in sorted(missing_asset_ids):
+            self.result.setdefault('asset_details', {})[asset_id] = {
+                'asset_id': asset_id,
+                'asset_name': '',
+                'asset_address': '',
+            }
             self.on_inventory_host_error(
                 asset_id, _("Asset not found or inactive")
             )
@@ -1055,6 +1095,39 @@ class BasePlaybookManager(PlaybookPrepareMixin, BaseManager):
         self._runner_host_labels[str(runner.id)] = labels
         return labels
 
+    @staticmethod
+    def format_execution_account_label(username, auth, account=None):
+        if not username:
+            return ''
+        label = str(username)
+        if account and 'privileged' in account:
+            label = _(
+                "%(name)s (username: %(username)s, privileged: %(privileged)s)"
+            ) % {
+                'name': account.get('name') or username,
+                'username': username,
+                'privileged': _("Yes") if account['privileged'] else _("No"),
+            }
+        login = auth.get('ansible_user')
+        become = auth.get('ansible_become_user')
+        if auth.get('ansible_become') and login and become:
+            return _(
+                "%(account)s (login: %(login)s, %(method)s → %(become)s)"
+            ) % {
+                'account': label,
+                'login': login,
+                'method': auth.get('ansible_become_method') or 'sudo',
+                'become': become,
+            }
+        return label
+
+    def get_execution_account_label(self, detail):
+        # `account` is the operation's target; `jms_account` is the account
+        # selected to execute it. Only identity fields belong in the log.
+        account = detail.get('jms_account') or {}
+        username = account.get('username') or detail.get('ansible_user')
+        return self.format_execution_account_label(username, detail, account)
+
     def announce_runner_targets(self, runner, inventory_path):
         labels = self.cache_runner_host_labels(runner, inventory_path)
         self._active_host_labels = labels
@@ -1068,10 +1141,14 @@ class BasePlaybookManager(PlaybookPrepareMixin, BaseManager):
             asset = detail.get('jms_asset') if isinstance(detail, dict) else None
             if not isinstance(asset, dict):
                 continue
-            self.print_log(
-                _("• %(host)s: processing") % {'host': labels[host]},
-                'progress',
-            )
+            account = self.get_execution_account_label(detail)
+            if account:
+                message = _(
+                    "• %(host)s: processing; execution account: %(account)s"
+                ) % {'host': labels[host], 'account': account}
+            else:
+                message = _("• %(host)s: processing") % {'host': labels[host]}
+            self.print_log(message, 'progress')
         return labels
 
     @staticmethod

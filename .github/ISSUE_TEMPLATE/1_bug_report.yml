@@ -2,13 +2,11 @@ name: '🐛 Bug Report'
 description: 'Report an Bug'
 title: '[Bug] '
 labels: ['🐛 Bug']
-assignees: 
-  - baijiangjie
 body:
   - type: input
     attributes:
       label: 'Product Version'
-      description: The versions prior to v2.28 (inclusive) are no longer supported.
+      description: Please check the version maintenance status in [SECURITY.md](https://github.com/jumpserver/jumpserver/blob/dev/SECURITY.md).
     validations:
       required: true
 

@@ -1,23 +1,25 @@
 import json
 import os
 import uuid
+from collections import Counter
 from functools import partial
 
 from celery.result import AsyncResult
 from django.conf import settings
 from django.db import transaction
-from django.db.models import Count
 from django.http import Http404
 from django.shortcuts import get_object_or_404
 from django.utils._os import safe_join
 from django.utils.translation import gettext_lazy as _
+from rest_framework import mixins
 from rest_framework.decorators import action
 from rest_framework.exceptions import PermissionDenied
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from acls.models import LoginAssetACL
+from assets.const import Protocol
 from assets.models import Asset
+from common.api.generic import JMSGenericViewSet
 from common.const.http import POST
 from common.drf.throttling import FileTransferThrottle
 from common.permissions import IsValidUser
@@ -26,23 +28,25 @@ from ops.celery import app
 from ops.const import Types
 from ops.filters import JobExecutionFilterSet, JobFilterSet
 from ops.models import Job, JobExecution, JMSPermedInventory
-from ops.models.job import check_upload_permission
+from ops.models.job import check_upload_permission, match_rejected_login_asset_acl
 from ops.serializers.job import (
-    JobSerializer, JobExecutionSerializer, FileSerializer, JobTaskStopSerializer
+    JobSerializer, JobExecutionSerializer, JobExecutionResultSerializer, FileSerializer, JobTaskStopSerializer,
+    FileUploadCancelSerializer,
 )
 from ops.utils import merge_nodes_and_assets
 
 __all__ = [
     'JobViewSet', 'JobExecutionViewSet', 'JobRunVariableHelpAPIView', 'JobExecutionTaskDetail', 'UsernameHintsAPI',
-    'ClassifiedHostsAPI'
+    'ClassifiedHostsAPI', 'JobExecutionResultViewSet'
 ]
 
 from ops.tasks import run_ops_job_execution
 from ops.variables import JMS_JOB_VARIABLE_HELP
-from ops.const import COMMAND_EXECUTION_DISABLED
+from ops.const import COMMAND_EXECUTION_DISABLED, LOGIN_ASSET_ACL_DENIED
 from orgs.mixins.api import OrgBulkModelViewSet
 from orgs.utils import tmp_to_org, get_current_org
-from accounts.models import Account
+from perms.const import ActionChoices
+from perms.utils.asset_perm import PermAssetAccountsBatchUtil
 from jumpserver.settings import get_file_md5
 
 
@@ -55,19 +59,16 @@ def set_task_to_serializer_data(serializer, task_id):
 class LoginAssetACLCheckMixin:
 
     def check_login_asset_acls(self, user, assets, account, ip):
-        for asset in assets:
-            kwargs = {'user': user, 'asset': asset, 'account_username': account}
-            acls = LoginAssetACL.filter_queryset(**kwargs)
-            acl = LoginAssetACL.get_match_rule_acls(user, ip, acls)
-            if not acl:
-                return
-            if not acl.is_action(acl.ActionChoices.accept):
-                raise PermissionDenied(_(
-                    "Login to asset {}({}) is rejected by login asset ACL ({})".format(asset.name, asset.address, acl)
-                ))
+        asset, _acl = match_rejected_login_asset_acl(user, assets, account, ip)
+        if not asset:
+            return
+        raise PermissionDenied(LOGIN_ASSET_ACL_DENIED.format(
+            asset=asset.name, address=asset.address
+        ))
 
 
 class JobViewSet(LoginAssetACLCheckMixin, OrgBulkModelViewSet):
+    perm_model = Job
     serializer_class = JobSerializer
     filterset_class = JobFilterSet
     search_fields = ('name', 'comment')
@@ -80,7 +81,7 @@ class JobViewSet(LoginAssetACLCheckMixin, OrgBulkModelViewSet):
 
     def check_permissions(self, request):
         # job: upload_file
-        if self.action == 'upload' or request.data.get('type') == Types.upload_file:
+        if self.action in ('upload', 'cancel_upload') or request.data.get('type') == Types.upload_file:
             return super().check_permissions(request)
         # job: adhoc, playbook
         if not settings.SECURITY_COMMAND_EXECUTION:
@@ -101,9 +102,6 @@ class JobViewSet(LoginAssetACLCheckMixin, OrgBulkModelViewSet):
     def perform_create(self, serializer):
         run_after_save = serializer.validated_data.pop('run_after_save', False)
         self._parameters = serializer.validated_data.pop('parameters', None)
-        nodes = serializer.validated_data.pop('nodes', [])
-        assets = serializer.validated_data.get('assets', [])
-        assets = merge_nodes_and_assets(nodes, assets, self.request.user)
         instance = serializer.save()
 
         if instance.instant or run_after_save:
@@ -160,6 +158,7 @@ class JobViewSet(LoginAssetACLCheckMixin, OrgBulkModelViewSet):
             permission_classes=[IsValidUser, ],
             throttle_classes=[FileTransferThrottle],
             url_path='upload')
+    @transaction.atomic
     def upload(self, request, *args, **kwargs):
         uploaded_files = request.FILES.getlist('files')
         serializer = self.get_serializer(data=request.data)
@@ -180,8 +179,13 @@ class JobViewSet(LoginAssetACLCheckMixin, OrgBulkModelViewSet):
                 status=400)
 
         job_id = request.data.get('job_id', '')
-        job = get_object_or_404(Job, pk=job_id, creator=request.user)
+        # Serialize upload finalization with cancellation, including after the client disconnects.
+        job = get_object_or_404(
+            Job.objects.select_for_update(), pk=job_id, creator=request.user, type=Types.upload_file
+        )
         job_args = json.loads(job.args)
+        if job_args.get('upload_cancelled'):
+            return Response({'error': _("Task canceled by user")}, status=409)
         src_path_info = []
         upload_file_dir = safe_join(settings.SHARE_DIR, 'job_upload_file', job_id)
         for uploaded_file in uploaded_files:
@@ -197,6 +201,32 @@ class JobViewSet(LoginAssetACLCheckMixin, OrgBulkModelViewSet):
         job.save()
         self.run_job(job, serializer)
         return Response({'task_id': serializer.data.get('task_id')}, status=201)
+
+    @action(methods=[POST], detail=False, serializer_class=FileUploadCancelSerializer,
+            permission_classes=[IsValidUser], url_path='cancel-upload')
+    @transaction.atomic
+    def cancel_upload(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        job = get_object_or_404(
+            Job.objects.select_for_update(), pk=serializer.validated_data['job_id'],
+            creator=request.user, type=Types.upload_file,
+        )
+        executions = list(job.executions.all())
+        if executions and all(execution.is_finished for execution in executions):
+            return Response({'cancelled': False, 'task_id': str(executions[0].id)})
+        job_args = json.loads(job.args)
+        job_args['upload_cancelled'] = True
+        job.args = json.dumps(job_args)
+        job.save()
+        for execution in executions:
+            if execution.is_finished:
+                continue
+            execution.stop()
+            transaction.on_commit(
+                lambda task_id=str(execution.id): AsyncResult(task_id, app=app).revoke()
+            )
+        return Response({'cancelled': True})
 
 
 class JobExecutionViewSet(LoginAssetACLCheckMixin, OrgBulkModelViewSet):
@@ -310,6 +340,21 @@ class JobExecutionTaskDetail(APIView):
         })
 
 
+class JobExecutionResultViewSet(mixins.RetrieveModelMixin, JMSGenericViewSet):
+    serializer_class = JobExecutionResultSerializer
+    perm_model = JobExecution
+    http_method_names = ['get', 'head', 'options']
+    rbac_perms = {'retrieve': 'ops.view_jobexecution'}
+
+    def get_object(self):
+        with tmp_to_org(get_current_org()):
+            execution = get_object_or_404(
+                JobExecution, pk=str(self.kwargs['task_id']), creator=self.request.user
+            )
+        self.check_object_permissions(self.request, execution)
+        return execution
+
+
 class JobRunVariableHelpAPIView(APIView):
     permission_classes = [IsValidUser]
 
@@ -319,6 +364,18 @@ class JobRunVariableHelpAPIView(APIView):
 
 class UsernameHintsAPI(APIView):
     permission_classes = [IsValidUser]
+
+    upload_protocols = {Protocol.ssh, Protocol.sftp, Protocol.winrm}
+
+    @staticmethod
+    def get_permed_account_usernames(
+        user, assets, action_required, protocols_required=None,
+    ):
+        return PermAssetAccountsBatchUtil(
+            user
+        ).get_permitted_account_usernames(
+            assets, action_required, protocols_required,
+        )
 
     def post(self, request, **kwargs):
         if settings.SAFE_MODE:
@@ -330,15 +387,34 @@ class UsernameHintsAPI(APIView):
         assets = list(Asset.objects.filter(id__in=asset_ids).all())
 
         assets = merge_nodes_and_assets(node_ids, assets, request.user)
+        is_upload = request.data.get('action') == 'upload'
+        action_required = (
+            ActionChoices.upload.value
+            if is_upload else ActionChoices.connect.value
+        )
+        protocols_required = self.upload_protocols if is_upload else None
+        usernames = self.get_permed_account_usernames(
+            request.user,
+            assets,
+            action_required,
+            protocols_required,
+        )
+        if query:
+            query = str(query).lower()
+            usernames = [
+                username for username in usernames
+                if query in username.lower()
+            ]
 
-        top_accounts = Account.objects \
-            .exclude(username__startswith='jms_') \
-            .exclude(username__startswith='js_') \
-            .filter(username__icontains=query) \
-            .filter(asset__in=assets) \
-            .values('username') \
-            .annotate(total=Count('username')) \
-            .order_by('-total', '-username')[:10]
+        counts = Counter(usernames)
+        top_accounts = [
+            {'username': username, 'total': total}
+            for username, total in sorted(
+                counts.items(),
+                key=lambda item: (item[1], item[0]),
+                reverse=True,
+            )[:10]
+        ]
         return Response(data=top_accounts)
 
 

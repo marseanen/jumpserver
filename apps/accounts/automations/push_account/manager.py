@@ -21,20 +21,36 @@ class PushAccountManager(BaseChangeSecretPushManager):
     def method_type(cls):
         return AutomationTypes.push_account
 
+    def should_update_account_on_success(self, result):
+        if not self.execution.snapshot.get('create_only'):
+            return True
+        tasks = (result or {}).get('ok', result or {})
+        existing = any(
+            task.get('res', {}).get('ansible_facts', {}).get('jms_account_existing') is True
+            for task in tasks.values()
+        )
+        return not existing
+
     def get_secret(self, account):
         secret = account.secret
-        if not secret:
+        if not secret and not account.follows_template:
             secret = super().get_secret(account)
         return secret
 
     def gen_account_inventory(self, account, asset, h, path_dir):
+        create_only = self.execution.snapshot.get('create_only', False)
+        if create_only and asset.platform.automation.push_account_method not in {
+            'push_account_posix', 'push_account_aix', 'push_account_windows', 'push_account_local_windows',
+        }:
+            raise ValueError(_('This push method does not support create-only mode'))
+        h['jms_create_only'] = bool(create_only)
         secret = self.get_secret(account)
         secret_type = account.secret_type
         if not secret:
             raise ValueError(_('Secret cannot be empty'))
         record = self.get_or_create_record(asset, account, h['name'])
         new_secret, private_key_path = self.handle_ssh_secret(secret_type, secret, path_dir)
-        h = self.gen_inventory(h, account, new_secret, private_key_path, asset)
+        h = self.gen_inventory(h, account, new_secret, private_key_path, asset, path_dir)
         return h, record
 
     def get_or_create_record(self, asset, account, name):
@@ -66,6 +82,10 @@ class PushAccountManager(BaseChangeSecretPushManager):
             for record in self.name_record_mapper.values()
         }.values()
         success, failed, unverified = self.get_record_result_counts(records)
+        # Inventory preparation can reject an account before a push record is
+        # created. Include those failures in the final summary while avoiding
+        # double-counting record failures already tracked by fail_accounts.
+        failed = max(failed, self.summary.get('fail_accounts', 0))
         self.print_result_summary(
             success,
             failed,

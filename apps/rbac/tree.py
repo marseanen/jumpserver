@@ -9,6 +9,7 @@ from treelib import Tree
 from treelib.exceptions import NodeIDAbsentError
 
 from common.tree import TreeNode
+from reports.audit_contract import THEME_PERMISSIONS
 from .models import Permission, ContentType
 
 # 根节点
@@ -39,6 +40,7 @@ app_nodes_data = [
     {'id': 'audits', 'view': 'view_audit'},
     {'id': 'rbac', 'view': 'view_console'},
     {'id': 'settings', 'view': 'view_setting'},
+    {'id': 'chat_ai', 'name': _('Chat AI'), 'view': 'view_setting'},
     {'id': 'tickets', 'view': 'view_other'},
     {'id': 'labels', 'view': 'view_console'},
     {'id': 'authentication', 'view': 'view_other'},
@@ -54,6 +56,7 @@ extra_nodes_data = [
     {"id": "gather_account_node", "name": _("Gather account"), "pId": "view_pam"},
     {"id": "push_account_node", "name": _("Push account"), "pId": "view_pam"},
     {"id": "account_change_plan_node", "name": _("Account change secret"), "pId": "view_pam"},
+    {"id": "connectivity_node", "name": _("Connectivity"), "pId": "view_pam"},
     {'id': "my_assets", "name": _("My assets"), "pId": "view_workbench"},
     {'id': "operation_center", "name": _('App ops'), "pId": "view_workbench"},
     {'id': "notifications", "name": _("Notifications"), "pId": "view_setting"},
@@ -64,11 +67,20 @@ extra_nodes_data = [
     {'id': "remote_app", "name": _("Applet"), "pId": "view_setting"},
     {'id': "security", "name": _("Security"), "pId": "view_setting"},
     {'id': "appearance", "name": _("Appearance"), "pId": "view_setting"},
+    {'id': "system_tools", "name": _("System tools"), "pId": "view_setting"},
     {'id': "tasks", "name": _("Task"), "pId": "view_setting"},
     {'id': "license", "name": _("License"), "pId": "view_setting"},
     {'id': "other", "name": _("Other"), "pId": "view_setting"},
     {'id': "job_audit", "name": _("Job audit"), "pId": "view_audit"},
     {'id': "report_node", "name": _("Report"), "pId": "view_audit"},
+    {'id': 'audit_report_node', 'name': _('Audit reports'), 'pId': 'report_node'},
+    {'id': 'legacy_report_node', 'name': _('Legacy reports'), 'pId': 'report_node'},
+    {'id': 'userloginreport', 'name': _('User login report'), 'pId': 'legacy_report_node'},
+    {'id': 'userchangepasswordreport', 'name': _('User change password report'), 'pId': 'legacy_report_node'},
+    {'id': 'assetstatisticsreport', 'name': _('Asset statistics report'), 'pId': 'legacy_report_node'},
+    {'id': 'assetactivityreport', 'name': _('Asset activity report'), 'pId': 'legacy_report_node'},
+    {'id': 'accountstatisticsreport', 'name': _('Account statistics report'), 'pId': 'legacy_report_node'},
+    {'id': 'accountautomationreport', 'name': _('Account automation report'), 'pId': 'legacy_report_node'},
 ]
 
 # 将 model 放到其它节点下，而不是本来的 app 中
@@ -81,7 +93,7 @@ special_pid_mapper = {
     'acls.loginassetacl': 'perms',
     'acls.connectmethodacl': 'perms',
     'acls.datamaskingrule': 'perms',
-    'xpack.account': 'cloud_import',
+    'xpack.cloudaccount': 'cloud_import',
     'xpack.syncinstancedetail': 'cloud_import',
     'xpack.syncinstancetask': 'cloud_import',
     'xpack.syncinstancetaskexecution': 'cloud_import',
@@ -113,7 +125,14 @@ special_pid_mapper = {
     "accounts.view_changesecretexecution": "account_change_plan_node",
     "accounts.add_changesecretexecution": "account_change_plan_node",
     "accounts.view_changesecretrecord": "account_change_plan_node",
+    'assets.pingautomation': 'connectivity_node',
+    'assets.view_pingexecution': 'connectivity_node',
+    'assets.add_pingexecution': 'connectivity_node',
+    'accounts.verifyaccountautomation': 'connectivity_node',
+    'accounts.view_verifyaccountexecution': 'connectivity_node',
+    'accounts.add_verifyaccountexecution': 'connectivity_node',
     'audits.ftplog': 'terminal',
+    'chat_ai.auditconversation': 'audits',
     'perms.view_myassets': 'my_assets',
     'ops.job': 'operation_center',
     'ops.adhoc': 'operation_center',
@@ -124,6 +143,7 @@ special_pid_mapper = {
     "report_node": "view_audit",
     "rbac.view_pam": "view_pam",
     'audits.usersession': 'view_audit',
+    'audits.ticketaudit': 'view_audit',
     "rbac.view_workbench": "view_workbench",
     "rbac.view_webterminal": "view_workbench",
     "rbac.view_filemanager": "view_workbench",
@@ -134,30 +154,35 @@ special_pid_mapper = {
 }
 
 
-if settings.JDMC_ENABLED:
+if settings.XPACK_ENABLED and settings.JDMC_ENABLED:
     view_nodes_data.append({'id': 'view_jdmc', 'name': _('JDMC console')})
     special_pid_mapper["rbac.view_jdmc"] = "view_jdmc"
 
 
 special_setting_pid_mapper = {
-    "rbac.view_userloginreport": "report_node",
-    "rbac.add_userloginreport": "report_node",
-    "rbac.delete_userloginreport": "report_node",
-    "rbac.view_userchangepasswordreport": "report_node",
-    "rbac.add_userchangepasswordreport": "report_node",
-    "rbac.delete_userchangepasswordreport": "report_node",
-    "rbac.view_assetstatisticsreport": "report_node",
-    "rbac.add_assetstatisticsreport": "report_node",
-    "rbac.delete_assetstatisticsreport": "report_node",
-    "rbac.view_assetactivityreport": "report_node",
-    "rbac.add_assetactivityreport": "report_node",
-    "rbac.delete_assetactivityreport": "report_node",
-    "rbac.view_accountstatisticsreport": "report_node",
-    "rbac.add_accountstatisticsreport": "report_node",
-    "rbac.delete_accountstatisticsreport": "report_node",
-    "rbac.view_accountautomationreport": "report_node",
-    "rbac.add_accountautomationreport": "report_node",
-    "rbac.delete_accountautomationreport": "report_node",
+    'rbac.view_auditreport': 'audit_report_node',
+    'rbac.view_activityreport': 'audit_report_node',
+    'rbac.view_securityreport': 'audit_report_node',
+    'rbac.view_inventoryreport': 'audit_report_node',
+    'rbac.view_accountreport': 'audit_report_node',
+    "rbac.view_userloginreport": "userloginreport",
+    "rbac.add_userloginreport": "userloginreport",
+    "rbac.delete_userloginreport": "userloginreport",
+    "rbac.view_userchangepasswordreport": "userchangepasswordreport",
+    "rbac.add_userchangepasswordreport": "userchangepasswordreport",
+    "rbac.delete_userchangepasswordreport": "userchangepasswordreport",
+    "rbac.view_assetstatisticsreport": "assetstatisticsreport",
+    "rbac.add_assetstatisticsreport": "assetstatisticsreport",
+    "rbac.delete_assetstatisticsreport": "assetstatisticsreport",
+    "rbac.view_assetactivityreport": "assetactivityreport",
+    "rbac.add_assetactivityreport": "assetactivityreport",
+    "rbac.delete_assetactivityreport": "assetactivityreport",
+    "rbac.view_accountstatisticsreport": "accountstatisticsreport",
+    "rbac.add_accountstatisticsreport": "accountstatisticsreport",
+    "rbac.delete_accountstatisticsreport": "accountstatisticsreport",
+    "rbac.view_accountautomationreport": "accountautomationreport",
+    "rbac.add_accountautomationreport": "accountautomationreport",
+    "rbac.delete_accountautomationreport": "accountautomationreport",
     "settings.change_email": "notifications",
     "settings.change_sms": "notifications",
     "settings.change_systemmsgsubscription": "notifications",
@@ -166,7 +191,6 @@ special_setting_pid_mapper = {
     "settings.change_ops": "features",
     "settings.change_vault": "features",
     "settings.change_chatai": "features",
-    "settings.view_chatprompt": "features",
     "settings.change_virtualapp": "features",
     "settings.change_auth": "authentication_setting",
     "terminal.replaystorage": "storage",
@@ -189,11 +213,13 @@ special_setting_pid_mapper = {
     'ops.celerytask': 'tasks',
     'ops.view_celerytaskexecution': 'tasks',
     'ops.view_taskmonitor': 'tasks',
+    'ops.stop_taskmonitor': 'tasks',
     "settings.change_clean": "tasks",
     "settings.change_license": "license",
     'orgs.organization': 'view_setting',
     "settings.view_setting": "view_setting",
     "settings.change_basic": "view_setting",
+    "settings.change_systemtools": "system_tools",
     "settings.change_other": "other",
 }
 
@@ -213,6 +239,7 @@ verbose_name_mapper = {
 
 xpack_nodes = [
     'xpack', 'tickets', 'gather_account_node',
+    'audits.ticketaudit',
     'applications.remoteapp', "assets.accountbackupplan",
     "assets.accountbackupplanexecution",
     "rbac.orgrole", "rbac.orgrolebinding",
@@ -225,6 +252,10 @@ xpack_nodes = [
 def _sort_action(node):
     if node.isParent:
         return ['zz', 0]
+
+    report_permissions = list(THEME_PERMISSIONS.values())
+    if node.title in report_permissions:
+        return ['auditreport', report_permissions.index(node.title)]
 
     action_resource = node.title.split('.')[-1]
     action, resource = action_resource.split('_', 2)
@@ -291,22 +322,21 @@ class CounterTree(Tree):
         node._checked_count = count
         return count
 
-    def add_nodes_to_tree(self, ztree_nodes, retry=0):
-        failed = []
-        for node in ztree_nodes:
-            pid = node.pId
-            if retry == 2:
-                pid = '$ROOT$'
-
-            try:
-                self.create_node(node.name, node.id, pid, data=node)
-            except NodeIDAbsentError:
-                failed.append(node)
-        if retry > 2:
-            return
-        if failed:
-            retry += 1
-            return self.add_nodes_to_tree(failed, retry)
+    def add_nodes_to_tree(self, ztree_nodes):
+        pending = ztree_nodes
+        while pending:
+            failed = []
+            for node in pending:
+                try:
+                    self.create_node(node.name, node.id, node.pId, data=node)
+                except NodeIDAbsentError:
+                    failed.append(node)
+            if len(failed) == len(pending):
+                # Only fall back for missing parents or cycles, not deeper groups.
+                for node in failed:
+                    self.create_node(node.name, node.id, '$ROOT$', data=node)
+                return
+            pending = failed
 
 
 class PermissionTreeUtil:

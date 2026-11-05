@@ -108,7 +108,11 @@ class BaseUserACLSerializer(BaseACLSerializer):
 
 class BaseUserAssetAccountACLSerializer(BaseUserACLSerializer):
     assets = JSONManyToManyField(label=_('Asset'))
-    accounts = serializers.ListField(label=_('Account'))
+    accounts = serializers.ListField(
+        child=serializers.CharField(),
+        label=_('Account'),
+        help_text=_("Account usernames, or @ALL to match all accounts."),
+    )
 
     class Meta(BaseUserACLSerializer.Meta):
         fields = BaseUserACLSerializer.Meta.fields + ['assets', 'accounts', 'org_id']
@@ -117,7 +121,7 @@ class BaseUserAssetAccountACLSerializer(BaseUserACLSerializer):
         action = self.initial_data.get('action')
         if not action and self.instance:
             action = self.instance.action
-        if action != ActionChoices.review:
+        if action != ActionChoices.review or (not reviewers and (self.initial_data.get('workflow') or getattr(self.instance, 'workflow_id', None))):
             return reviewers
         org_id = self.fields["org_id"].default()
         org = Organization.get_instance(org_id)

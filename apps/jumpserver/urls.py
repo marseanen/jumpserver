@@ -31,18 +31,13 @@ resource_api = [
     path('rbac/', include('rbac.urls.api_urls', namespace='api-rbac')),
     path('labels/', include('labels.urls', namespace='api-label')),
     path('reports/', include('reports.urls.api_urls', namespace='api-reports')),
+    path('chat-ai/', include('chat_ai.api.urls', namespace='api-chat-ai')),
 ]
 
 api_v1 = resource_api + [
     path('prometheus/metrics/', api.PrometheusMetricsApi.as_view()),
     path('search/', api.GlobalSearchView.as_view()),
 ]
-if settings.MCP_ENABLED:
-    api_v1.extend([
-        path('resources/', api.ResourceTypeListApi.as_view(), name='resource-list'),
-        path('resources/<str:resource>/', api.ResourceListApi.as_view()),
-        path('resources/<str:resource>/<str:pk>/', api.ResourceDetailApi.as_view()),
-    ])
 
 app_view_patterns = [
     path('auth/', include('authentication.urls.view_urls'), name='auth'),
@@ -50,7 +45,6 @@ app_view_patterns = [
     path('reports/', include('reports.urls.view_urls'), name='reports'),
     path('tickets/', include('tickets.urls.view_urls'), name='tickets'),
     path('common/', include('common.urls.view_urls'), name='common'),
-    re_path(r'flower/(?P<path>.*)', views.celery_flower_view, name='flower-view'),
     path('download/', views.ResourceDownload.as_view(), name='download'),
     path('redirect/confirm/', views.RedirectConfirm.as_view(), name='redirect-confirm'),
     path('i18n/<str:lang>/', views.I18NView.as_view(), name='i18n-switch'),
@@ -71,6 +65,11 @@ urlpatterns = [
     path('core/auth/captcha/', include('captcha.urls')),
     path('core/', include(app_view_patterns)),
 ]
+
+if settings.XPACK_ENABLED:
+    urlpatterns.append(
+        path('', include('xpack.urls.view_urls'))
+    )
 
 # 静态文件处理路由
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

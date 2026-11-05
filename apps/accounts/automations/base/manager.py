@@ -10,7 +10,7 @@ from django.db import transaction
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
-from accounts.const import SSHKeyStrategy, SecretStrategy, SecretType, ChangeSecretRecordStatusChoice, \
+from accounts.const import AutomationTypes, SSHKeyStrategy, SecretStrategy, SecretType, ChangeSecretRecordStatusChoice, \
     ChangeSecretAccountStatus
 from accounts.models import Account
 from accounts.utils import SecretGenerator, account_secret_task_status
@@ -19,6 +19,8 @@ from assets.const import HostTypes
 from common.const import Status
 from common.db.utils import safe_atomic_db_connection
 from common.utils import get_logger
+from ops.ansible.exception import AnsibleDockerImageNotFound
+from ops.ansible.utils import escape_jinja2_syntax, neutralize_jinja2_syntax
 
 logger = get_logger(__name__)
 
@@ -176,6 +178,16 @@ class BaseChangeSecretPushManager(AccountBasePlaybookManager):
                 failed += 1
         return success, failed, unverified
 
+    def on_runner_failed(self, runner, error, **kwargs):
+        not_started = isinstance(error, AnsibleDockerImageNotFound)
+        self._remote_change_not_started = not_started
+        if not_started and (self.execution.snapshot or {}).get('credential_rotation_id'):
+            self.summary['rotation_no_remote_change'] = True
+        try:
+            return super().on_runner_failed(runner, error, **kwargs)
+        finally:
+            self._remote_change_not_started = False
+
     def get_host_success_log(self, host):
         return None, None
 
@@ -231,8 +243,10 @@ class BaseChangeSecretPushManager(AccountBasePlaybookManager):
 
         accounts = Account.objects.filter(
             id__in=self.account_ids,
-            secret_reset=True,
-        )
+        ).exclude(secret_type=SecretType.SSH_CERTIFICATE)
+        # Permission to rotate credentials must not prevent account provisioning.
+        if self.method_type() == AutomationTypes.change_secret:
+            accounts = accounts.filter(secret_reset=True)
         if self.secret_type:
             accounts = accounts.filter(secret_type=self.secret_type)
         if settings.CHANGE_AUTH_PLAN_SECURE_MODE_ENABLED:
@@ -260,14 +274,16 @@ class BaseChangeSecretPushManager(AccountBasePlaybookManager):
         self._accounts_by_asset_id = accounts_by_asset_id
         self._target_account_ids_by_asset_id = target_account_ids_by_asset_id
 
-    def get_accounts(self, privilege_account):
+    def get_accounts(self, asset, privilege_account):
         if not privilege_account:
             print(_('No privileged account'))
             return []
 
         self.load_accounts_by_asset()
+        # The login account may belong to a joined directory service. Targets
+        # are indexed by the asset being managed, not the login account's owner.
         accounts = self._accounts_by_asset_id.get(
-            str(privilege_account.asset_id), []
+            str(asset.id), []
         )
         if settings.CHANGE_AUTH_PLAN_SECURE_MODE_ENABLED:
             accounts = [
@@ -287,17 +303,17 @@ class BaseChangeSecretPushManager(AccountBasePlaybookManager):
             new_secret = self.generate_public_key(new_secret)
         return new_secret, private_key_path
 
-    def gen_inventory(self, h, account, new_secret, private_key_path, asset):
+    def gen_inventory(self, h, account, new_secret, private_key_path, asset, path_dir):
         secret_type = account.secret_type
         h['ssh_params'].update(self.get_ssh_params(new_secret, secret_type))
         h['account'] = {
-            'name': account.name,
-            'username': account.username,
-            'full_username': account.full_username,
+            'name': escape_jinja2_syntax(account.name),
+            'username': escape_jinja2_syntax(account.username),
+            'full_username': escape_jinja2_syntax(account.full_username),
             'secret_type': secret_type,
-            'secret': account.escape_jinja2_syntax(new_secret),
+            'secret': escape_jinja2_syntax(new_secret),
             'private_key_path': private_key_path,
-            'become': account.get_ansible_become_auth(),
+            'become': account.get_ansible_become_auth(path_dir=path_dir),
         }
         if asset.platform.type == 'oracle':
             use_sysdba = (
@@ -323,7 +339,7 @@ class BaseChangeSecretPushManager(AccountBasePlaybookManager):
 
         host['ssh_params'] = {}
 
-        accounts = self.get_accounts(account)
+        accounts = self.get_accounts(asset, account)
         existing_ids = {str(account.id) for account in accounts}
         self.found_account_ids.update(existing_ids)
         # `self.account_ids` covers the complete execution. Comparing it
@@ -338,6 +354,7 @@ class BaseChangeSecretPushManager(AccountBasePlaybookManager):
         error_msg = _("No pending accounts found")
         if not accounts:
             self.result['skipped_assets'].append({
+                **self.get_asset_result_metadata(asset),
                 'asset': str(asset),
                 'reason': str(error_msg),
             })
@@ -354,11 +371,11 @@ class BaseChangeSecretPushManager(AccountBasePlaybookManager):
 
         for account in accounts:
             h = deepcopy(host)
-            h['name'] += '(' + account.username + ')'  # To distinguish different accounts
+            h['name'] += '(' + neutralize_jinja2_syntax(account.username) + ')'  # To distinguish different accounts
             self.inventory_account_mapper[h['name']] = account
             h['account'] = {
-                'username': account.username,
-                'full_username': account.full_username,
+                'username': escape_jinja2_syntax(account.username),
+                'full_username': escape_jinja2_syntax(account.full_username),
             }
 
             try:
@@ -390,18 +407,45 @@ class BaseChangeSecretPushManager(AccountBasePlaybookManager):
         missing_account_ids = (
             set(map(str, self.account_ids)) - self.found_account_ids
         )
+        if not missing_account_ids:
+            return runners
+
+        # Resolve display metadata without the eligibility filters that
+        # excluded these accounts from the inventory.
+        missing_accounts = {
+            str(account.id): account
+            for account in Account.objects.filter(
+                id__in=missing_account_ids
+            ).select_related('asset').only(
+                'id', 'username', 'asset__name', 'asset__address'
+            )
+        }
         for account_id in sorted(missing_account_ids):
             self.clear_account_queue_status(account_id)
+            account = missing_accounts.get(account_id)
+            username = account.username if account else ''
+            account_label = username or str(_(
+                'Unable to resolve username (account ID: %(account_id)s)'
+            ) % {'account_id': account_id})
+            host_label = account_label
+            if account:
+                host_label = (
+                    f'{self.format_asset_label(account.asset)} / {account_label}'
+                )
+            if username:
+                host_label += f' (ID: {account_id})'
             error = str(_(
                 'Account not found, inactive, or not eligible for this task'
             ))
             self.summary['fail_accounts'] += 1
             self.result['fail_accounts'].append({
-                'asset': '',
-                'username': account_id,
+                **self.get_asset_result_metadata(account.asset if account else None),
+                'asset': str(account.asset) if account else '',
+                'username': account_label,
+                'account_id': account_id,
                 'error': error,
             })
-            self.print_inventory_host_error(account_id, error)
+            self.print_inventory_host_error(host_label, error)
         return runners
 
     @staticmethod
@@ -416,7 +460,24 @@ class BaseChangeSecretPushManager(AccountBasePlaybookManager):
         )
         return max(total_timeout + 600, 3600) if total_timeout else 86400
 
+    @transaction.atomic
     def acquire_account_lock(self, account_id):
+        from accounts.models import ApplicationCredential
+        from django.db.models import Q
+        credentials = ApplicationCredential.objects.select_for_update(of=('self',)).filter(
+            Q(account_id=account_id) | Q(alternate_account_id=account_id),
+            mode=ApplicationCredential.Mode.alternating_rotation,
+        ).order_by('key')
+        for credential in credentials:
+            if credential.status == credential.Status.idle:
+                continue
+            rotation = credential.rotation_records.first()
+            change_account_id = rotation.change_account_id if rotation else None
+            if (change_account_id != account_id
+                    and str(change_account_id) != str(account_id)) or (
+                credential.change_execution_id != self.execution.id
+            ):
+                raise ValueError(_('This account belongs to an active credential policy rotation.'))
         account_id = str(account_id)
         if account_id in self.account_locks:
             return True
@@ -480,9 +541,20 @@ class BaseChangeSecretPushManager(AccountBasePlaybookManager):
 
     @staticmethod
     def should_sync_candidate(inconclusive_probe):
-        # An inconclusive independent probe must never replace the last known
-        # credential with an unverified candidate.
-        return inconclusive_probe is None
+        if inconclusive_probe is None:
+            return True
+
+        # A connectivity probe can be inconclusive even after the change
+        # module has authoritatively completed the remote update. This is
+        # common for Windows AD accounts that may change their password but
+        # are not allowed to log in through WinRM or RDP. Keep the verification
+        # status as unverified, but synchronize the candidate so JumpServer
+        # does not retain the now-stale old secret. Require an explicit probe
+        # opt-in so other automation types retain the conservative default.
+        return (
+            inconclusive_probe.get('change_succeeded') is True
+            and inconclusive_probe.get('sync_candidate') is True
+        )
 
     def move_account_result(self, source_key, target_key, item):
         if source_key == target_key:
@@ -503,6 +575,9 @@ class BaseChangeSecretPushManager(AccountBasePlaybookManager):
             error=record.error,
             date_finished=record.date_finished,
         )
+
+    def should_update_account_on_success(self, result):
+        return True
 
     def on_host_success(self, host, result):
         record = self.name_record_mapper.get(host)
@@ -530,6 +605,7 @@ class BaseChangeSecretPushManager(AccountBasePlaybookManager):
             )
             self.summary[result_key] += 1
             self.result[result_key].append({
+                **self.get_asset_result_metadata(record.asset),
                 "asset": str(record.asset),
                 "username": record.comment or '',
             })
@@ -554,7 +630,15 @@ class BaseChangeSecretPushManager(AccountBasePlaybookManager):
         should_sync_candidate = self.should_sync_candidate(
             inconclusive_probe
         )
-        if hasattr(record, 'new_secret') and should_sync_candidate:
+        if (
+            hasattr(record, 'new_secret') and should_sync_candidate
+            and (not account.follows_template or str(self.method_type()) == 'change_secret')
+        ):
+            if account.follows_template:
+                # Detach together with the confirmed new credential. Failed or
+                # unconfirmed changes must keep using the template credential.
+                account.follow_template = False
+                update_fields.append('follow_template')
             account.secret = record.new_secret
             update_fields.insert(0, 'secret')
         account.date_updated = timezone.now()
@@ -567,6 +651,7 @@ class BaseChangeSecretPushManager(AccountBasePlaybookManager):
             else 'ok_accounts'
         )
         result_item = {
+            **self.get_asset_result_metadata(account.asset),
             "asset": str(account.asset),
             "username": account.username,
         }
@@ -577,7 +662,8 @@ class BaseChangeSecretPushManager(AccountBasePlaybookManager):
         with safe_atomic_db_connection():
             try:
                 with transaction.atomic():
-                    account.save(update_fields=update_fields)
+                    if self.should_update_account_on_success(result):
+                        account.save(update_fields=update_fields)
                     self.save_record(record)
             except Exception as error:
                 logger.exception(
@@ -623,6 +709,7 @@ class BaseChangeSecretPushManager(AccountBasePlaybookManager):
         self.summary[result_key] += 1
         self.result[result_key].append(
             {
+                **self.get_asset_result_metadata(record.asset),
                 "asset": str(record.asset),
                 "username": account.username if account else '',
             }
@@ -660,6 +747,8 @@ class BaseChangeSecretPushManager(AccountBasePlaybookManager):
         record = self.name_record_mapper.get(host)
         if not record:
             return super().on_host_incomplete(host, error)
+        if getattr(self, '_remote_change_not_started', False):
+            return self.on_host_error(host, error, {})
         self.finalize_incomplete_record(record, error)
 
     def on_inventory_host_error(self, host, error):
@@ -669,6 +758,7 @@ class BaseChangeSecretPushManager(AccountBasePlaybookManager):
         if account:
             self.summary['fail_accounts'] += 1
             self.result['fail_accounts'].append({
+                **self.get_asset_result_metadata(account.asset),
                 'asset': str(account.asset),
                 'username': account.username,
                 'error': str(error),
@@ -714,6 +804,7 @@ class BaseChangeSecretPushManager(AccountBasePlaybookManager):
             self.summary[result_key] += 1
             self.result[result_key].append(
                 {
+                    **self.get_asset_result_metadata(record.asset),
                     "asset": str(record.asset),
                     "username": (
                         record.account.username if record.account else ''
@@ -767,6 +858,12 @@ class BaseChangeSecretPushManager(AccountBasePlaybookManager):
         record = self.name_record_mapper.get(host)
         if not record:
             return
+        if (self.execution.snapshot or {}).get('credential_rotation_id'):
+            task = str(error or '').splitlines()[0].split(': ', 1)[0].strip().lower()
+            if any(keyword in task for keyword in (
+                    'check if ', 'whether the user exists', 'passwd lookup',
+            )):
+                self.summary['rotation_no_remote_change'] = True
         record.status = ChangeSecretRecordStatusChoice.failed.value
         record.date_finished = timezone.now()
         record.error = error
@@ -774,6 +871,7 @@ class BaseChangeSecretPushManager(AccountBasePlaybookManager):
         if not account:
             self.summary['fail_accounts'] += 1
             self.result['fail_accounts'].append({
+                **self.get_asset_result_metadata(record.asset),
                 "asset": str(record.asset),
                 "username": record.comment or '',
                 "error": str(error),
@@ -799,6 +897,7 @@ class BaseChangeSecretPushManager(AccountBasePlaybookManager):
         self.summary['fail_accounts'] += 1
         self.result['fail_accounts'].append(
             {
+                **self.get_asset_result_metadata(record.asset),
                 "asset": str(record.asset),
                 "username": record.account.username,
                 "error": str(error),

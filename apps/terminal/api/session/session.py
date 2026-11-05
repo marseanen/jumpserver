@@ -9,16 +9,19 @@ from django.core.files.storage import default_storage
 from django.db.models import F
 from django.http import FileResponse, HttpResponse
 from django.shortcuts import get_object_or_404, reverse
+from django.utils import translation
 from django.utils.encoding import escape_uri_path
-from django.utils.translation import gettext_noop, gettext as _, gettext_lazy
+from django.utils.translation import gettext, gettext as _, gettext_lazy, gettext_noop
 from django_filters import rest_framework as filters
 from rest_framework import generics
 from rest_framework import viewsets, views
 from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+from rest_framework.status import HTTP_201_CREATED, HTTP_400_BAD_REQUEST
 
 from audits.const import ActionChoices
+from audits.handler import create_or_update_operate_log
 from audits.utils import record_operate_log_and_activity_log
 from common.api import AsyncApiMixin, ReportExportMixin
 from common.const.http import GET, POST
@@ -118,6 +121,16 @@ class SessionViewSet(ReportExportMixin, OrgBulkModelViewSet):
             self.permission_classes = [RBACPermission | IsSessionAssignee]
         return super().get_permissions()
 
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serializer = self.get_serializer(instance)
+        with translation.override('en'):
+            create_or_update_operate_log(
+                ActionChoices.view, self.model._meta.verbose_name,
+                force=True, resource=instance,
+            )
+        return Response(serializer.data)
+
     @staticmethod
     def prepare_offline_file(session, local_path):
         replay_path = default_storage.path(local_path)
@@ -143,6 +156,10 @@ class SessionViewSet(ReportExportMixin, OrgBulkModelViewSet):
             url_name='replay-download')
     def download(self, request, *args, **kwargs):
         session = self.get_object()
+        return self.build_replay_download_response(session, request)
+
+    @classmethod
+    def build_replay_download_response(cls, session, request, before_send=None):
         storage = ReplayStorageHandler(session)
         local_path, url = storage.get_file_path_url()
         if local_path is None:
@@ -155,23 +172,29 @@ class SessionViewSet(ReportExportMixin, OrgBulkModelViewSet):
             part_storage = SessionPartReplayStorageHandler(session)
             offline_abs_path = part_storage.prepare_offline_tar_file()
         else:
-            offline_abs_path = self.prepare_offline_file(session, local_path)
-        media_root = default_storage.base_location
-        relative_path = os.path.relpath(offline_abs_path, media_root)
-        internal_url = os.path.join(settings.PRIVATE_STORAGE_INTERNAL_URL, relative_path)
-        internal_url = escape_uri_path(internal_url)
-        response = HttpResponse()
-        response['X-Accel-Redirect'] = internal_url
+            offline_abs_path = cls.prepare_offline_file(session, local_path)
+        if before_send:
+            before_send()
+        if settings.DEBUG_DEV:
+            response = FileResponse(open(offline_abs_path, 'rb'), as_attachment=True, filename=f'{session.id}.tar')
+        else:
+            media_root = default_storage.base_location
+            relative_path = os.path.relpath(offline_abs_path, media_root)
+            internal_url = os.path.join(settings.PRIVATE_STORAGE_INTERNAL_URL, relative_path)
+            internal_url = escape_uri_path(internal_url)
+            response = HttpResponse()
+            response['X-Accel-Redirect'] = internal_url
         response['Content-Type'] = 'application/octet-stream'
         filename = escape_uri_path('{}.tar'.format(session.id))
         disposition = "attachment; filename*=UTF-8''{}".format(filename)
         response["Content-Disposition"] = disposition
+        response['Cache-Control'] = 'no-store'
         detail = i18n_fmt(
-            REPLAY_OP, self.request.user, _('Download'), str(session)
+            REPLAY_OP, request.user, _('Download'), str(session)
         )
         record_operate_log_and_activity_log(
             [session.asset_id], ActionChoices.download, detail, Session,
-            resource_display=f'{session.asset}', resource_type=_('Session replay')
+            resource=session, resource_type=_('Session replay')
         )
         return response
 
@@ -229,11 +252,12 @@ class SessionViewSet(ReportExportMixin, OrgBulkModelViewSet):
 
 class SessionReplayViewSet(AsyncApiMixin, viewsets.ViewSet):
     serializer_class = serializers.ReplaySerializer
-    view_replay_cache_key = "SESSION_REPLAY_VIEW_{}"
+    view_replay_cache_key = "SESSION_REPLAY_VIEW_{}_{}"
     session = None
     rbac_perms = {
         'create': 'terminal.upload_sessionreplay',
         'retrieve': 'terminal.view_sessionreplay',
+        'index': 'terminal.view_sessionreplay',
     }
 
     def create(self, request, *args, **kwargs):
@@ -241,21 +265,17 @@ class SessionReplayViewSet(AsyncApiMixin, viewsets.ViewSet):
         session = get_object_or_404(Session, id=session_id)
         serializer = self.serializer_class(data=request.data)
 
-        if serializer.is_valid():
-            file = serializer.validated_data['file']
-            # 兼容旧版本 API 未指定 version 为 2 的情况
-            version = serializer.validated_data.get('version', 2)
-            name, err = session.save_replay_to_storage_with_version(file, version)
-            if not name:
-                msg = "Failed save replay `{}`: {}".format(session_id, err)
-                logger.error(msg)
-                return Response({'msg': str(err)}, status=400)
-            url = default_storage.url(name)
-            return Response({'url': url}, status=201)
-        else:
-            msg = 'Upload data invalid: {}'.format(serializer.errors)
+        serializer.is_valid(raise_exception=True)
+        file = serializer.validated_data['file']
+        # 兼容旧版本 API 未指定 version 为 2 的情况
+        version = serializer.validated_data.get('version', 2)
+        name, err = session.save_replay_to_storage_with_version(file, version)
+        if not name:
+            msg = "Failed save replay `{}`: {}".format(session_id, err)
             logger.error(msg)
-            return Response({'msg': serializer.errors}, status=401)
+            return Response({'msg': str(err)}, status=HTTP_400_BAD_REQUEST)
+        url = default_storage.url(name)
+        return Response({'url': url}, status=HTTP_201_CREATED)
 
     @staticmethod
     def get_replay_data(session, url):
@@ -296,16 +316,30 @@ class SessionReplayViewSet(AsyncApiMixin, viewsets.ViewSet):
 
     def async_callback(self, *args, **kwargs):
         session_id = kwargs.get('pk')
+        cache_data = cache.get(self.async_cache_key) or {}
+        response = cache_data.get('resp') or {}
+        response_data = response.get('data') or {}
+        if (
+                cache_data.get('status') != 'ok'
+                or not 200 <= response.get('status', 0) < 300
+        ):
+            return
+        if not response_data.get('type'):
+            return
+
         session = get_object_or_404(Session, id=session_id)
+        self._record_replay_view(session)
+
+    def _record_replay_view(self, session):
         detail = i18n_fmt(
             REPLAY_OP, self.request.user, _('View'), str(session)
         )
-        key = self.view_replay_cache_key.format(session_id)
+        key = self.view_replay_cache_key.format(self.request.user.id, session.id)
         if cache.get(key):
             return
         record_operate_log_and_activity_log(
             [session.asset_id], ActionChoices.view, detail, Session,
-            resource_display=f'{session.asset}', resource_type=_('Session replay')
+            resource=session, resource_type=_('Session replay')
         )
         cache.set(key, 1, 10)
 
@@ -325,6 +359,26 @@ class SessionReplayViewSet(AsyncApiMixin, viewsets.ViewSet):
             return Response({"error": url}, status=404)
         data = self.get_replay_data(session, url)
         return Response(data)
+
+    def index(self, request, *args, **kwargs):
+        session = get_object_or_404(Session, id=kwargs.get('pk'))
+        storage = SessionPartReplayStorageHandler(session)
+        try:
+            content = storage.get_verified_index_bytes()
+        except FileNotFoundError:
+            return Response({'error': gettext('Replay index not found.')}, status=404)
+        except ValueError as exc:
+            logger.warning('Invalid replay index for session %s: %s', session.id, exc)
+            return Response({'error': gettext('Replay index is invalid.')}, status=422)
+        except OSError as exc:
+            logger.warning('Could not read replay index for session %s: %s', session.id, exc)
+            return Response({'error': gettext('Replay index is unavailable.')}, status=503)
+        self._record_replay_view(session)
+        response = HttpResponse(
+            content, content_type=storage.INDEX_MEDIA_TYPE
+        )
+        response['Cache-Control'] = 'private, no-store'
+        return response
 
 
 class SessionJoinValidateAPI(views.APIView):

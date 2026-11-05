@@ -2,6 +2,8 @@ from django.utils.translation import gettext_lazy as _
 from rest_framework import serializers
 
 from acls.serializers.rules import ip_group_help_text, ip_group_child_validator
+from authentication.const import MFAType
+from common.serializers.fields import ListMultipleChoiceField
 
 __all__ = [
     'SecurityPasswordRuleSerializer', 'SecuritySessionSerializer',
@@ -135,6 +137,11 @@ class SecurityAuthSerializer(serializers.Serializer):
         ),
         required=False, label=_("Global MFA")
     )
+    SECURITY_MFA_METHODS = ListMultipleChoiceField(
+        choices=MFAType.choices, required=False,
+        label=_("Allowed MFA methods"),
+        help_text=_("Select one or more MFA methods that users can bind and use")
+    )
     SECURITY_MFA_AUTH_ENABLED_FOR_THIRD_PARTY = serializers.BooleanField(
         required=False, default=True,
         label=_('Third-party login MFA'),
@@ -194,6 +201,11 @@ class SecurityAuthSerializer(serializers.Serializer):
     def validate(self, attrs):
         if attrs.get('SECURITY_MFA_AUTH') != 1:
             attrs['SECURITY_MFA_IN_LOGIN_PAGE'] = False
+        methods = attrs.get('SECURITY_MFA_METHODS')
+        if methods is not None and len(methods) == 0:
+            raise serializers.ValidationError({
+                'SECURITY_MFA_METHODS': _('Select at least one MFA method')
+            })
         return attrs
 
     def to_representation(self, instance):
@@ -207,6 +219,58 @@ class SecurityAuthSerializer(serializers.Serializer):
 
 
 class SecuritySessionSerializer(serializers.Serializer):
+    SESSION_COOKIE_AGE = serializers.IntegerField(
+        read_only=True, label=_('Web session lifetime (second)'),
+        help_text=_(
+            'Default duration, in seconds.<br>'
+            'Each renewal restarts the clock: expiry = renewal time + duration.<br>'
+            'Ordinary requests renew it when request renewal is enabled; session writes such as identity verification can still renew it when disabled.<br>'
+            'This is not a fixed maximum from the first login.<br>'
+            'Change SESSION_COOKIE_AGE in Core config.yml and restart Core. Existing sessions may retain their saved duration; sign in again to apply the new duration.'
+        ),
+    )
+    SESSION_SAVE_EVERY_REQUEST = serializers.BooleanField(
+        read_only=True, label=_('Renew session on request'),
+        help_text=_(
+            'Enabled: most API requests using a valid Web session renew it, including GET queries and background business polling. Mouse or keyboard activity is not required.<br>'
+            'Excluded read-only queries: profile, online status (user-session), and lock status (session-lock/status).<br>'
+            'Disabled: ordinary read-only requests do not renew it, but identity verification and other session writes still can.<br>'
+            'Why: the project writes the verification result to Session; Django saves the modified session and recalculates its relative expiry by default.<br>'
+            'Change SESSION_SAVE_EVERY_REQUEST in Core config.yml and restart Core.'
+        ),
+    )
+    SECURITY_CLIENT_REAUTH_ON_EXIT = serializers.BooleanField(
+        required=False, label=_('Log in again after exiting the client'),
+        help_text=_(
+            'Require a new login after exiting and restarting. Minimizing or hiding the client does not count '
+            'as exiting.'
+        ),
+    )
+    SECURITY_CLIENT_MAX_SESSION_TIME = serializers.IntegerField(
+        min_value=0, max_value=99999, required=False,
+        label=_('Maximum client login lifetime (minute)'),
+        help_text=_(
+            '0 means unlimited. Counted from login. Sign in again when it expires; activity does not extend '
+            'it. A login already overdue after a change gets up to 10 more minutes.'
+        ),
+    )
+    SECURITY_CLIENT_IDLE_LOCK_TIME = serializers.IntegerField(
+        min_value=0, max_value=99999, required=False,
+        label=_('Client idle screen lock (minute)'),
+        help_text=_(
+            '0 disables automatic locking. Locks after the specified idle time. Enter the lock password in '
+            'the main window to unlock. External application windows are not protected.'
+        ),
+    )
+    SECURITY_WEB_IDLE_LOCK_TIME = serializers.IntegerField(
+        min_value=0, max_value=99999, required=False,
+        label=_('Web idle screen lock (minute)'),
+        help_text=_(
+            '0 disables automatic locking. Locks the console and Web terminal after the specified idle time. '
+            'Enter the lock password to unlock. Administrator settings are defaults and limits. Users may '
+            'choose stricter settings; otherwise they follow the administrator.'
+        ),
+    )
     SECURITY_WATERMARK_ENABLED = serializers.BooleanField(
         required=True, label=_('Watermark'),
     )
@@ -238,7 +302,12 @@ class SecuritySessionSerializer(serializers.Serializer):
     )
     SESSION_EXPIRE_AT_BROWSER_CLOSE = serializers.BooleanField(
         required=False, default=False, label=_('Session expire at browser closed'),
-        help_text=_('Whether to expire the session when the user closes their browser.')
+        help_text=_(
+            'Enabled: after quitting the entire browser application, opening it again normally requires signing in.<br>'
+            'Closing a tab or window, or minimizing it, is not the same as quitting the application; the browser may still be running in the background.<br>'
+            'Browser session restore may preserve login cookies. Use the site Sign out action to reliably end the login.<br>'
+            'This does not set a fixed maximum login duration.'
+        )
     )
     VIEW_ASSET_ONLINE_SESSION_INFO = serializers.BooleanField(
         required=False,

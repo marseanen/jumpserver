@@ -3,7 +3,7 @@ from logging import getLogger
 
 from django.core.exceptions import PermissionDenied, ObjectDoesNotExist as DJObjectDoesNotExist
 from django.db.models.deletion import ProtectedError
-from django.http import Http404
+from django.http import Http404, JsonResponse
 from django.utils.translation import gettext
 from django.conf import settings
 from rest_framework import exceptions
@@ -25,7 +25,7 @@ def extract_object_name(exc, index=0):
     if exc.args:
         (msg, *others) = exc.args
     else:
-        return gettext('Object')
+        return ''
     return gettext(msg.split(sep=' ', maxsplit=index + 1)[index])
 
 
@@ -52,6 +52,10 @@ def common_exception_handler(exc, context):
 
         if isinstance(exc.detail, str) and isinstance(exc.get_codes(), str):
             data = {'detail': exc.detail, 'code': exc.get_codes()}
+            if isinstance(exc, exceptions.AuthenticationFailed) and getattr(exc, 'client_login_reason', None):
+                data['client_login_reason'] = exc.client_login_reason
+                if getattr(exc, 'client_login_session', None):
+                    data['client_login_session'] = exc.client_login_session
         else:
             data = exc.detail
 
@@ -59,5 +63,12 @@ def common_exception_handler(exc, context):
         return Response(data, status=exc.status_code, headers=headers)
     else:
         unexpected_exception_logger.exception('')
+        request = context.get('request')
+        if request and request.get_preferred_type(['text/html', 'application/json']) == 'application/json':
+            set_rollback()
+            return JsonResponse({
+                'detail': gettext('Server internal error'),
+                'code': 'internal_error',
+            }, status=500)
 
     return None

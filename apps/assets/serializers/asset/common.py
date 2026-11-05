@@ -18,15 +18,24 @@ from common.serializers.fields import LabeledChoiceField, ObjectRelatedField
 from django.utils.translation import gettext
 from labels.models import Label
 from orgs.mixins.serializers import BulkOrgResourceModelSerializer
+from orgs.models import Organization
+from orgs.utils import current_org
+from users.models import User
 from ...const import Category, AllTypes
 from ...models import Asset, Node, Platform, Protocol, Host, Device, Database, Cloud, Web, Custom
+from ...validators import validate_asset_address
 
 __all__ = [
     'AssetSerializer', 'AssetSimpleSerializer', 'MiniAssetSerializer',
     'AssetTaskSerializer', 'AssetsTaskSerializer', 'AssetProtocolsSerializer',
     'AssetDetailSerializer', 'DetailMixin', 'AssetAccountSerializer',
-    'AccountSecretSerializer', 'AssetProtocolsPermsSerializer', 'AssetLabelSerializer'
+    'AccountSecretSerializer', 'AssetProtocolsPermsSerializer', 'AssetLabelSerializer',
+    'SyncPlatformProtocolsSerializer',
 ]
+
+
+class SyncPlatformProtocolsSerializer(serializers.Serializer):
+    platform_id = serializers.IntegerField()
 
 
 class AssetProtocolsSerializer(serializers.ModelSerializer):
@@ -80,6 +89,12 @@ class AssetAccountSerializer(AccountSerializer):
     add_org_fields = False
     asset = serializers.PrimaryKeyRelatedField(queryset=Asset.objects, required=False, write_only=True)
     clone_id = None
+
+    def validate_push_now(self, value):
+        request = self.context.get('request')
+        if not request or not request.user.has_perm('accounts.push_account'):
+            return False
+        return value
 
     def to_internal_value(self, data):
         # 导入时，data有时为str
@@ -145,13 +160,17 @@ class NodeDisplaySerializer(serializers.ListField):
 class AssetSerializer(BulkOrgResourceModelSerializer, ResourceLabelsMixin, WritableNestedModelSerializer):
     category = LabeledChoiceField(choices=Category.choices, read_only=True, label=_('Category'))
     type = LabeledChoiceField(choices=AllTypes.choices(), read_only=True, label=_('Type'))
-    protocols = AssetProtocolsSerializer(many=True, required=True, label=_('Protocols'))
+    protocols = AssetProtocolsSerializer(many=True, required=False, label=_('Protocols'))
     accounts = AssetAccountSerializer(many=True, required=False, allow_null=True, write_only=True, label=_('Accounts'))
     nodes_display = NodeDisplaySerializer(read_only=False, required=False, label=_("Node path"))
     auto_config = serializers.DictField(read_only=True, label=_('Auto info'))
     platform = ObjectRelatedField(queryset=Platform.objects, required=True, label=_('Platform'),
                                   attrs=('id', 'name', 'type'))
     accounts_amount = serializers.IntegerField(read_only=True, label=_('Accounts amount'))
+    owner = ObjectRelatedField(
+        queryset=User.objects, required=False, allow_null=True,
+        attrs=('id', 'name', 'username'), label=_('Asset owner'),
+    )
 
     class Meta:
         model = Asset
@@ -161,7 +180,7 @@ class AssetSerializer(BulkOrgResourceModelSerializer, ResourceLabelsMixin, Writa
         amount_fields = list(relation_count_fields)
         fields_fk = ['zone', 'platform']
         fields_mini = ['id', 'name', 'address'] + fields_fk
-        fields_small = fields_mini + ['is_active', 'comment']
+        fields_small = fields_mini + ['owner', 'is_active', 'comment']
         fields_m2m = [
             'nodes', 'labels', 'protocols',
             'nodes_display', 'accounts',
@@ -190,6 +209,21 @@ class AssetSerializer(BulkOrgResourceModelSerializer, ResourceLabelsMixin, Writa
         super().__init__(*args, **kwargs)
         self._init_field_choices()
 
+    def validate_address(self, value):
+        validate_asset_address(value)
+        return value
+
+    def validate_owner(self, value):
+        if value is None:
+            return value
+        org_id = getattr(self.instance, 'org_id', None) or current_org.id
+        if org_id == Organization.ROOT_ID:
+            raise serializers.ValidationError(_('Select an organization before assigning an asset owner.'))
+        org = Organization.get_instance(org_id)
+        if not value.is_valid or value.is_service_account or not User.get_org_users(org).filter(pk=value.pk).exists():
+            raise serializers.ValidationError(_('The asset owner must be an active user in the asset organization.'))
+        return value
+
     def to_internal_value(self, data):
         accounts = serializers.empty
         if isinstance(data, dict) and 'accounts' in data:
@@ -197,7 +231,9 @@ class AssetSerializer(BulkOrgResourceModelSerializer, ResourceLabelsMixin, Writa
             accounts = data.pop('accounts')
 
         validated_data = super().to_internal_value(data)
-        if accounts is not serializers.empty:
+        request = self.context.get('request')
+        can_add_account = request and request.user.has_perm('accounts.add_account')
+        if accounts is not serializers.empty and can_add_account:
             # Accounts need the asset instance, so validate and save them after
             # the asset itself has been created or updated.
             validated_data['accounts'] = accounts
@@ -242,7 +278,7 @@ class AssetSerializer(BulkOrgResourceModelSerializer, ResourceLabelsMixin, Writa
     @classmethod
     def setup_eager_loading(cls, queryset):
         """ Perform necessary eager loading of data. """
-        queryset = queryset.prefetch_related('zone', 'nodes', 'protocols', 'directory_services') \
+        queryset = queryset.select_related('owner').prefetch_related('zone', 'nodes', 'protocols', 'directory_services') \
             .prefetch_related('platform', 'platform__automation') \
             .annotate(category=F("platform__category")) \
             .annotate(type=F("platform__type"))
@@ -409,7 +445,7 @@ class AssetSerializer(BulkOrgResourceModelSerializer, ResourceLabelsMixin, Writa
         if not accounts_data:
             return
 
-        s = AssetAccountSerializer(data=accounts_data, many=True)
+        s = AssetAccountSerializer(data=accounts_data, many=True, context=self.context)
         s.is_valid(raise_exception=True)
         accounts = s.save()
         self.update_account_su_from(accounts, su_from_map)
@@ -437,6 +473,7 @@ class AssetSerializer(BulkOrgResourceModelSerializer, ResourceLabelsMixin, Writa
                 instance=account,
                 data=data,
                 partial=account is not None,
+                context=self.context,
             )
             serializer.is_valid(raise_exception=True)
             accounts.append(serializer.save())

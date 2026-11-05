@@ -1,4 +1,5 @@
 import os
+import shlex
 import shutil
 import uuid
 
@@ -12,16 +13,25 @@ from ..utils import get_ansible_log_verbosity
 from .callback import DefaultCallback
 from .docker import (
     docker_extravars,
-    docker_isolation_kwargs,
-    ensure_ansible_docker_image,
     prepare_isolated_ansible_runtime,
     stage_inventory_for_docker,
-    use_ansible_docker_isolation,
 )
 from .exception import CommandInBlackListException
 from .interface import interface
+from .execution import use_ansible_ssh_executor
+from .utils import escape_jinja2_syntax, neutralize_jinja2_syntax
 
-__all__ = ['AdHocRunner', 'PlaybookRunner', 'SuperPlaybookRunner', 'UploadFileRunner']
+__all__ = [
+    'AdHocRunner', 'PlaybookRunner', 'SuperPlaybookRunner', 'UploadFileRunner',
+    'escape_jinja2_syntax', 'neutralize_jinja2_syntax', 'quote_ansible_module_arg',
+]
+
+
+def quote_ansible_module_arg(value):
+    """Keep user text inside one double-quoted Ansible module arg."""
+    if not isinstance(value, str):
+        return value
+    return value.replace('\\', '\\\\').replace('"', '\\"')
 
 
 class AdHocRunner:
@@ -77,7 +87,7 @@ class AdHocRunner:
             'envvars': self.envs,
             'host_pattern': self.pattern,
             'private_data_dir': self.project_dir,
-            'inventory': self.inventory,
+            'inventory': stage_inventory_for_docker(self.project_dir, self.inventory),
             'module': self.module,
             'module_args': self.module_args,
             'verbosity': verbosity,
@@ -85,9 +95,6 @@ class AdHocRunner:
             'status_handler': self.cb.status_handler,
             **kwargs,
         }
-        if use_ansible_docker_isolation():
-            run_kwargs.update(docker_isolation_kwargs(self.project_dir))
-            ensure_ansible_docker_image()
         interface.run(**run_kwargs)
         return self.cb
 
@@ -155,10 +162,7 @@ class PlaybookRunner:
         inventory = stage_inventory_for_docker(self.project_dir, self.inventory)
 
         kwargs = dict(kwargs)
-        if use_ansible_docker_isolation():
-            kwargs.update(docker_isolation_kwargs(self.project_dir))
-            ensure_ansible_docker_image()
-        elif self.isolate and not is_macos():
+        if self.isolate and not is_macos() and not use_ansible_ssh_executor():
             kwargs['process_isolation'] = True
             kwargs['process_isolation_executable'] = 'bwrap'
 
@@ -170,7 +174,6 @@ class PlaybookRunner:
                 verbosity=verbosity,
                 event_handler=self.cb.event_handler,
                 status_handler=self.cb.status_handler,
-                # Docker EE workdir must be the staged playbook dir (not private_data_dir root).
                 host_cwd=self.playbook_project_dir,
                 envvars=self.envs,
                 extravars=docker_extravars(self.extra_vars),
@@ -208,10 +211,10 @@ class UploadFileRunner:
         self.envs = {}
         upload_file_dir = safe_join(settings.SHARE_DIR, 'job_upload_file')
         self.share_src_dir = safe_join(upload_file_dir, str(job_id))
-        self.dest_path = safe_join("/tmp", dest_path)
+        self.dest_path = safe_join("/tmp", neutralize_jinja2_syntax(dest_path or ''))
 
     def stage_upload_files(self):
-        """Copy uploads into private_data_dir so Docker EE can read src for copy."""
+        """Keep upload sources inside the task directory sent to the executor."""
         if not os.path.isdir(self.share_src_dir):
             raise FileNotFoundError(f'Upload source directory not found: {self.share_src_dir}')
         staged_dir = os.path.join(self.project_dir, self.UPLOAD_STAGING_DIR)
@@ -231,19 +234,17 @@ class UploadFileRunner:
         run_kwargs = {
             'private_data_dir': self.project_dir,
             'host_pattern': "*",
-            'inventory': self.inventory,
+            'inventory': stage_inventory_for_docker(self.project_dir, self.inventory),
             'module': 'copy',
-            'module_args': f"src={src_path}/ dest={self.dest_path}/",
+            'module_args': 'src={} dest={}'.format(
+                shlex.quote(src_path + '/'), shlex.quote(self.dest_path + '/')
+            ),
             'verbosity': verbosity,
             'event_handler': self.cb.event_handler,
             'status_handler': self.cb.status_handler,
-            'container_workdir': self.project_dir,
             'envvars': self.envs,
             **kwargs,
         }
-        if use_ansible_docker_isolation():
-            run_kwargs.update(docker_isolation_kwargs(self.project_dir))
-            ensure_ansible_docker_image()
         interface.run(**run_kwargs)
         try:
             shutil.rmtree(self.share_src_dir)

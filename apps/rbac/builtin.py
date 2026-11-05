@@ -9,6 +9,10 @@ _view_all_joined_org_perms = (
     ('orgs', 'organization', 'view', 'alljoinedorg'),
 )
 
+chat_ai_user_perms = (
+    ('chat_ai', 'runtimestore', 'use', 'chatai'),
+)
+
 user_perms = (
     ('rbac', 'menupermission', 'view', 'workbench'),
     ('rbac', 'menupermission', 'view', 'webterminal'),
@@ -24,6 +28,7 @@ user_perms = (
     ("ops", "jobexecution", "*", "*"),
     ("ops", "celerytaskexecution", "view", "*"),
     ("users", "user", "match", "user"),
+    *chat_ai_user_perms,
 )
 
 system_user_perms = (
@@ -38,6 +43,11 @@ system_user_perms += (user_perms + _view_all_joined_org_perms)
 
 _auditor_perms = (
     ('rbac', 'menupermission', 'view', 'audit'),
+    ('rbac', 'menupermission', 'view', 'auditreport'),
+    ('rbac', 'menupermission', 'view', 'activityreport'),
+    ('rbac', 'menupermission', 'view', 'securityreport'),
+    ('rbac', 'menupermission', 'view', 'inventoryreport'),
+    ('rbac', 'menupermission', 'view', 'accountreport'),
     ('rbac', 'menupermission', 'view', 'userloginreport'),
     ('rbac', 'menupermission', 'view', 'userchangepasswordreport'),
     ('rbac', 'menupermission', 'view', 'assetstatisticsreport'),
@@ -47,6 +57,7 @@ _auditor_perms = (
     ('assets', 'asset', 'view', 'asset'),
     ('users', 'user', 'view', 'user'),
     ('audits', '*', '*', '*'),
+    ('chat_ai', 'auditconversation', 'view', 'auditconversation'),
     ('audits', 'joblog', '*', '*'),
     ('terminal', 'commandstorage', 'view', 'commandstorage'),
     ('terminal', 'sessionreplay', 'view,download', 'sessionreplay'),
@@ -62,6 +73,7 @@ app_exclude_perms = [
     ('users', 'user', 'add,delete', 'user'),
     ('orgs', 'org', 'add,delete,change', 'org'),
     ('rbac', '*', '*', '*'),
+    *chat_ai_user_perms,
 ]
 
 need_check = [

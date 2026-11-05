@@ -1,8 +1,13 @@
 # -*- coding: utf-8 -*-
 
+from contextlib import nullcontext
+from types import SimpleNamespace
+
 from django.conf import settings
 from django.core.cache import cache
+from django.db import transaction
 from django.http import HttpResponse
+from django.utils.decorators import method_decorator
 from django.views.static import serve
 from rest_framework import generics
 from rest_framework import status
@@ -24,6 +29,7 @@ from ..utils import get_interface_setting_or_default
 logger = get_logger(__file__)
 
 
+@method_decorator(transaction.non_atomic_requests, name='dispatch')
 class SettingsApi(generics.RetrieveUpdateAPIView):
     permission_classes = (RBACPermission,)
 
@@ -66,6 +72,7 @@ class SettingsApi(generics.RetrieveUpdateAPIView):
         'custom': serializers.CustomSMSSettingSerializer,
         'vault': serializers.VaultSettingSerializer,
         'openbao': serializers.OpenBaoSerializer,
+        'ssh_ca': serializers.SSHCAOpenBaoSerializer,
         'azure_kv': serializers.AzureKVSerializer,
         'aws_sm': serializers.AmazonSMSerializer,
         'hcp': serializers.HashicorpKVSerializer,
@@ -80,7 +87,7 @@ class SettingsApi(generics.RetrieveUpdateAPIView):
 
     rbac_category_permissions = {
         'basic': 'settings.change_basic',
-        'tool': 'rbac.view_systemtools',
+        'tool': 'settings.change_systemtools',
         'terminal': 'settings.change_terminal',
         'luna': 'settings.change_terminal',
         'ops': 'settings.change_ops',
@@ -123,6 +130,7 @@ class SettingsApi(generics.RetrieveUpdateAPIView):
         'cmpp2': 'settings.change_sms',
         'vault': 'settings.change_vault',
         'openbao': 'settings.change_vault',
+        'ssh_ca': 'settings.change_vault',
         'azure_kv': 'settings.change_vault',
         'aws_sm': 'settings.change_vault',
         'hcp': 'settings.change_vault',
@@ -132,11 +140,11 @@ class SettingsApi(generics.RetrieveUpdateAPIView):
         return Setting.objects.all()
 
     def check_permissions(self, request):
-        ok = RoleBinding.is_org_admin(request.user)
         category = request.query_params.get('category', 'basic')
         perm_required = self.rbac_category_permissions.get(category)
 
-        if ok and perm_required == 'settings.view_setting':
+        if perm_required == 'settings.view_setting' and \
+                RoleBinding.is_org_admin(request.user):
             return True
 
         has = request.user.has_perm(perm_required)
@@ -155,9 +163,11 @@ class SettingsApi(generics.RetrieveUpdateAPIView):
         return fields
 
     def get_object(self):
-        items = self.get_fields().keys()
+        fields = self.get_fields()
         obj = {}
-        for item in items:
+        for item, field in fields.items():
+            if field.source == '*':
+                continue
             if hasattr(settings, item):
                 obj[item] = getattr(settings, item)
             else:
@@ -185,6 +195,28 @@ class SettingsApi(generics.RetrieveUpdateAPIView):
 
     def perform_update(self, serializer):
         self.prepare_openbao_mount_change(serializer)
+        self.prepare_ssh_ca_config(serializer)
+        from authentication.services.client_login_session import (
+            client_login_policy, client_policy_lock, update_client_session_lifetimes,
+        )
+
+        policy_fields = {
+            'SECURITY_CLIENT_REAUTH_ON_EXIT', 'SECURITY_CLIENT_IDLE_LOCK_TIME',
+            'SECURITY_CLIENT_MAX_SESSION_TIME',
+        }
+        updating_policy = bool(policy_fields.intersection(self.request.data))
+        # Serialize policy writes with client authorization and refresh.
+        # Read the database here: another worker's settings pub/sub may lag behind.
+        with client_policy_lock() if (updating_policy or 'SECURITY_WEB_IDLE_LOCK_TIME' in self.request.data) else nullcontext():
+            with transaction.atomic():
+                old_policy = client_login_policy(use_cache=False) if updating_policy else None
+                self.save_settings(serializer)
+                if updating_policy:
+                    policy = client_login_policy(use_cache=False)
+                    if old_policy['max_session_time'] != policy['max_session_time']:
+                        update_client_session_lifetimes(policy)
+
+    def save_settings(self, serializer):
         post_data_names = list(self.request.data.keys())
         settings_items = self.parse_serializer_data(serializer)
         serializer_data = getattr(serializer, 'data', {})
@@ -195,6 +227,9 @@ class SettingsApi(generics.RetrieveUpdateAPIView):
             changed, setting = Setting.update_or_create(**item)
             if not changed:
                 continue
+            from authentication.services.idle_lock import clamp_idle_lock_preferences
+            if setting.name in ('SECURITY_WEB_IDLE_LOCK_TIME', 'SECURITY_CLIENT_IDLE_LOCK_TIME', 'SECURITY_CLIENT_MAX_SESSION_TIME'):
+                clamp_idle_lock_preferences(setting.name, setting.cleaned_value)
             serializer_data[setting.name] = setting.cleaned_value
 
         setattr(serializer, '_data', serializer_data)
@@ -203,6 +238,26 @@ class SettingsApi(generics.RetrieveUpdateAPIView):
         self.send_signal(serializer)
         if self.request.query_params.get('category') == User.Source.ldap.value:
             self.clean_ldap_user_dn_cache()
+
+    def prepare_ssh_ca_config(self, serializer):
+        if self.request.query_params.get('category') != 'ssh_ca':
+            return
+
+        data = {**self.get_object(), **serializer.validated_data}
+        if not data.get('SSH_CA_ENABLED'):
+            return
+        if not data.get('SSH_CA_OPENBAO_TOKEN'):
+            data['SSH_CA_OPENBAO_TOKEN'] = settings.SSH_CA_OPENBAO_TOKEN
+        if not data.get('SSH_CA_OPENBAO_CACERT_CONTENT'):
+            data['SSH_CA_OPENBAO_CACERT_CONTENT'] = settings.SSH_CA_OPENBAO_CACERT_CONTENT
+        data['SSH_CA_OPENBAO_CACERT_FILE'] = settings.SSH_CA_OPENBAO_CACERT_FILE
+
+        from authentication.services import get_ssh_ca_client
+
+        client = get_ssh_ca_client(SimpleNamespace(**data))
+        ok, error = client.is_active(ttl=data['SSH_CA_OPENBAO_TTL'])
+        if not ok:
+            raise ValidationError({'SSH_CA_OPENBAO_MOUNT_POINT': error})
 
     def prepare_openbao_mount_change(self, serializer):
         if self.request.query_params.get('category') != 'openbao':
@@ -218,19 +273,28 @@ class SettingsApi(generics.RetrieveUpdateAPIView):
         data = serializer.validated_data
 
         def target_value(name):
-            return data.get(name) or getattr(settings, name, None)
+            value = data.get(name)
+            if value in ('', None):
+                return getattr(settings, name, None)
+            return value
 
         source = OpenBaoKVClient(
             addr=settings.VAULT_OPENBAO_ADDR,
             token=settings.VAULT_OPENBAO_TOKEN,
             mount_point=old_mount_point,
             timeout=settings.VAULT_OPENBAO_TIMEOUT,
+            verify_tls=settings.VAULT_OPENBAO_VERIFY_TLS,
+            ca_cert=settings.VAULT_OPENBAO_CACERT_CONTENT,
+            ca_cert_file=settings.VAULT_OPENBAO_CACERT_FILE,
         )
         target = OpenBaoKVClient(
             addr=target_value('VAULT_OPENBAO_ADDR'),
             token=target_value('VAULT_OPENBAO_TOKEN'),
             mount_point=new_mount_point,
             timeout=target_value('VAULT_OPENBAO_TIMEOUT'),
+            verify_tls=target_value('VAULT_OPENBAO_VERIFY_TLS'),
+            ca_cert=target_value('VAULT_OPENBAO_CACERT_CONTENT'),
+            ca_cert_file=settings.VAULT_OPENBAO_CACERT_FILE,
         )
 
         ok, error = target.is_active()
@@ -274,8 +338,24 @@ class SettingsLogoApi(APIView):
         return serve(request, logo_path, document_root=document_root)
 
 
+class ClientCompatibilityView(APIView):
+    # This endpoint is used before login; stale cookies/tokens must not require authentication.
+    authentication_classes = ()
+    permission_classes = (AllowAny,)
+    throttle_classes = ()
+
+    def get(self, request, *args, **kwargs):
+        response = Response({
+            'schema_version': 1,
+            'core_version': settings.VERSION,
+            'min_client_version': settings.MIN_CLIENT_VERSION,
+        })
+        response['Cache-Control'] = 'no-store'
+        return response
+
+
 class ClientVersionView(APIView):
     permission_classes = (AllowAny,)
 
     def get(self, request, *args, **kwargs):
-        return Response(['4.0.0', '4.1.0', '4.1.1', '4.1.2'], status=status.HTTP_200_OK)
+        return Response(['4.0.0', '4.1.0', '4.1.1', '4.1.2', '5.0.0', '5.1.0'], status=status.HTTP_200_OK)
