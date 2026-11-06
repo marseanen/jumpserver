@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: jumpserver\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-19 10:30+0800\n"
-"PO-Revision-Date: 2026-11-05 18:46\n"
+"PO-Revision-Date: 2026-11-06 08:31\n"
 "Last-Translator: ibuler <ibuler@qq.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -5964,11 +5964,11 @@ msgstr "Если вы администратор, вы можете обнови
 
 #: authentication/templates/authentication/login.html:319
 msgid "The browser did not carry the CSRF cookie and cannot be logged in. Please contact the administrator"
-msgstr "Браузер не передал CSRF cookie, вход невозможен. Пожалуйста, обратитесь к администратору"
+msgstr "Браузер не передал CSRF-cookie - вход в систему невозможен. Обратитесь к администратору"
 
 #: authentication/templates/authentication/login.html:320
 msgid "If you are administrator, check whether SESSION_COOKIE_DOMAIN is misconfigured: the domain you are accessing must be it or its subdomain, otherwise the browser will not save the cookie, fix or remove it"
-msgstr "Если вы администратор, проверьте, не настроен ли SESSION_COOKIE_DOMAIN неправильно: домен, по которому вы обращаетесь, должен совпадать с ним или быть его поддоменом, иначе браузер не сохранит cookie; исправьте или удалите эту настройку"
+msgstr "Если вы администратор, проверьте правильность настройки SESSION_COOKIE_DOMAIN: домен, по которому выполняется доступ, должен совпадать с указанным в настройке или быть его поддоменом. В противном случае браузер не будет сохранять cookie. Исправьте или удалите эту настройку"
 
 #: authentication/templates/authentication/login.html:321
 msgid "not set"
@@ -5976,7 +5976,7 @@ msgstr "не задано"
 
 #: authentication/templates/authentication/login.html:322
 msgid "Please make sure cookies are enabled in your browser, clear the site cookies and try again"
-msgstr "Убедитесь, что в браузере включены cookie, очистите cookie сайта и попробуйте снова"
+msgstr "Убедитесь, что в браузере разрешено использование cookie, очистите cookie этого сайта и повторите попытку"
 
 #: authentication/templates/authentication/login.html:423
 msgid "More login options"
@@ -6732,7 +6732,7 @@ msgstr "Адрес не может содержать пробелы в нача
 
 #: assets/validators.py:25
 msgid "The address cannot contain template syntax"
-msgstr "Адрес не может содержать синтаксис шаблонов"
+msgstr "Адрес не должен содержать шаблонные конструкции"
 
 #: assets/validators.py:30
 msgid "The address cannot contain control characters"
@@ -6740,7 +6740,7 @@ msgstr "Адрес не может содержать управляющие с�
 
 #: assets/validators.py:43 assets/validators.py:48 assets/validators.py:56
 msgid "Enter a valid IP address or hostname"
-msgstr "Введите допустимый IP-адрес или имя хоста"
+msgstr "Введите корректный IP-адрес или имя хоста"
 
 #: common/utils/translate.py:46
 #, python-format
