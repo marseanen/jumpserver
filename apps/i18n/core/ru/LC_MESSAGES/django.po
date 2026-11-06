@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: jumpserver\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-19 10:30+0800\n"
-"PO-Revision-Date: 2026-11-06 08:31\n"
+"PO-Revision-Date: 2026-11-06 14:26\n"
 "Last-Translator: ibuler <ibuler@qq.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -8092,7 +8092,7 @@ msgstr "Не удалось разрешить имя хоста поставщ�
 
 #: settings/api/chat.py
 msgid "The model provider refused the connection. Please check the Base URL, port, and service status."
-msgstr "Поставщик моделей отклонил подключение. Проверьте базовый URL, порт и состояние службы."
+msgstr "Поставщик моделей отклонил подключение. Проверьте базовый URL, порт и состояние сервиса."
 
 #: settings/api/chat.py
 msgid "Unable to connect to the model provider. Please check the Base URL, proxy, and network."
@@ -8100,7 +8100,7 @@ msgstr "Не удалось подключиться к поставщику м�
 
 #: settings/api/chat.py
 msgid "The model provider account has insufficient balance. Please recharge it and try again."
-msgstr "На счете поставщика моделей недостаточно средств. Пополните баланс и повторите попытку."
+msgstr "Недостаточно средств на балансе учётной записи поставщика модели. Пополните баланс и повторите попытку."
 
 #: settings/api/chat.py
 msgid "Authentication with the model provider failed. Please check the API key."
@@ -8128,7 +8128,7 @@ msgstr "Поставщик не вернул поток событий Responses
 
 #: settings/api/chat.py
 msgid "The Responses API stream failed: {detail}"
-msgstr "Ошибка потока Responses API: {detail}"
+msgstr "Ошибка потоковой передачи данных Responses API: {detail}"
 
 #: settings/api/chat.py
 msgid "The Responses API stream ended without a successful completion event."
@@ -8152,23 +8152,23 @@ msgstr "Responses API вернул некорректный вызов инст�
 
 #: settings/api/chat.py
 msgid "The model did not correctly return the health-check nonce after receiving the tool result."
-msgstr "Модель не вернула правильный nonce проверки работоспособности после получения результата инструмента."
+msgstr "Модель некорректно вернула случайное значение для проверки работоспособности инструмента."
 
 #: settings/api/chat.py
 msgid "The model provider request limit was exceeded. Please try again later."
-msgstr "Превышен лимит запросов поставщика моделей. Повторите попытку позже."
+msgstr "Превышен лимит запросов к поставщику модели. Повторите попытку позже."
 
 #: settings/api/chat.py
 msgid "The model provider service is temporarily unavailable. Please try again later."
-msgstr "Служба поставщика моделей временно недоступна. Повторите попытку позже."
+msgstr "Сервис поставщика модели временно недоступен. Повторите попытку позже."
 
 #: settings/api/chat.py
 msgid "Model provider request failed (HTTP {status_code}): {detail}"
-msgstr "Не удалось выполнить запрос к поставщику моделей (HTTP {status_code}): {detail}"
+msgstr "Ошибка запроса к поставщику модели (HTTP {status_code}): {detail}"
 
 #: settings/api/chat.py
 msgid "Model provider request failed (HTTP {status_code})."
-msgstr "Не удалось выполнить запрос к поставщику моделей (HTTP {status_code})."
+msgstr "Ошибка запроса к поставщику модели (HTTP {status_code})."
 
 #: settings/api/chat.py:91 settings/api/dingtalk.py:31
 #: settings/api/feishu.py:39 settings/api/slack.py:34 settings/api/sms.py:160
@@ -8219,7 +8219,7 @@ msgstr "Изменение основных настроек"
 
 #: settings/models.py
 msgid "Can change system tools setting"
-msgstr "Может изменять настройки системных инструментов"
+msgstr "Изменение настроек системных инструментов"
 
 #: settings/models.py:169
 msgid "Can change email setting"
@@ -9094,7 +9094,7 @@ msgstr "Чат AI"
 
 #: chat_ai/models.py
 msgid "Can use Chat AI"
-msgstr "Можно использовать Chat AI"
+msgstr "Использование Chat AI"
 
 #~ msgid "Method"
 #~ msgstr "创建方式"
@@ -9218,7 +9218,7 @@ msgstr "Перенаправление принтеров"
 
 #: users/serializers/preference/luna.py:56
 msgid "Apply Windows key combinations"
-msgstr "Применять сочетания клавиш Windows"
+msgstr "Применение сочетаний клавиш Windows"
 
 #: users/const.py:38
 msgid "On the local computer"
@@ -9336,11 +9336,11 @@ msgstr "Управление проверкой TLS-сертификата SMTP"
 
 #: settings/serializers/auth/oauth2.py
 msgid "Controls verification of OAuth2 server TLS certificates"
-msgstr "Управляет проверкой TLS-сертификатов сервера OAuth2"
+msgstr "Управление проверкой TLS-сертификатов сервера OAuth2"
 
 #: settings/serializers/auth/saml2.py
 msgid "Controls verification when downloading IDP Metadata"
-msgstr "Управляет проверкой при загрузке метаданных IDP"
+msgstr "Управление проверкой при загрузке метаданных IDP"
 
 #: settings/serializers/msg.py:77
 msgid "PEM certificate used in addition to the system trust store"
@@ -10064,7 +10064,7 @@ msgstr "Клиент, используемый для запуска специ�
 
 #: templates/resource_download.html:32
 msgid "More downloads"
-msgstr "Дополнительные загрузки"
+msgstr "Другие загрузки"
 
 #: templates/resource_download.html:34
 msgid "Tools and applications"
@@ -12157,7 +12157,7 @@ msgstr "Разрешённые типы МФА"
 
 #: users/serializers/user.py:174
 msgid "Leave empty to inherit the global MFA methods"
-msgstr "Оставьте пустым, чтобы наследовать глобальные методы МФА"
+msgstr "Оставьте пустым, чтобы использовать глобальные методы МФА"
 
 #: users/serializers/user.py:274
 msgid "Multi-Factor Authentication"
@@ -12380,7 +12380,7 @@ msgstr "Установить приложение"
 
 #: users/templates/users/user_otp_enable_install_app.html:13
 msgid "Download and install the MFA Authenticator application on your phone or applet of WeChat"
-msgstr "Пожалуйста, скачайте и установите приложение для аутентификации МФ Ана мобильном устройстве или или в мини-программе WeChat"
+msgstr "Пожалуйста, скачайте и установите приложение для аутентификации МФА на мобильном устройстве или в мини-программе WeChat"
 
 #: users/templates/users/user_otp_enable_install_app.html:18
 msgid "Android downloads"
@@ -13371,16 +13371,16 @@ msgid "Interactive selector"
 msgstr "Селектор интерактивной области"
 
 msgid "Optional interactive verification area, e.g. css=#mfa-dialog. Exclude credentials and password visibility controls."
-msgstr "Необязательная область интерактивной проверки, например css=#mfa-dialog. Исключите учётные данные и переключатели видимости пароля."
+msgstr "Опциональная область интерактивной проверки, например css=#mfa-dialog. Исключите из неё элементы ввода и отображения паролей."
 
 msgid "Enter an HTTP/HTTPS origin without a path, credentials or wildcard."
-msgstr "Введите источник HTTP/HTTPS без пути, учётных данных и подстановочных знаков."
+msgstr "Укажите источник HTTP/HTTPS без пути, учётных данных и подстановочных знаков."
 
 msgid "Enter at most 128 script steps."
 msgstr "Укажите не более 128 шагов скрипта."
 
 msgid "Invalid script step."
-msgstr "Недопустимый шаг скрипта."
+msgstr "Недопустимый формат шага скрипта."
 
 msgid "Script step numbers must be unique positive integers."
 msgstr "Номера шагов должны быть уникальными положительными целыми числами."
@@ -13405,11 +13405,11 @@ msgstr "Выберите установщик для вашей операцио
 
 #: templates/resource_download.html
 msgid "Find Linux, macOS Intel and other versions on GitHub."
-msgstr "Версии для Linux, macOS Intel и другие выпуски доступны на GitHub."
+msgstr "Версии для Linux, macOS Intel и других платформ можно скачать на GitHub."
 
 #: templates/resource_download.html
 msgid "View on GitHub"
-msgstr "Открыть на GitHub"
+msgstr "Перейти на GitHub"
 
 #: authentication/mixins.py
 msgid "MFA unavailable"
@@ -13417,24 +13417,24 @@ msgstr "Многофакторная аутентификация недосту
 
 #: authentication/mixins.py users/templates/users/mfa_setting.html
 msgid "No available MFA method. Please contact your administrator."
-msgstr "Нет доступных методов MFA. Обратитесь к администратору."
+msgstr "Нет доступных методов МФА. Обратитесь к администратору."
 
 #: users/templates/users/mfa_setting.html
 #, python-format
 msgid "The following MFA methods are not enabled in system settings and cannot be used: %(methods)s. Please contact your administrator."
-msgstr "Следующие методы MFA не включены в системных настройках и не могут использоваться: %(methods)s. Обратитесь к администратору."
+msgstr "Эти методы МФА не включены в системных настройках и не могут использоваться: %(methods)s. Обратитесь к администратору."
 
 #: terminal/tasks.py
 msgid "Run app provider deployment"
-msgstr "Запустить развёртывание поставщика приложений"
+msgstr "Запуск развёртывания поставщика приложений"
 
 #: terminal/tasks.py
 msgid "Deploy the Panda runtime on an application provider host"
-msgstr "Развернуть среду выполнения Panda на хосте поставщика приложений"
+msgstr "Развёртывание среды выполнения Panda на сервере приложений"
 
 #: terminal/tasks.py
 msgid "Publish all virtual apps"
-msgstr "Опубликовать все виртуальные приложения"
+msgstr "Публикация всех виртуальных приложений"
 
 #: terminal/tasks.py
 msgid "Publish all virtual applications on an application provider"
@@ -13454,7 +13454,7 @@ msgstr "Ошибка развёртывания"
 
 #: terminal/serializers/virtualapp.py
 msgid "Changing the image requires a different application version"
-msgstr "При изменении образа необходимо также изменить версию приложения"
+msgstr "При смене образа необходимо также изменить версию приложения"
 
 #: terminal/serializers/virtualapp.py
 msgid "Reported version does not match the current application version"
@@ -13470,11 +13470,11 @@ msgstr "Этот актив не поддерживает этот проток�
 
 #: accounts/personal_credentials.py:264
 msgid "Credential verification is not supported by this asset"
-msgstr "Этот актив не поддерживает проверку учетных данных"
+msgstr "Этот актив не поддерживает проверку учётных данных"
 
 #: accounts/personal_credentials.py:248
 msgid "Credential verification is unavailable because the asset login ACL requires an additional action"
-msgstr "Проверка учетных данных недоступна, поскольку ACL входа в актив требует дополнительного действия."
+msgstr "Проверка учетных данных недоступна, поскольку ACL входа на актив требует дополнительного действия"
 
 msgid "CIDR ranges"
 msgstr "Диапазоны CIDR"
@@ -13483,7 +13483,7 @@ msgid "Auto assign new assets"
 msgstr "Автоматически назначать новые активы"
 
 msgid "Exclude zone"
-msgstr "Исключённая зона"
+msgstr "Исключаемая зона"
 
 msgid "Invalid CIDR: %s"
 msgstr "Недопустимый CIDR: %s"
@@ -13497,11 +13497,11 @@ msgstr "Быстрая команда"
 
 #: ops/models/job.py
 msgid "Matched a command filter policy"
-msgstr "Совпадение с политикой фильтрации команд"
+msgstr "Соответствие политике фильтрации команд"
 
 #: ops/models/job.py
 msgid "Matched the job center command blacklist"
-msgstr "Совпадение с чёрным списком команд центра заданий"
+msgstr "Соответствие чёрному списку команд центра заданий"
 
 #: accounts/serializers/account/account.py:293
 msgid "Asset IP"
@@ -13509,7 +13509,7 @@ msgstr "IP актива"
 
 #: accounts/serializers/account/account.py:321 accounts/serializers/account/account.py:409
 msgid "Only applies to template accounts. Credentials are read from the current template."
-msgstr "Только для аккаунтов шаблона. Учётные данные берутся из текущего шаблона."
+msgstr "Только для шаблонных УЗ. Учётные данные берутся из текущего шаблона."
 
 #: perms/utils/expire_soon_notice.py:36
 msgid "The notice time must be in the future."
@@ -13528,13 +13528,13 @@ msgstr "Время истечения срока действия"
 #. FaceContextApi.
 #: authentication/api/face.py
 msgid "Face verification timed out"
-msgstr "Время проверки лица истекло"
+msgstr "Время ожидания проверки лица истекло"
 
 #. Error returned by the face liveness service and translated by
 #. FaceContextApi.
 #: authentication/api/face.py
 msgid "The liveness action was not completed in time"
-msgstr "Действие проверки живого лица не выполнено вовремя"
+msgstr "Действия по проверке присутствия не выполнено вовремя"
 
 #: accounts/backends/openbao/service.py
 #, python-format
@@ -13547,16 +13547,16 @@ msgstr "Введите служебный токен OpenBao."
 
 #: accounts/backends/openbao/service.py
 msgid "The OpenBao service token is invalid, expired, or lacks permission. Check the token and its access policy."
-msgstr "Служебный токен OpenBao недействителен, срок его действия истёк или у него недостаточно прав. Проверьте токен и его политику доступа."
+msgstr "Служебный токен OpenBao недействителен, срок его действия истёк или недостаточно прав. Проверьте токен и его политику доступа."
 
 #: accounts/backends/openbao/service.py
 #, python-format
 msgid "The OpenBao service token cannot access %(resource)s. Grant %(capability)s permission for this path."
-msgstr "Служебный токен OpenBao не имеет доступа к %(resource)s. Предоставьте право %(capability)s для этого пути."
+msgstr "Служебный токен OpenBao не имеет доступа к %(resource)s. Предоставьте разрешение %(capability)s для этого пути."
 
 #: accounts/api/account/application.py:79
 msgid "Successfully refreshed secret"
-msgstr "Секрет обновлён"
+msgstr "Секрет успешно обновлён"
 
 #: accounts/api/account/personal.py:93
 msgid "Inactive personal credentials cannot be tested"
@@ -13581,48 +13581,48 @@ msgstr "Подпись сертификатов SSH недоступна. Пов
 
 #: accounts/exceptions.py:51
 msgid "This account follows template credentials. Confirm to stop following and modify its credentials."
-msgstr "Аккаунт использует учётные данные шаблона. Подтвердите отключение следования для изменения учётных данных."
+msgstr "Эта УЗ использует учётные данные шаблона. Подтвердите прекращение использования шаблона, чтобы изменить учётные данные."
 
 #: accounts/models/account.py:177
 msgid "The source account template is unavailable."
-msgstr "Исходный шаблон аккаунта недоступен."
+msgstr "Исходный шаблон учётной записи недоступен."
 
 #: accounts/models/account.py:179
 #: accounts/serializers/account/account.py:176
 msgid "Account and template secret types must match."
-msgstr "Типы секретов аккаунта и шаблона должны совпадать."
+msgstr "Тип секрета УЗ должен совпадать с типом секрета шаблона."
 
 #: accounts/models/account.py:196
 msgid "Disable template following before editing credentials."
-msgstr "Отключите следование шаблону перед изменением учётных данных."
+msgstr "Отключите использование шаблона перед изменением учётных данных."
 
 #: accounts/models/account.py:216
 msgid "Disable template following before changing the source."
-msgstr "Отключите следование шаблону перед изменением источника."
+msgstr "Отключите использование шаблона перед изменением источника."
 
 #: accounts/models/account.py:218
 msgid "Disable template following before changing the secret type."
-msgstr "Отключите следование шаблону перед изменением типа секрета."
+msgstr "Отключите использование шаблона перед изменением типа секрета."
 
 #: accounts/models/account.py:225
 msgid "Save the following state with the credential snapshot."
-msgstr "Сохраните состояние следования вместе со снимком учётных данных."
+msgstr "Сохраните состояние использования вместе со снимком учётных данных"
 
 #: accounts/models/account.py:228
 msgid "Provide credentials when changing the secret type."
-msgstr "Укажите учётные данные при изменении типа секрета."
+msgstr "При изменении типа секрета необходимо указать учётные данные"
 
 #: accounts/models/account.py:240
 msgid "Only template accounts can follow a template."
-msgstr "Следовать шаблону могут только аккаунты, созданные из шаблона."
+msgstr "Только УЗ, созданные из шаблона, могут использовать шаблон."
 
 #: accounts/models/base.py:29
 msgid "Update template following through account save to preserve credentials."
-msgstr "Обновляйте следование шаблону через сохранение аккаунта, чтобы сохранить учётные данные."
+msgstr "Обновляйте использование шаблона при сохранении УЗ, чтобы сохранить учётные данные"
 
 #: accounts/models/base.py:32
 msgid "Disable template following before editing credentials or their source."
-msgstr "Отключите следование шаблону перед изменением учётных данных или их источника."
+msgstr "Перед изменением учётных данных или их источника отключите использование шаблона"
 
 #: accounts/models/personal.py:17
 msgid "Owner"
@@ -13636,7 +13636,7 @@ msgstr "Личные учётные данные актива"
 
 #: accounts/models/template.py:102
 msgid "Disable account template following before changing the secret type."
-msgstr "Отключите следование шаблону аккаунта перед изменением типа секрета."
+msgstr "Перед изменением типа секрета отключите использование шаблона УЗ."
 
 #: accounts/personal_credentials.py:162
 msgid "Operation"
@@ -13656,27 +13656,27 @@ msgstr "Недействительный пользователь"
 
 #: accounts/personal_credentials.py:206
 msgid "Asset is inactive"
-msgstr "Актив неактивен"
+msgstr "Актив не активирован"
 
 #: accounts/personal_credentials.py:209
 msgid "Protocol is not supported for personal credentials"
-msgstr "Протокол не поддерживается для личных учётных данных"
+msgstr "Этот протокол не поддерживается для личных учётных данных"
 
 #: accounts/personal_credentials.py:219
 msgid "Personal credentials require a manual or empty-secret asset account"
-msgstr "Для личных учётных данных нужен аккаунт актива с ручным вводом или без секрета"
+msgstr "Для личных учётных данных нужен ввод УЗ вручную или УЗ без секрета"
 
 #: accounts/personal_credentials.py:230
 msgid "You do not have account permission for this asset"
-msgstr "У вас нет разрешения на аккаунт этого актива"
+msgstr "У вас нет разрешения на УЗ этого актива"
 
 #: accounts/personal_credentials.py:240
 msgid "Personal credentials require an empty-secret asset account"
-msgstr "Для личных учётных данных нужен аккаунт актива без секрета"
+msgstr "Для использования личных учётных данных нужна УЗ актива без секрета"
 
 #: accounts/personal_credentials.py:252
 msgid "Personal credential username must match the asset account"
-msgstr "Имя пользователя личных учётных данных должно совпадать с аккаунтом актива"
+msgstr "Имя пользователя личных учётных данных должно совпадать с именем УЗ актива"
 
 #: accounts/personal_credentials.py:301
 msgid "Credential verification method is unavailable"
@@ -13718,15 +13718,15 @@ msgstr "Шаблон не найден"
 
 #: accounts/serializers/account/account.py:172
 msgid "Following requires a valid account template in the same organization."
-msgstr "Для следования нужен действующий шаблон аккаунта в той же организации."
+msgstr "Для использования нужен действующий шаблон УЗ в той же организации."
 
 #: accounts/serializers/account/account.py:178
 msgid "Following accounts use template credentials."
-msgstr "Следующие шаблону аккаунты используют его учётные данные."
+msgstr "УЗ, использующие шаблон, наследуют его учётные данные."
 
 #: accounts/serializers/account/account.py:183
 msgid "Disable template following before editing this field."
-msgstr "Отключите следование шаблону перед изменением этого поля."
+msgstr "Отключите использование шаблона перед изменением этого поля."
 
 #: accounts/serializers/account/account.py:355
 msgid "Source template"
@@ -13734,7 +13734,7 @@ msgstr "Исходный шаблон"
 
 #: accounts/serializers/account/base.py:68
 msgid "SSH certificate accounts cannot push or rotate credentials"
-msgstr "Аккаунты с сертификатом SSH не поддерживают отправку и ротацию учётных данных"
+msgstr "Для УЗ с SSH-сертификатами нельзя выполнять отправку или ротацию учётных данных"
 
 #: accounts/serializers/account/personal.py:48
 msgid "Expected version"
@@ -13760,7 +13760,7 @@ msgstr "Протокол нельзя изменить"
 
 #: accounts/serializers/account/personal.py:106
 msgid "This field is only valid when updating"
-msgstr "Поле допустимо только при обновлении"
+msgstr "Это поле можно использовать только при обновлении"
 
 #: accounts/serializers/account/personal.py:112
 #: accounts/serializers/account/personal.py:149
@@ -13770,7 +13770,7 @@ msgstr "Актив не принадлежит текущей организац
 
 #: accounts/serializers/account/personal.py:128
 msgid "A new secret is required when changing the secret type"
-msgstr "При изменении типа секрета требуется новый секрет"
+msgstr "При изменении типа секрета необходим новый секрет"
 
 #: accounts/serializers/account/service.py:57
 #, python-format
@@ -13779,16 +13779,16 @@ msgstr "Необходимо указать хотя бы одно из поле
 
 #: accounts/tasks/template.py:16
 msgid "Synchronize template properties to following accounts without changing credentials."
-msgstr "Синхронизировать свойства шаблона со следующими ему аккаунтами без изменения учётных данных."
+msgstr "Синхронизация свойств шаблона с использующими его УЗ без изменения учётных данных."
 
 #: accounts/tasks/verify_account.py:69
 #: accounts/tasks/verify_account.py:88
 msgid "Verify personal credential connectivity"
-msgstr "Проверить подключение с личными учётными данными"
+msgstr "Проверка подключения с личными учётными данными"
 
 #: accounts/tasks/verify_account.py:70
 msgid "Verify a user's personal asset credential"
-msgstr "Проверить личные учётные данные актива пользователя"
+msgstr "Проверка личных учётных данных актива пользователя"
 
 #: accounts/tasks/verify_account.py:106
 msgid "Personal credential verification failed"
@@ -13809,15 +13809,15 @@ msgstr "0 означает согласование каждого подклю�
 
 #: acls/serializers/base.py:114
 msgid "Account usernames, or @ALL to match all accounts."
-msgstr "Имена пользователей аккаунтов или @ALL для всех аккаунтов."
+msgstr "Укажите имена пользователей УЗ или @ALL, чтобы выбрать все УЗ."
 
 #: acls/serializers/command_acl.py:24
 msgid "Use \"command\" for literal command names. Each line matches that command as a standalone word anywhere in the input, so \"rm\" also matches \"rm -rf\" and \"sudo rm\". Use \"regex\" only for custom patterns."
-msgstr "Используйте \"command\" для буквальных имён команд. Каждая строка ищет команду как отдельное слово в любой части ввода: \"rm\" также соответствует \"rm -rf\" и \"sudo rm\". Используйте \"regex\" только для собственных шаблонов."
+msgstr "Используйте \"command\" для для сопоставления с именами команд. Каждая строка сопоставляется с указанной командой как с отдельным словом в любой части ввода, поэтому \"rm\" также будет соответствовать \"rm -rf\" и \"sudo rm\". Используйте regex только при необходимости задать собственный шаблон сопоставления."
 
 #: assets/api/favorite_asset.py:133
 msgid "Some assets are not authorized for this user."
-msgstr "Часть активов не разрешена этому пользователю."
+msgstr "Некоторые активы недоступны этому пользователю."
 
 #: assets/api/platform.py:120
 msgid "Internal platform"
@@ -13870,7 +13870,7 @@ msgstr "Изменение полей %(fields)s запрещено"
 #: authentication/api/connection_token.py:532
 #: authentication/serializers/connection_token.py:96
 msgid "Personal credential connection tokens cannot be reusable"
-msgstr "Токены подключения с личными учётными данными нельзя использовать повторно"
+msgstr "Токены подключения для личных учётных данных нельзя использовать повторно"
 
 #: authentication/api/connection_token.py:763
 msgid "Personal credentials can only be managed by their owner"
@@ -13882,7 +13882,7 @@ msgstr "При указании версии требуется ID личных 
 
 #: authentication/api/connection_token.py:810
 msgid "Do not submit a username or secret when using a saved credential"
-msgstr "Не передавайте имя пользователя и секрет при использовании сохранённых учётных данных"
+msgstr "Не указывайте имя пользователя или секрет при использовании сохранённых учётных данных"
 
 #: authentication/api/connection_token.py:909
 #: authentication/models/connection_token.py:204
@@ -13899,7 +13899,7 @@ msgstr "Просмотр секрета запрещён"
 
 #: authentication/api/connection_token.py:1263
 msgid "Tinker must redeem its RDP login ticket to obtain credentials"
-msgstr "Tinker должен обменять билет входа RDP для получения учётных данных"
+msgstr "Tinker должен погасить RDP-токен для получения учётных данных"
 
 #: authentication/api/connection_token.py:1268
 msgid "Token {} is not valid"
