@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: jumpserver\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-19 10:30+0800\n"
-"PO-Revision-Date: 2026-11-06 14:26\n"
+"PO-Revision-Date: 2026-11-09 09:58\n"
 "Last-Translator: ibuler <ibuler@qq.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -13916,15 +13916,15 @@ msgstr "Срок токена истёк"
 
 #: authentication/api/face.py:55
 msgid "missing field 'face_code'"
-msgstr "Отсутствует поле 'face_code'"
+msgstr "отсутствует поле 'face_code'"
 
 #: authentication/api/face.py:70
 msgid "token not exists or expired"
-msgstr "Токен не существует или просрочен"
+msgstr "токен не существует или просрочен"
 
 #: authentication/api/face.py:129
 msgid "Token does not belong to the current face capture."
-msgstr "Токен не относится к текущему захвату лица."
+msgstr "Токен не относится к текущему процессу распознавания лица."
 
 #: authentication/api/face.py:135
 msgid "Token does not exist or has expired."
@@ -13932,11 +13932,11 @@ msgstr "Токен не существует или просрочен."
 
 #: authentication/api/face.py:246
 msgid "face codes not matched"
-msgstr "Данные лица не совпадают"
+msgstr "данные лица не совпадают"
 
 #: authentication/api/rdp_login.py:42
 msgid "Only user and admin connection tokens support RDP token login"
-msgstr "Вход RDP по токену доступен только для токенов подключения пользователя и администратора"
+msgstr "Вход по RDP-токену поддерживается только для токенов подключения пользователя и администратора"
 
 #: authentication/api/rdp_login.py:47
 msgid "Connection permission is no longer valid"
@@ -13978,11 +13978,11 @@ msgstr "Авторизация входа RDP недействительна и�
 
 #: authentication/api/rdp_login.py:156
 msgid "RDP login ticket has already been used"
-msgstr "Билет входа RDP уже использован"
+msgstr "Токен для входа RDP уже использован"
 
 #: authentication/api/sso.py:90
 msgid "authkey is required"
-msgstr "Требуется authkey"
+msgstr "Требуется ключ авторизации (authkey)"
 
 #: authentication/api/token.py:46
 msgid "MFA unset, please set first"
@@ -13994,16 +13994,16 @@ msgstr "Пользователь неактивен или срок его де�
 
 #: authentication/backends/ldap.py:192
 msgid "failed to map the username to a DN."
-msgstr "Не удалось сопоставить имя пользователя с DN."
+msgstr "не удалось сопоставить имя пользователя с DN."
 
 #: authentication/backends/ldap.py:201
 msgid "user DN/password rejected by LDAP server."
-msgstr "Сервер LDAP отклонил DN или пароль пользователя."
+msgstr "сервер LDAP отклонил DN или пароль пользователя."
 
 #: authentication/backends/passkey/fido.py:108
 #: authentication/backends/passkey/fido.py:146
 msgid "No state found"
-msgstr "Состояние не найдено"
+msgstr "Статус аутентификации не найден"
 
 #: authentication/backends/token.py:25
 msgid "Token is invalid, expired at {}"
@@ -14011,11 +14011,11 @@ msgstr "Токен недействителен, срок истёк: {}"
 
 #: authentication/errors/mfa.py:13
 msgid "Code invalid, can not get user info"
-msgstr "Код недействителен, невозможно получить данные пользователя"
+msgstr "Неверный код доступа, не удалось получить данные пользователя"
 
 #: authentication/mixins.py:611
 msgid "Face recognition token is missing from the session."
-msgstr "В сеансе отсутствует токен распознавания лица."
+msgstr "В сессии отсутствует токен распознавания лица."
 
 #: authentication/mixins.py:619
 #, python-format
