@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: jumpserver\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-19 10:30+0800\n"
-"PO-Revision-Date: 2026-11-09 09:58\n"
+"PO-Revision-Date: 2026-11-09 16:43\n"
 "Last-Translator: ibuler <ibuler@qq.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -201,7 +201,7 @@ msgstr "Учётная запись не существует, отключен�
 #: accounts/automations/base/manager.py
 #, python-format
 msgid "Unable to resolve username (account ID: %(account_id)s)"
-msgstr "Не удалось определить имя пользователя (ID аккаунта: %(account_id)s)"
+msgstr "Не удалось определить имя пользователя (ID УЗ: %(account_id)s)"
 
 #: accounts/automations/base/manager.py:516
 #, python-format
@@ -7945,7 +7945,7 @@ msgstr "Обнаружение УЗ"
 
 #: rbac/tree.py:56 reports/mixins.py:374
 msgid "Account change secret"
-msgstr "Смена секрета аккаунта"
+msgstr "Смена секрета УЗ"
 
 #: rbac/tree.py:58
 msgid "App ops"
@@ -9984,7 +9984,7 @@ msgstr "Выход"
 
 #: templates/_message.html:6
 msgid "Your account has expired, please contact the administrator."
-msgstr "Ваш аккаунт истек, пожалуйста, свяжитесь с администратором"
+msgstr "Ваша УЗ истекла, пожалуйста, свяжитесь с администратором."
 
 #: templates/_message.html:11
 msgid "Your account will at"
@@ -11998,7 +11998,7 @@ msgstr "Ссылка для обновления пароля"
 
 #: users/notifications.py:225
 msgid "Account is about expire"
-msgstr "Аккаунт скоро истечет"
+msgstr "Учётная запись скоро истечет"
 
 #: users/notifications.py:229
 msgid "Expiration date"
@@ -14053,7 +14053,7 @@ msgstr "Нет доступных поставщиков. Проверьте п�
 
 #: authentication/models/connection_token.py:383
 msgid "Personal credential no longer matches the asset account"
-msgstr "Личные учётные данные больше не соответствуют аккаунту актива"
+msgstr "Личные учётные данные больше не соответствуют УЗ актива"
 
 #: authentication/serializers/connect_token_secret.py:164
 msgid "SSH public key"
@@ -14069,7 +14069,7 @@ msgstr "Поставщику виртуальных приложений тре�
 
 #: authentication/serializers/connect_token_secret.py:273
 msgid "Virtual app provider requires an active SSH account"
-msgstr "Поставщику виртуальных приложений требуется активный аккаунт SSH"
+msgstr "Поставщику виртуальных приложений требуется активная УЗ SSH"
 
 #: authentication/serializers/connection_token.py:27
 msgid "Save personal credential"
@@ -14079,15 +14079,15 @@ msgstr "Сохранить личные учётные данные"
 #: authentication/serializers/rdp_login.py:27
 #: authentication/serializers/rdp_login.py:30
 msgid "Invalid login credential"
-msgstr "Недействительные учётные данные входа"
+msgstr "Неверные учётные данные для входа"
 
 #: authentication/serializers/token.py:67
 msgid "user id {} not exist"
-msgstr "Пользователь с ID {} не существует"
+msgstr "пользователь с ID {} не существует"
 
 #: authentication/services/rdp_login.py:18
 msgid "RDP login ticket cache is unavailable"
-msgstr "Кэш билетов входа RDP недоступен"
+msgstr "Кэш токенов входа RDP недоступен"
 
 #: authentication/services/ssh_certificate.py:47
 msgid "SSH public key is too long"
@@ -14103,15 +14103,15 @@ msgstr "Срок разрешения на актив истёк"
 
 #: authentication/services/ssh_certificate.py:74
 msgid "The account does not use SSH certificate authentication"
-msgstr "Аккаунт не использует аутентификацию по сертификату SSH"
+msgstr "УЗ не использует аутентификацию по сертификату SSH"
 
 #: authentication/services/ssh_certificate.py:76
 msgid "Virtual accounts cannot use SSH certificate authentication"
-msgstr "Виртуальные аккаунты не могут использовать аутентификацию по сертификату SSH"
+msgstr "Виртуальные УЗ не могут использовать аутентификацию по сертификату SSH"
 
 #: authentication/services/ssh_certificate.py:78
 msgid "SSH certificate accounts require a username"
-msgstr "Для аккаунтов с сертификатом SSH требуется имя пользователя"
+msgstr "Для УЗ с сертификатом SSH требуется имя пользователя"
 
 #: authentication/services/ssh_certificate.py:80
 msgid "SSH certificates only support SSH and SFTP protocols"
@@ -14128,28 +14128,28 @@ msgstr "Не удалось запустить распознавание лиц
 
 #: authentication/templates/authentication/face_capture.html:129
 msgid "Face capture expired. Please retry."
-msgstr "Срок захвата лица истёк. Повторите попытку."
+msgstr "Время сканирования лица истекло. Повторите попытку."
 
 #: authentication/templates/authentication/passkey.html:8
 msgid "Login passkey"
-msgstr "Вход с ключом доступа"
+msgstr "Вход по ключу доступа (Passkey)"
 
 #: authentication/views/base.py:61
 msgid "A local account with the same username already exists. Please log in with another authentication method and bind this account before using it to log in."
-msgstr "Локальный аккаунт с таким именем уже существует. Войдите другим способом и привяжите этот аккаунт, прежде чем использовать его для входа."
+msgstr "Локальная УЗ с таким именем уже существует. Войдите другим способом и привяжите эту УЗ, прежде чем использовать её для входа."
 
 #: chat_ai/api/runtime_store.py:39
 msgid "The runtime store request exceeds the 64 MiB record limit."
-msgstr "Запрос хранилища среды выполнения превышает лимит записи в 64 МиБ."
+msgstr "Запрос к хранилищу среды выполнения превышает лимит записи в 64 МиБ."
 
 #: chat_ai/api/runtime_store.py:58
 #, python-format
 msgid "JSON parse error - %(error)s"
-msgstr "Ошибка разбора JSON: %(error)s"
+msgstr "Ошибка парсинга JSON - %(error)s"
 
 #: chat_ai/api/runtime_store.py:62
 msgid "Only a Kael terminal service account may access the runtime store."
-msgstr "Доступ к хранилищу среды выполнения разрешён только служебному аккаунту терминала Kael."
+msgstr "Доступ к хранилищу среды выполнения разрешён только служебной записи терминала Kael."
 
 #: chat_ai/api/runtime_store.py:75
 msgid "A JSON object is required."
@@ -14170,7 +14170,7 @@ msgstr "Требуется неотрицательное целое число.
 
 #: chat_ai/api/runtime_store.py:114
 msgid "A boolean is required."
-msgstr "Требуется логическое значение."
+msgstr "Требуется логическое значение (boolean)."
 
 #: chat_ai/api/runtime_store.py:116
 msgid "A string is required."
@@ -14202,28 +14202,28 @@ msgstr "Неподдерживаемая версия записи журнал�
 
 #: chat_ai/api/runtime_store.py:146
 msgid "The journal record created_at is invalid."
-msgstr "Недопустимое поле created_at записи журнала."
+msgstr "Недопустимое поле created_at в записи журнала."
 
 #: chat_ai/api/runtime_store.py:150
 #: chat_ai/api/runtime_store.py:155
 msgid "The journal record payload or checksum is invalid."
-msgstr "Недопустимое поле payload или checksum записи журнала."
+msgstr "Недопустимое поле payload или checksum в записи журнала."
 
 #: chat_ai/api/runtime_store.py:158
 msgid "The journal record checksum does not match its payload."
-msgstr "Контрольная сумма записи журнала не соответствует её содержимому."
+msgstr "Контрольная сумма записи журнала не совпадает с ее содержимым."
 
 #: chat_ai/api/runtime_store.py:234
 msgid "Invalid runtime store access key."
-msgstr "Недействительный ключ доступа к хранилищу среды выполнения."
+msgstr "Неверный ключ доступа к хранилищу среды выполнения."
 
 #: chat_ai/api/runtime_store.py:311
 msgid "Invalid runtime store commit integrity."
-msgstr "Нарушена целостность фиксации хранилища среды выполнения."
+msgstr "Недействительна проверка целостности данных при фиксации в хранилище среды выполнения."
 
 #: chat_ai/api/runtime_store.py:361
 msgid "The runtime store revision has changed."
-msgstr "Ревизия хранилища среды выполнения изменилась."
+msgstr "Версия хранилища среды выполнения изменилась."
 
 #: chat_ai/authentication.py:21
 msgid "Invalid Chat AI delegation credential."
