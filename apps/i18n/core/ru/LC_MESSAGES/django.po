@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: jumpserver\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-19 10:30+0800\n"
-"PO-Revision-Date: 2026-11-09 16:43\n"
+"PO-Revision-Date: 2026-11-10 11:56\n"
 "Last-Translator: ibuler <ibuler@qq.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -14231,31 +14231,31 @@ msgstr "Недействительные учётные данные делег�
 
 #: chat_ai/authentication.py:25
 msgid "Chat AI delegation operation mismatch."
-msgstr "Операция делегирования ИИ-чата не совпадает."
+msgstr "Несоответствие операции при делегировании в ИИ-чате."
 
 #: chat_ai/authentication.py:27
 msgid "Chat AI delegation organization mismatch."
-msgstr "Организация делегирования ИИ-чата не совпадает."
+msgstr "Несовпадение организации при делегировании в ИИ-чате."
 
 #: chat_ai/authentication.py:30
 msgid "Chat AI delegation organization context mismatch."
-msgstr "Контекст организации делегирования ИИ-чата не совпадает."
+msgstr "Несовпадение контекста организации при делегировании в ИИ-чате."
 
 #: chat_ai/authentication.py:32
 msgid "Chat AI delegation request mismatch."
-msgstr "Запрос делегирования ИИ-чата не совпадает."
+msgstr "Несоответствие в запросе к ИИ-чату."
 
 #: chat_ai/authentication.py:41
 msgid "Chat AI delegation request could not be verified."
-msgstr "Не удалось проверить запрос делегирования ИИ-чата."
+msgstr "Не удалось подтвердить запрос на делегирование ИИ-чата."
 
 #: chat_ai/authentication.py:43
 msgid "Chat AI delegation request body mismatch."
-msgstr "Тело запроса делегирования ИИ-чата не совпадает."
+msgstr "Несоответствие тела запроса при делегировании в ИИ-чате."
 
 #: chat_ai/authentication.py:48
 msgid "Chat AI delegation replay protection is unavailable."
-msgstr "Защита от повторов делегирования ИИ-чата недоступна."
+msgstr "Функция защиты от повторных запросов для ИИ-чата недоступна."
 
 #: chat_ai/authentication.py:50
 msgid "Chat AI delegation credential was already used."
