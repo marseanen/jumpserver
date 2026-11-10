@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: jumpserver\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-19 10:30+0800\n"
-"PO-Revision-Date: 2026-11-10 11:56\n"
+"PO-Revision-Date: 2026-11-10 17:54\n"
 "Last-Translator: ibuler <ibuler@qq.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -14283,11 +14283,11 @@ msgstr "Недействительная подпись."
 
 #: common/auth/signature.py:14
 msgid "Ip is not in access ip list."
-msgstr "IP отсутствует в списке разрешённых адресов."
+msgstr "IP-адрес отсутствует в списке разрешённых."
 
 #: common/db/fields.py:611
 msgid "Invalid JSON data for JSONManyToManyField."
-msgstr "Недопустимые данные JSON для JSONManyToManyField."
+msgstr "Некорректные данные JSON для поля JSONManyToManyField."
 
 #: common/drf/exc_handlers.py:66
 #: jumpserver/views/error_views.py:20
@@ -14296,7 +14296,7 @@ msgstr "Внутренняя ошибка сервера"
 
 #: common/drf/filters.py:1011
 msgid "attr_rules should be base64"
-msgstr "attr_rules должен быть закодирован в Base64"
+msgstr "attr_rules должен быть в кодировке Base64"
 
 #: common/drf/filters.py:1015
 msgid "attr_rules should be json"
@@ -14306,7 +14306,7 @@ msgstr "attr_rules должен быть в формате JSON"
 #: common/drf/parsers/excel.py:70
 #: common/drf/parsers/excel.py:80
 msgid "Excel worksheet exceeds import limits"
-msgstr "Лист Excel превышает ограничения импорта"
+msgstr "Лист Excel превышает ограничения на импорт"
 
 #: common/drf/parsers/excel.py:62
 #: common/drf/parsers/excel.py:64
@@ -14320,23 +14320,23 @@ msgstr "Слишком много листов Excel"
 
 #: common/drf/parsers/excel.py:113
 msgid "Excel workbook exceeds import limits"
-msgstr "Книга Excel превышает ограничения импорта"
+msgstr "Книга Excel превышает ограничения на импорт"
 
 #: common/sdk/im/exceptions.py:8
 msgid "HTTP status is not 200"
-msgstr "Статус HTTP отличается от 200"
+msgstr "Код состояния HTTP не равен 200"
 
 #: common/sdk/im/exceptions.py:13
 msgid "Error code is not 0"
-msgstr "Код ошибки отличается от 0"
+msgstr "Код ошибки не равен 0"
 
 #: common/sdk/im/exceptions.py:18
 msgid "Response data key error"
-msgstr "Ошибка ключа данных ответа"
+msgstr "Ошибка ключа в данных ответа"
 
 #: common/sdk/sms/custom_file.py:48
 msgid "Custom file SMS sending failed"
-msgstr "Ошибка отправки SMS через пользовательский файл"
+msgstr "Ошибка отправки СМС через пользовательский файл"
 
 #: common/serializers/mixin.py:190
 msgid "id or pk not in data"
@@ -14344,15 +14344,15 @@ msgstr "В данных отсутствует id или pk"
 
 #: jumpserver/middleware.py:157
 msgid "Service temporarily unavailable"
-msgstr "Сервис временно недоступен"
+msgstr "Служба временно недоступна"
 
 #: jumpserver/middleware.py:158
 msgid "Database operation failed, please try again later."
-msgstr "Ошибка операции базы данных. Повторите попытку позже."
+msgstr "Ошибка операции с базой данных. Повторите попытку позже."
 
 #: notifications/api/notifications.py:218
 msgid "template_name is required"
-msgstr "Требуется template_name"
+msgstr "Необходимо указать template_name"
 
 #: notifications/serializers/notifications.py:58
 #, python-format
@@ -14374,7 +14374,7 @@ msgstr "Ошибка распаковки"
 #: ops/models/job.py:342
 #, python-brace-format
 msgid "Undefined job variable: {name}"
-msgstr "Неопределённая переменная задания: {name}"
+msgstr "Неопределённая переменная задачи: {name}"
 
 #: ops/serializers/variable.py:114
 msgid "One of 'job', 'adhoc', or 'playbook' is required."
@@ -14387,7 +14387,7 @@ msgstr "Недопустимый ID job, adhoc или playbook."
 #: ops/serializers/variable.py:155
 #, python-format
 msgid "Invalid options format: %(error)s"
-msgstr "Недопустимый формат параметров: %(error)s"
+msgstr "Неверный формат параметров: %(error)s"
 
 #: ops/ws.py:71
 msgid "Task not found"
@@ -14399,7 +14399,7 @@ msgstr "Нет разрешения"
 
 #: perms/filters.py:93
 msgid "Include inherited permissions"
-msgstr "Включить унаследованные разрешения"
+msgstr "Включать унаследованные права"
 
 #: perms/filters.py:180
 #: users/tree.py:107
@@ -14409,7 +14409,7 @@ msgstr "Пользователи без группы"
 #: perms/models/asset_permission.py:83
 #: tickets/models/ticket/apply_asset.py:23
 msgid "Expiration-soon notice minutes"
-msgstr "Уведомление до истечения срока (минуты)"
+msgstr "Уведомление об истечении срока (в минутах)"
 
 #: perms/models/asset_permission.py:86
 msgid "Expiration-soon notice time"
@@ -14425,11 +14425,11 @@ msgstr "Список не может быть пустым."
 
 #: perms/tasks.py:131
 msgid "Send asset permission expiration-soon notification"
-msgstr "Отправить уведомление о скором истечении разрешений на активы"
+msgstr "Отправка уведомлений о скором истечении разрешений на активы"
 
 #: perms/tasks.py:133
 msgid "Check due asset permission expiration-soon notices every minute and enqueue notifications"
-msgstr "Каждую минуту проверять наступившие сроки уведомлений об истечении разрешений и ставить их в очередь"
+msgstr "Ежеминутно проверяет наличие уведомлений о скором истечении срока действия прав на активы и ставит эти уведомления в очередь"
 
 #: perms/utils/expire_soon_notice.py:28
 msgid "Ensure this value is greater than 0."
@@ -14543,12 +14543,12 @@ msgstr "Введите допустимый URL HTTP или HTTPS."
 
 #: settings/serializers/feature.py:53
 msgid "Enter a new credential when changing its destination."
-msgstr "При изменении назначения укажите новые учётные данные."
+msgstr "При изменении адреса укажите новые учётные данные."
 
 #: settings/serializers/feature.py:186
 #: settings/serializers/feature.py:226
 msgid "Verify TLS certificate"
-msgstr "Проверять сертификат TLS"
+msgstr "Проверка сертификата TLS"
 
 #: settings/serializers/feature.py:192
 #: settings/serializers/feature.py:232
@@ -14561,11 +14561,11 @@ msgstr "Центр сертификации SSH OpenBao"
 
 #: settings/serializers/feature.py:220
 msgid "Certificate validity (seconds)"
-msgstr "Срок действия сертификата (секунды)"
+msgstr "Срок действия сертификата (в секундах)"
 
 #: settings/serializers/feature.py:237
 msgid "Allowed source addresses"
-msgstr "Разрешённые исходные адреса"
+msgstr "Разрешенные адреса источников"
 
 #: settings/serializers/feature.py:238
 msgid "Comma-separated CIDRs seen by the target SSH server"
@@ -14577,11 +14577,11 @@ msgstr "Встроенный API"
 
 #: settings/serializers/feature.py:297
 msgid "iframe embed"
-msgstr "Встраивание iframe"
+msgstr "Встраивание через iframe"
 
 #: settings/serializers/feature.py:301
 msgid "iframe URL"
-msgstr "URL iframe"
+msgstr "Адрес iframe"
 
 #: settings/serializers/feature.py:302
 msgid "The page URL loaded in the isolated AI assistant iframe."
@@ -14589,7 +14589,7 @@ msgstr "URL страницы, загружаемой в изолированно
 
 #: settings/serializers/feature.py:308
 msgid "OpenAI-compatible API base URL, usually ending in /v1."
-msgstr "Базовый URL API, совместимого с OpenAI, обычно заканчивается на /v1."
+msgstr "Базовый адрес API, совместимого с OpenAI, обычно заканчивается на /v1."
 
 #: settings/serializers/feature.py:315
 msgid "HTTP proxy used to reach the model provider. For example: http://ip:port"
@@ -14597,7 +14597,7 @@ msgstr "HTTP-прокси для доступа к поставщику моде
 
 #: settings/serializers/feature.py:319
 msgid "Discover models from the provider or enter a model ID manually."
-msgstr "Получите список моделей поставщика или введите ID модели вручную."
+msgstr "Получить список моделей от поставщика или ввести ID модели вручную."
 
 #: settings/utils/ldap.py:90
 msgid "Invalid LDAP distinguishedName encoding"
