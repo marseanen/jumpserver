@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: jumpserver\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-19 10:30+0800\n"
-"PO-Revision-Date: 2026-11-10 17:54\n"
+"PO-Revision-Date: 2026-11-13 07:55\n"
 "Last-Translator: ibuler <ibuler@qq.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -1918,7 +1918,7 @@ msgstr "При нажатии «Синхронизировать новый се
 
 #: accounts/tasks/vault.py:308
 msgid "Sync secret to vault"
-msgstr "Синхронизировать секрет с хранилищем vault"
+msgstr "Синхронизация секрета с хранилищем vault"
 
 #: accounts/tasks/vault.py:310
 msgid "When clicking 'Sync' in 'System Settings - Features - Account Storage' this task will be executed"
@@ -5784,7 +5784,7 @@ msgstr "Область"
 
 #: authentication/tasks.py:19
 msgid "Clean expired session"
-msgstr "Очистить просроченные сессии"
+msgstr "Очистка просроченных сессий"
 
 #: authentication/tasks.py:21
 msgid "Since user logins create sessions, the system will clean up expired sessions every 24 hours"
@@ -6749,7 +6749,7 @@ msgstr "Здравствуйте %s"
 
 #: common/utils/verify_code.py:17
 msgid "Send SMS code"
-msgstr "Отправить SMS-код подтверждения"
+msgstr "Отправка SMS-кода подтверждения"
 
 #: common/utils/verify_code.py:19
 msgid "When resetting a password, forgetting a password, or verifying MFA, this task needs to \n"
@@ -7335,7 +7335,7 @@ msgstr "Для выполнения запланированных быстры�
 
 #: ops/tasks.py:89
 msgid "Run ansible task execution"
-msgstr "Начать выполнение задачи Ansible"
+msgstr "Запуск выполнения задания Ansible"
 
 #: ops/tasks.py:92
 msgid "Execute the task when manually adhoc or playbooks"
@@ -7525,7 +7525,7 @@ msgstr "Количество разрешений на активы"
 
 #: orgs/tasks.py:10
 msgid "Refresh organization cache"
-msgstr "Обновить кэш организации"
+msgstr "Обновление кэша организации"
 
 #: perms/apps.py:9
 msgid "App Permissions"
@@ -11116,7 +11116,7 @@ msgstr "Если настроено SERVER_REPLAY_STORAGE, файлы, загр�
 
 #: terminal/tasks.py:102
 msgid "Upload session replay part file to external storage"
-msgstr "Загрузить файл части воспроизведения сессии на внешнее хранилище"
+msgstr "Загрузка файла части записи сессии во внешнее хранилище"
 
 #: terminal/tasks.py:123
 msgid "Run applet host deployment"
