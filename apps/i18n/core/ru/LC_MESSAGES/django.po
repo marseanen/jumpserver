@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: jumpserver\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-19 10:30+0800\n"
-"PO-Revision-Date: 2026-11-13 07:55\n"
+"PO-Revision-Date: 2026-11-16 12:44\n"
 "Last-Translator: ibuler <ibuler@qq.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -14641,7 +14641,7 @@ msgstr "Недопустимые целевые организации"
 
 #: settings/ws.py:306
 msgid "A target organization is required"
-msgstr "Требуется целевая организация"
+msgstr "Необходима целевая организация"
 
 #: templates/500.html:7
 msgid "Server error"
@@ -14653,7 +14653,7 @@ msgstr "Ошибка сервера. Обратитесь к администр�
 
 #: templates/_copyright.html:3
 msgid "Copyright"
-msgstr "Авторские права"
+msgstr "Права защищены"
 
 #: terminal/api/applet/applet.py:143
 msgid "Applet is not null"
@@ -14665,19 +14665,19 @@ msgstr "Требует внимания"
 
 #: terminal/api/applet/host.py:78
 msgid "Windows runtime accounts are managed locally by Tinker."
-msgstr "Аккаунты среды выполнения Windows управляются локально Tinker."
+msgstr "УЗ среды выполнения Windows управляются локально Tinker."
 
 #: terminal/api/session/session.py:362
 msgid "Replay index not found."
-msgstr "Индекс записи не найден."
+msgstr "Не найден индекс видеозаписи."
 
 #: terminal/api/session/session.py:365
 msgid "Replay index is invalid."
-msgstr "Индекс записи недействителен."
+msgstr "Недействителен индекс видеозаписи."
 
 #: terminal/api/session/session.py:368
 msgid "Replay index is unavailable."
-msgstr "Индекс записи недоступен."
+msgstr "Недоступен индекс видеозаписи."
 
 #: terminal/api/virtualapp/provider.py:93
 msgid "Wait for the current deployment to finish before deleting the provider"
@@ -14689,7 +14689,7 @@ msgstr "Для поставщика уже ожидается или выпол�
 
 #: terminal/api/virtualapp/virtualapp.py:115
 msgid "Image architecture is required"
-msgstr "Требуется архитектура образа"
+msgstr "Требуется указать архитектуру образа"
 
 #: terminal/automations/deploy_app_provider/__init__.py:35
 msgid "Invalid virtual application offline manifest"
@@ -14726,11 +14726,11 @@ msgstr "Привязка компонента Tinker изменилась во �
 
 #: terminal/automations/deploy_applet_host/__init__.py:147
 msgid "Unconfirmed Tinker component is not a service account"
-msgstr "Неподтверждённый компонент Tinker не является служебным аккаунтом"
+msgstr "Неподтвержденный компонент Tinker не использует сервисный аккаунт"
 
 #: terminal/automations/deploy_applet_host/__init__.py:180
 msgid "applet is required for uninstall_applet"
-msgstr "Для uninstall_applet требуется applet"
+msgstr "Для uninstall_applet требуется указать приложение"
 
 #: terminal/const.py:91
 msgid "Built-in browser"
@@ -14748,11 +14748,11 @@ msgstr "Версия Tinker"
 #: terminal/models/applet/host.py:50
 #: terminal/models/virtualapp/provider.py:55
 msgid "Request user has no terminal"
-msgstr "У пользователя запроса нет терминала"
+msgstr "У пользователя запроса нет связанного терминала"
 
 #: terminal/models/applet/host.py:52
 msgid "Only Tinker terminals can bind an applet host"
-msgstr "Только терминалы Tinker могут привязать хост приложений"
+msgstr "Только терминалы Tinker могут привязаться к хосту приложений"
 
 #: terminal/models/applet/host.py:56
 msgid "Terminal is not bound to this applet host"
@@ -14801,7 +14801,7 @@ msgstr "Недопустимые ресурсы автономного разв�
 
 #: terminal/models/virtualapp/provider.py:130
 msgid "Select a Panda image already loaded on the provider or prepare the Installer offline resources"
-msgstr "Выберите образ Panda, уже загруженный на поставщик, или подготовьте автономные ресурсы Installer"
+msgstr "Выберите образ Panda, уже загруженный на поставщика, или подготовьте автономные ресурсы Installer"
 
 #: terminal/models/virtualapp/provider.py:135
 msgid "Container port range must not include the SSH port"
