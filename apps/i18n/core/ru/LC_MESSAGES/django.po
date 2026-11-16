@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: jumpserver\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-19 10:30+0800\n"
-"PO-Revision-Date: 2026-11-16 12:44\n"
+"PO-Revision-Date: 2026-11-16 18:43\n"
 "Last-Translator: ibuler <ibuler@qq.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -14871,7 +14871,7 @@ msgstr "Tinker %(version)s недоступен для подключений. �
 
 #: terminal/utils/tinker.py:35
 msgid "not reported"
-msgstr "Не сообщено"
+msgstr "не передано"
 
 #: terminal/utils/virtualapp.py:52
 msgid "Unsafe path in application image archive"
@@ -14887,11 +14887,11 @@ msgstr "Время проверки архива образа приложени
 
 #: terminal/utils/virtualapp.py:70
 msgid "Application image archive exceeds the unpacked size limit"
-msgstr "Архив образа приложения превышает лимит распакованного размера"
+msgstr "Размер распакованного архива образа приложения превышает лимит"
 
 #: terminal/utils/virtualapp.py:77
 msgid "Invalid or sparse entry in application image archive"
-msgstr "Недопустимый или разреженный элемент в архиве образа приложения"
+msgstr "Недопустимый элемент или разреженный файл в архиве образа приложения"
 
 #: terminal/utils/virtualapp.py:81
 msgid "Sparse entries are not supported in application image archives"
@@ -14903,11 +14903,11 @@ msgstr "Метаданные tar в архиве образа приложени
 
 #: terminal/utils/virtualapp.py:115
 msgid "Duplicate or too many entries in application image archive"
-msgstr "Повторяющиеся или слишком многочисленные элементы в архиве образа приложения"
+msgstr "Дублирующиеся или слишком многочисленные элементы в архиве образа приложения"
 
 #: terminal/utils/virtualapp.py:117
 msgid "Application image archive contains an unsupported entry"
-msgstr "Архив образа приложения содержит неподдерживаемый элемент"
+msgstr "Архив образа приложения содержит неподдерживаемую запись"
 
 #: terminal/utils/virtualapp.py:129
 msgid "Invalid Docker image manifest"
@@ -14927,7 +14927,7 @@ msgstr "Недопустимый архив образа приложения"
 
 #: terminal/utils/virtualapp.py:151
 msgid "Upload a Docker save archive containing one application image"
-msgstr "Загрузите архив Docker save с одним образом приложения"
+msgstr "Загрузите архив из Docker save с одним образом приложения"
 
 #: terminal/utils/virtualapp.py:155
 msgid "Application image archive does not contain the configured image name and tag"
@@ -14955,11 +14955,11 @@ msgstr "Виртуальное приложение больше не сущес
 
 #: terminal/utils/virtualapp.py:253
 msgid "Virtual application changed; upload or publish its current image again"
-msgstr "Виртуальное приложение изменилось. Загрузите или опубликуйте его текущий образ заново"
+msgstr "Виртуальное приложение изменилось. Загрузите или опубликуйте его текущий образ снова"
 
 #: terminal/utils/virtualapp.py:260
 msgid "Upload a Docker save image as .tar, .tar.zst or .zst"
-msgstr "Загрузите образ Docker save в формате .tar, .tar.zst или .zst"
+msgstr "Загрузите образ из Docker save в формате .tar, .tar.zst или .zst"
 
 #: terminal/utils/virtualapp.py:262
 #: terminal/utils/virtualapp.py:274
@@ -14976,11 +14976,11 @@ msgstr "Недопустимый путь к автономному архиву
 
 #: terminal/utils/virtualapp.py:340
 msgid "Offline application image cannot be staged; upload it again"
-msgstr "Невозможно подготовить автономный образ приложения. Загрузите его заново"
+msgstr "Не удалось подготовить автономный образ приложения. Загрузите его заново"
 
 #: tickets/api/flow.py:32
 msgid "Inherited ticket flows cannot be deleted"
-msgstr "Унаследованные процессы заявок нельзя удалить"
+msgstr "Нельзя удалить унаследованные процессы заявок"
 
 #: tickets/models/ticket/general.py:99
 msgid "Assignee"
@@ -14998,15 +14998,15 @@ msgstr "Данные лица не заданы."
 #: users/models/user/_face.py:27
 #: users/models/user/_face.py:37
 msgid "Face recognition backend is not available."
-msgstr "Серверная часть распознавания лица недоступна."
+msgstr "Бэкенд распознавания лиц недоступен."
 
 #: users/serializers/tree.py:37
 msgid "parent_type and parent_id must be provided together."
-msgstr "parent_type и parent_id необходимо указывать вместе."
+msgstr "Необходимо указать как parent_type, так и parent_id."
 
 #: users/serializers/tree.py:41
 msgid "Search and parent parameters cannot be used together."
-msgstr "Параметры поиска и родителя нельзя использовать вместе."
+msgstr "Параметры поиска и родителя нельзя указать одновременно."
 
 #: users/serializers/tree.py:45
 msgid "Offset is only supported when loading children."
@@ -15018,7 +15018,7 @@ msgstr "Введите допустимый UUID."
 
 #: users/views/profile/reset.py:134
 msgid "Verification code has been used more than 3 times, please re-verify"
-msgstr "Код использован более 3 раз. Пройдите проверку заново"
+msgstr "Код подтверждения использован более 3 раз. Пройдите проверку заново"
 
 #: xpack/plugins/cloud/api.py:161
 msgid "Query params account_id is not uuid"
@@ -15030,7 +15030,7 @@ msgstr "Например: https://IP:9440/api/nutanix/v3/"
 
 #: xpack/plugins/cloud/serializers/account_attrs.py:108
 msgid "SC domain name"
-msgstr "Имя домена SC"
+msgstr "Доменное имя SC"
 
 #: xpack/plugins/cloud/serializers/account_attrs.py:136
 msgid "eg. http://IP:8080/zstack"
@@ -15055,7 +15055,7 @@ msgstr "Изображение OpenCV должно быть в формате BG
 #: xpack/plugins/facelive/backend.py:74
 #: xpack/plugins/facelive/backend.py:111
 msgid "Camera frame resolution is too low"
-msgstr "Разрешение кадра камеры слишком низкое"
+msgstr "Слишком низкое разрешение кадра с камеры"
 
 #: xpack/plugins/facelive/backend.py:97
 #: xpack/plugins/facelive/backend.py:104
@@ -15072,7 +15072,7 @@ msgstr "Кадр камеры слишком велик"
 
 #: xpack/plugins/facelive/backend.py:109
 msgid "Unable to decode camera frame"
-msgstr "Невозможно декодировать кадр камеры"
+msgstr "Не удалось декодировать кадр камеры"
 
 #: xpack/plugins/facelive/backend.py:183
 msgid "Multiple similar faces detected; keep only one person in view"
@@ -15080,7 +15080,7 @@ msgstr "Обнаружено несколько похожих лиц. Оста�
 
 #: xpack/plugins/facelive/backend.py:193
 msgid "None of FACE_RECOGNITION_PROVIDERS are available"
-msgstr "Ни один из провайдеров FACE_RECOGNITION_PROVIDERS недоступен"
+msgstr "Ни один из бэкендов в FACE_RECOGNITION_PROVIDERS, не доступен"
 
 #: xpack/plugins/facelive/backend.py:209
 msgid "FACE_RECOGNITION_DEVICE is gpu but no accelerated ONNX provider is available"
@@ -15141,11 +15141,11 @@ msgstr "Неподдерживаемый тип сообщения"
 
 #: xpack/plugins/facelive/consumer.py:73
 msgid "Camera frame is missing"
-msgstr "Отсутствует кадр камеры"
+msgstr "Отсутствует кадр с камеры"
 
 #: xpack/plugins/facelive/consumer.py:113
 msgid "Face recognition service is unavailable"
-msgstr "Сервис распознавания лица недоступен"
+msgstr "Служба распознавания лиц недоступна"
 
 #: xpack/plugins/facelive/context.py:40
 msgid "Invalid face capture token"
@@ -15190,7 +15190,7 @@ msgstr "Токен мониторинга лица принадлежит дру
 
 #: xpack/plugins/facelive/context.py:98
 msgid "Face capture token expired before completion"
-msgstr "Срок токена захвата лица истёк до завершения"
+msgstr "Срок токена захвата лица истёк до завершения процесса"
 
 #: xpack/plugins/facelive/context.py:139
 msgid "Connection token no longer exists"
@@ -15210,11 +15210,11 @@ msgstr "ONNX Runtime недоступен"
 
 #: xpack/plugins/facelive/liveness.py:92
 msgid "GPU liveness was requested but no accelerated ONNX provider is available"
-msgstr "Запрошена GPU-проверка живого лица, но ускоренный провайдер ONNX недоступен"
+msgstr "Включена проверка живого присутствия на GPU, но нет доступных ускоренных бэкендов ONNX"
 
 #: xpack/plugins/facelive/liveness.py:115
 msgid "FACE_LIVENESS_LIVE_INDEX is outside model output"
-msgstr "FACE_LIVENESS_LIVE_INDEX выходит за пределы выхода модели"
+msgstr "Значение FACE_LIVENESS_LIVE_INDEX выходит за пределы выходного диапазона модели"
 
 #: xpack/plugins/facelive/liveness.py:128
 msgid "Anti-spoof ONNX input must have four dimensions"
@@ -15239,7 +15239,7 @@ msgstr "Состояние мониторинга лица недоступно"
 
 #: xpack/plugins/facelive/monitor.py:237
 msgid "Face monitor timed out"
-msgstr "Время мониторинга лица истекло"
+msgstr "Превышено время ожидания мониторинга лиц"
 
 #: xpack/plugins/facelive/sessions.py:67
 msgid "Face flow has already finished"
@@ -15251,11 +15251,11 @@ msgstr "Поместите одно лицо полностью в област�
 
 #: xpack/plugins/facelive/sessions.py:103
 msgid "Move closer to the camera"
-msgstr "Подойдите ближе к камере"
+msgstr "Приблизитесь к камере"
 
 #: xpack/plugins/facelive/sessions.py:109
 msgid "Frozen or replayed camera frames detected"
-msgstr "Обнаружены замороженные или повторно воспроизведённые кадры"
+msgstr "Обнаружены зависшие или повторно воспроизводимые кадры с камеры"
 
 #: xpack/plugins/facelive/sessions.py:121
 msgid "The stored face template uses a different model; bind the face again"
@@ -15263,7 +15263,7 @@ msgstr "Сохранённый шаблон лица использует дру
 
 #: xpack/plugins/facelive/sessions.py:124
 msgid "The current face does not match the selected user"
-msgstr "Текущее лицо не соответствует выбранному пользователю"
+msgstr "Текущее лицо не совпадает с выбранным пользователем"
 
 #: xpack/plugins/facelive/sessions.py:126
 msgid "The face changed during enrollment"
@@ -15276,7 +15276,7 @@ msgstr "Проверка живого лица пройдена. Онлайн-м
 #: xpack/plugins/facelive/sessions.py:216
 #, python-format
 msgid "Captured %(count)s face samples"
-msgstr "Захвачено образцов лица: %(count)s"
+msgstr "Собрано образцов лица: %(count)s"
 
 #: xpack/plugins/facelive/sessions.py:223
 msgid "Checking liveness; keep your face clear and well lit"
@@ -15285,16 +15285,16 @@ msgstr "Проверка живого лица. Обеспечьте чётко�
 #: xpack/plugins/facelive/sessions.py:228
 #, python-format
 msgid "Capturing face samples %(count)s/%(total)s"
-msgstr "Захват образцов лица %(count)s/%(total)s"
+msgstr "Сбор образцов лица: %(count)s/%(total)s"
 
 #: xpack/plugins/facelive/sessions.py:256
 msgid "Face identity, liveness, and action challenge passed"
-msgstr "Проверки личности, живого лица и действия пройдены"
+msgstr "Проверки личности, живого присутствия и действий пройдены"
 
 #: xpack/plugins/facelive/sessions.py:273
 #, python-format
 msgid "%(name)s is in the camera area"
-msgstr "%(name)s находится в области камеры"
+msgstr "%(name)s находится в области кадра камеры"
 
 #: xpack/plugins/facelive/sessions.py:277
 msgid "Target face is not visible"
@@ -15306,7 +15306,7 @@ msgstr "Целевое лицо не совпадает"
 
 #: xpack/plugins/facelive/sessions.py:285
 msgid "The monitored session has been paused"
-msgstr "Отслеживаемый сеанс приостановлен"
+msgstr "Отслеживаемая сессия приостановлена"
 
 #: xpack/plugins/facelive/sessions.py:287
 #, python-format
@@ -15321,11 +15321,11 @@ msgstr "Обнаружен повторяющийся кадр камеры"
 
 #: xpack/plugins/facelive/sessions.py:480
 msgid "Waiting for the selected face to match"
-msgstr "Ожидание совпадения с выбранным лицом"
+msgstr "Ожидание совпадения лица с выбранным пользователем"
 
 #: xpack/plugins/facelive/sessions.py:482
 msgid "Checking liveness; move naturally and keep the image clear"
-msgstr "Проверка живого лица. Двигайтесь естественно и сохраняйте чёткое изображение"
+msgstr "Проверка живого присутствия; двигайтесь естественно и обеспечьте чёткость изображения"
 
 #: xpack/plugins/facelive/sessions.py:485
 msgid "Finalizing face verification"
@@ -15386,15 +15386,15 @@ msgstr ""
 
 #: reports/audit_contract.py
 msgid "Management Summary and Recommendations"
-msgstr "Управленческое резюме и рекомендации"
+msgstr "Обзор для руководства и рекомендации"
 
 #: reports/audit_contract.py
 msgid "Key Overview"
-msgstr "Обзор основных показателей"
+msgstr "Обзор ключевых показателей"
 
 #: reports/audit_contract.py
 msgid "Operations Activity Analysis"
-msgstr "Анализ операционной деятельности"
+msgstr "Анализ активности эксплуатации"
 
 #: reports/audit_contract.py
 msgid "Security Event Analysis"
@@ -15402,47 +15402,47 @@ msgstr "Анализ событий безопасности"
 
 #: reports/audit_contract.py
 msgid "Asset and Account Overview"
-msgstr "Обзор активов и учетных записей"
+msgstr "Обзор активов и учётных записей"
 
 #: reports/audit_contract.py
 msgid "Account Operations Analysis"
-msgstr "Анализ операций с учетными записями"
+msgstr "Анализ операций с учётными записями"
 
 #: reports/audit_contract.py
 msgid "Comprehensive Audit Report"
-msgstr "Комплексный отчет аудита"
+msgstr "Сводный отчёт аудита"
 
 #: reports/audit_contract.py
 msgid "Summarize operations activity, security events, assets, and accounts for monthly, quarterly, or annual audits."
-msgstr "Резюме операционной деятельности, событий безопасности, активов и счетов для ежемесячных, квартальных или ежегодных аудитов."
+msgstr "Сводка по активности эксплуатации, событиям безопасности, а также состоянию активов и УЗ; подходит для ежемесячного, ежеквартального и годового аудита."
 
 #: reports/audit_contract.py
 msgid "Operations Activity Report"
-msgstr "Отчет об операционной деятельности"
+msgstr "Отчёт об активности эксплуатации"
 
 #: reports/audit_contract.py
 msgid "Review who performed sessions, commands, and file operations on each asset."
-msgstr "Проверьте, кто выполнял сессии, команди и файловые операции на каждом активе."
+msgstr "Информация о том, кто, на каких активах и сколько выполнил сессий, команд и операций с файлами."
 
 #: reports/audit_contract.py
 msgid "Security Event Report"
-msgstr "Отчет о событиях безопасности"
+msgstr "Отчёт о событиях безопасности"
 
 #: reports/audit_contract.py
 msgid "Review high-risk commands, login anomalies, and access denials, distinguishing failures from security events."
-msgstr "Обзор команд высокого риска, аномалий входа и отклонений доступа, отличающих неудачи от событий безопасности."
+msgstr "Проверка команд высокого риска, аномалий входа и отказов в доступе с разделением записей о сбоях и инцидентов безопасности."
 
 #: reports/audit_contract.py
 msgid "Account Operations Report"
-msgstr "Отчет об операциях с учетными записями"
+msgstr "Отчёт об операциях с учётными записями"
 
 #: reports/audit_contract.py
 msgid "Review the outcomes and failures of account automation tasks."
-msgstr "Обзор результатов и неудач задач автоматизации счетов."
+msgstr "Обзор результатов и сбоев задач автоматизации учётных записей."
 
 #: reports/api/audit.py
 msgid "You do not have permission to view data for this report theme."
-msgstr "Вы не имеете разрешения на просмотр данных для этой темы отчета."
+msgstr "Вы не имеете разрешения на просмотр данных для этой темы отчёта."
 
 #: reports/api/audit.py
 msgid "The end date cannot be earlier than the start date."
@@ -15450,7 +15450,7 @@ msgstr "Дата окончания не может быть раньше дат
 
 #: reports/api/audit.py
 msgid "A report can cover at most 366 days. Select a shorter date range."
-msgstr "Отчет может охватывать не более 366 дней. Выберите более короткий период."
+msgstr "Отчёт может охватывать не более 366 дней. Выберите более короткий период."
 
 #: reports/api/audit.py
 msgid "The end date cannot be later than today. For the current period, report through today."
@@ -15458,15 +15458,15 @@ msgstr "Дата окончания не может быть позже сего
 
 #: reports/api/audit.py
 msgid "Chapters are duplicated or do not belong to the selected report theme."
-msgstr "Главы дублируются или не относятся к выбранной теме отчета."
+msgstr "Разделы дублируются или не относятся к выбранной теме отчёта."
 
 #: reports/api/audit.py
 msgid "Select at least one chapter containing statistical data."
-msgstr "Выберите хотя бы одну главу, содержащую статистические данные."
+msgstr "Выберите хотя бы один раздел, содержащий статистические данные."
 
 #: reports/services/audit_data.py
 msgid "Asset Sessions"
-msgstr "Сеансы доступа к активам"
+msgstr "Сессии активов"
 
 #: reports/services/audit_data.py
 msgid "Command Records"
@@ -15482,7 +15482,7 @@ msgstr "Журналы операций"
 
 #: reports/services/audit_data.py
 msgid "File Transfers"
-msgstr "Передачи файлов"
+msgstr "Передача файлов"
 
 #: reports/services/audit_data.py
 msgid "Current Assets"
@@ -15502,11 +15502,11 @@ msgstr "Журналы смены паролей пользователей пл
 
 #: reports/services/audit_data.py
 msgid " (available stores)"
-msgstr "（доступные хранилища）"
+msgstr "（доступные хранилища)"
 
 #: reports/services/audit_data.py
 msgid "Alerted Commands"
-msgstr "Команды с предупреждением"
+msgstr "Команды с оповещением"
 
 #: reports/services/audit_data.py
 msgid "Commands Blocked by Rules"
@@ -15514,19 +15514,19 @@ msgstr "Команды, заблокированные правилами"
 
 #: reports/services/audit_data.py
 msgid "Approval-Rejected Commands"
-msgstr "Команды, отклоненные при согласовании"
+msgstr "Команды, отклонённые при согласовании"
 
 #: reports/services/audit_data.py
 msgid "Approval-Approved Commands"
-msgstr "Согласованные команды"
+msgstr "Команды, одобренные при согласовании"
 
 #: reports/services/audit_data.py
 msgid "Approval-Canceled Commands"
-msgstr "Команды с отмененным согласованием"
+msgstr "Команды с отменённым согласованием"
 
 #: reports/services/audit_data.py
 msgid "Unsupported report theme"
-msgstr "Неподдерживаемая тема отчета"
+msgstr "Неподдерживаемая тема отчёта"
 
 #: reports/services/audit_data.py
 msgid "Select a start date and an end date"
@@ -15534,7 +15534,7 @@ msgstr "Выберите даты начала и окончания"
 
 #: reports/services/audit_data.py
 msgid "The start date cannot be later than the end date, and the report can cover at most 366 days"
-msgstr "Дата начала не может быть позднее даты окончания, а отчет может быть покрыт до 366 дней."
+msgstr "Дата начала не может быть позже даты окончания, а период отчёта составляет не более 366 дней"
 
 #: reports/services/audit_data.py
 msgid "The end date cannot be later than today"
@@ -15542,15 +15542,15 @@ msgstr "Дата окончания не может быть позже сего
 
 #: reports/services/audit_data.py
 msgid "Select report chapters without duplicates"
-msgstr "Выберите разделы без повторений"
+msgstr "Выберите разделы отчёта без повторов"
 
 #: reports/services/audit_data.py
 msgid "The selected chapters do not belong to this report theme"
-msgstr "Выбранные главы не относятся к теме этого отчета."
+msgstr "Выбранные разделы не относятся к текущей теме отчёта"
 
 #: reports/services/audit_data.py
 msgid "Session Count"
-msgstr "Количество сеансов"
+msgstr "Количество сессий"
 
 #: reports/services/audit_data.py
 msgid "times"
