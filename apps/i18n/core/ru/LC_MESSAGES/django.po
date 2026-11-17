@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: jumpserver\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-19 10:30+0800\n"
-"PO-Revision-Date: 2026-11-16 18:43\n"
+"PO-Revision-Date: 2026-11-17 10:26\n"
 "Last-Translator: ibuler <ibuler@qq.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -1857,7 +1857,7 @@ msgid "The system will periodically clean up unnecessary password change and pus
 "        mechanism helps free up storage space and enhances the security and overall performance \n"
 "        of data management"
 msgstr "Система регулярно очищает от ненужных записей о смене пароля и публикации учётных записей,\n"
-"        включая связанные задания по смене пароля, журналы выполнения, активы и учётные записи.\n"
+"        включая связанные задач по смене пароля, журналы выполнения, активы и учётные записи.\n"
 "        Если удалён хотя бы один из этих связанных элементов, соответствующие записи о смене пароля\n"
 "        и публикации становятся недействительными.\n"
 "        В целях поддержания чистоты базы данных и повышения её эффективности, согласно интервалу,\n"
@@ -2180,7 +2180,7 @@ msgstr "Действие"
 #: acls/models/base.py:42 assets/models/cmd_filter.py:86
 #: authentication/serializers/connect_token_secret.py:103
 msgid "Reviewers"
-msgstr "Утверждающий"
+msgstr "Утверждающие"
 
 #: acls/models/base.py:81 perms/serializers/permission.py:54
 #: tickets/models/flow.py:23 users/models/preference.py:16
@@ -15574,15 +15574,15 @@ msgstr "активов"
 
 #: reports/services/audit_data.py
 msgid "Connection Failures"
-msgstr "Ошибки подключения"
+msgstr "Сбои подключения"
 
 #: reports/services/audit_data.py
 msgid "Session Recording Status"
-msgstr "Состояние записи сеанса"
+msgstr "Состояние записи сессий"
 
 #: reports/services/audit_data.py
 msgid "Top 5 Connection Failure Reasons"
-msgstr "5 основных причин ошибок подключения"
+msgstr "Топ-5 причин сбоев подключения"
 
 #: reports/services/audit_data.py
 msgid "User Access Ranking"
@@ -15594,11 +15594,11 @@ msgstr "Рейтинг доступа по активам"
 
 #: reports/services/audit_data.py
 msgid "Connection Protocol Distribution"
-msgstr "Распределение протоколов подключения"
+msgstr "Распределение по протоколам подключения"
 
 #: reports/services/audit_data.py
 msgid "Session Operation Types"
-msgstr "Типы операций сеанса"
+msgstr "Типы операций в сессиях"
 
 #: reports/services/audit_data.py
 msgid "Platform Access Distribution"
@@ -15606,19 +15606,19 @@ msgstr "Распределение доступа по платформам"
 
 #: reports/services/audit_data.py
 msgid "Daily Asset Session Trend"
-msgstr "Динамика сеансов доступа по дням"
+msgstr "Динамика сессий доступа по дням"
 
 #: reports/services/audit_data.py
 msgid "Weekly Asset Session Trend"
-msgstr "Динамика сеансов доступа по неделям"
+msgstr "Динамика сессий доступа по неделям"
 
 #: reports/services/audit_data.py
 msgid "Monthly Asset Session Trend"
-msgstr "Динамика сеансов доступа по месяцам"
+msgstr "Динамика сессий доступа по месяцам"
 
 #: reports/services/audit_data.py
 msgid "Recent Asset Sessions"
-msgstr "Последние сеансы доступа к активам"
+msgstr "Последние сессии доступа к активам"
 
 #: reports/services/audit_data.py
 msgid "Recordings Requiring Review"
@@ -15630,7 +15630,7 @@ msgstr "записей"
 
 #: reports/services/audit_data.py
 msgid "Command Approval Clues from the Same Session"
-msgstr "Сведения о согласовании команд в том же сеансе"
+msgstr "Данные согласования команд из той же сессии"
 
 #: reports/services/audit_data.py
 msgid "Successful Logins"
@@ -15642,11 +15642,11 @@ msgstr "Неудачные входы"
 
 #: reports/services/audit_data.py
 msgid "Restricted Login Records"
-msgstr "Записи ограниченных входов"
+msgstr "Записи об ограничении входа"
 
 #: reports/services/audit_data.py
 msgid "Login Policy Denials"
-msgstr "Отказы политики входа"
+msgstr "Отказы по политике входа"
 
 #: reports/services/audit_data.py
 msgid "Recent Failed Logins"
@@ -15654,11 +15654,11 @@ msgstr "Последние неудачные входы"
 
 #: reports/services/audit_data.py
 msgid "New-City Login Clues"
-msgstr "Признаки входа из нового города"
+msgstr "Сведения о входе из нового города"
 
 #: reports/services/audit_data.py
 msgid "New-City Login Review Clues"
-msgstr "Признаки входа из нового города для проверки"
+msgstr "Сведения для перепроверки входа из нового города"
 
 #: reports/services/audit_data.py
 msgid "File Operation Types"
@@ -15666,7 +15666,7 @@ msgstr "Типы операций с файлами"
 
 #: reports/services/audit_data.py
 msgid "Top 5 Affected File Operation Targets"
-msgstr "5 основных объектов, затронутых ошибками файловых операций"
+msgstr "Топ-5 объектов, затронутых сбоями операций с файлами"
 
 #: reports/services/audit_data.py
 msgid "Recent Failed File Operations"
@@ -15674,7 +15674,7 @@ msgstr "Последние неудачные операции с файлами
 
 #: reports/services/audit_data.py
 msgid "Account Task Executions"
-msgstr "Выполнения задач учетных записей"
+msgstr "Выполнений задач для учётных записей"
 
 #: reports/services/audit_data.py
 msgid "Successful Executions"
@@ -15682,35 +15682,35 @@ msgstr "Успешные выполнения"
 
 #: reports/services/audit_data.py
 msgid "Failed or Errored Executions"
-msgstr "Неудачные выполнения и ошибки"
+msgstr "Сбой или ошибка выполнения"
 
 #: reports/services/audit_data.py
 msgid "Incomplete Executions"
-msgstr "Незавершенные выполнения"
+msgstr "Незавершённые выполнения"
 
 #: reports/services/audit_data.py
 msgid "Account Task Types and Results"
-msgstr "Типы и результаты задач учетных записей"
+msgstr "2"
 
 #: reports/services/audit_data.py
 msgid "Recent Failed Account Tasks"
-msgstr "Последние неудачные задачи учетных записей"
+msgstr "Последние неудачные задачи для учётных записей"
 
 #: reports/services/audit_data.py
 msgid "Task Failure or Error Rate"
-msgstr "Доля неудачных выполнений и ошибок задач"
+msgstr "Доля сбоев или ошибок задач"
 
 #: reports/services/audit_data.py
 msgid "Top 5 Password-Change Error Clues"
-msgstr "5 основных признаков ошибок смены пароля"
+msgstr "Топ-5 сведений об ошибках смены пароля"
 
 #: reports/services/audit_data.py
 msgid "Password-Change Accounts Requiring Review"
-msgstr "Учетные записи со сменой пароля, требующей проверки"
+msgstr "Учётные записи со сменой пароля, требующей проверки"
 
 #: reports/services/audit_data.py
 msgid "Restricted logins or policy denials were recorded. Verify that the source, user identity, and access policy are expected."
-msgstr "Были зарегистрированы ограниченные записи или отказ от политики. Проверьте, что ожидается источник, идентификация пользователя и политика доступа."
+msgstr "Зафиксированы записи об ограничении входа или отказе по политике. Рекомендуется сверить источник доступа, личность пользователя и политику доступа на соответствие ожидаемым."
 
 #: reports/services/audit_data.py
 msgid "Command Count"
@@ -15730,11 +15730,11 @@ msgstr "Не записано"
 
 #: reports/services/audit_data.py
 msgid "Loopback Address Login Records"
-msgstr "Записи входа с адреса loopback"
+msgstr "Записи о входе с loopback-адреса"
 
 #: reports/services/audit_data.py
 msgid "Rejected"
-msgstr "отвергнуты"
+msgstr "Отклонено"
 
 #: reports/services/audit_data.py
 msgid "Platform Operation Count"
@@ -15742,11 +15742,11 @@ msgstr "Количество операций платформы"
 
 #: reports/services/audit_data.py
 msgid "Operation Policy Denials"
-msgstr "Отказы политики операций"
+msgstr "Отказы по политике операций"
 
 #: reports/services/audit_data.py
 msgid "Policy Denial Details"
-msgstr "Подробности отказов политики"
+msgstr "Подробности отказов по политикам"
 
 #: reports/services/audit_data.py
 msgid "File Operation Count"
@@ -15758,7 +15758,7 @@ msgstr "Неудачные операции с файлами"
 
 #: reports/services/audit_data.py
 msgid "File Operation Failure Rate"
-msgstr "Доля ошибок операций с файлами"
+msgstr "Доля неудачных операций с файлами"
 
 #: reports/services/audit_data.py
 msgid "Current Asset Total"
@@ -15774,15 +15774,15 @@ msgstr "Текущее распределение активов по платф
 
 #: reports/services/audit_data.py
 msgid "accounts"
-msgstr "учетных записей"
+msgstr "УЗ"
 
 #: reports/services/audit_data.py
 msgid "Currently Enabled Accounts"
-msgstr "Включенные учетные записи"
+msgstr "Включённые учётные записи"
 
 #: reports/services/audit_data.py
 msgid "Asset Account Count Ranking"
-msgstr "Рейтинг активов по числу учетных записей"
+msgstr "Рейтинг активов по числу учётных записей"
 
 #: reports/services/audit_data.py
 msgid "Assets with Password Changes Requiring Review"
@@ -15790,11 +15790,11 @@ msgstr "Активы со сменой пароля, требующей пров
 
 #: reports/services/audit_data.py
 msgid "Accounts with Password Changes Requiring Review"
-msgstr "Учетные записи со сменой пароля, требующей проверки"
+msgstr "Учётные записи со сменой пароля, требующие проверки"
 
 #: reports/services/audit_data.py
 msgid "Asset deleted"
-msgstr "Актив удален"
+msgstr "Актив удалён"
 
 #: reports/services/audit_data.py
 msgid "Platform User Password Changes"
@@ -15807,17 +15807,17 @@ msgstr "Последние смены паролей пользователей 
 #: reports/services/audit_data.py
 #, python-format
 msgid "%(count)s alerted or rejected commands were recorded. Review their purpose and approval basis in the session context."
-msgstr "Записано %(count)s команд с предупреждением или отклонением. Проверьте их назначение и основания согласования в контексте сеанса."
+msgstr "Записано %(count)s команд с предупреждением или отказом. Проверьте их назначение и основания для согласования в контексте сессии."
 
 #: reports/services/audit_data.py
 #, python-format
 msgid "The operation log contains %(count)s policy denials. Check the denied resources and policies in the audit details."
-msgstr "Операционный дневник содержит %(count)s политических отклонений. Проверьте отверженные ресурсы и политики в аудиторских деталях."
+msgstr "Журнал операций содержит %(count)s записей об отказе по политике; проверьте отклонённые ресурсы и политики в деталях аудита."
 
 #: reports/services/audit_data.py
 #, python-format
 msgid "%(count)s platform user password changes were recorded. Review the operators and change rationale as needed."
-msgstr "Были зафиксированы изменения пароля пользователя платформы %(count)s. Проверьте операторов и по мере необходимости меняйте обоснование."
+msgstr "Зафиксировано %(count)s смен паролей пользователей платформы; при необходимости проверьте исполнителей и основания для изменения."
 
 #: reports/services/audit_data.py
 msgid "Recording Status"
@@ -15829,7 +15829,7 @@ msgstr "Записанная причина"
 
 #: reports/services/audit_data.py
 msgid "Failure Count"
-msgstr "Количество ошибок"
+msgstr "Количество сбоев"
 
 #: reports/services/audit_data.py
 msgid "Start Time"
@@ -15841,7 +15841,7 @@ msgstr "Пользователь платформы"
 
 #: reports/services/audit_data.py
 msgid "Asset Account"
-msgstr "Учетная запись актива"
+msgstr "Учётная запись актива"
 
 #: reports/services/audit_data.py
 msgid "Connection Result"
@@ -15849,15 +15849,15 @@ msgstr "Результат подключения"
 
 #: reports/services/audit_data.py
 msgid "Connection Failure Reason"
-msgstr "Причина ошибки подключения"
+msgstr "Причина сбоя подключения"
 
 #: reports/services/audit_data.py
 msgid "Original Session"
-msgstr "Исходный сеанс"
+msgstr "Исходная сессия"
 
 #: reports/services/audit_data.py
 msgid "No reviewer recorded"
-msgstr "Ответственный не записан"
+msgstr "Утверждающий не записан"
 
 #: reports/services/audit_data.py
 msgid "Approval Ticket"
@@ -15873,11 +15873,11 @@ msgstr "Запрошенная команда"
 
 #: reports/services/audit_data.py
 msgid "Rule at the Time"
-msgstr "Правило на тот момент"
+msgstr "Актуальное тогда правило"
 
 #: reports/services/audit_data.py
 msgid "Reviewer"
-msgstr "Ответственный"
+msgstr "Утверждающий"
 
 #: reports/services/audit_data.py
 msgid "Rejection Reason"
