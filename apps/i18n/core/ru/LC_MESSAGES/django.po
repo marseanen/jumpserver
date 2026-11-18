@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: jumpserver\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-19 10:30+0800\n"
-"PO-Revision-Date: 2026-11-17 16:38\n"
+"PO-Revision-Date: 2026-11-18 08:55\n"
 "Last-Translator: ibuler <ibuler@qq.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -16430,35 +16430,35 @@ msgstr "Чек-лист устранения нарушений"
 
 #: reports/services/audit_data.py
 msgid "Review and synchronize the verified candidate credential; verification alone does not confirm recovery."
-msgstr "Проверьте и синхронизируйте предлагаемые учётные данные, прошедшие проверку; сама проверка не подтверждает восстановление."
+msgstr "Проверка и синхронизация прошедших проверку предлагаемых учётных данных; само по себе прохождение проверки не подтверждает восстановление."
 
 #: reports/services/audit_data.py
 msgid "Review the command purpose, matched rule, and approval trail in the original session."
-msgstr "В исходном сеансе проверьте назначение команды, сработавшее правило и историю согласования."
+msgstr "Проверка назначения команды, сработавшего правила и записей о согласовании в исходной сессии."
 
 #: reports/services/audit_data.py
 msgid "Review the denied operation and confirm that the access policy is expected."
-msgstr "Проверьте отклонённую операцию и убедитесь, что политика доступа соответствует ожиданиям."
+msgstr "Проверка отклонённой операции и подтверждение соответствия политики доступа ожидаемой."
 
 #: reports/services/audit_data.py
 msgid "Review the execution log and affected targets, correct the cause, then retry."
-msgstr "Проверьте журнал выполнения и затронутые объекты, устраните причину и повторите попытку."
+msgstr "Просмотр журнала выполнения и затронутых объектов, устранение причины и повторная попытка."
 
 #: reports/services/audit_data.py
 msgid "Review the file path, access permissions, and original session before retrying."
-msgstr "Перед повторной попыткой проверьте путь к файлу, права доступа и исходный сеанс."
+msgstr "Проверка пути к файлу, прав доступа и исходной сессии перед повторной попыткой."
 
 #: reports/services/audit_data.py
 msgid "Review the verification result and original execution before retrying."
-msgstr "Перед повторной попыткой проверьте результат проверки и исходное выполнение."
+msgstr "Проверка результата верификации и исходного выполнения перед повторной попыткой."
 
 #: reports/services/audit_data.py
 msgid "Review whether the reason for ignoring this failure still applies."
-msgstr "Проверьте, остаётся ли причина игнорирования этого сбоя актуальной."
+msgstr "Проверка актуальности причины игнорирования этого сбоя."
 
 #: reports/services/audit_data.py
 msgid "Review whether the reason for ignoring this risk still applies."
-msgstr "Проверьте, остаётся ли причина игнорирования этого риска актуальной."
+msgstr "Проверка актуальности причины игнорирования этого риска."
 
 #: reports/services/audit_data.py
 msgid "Risk Count"
@@ -16474,15 +16474,15 @@ msgstr "Время проверки"
 
 #: reports/services/audit_data.py
 msgid "Verify the candidate credential and synchronize it only after confirming that access works."
-msgstr "Проверьте предлагаемые учётные данные и синхронизируйте их только после подтверждения доступа."
+msgstr "Проверка предлагаемых учётных данных и их синхронизация только после подтверждения работоспособности доступа."
 
 #: reports/services/audit_data.py
 msgid "Verify the login source and account identity, then review the authentication log."
-msgstr "Проверьте источник входа и принадлежность учётной записи, затем изучите журнал аутентификации."
+msgstr "Сверка источника входа и принадлежности УЗ. Затем - просмотр журнала аутентификации."
 
 #: reports/services/audit_data.py
 msgid "Wait for verification to finish before deciding whether to synchronize the credential."
-msgstr "Дождитесь завершения проверки, прежде чем решать, синхронизировать ли учётные данные."
+msgstr "Ожидание завершения проверки перед принятием решения о синхронизации учётных данных."
 
 #: reports/services/assessment.py
 msgid "Readable"
