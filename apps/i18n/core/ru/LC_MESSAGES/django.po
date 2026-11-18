@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: jumpserver\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-19 10:30+0800\n"
-"PO-Revision-Date: 2026-11-18 08:55\n"
+"PO-Revision-Date: 2026-11-18 15:45\n"
 "Last-Translator: ibuler <ibuler@qq.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -16494,58 +16494,58 @@ msgstr "Основание"
 
 #: reports/services/assessment.py
 msgid "Record ID"
-msgstr "Идентификатор записи"
+msgstr "ID записи"
 
 #: reports/services/audit_data.py
 msgid "Review failed connections using the affected assets, accounts, and recorded reasons."
-msgstr "Проверьте неудачные подключения по затронутым активам, учётным записям и зафиксированным причинам."
+msgstr "Проверка сбоев подключения с учётом затронутых активов, УЗ и зафиксированных причин."
 
 #: reports/services/audit_data.py
 #, python-format
 msgid "%(count)s completed successful sessions require recording review. Check recording creation, upload, and storage."
-msgstr "Для %(count)s успешно завершённых сеансов требуется проверка записи. Проверьте создание, загрузку и хранение записей."
+msgstr "Среди завершённых успешных сессий %(count)s требуют проверки записи. Проверьте создание, загрузку и хранение записей."
 
 #: reports/services/audit_data.py
 #, python-format
 msgid "%(count)s new-city login records require review of user identity and access location."
-msgstr "Для %(count)s записей о входе из нового города требуется проверить личность пользователя и место доступа."
+msgstr "Записи о входе из нового города (%(count)s) требуют проверки личности пользователя и местоположения доступа"
 
 #: reports/services/audit_data.py
 #, python-format
 msgid "%(count)s platform login records use loopback source addresses. Confirm whether these are local accesses or proxy-forwarded requests."
-msgstr "В %(count)s записях о входе на платформу используются адреса обратной петли. Уточните, был ли доступ локальным или запросы передавались через прокси."
+msgstr "В %(count)s записях о входе на платформу используются oopback-адреса источников. Уточните, был ли доступ локальным или запросы передавались через прокси."
 
 #: reports/services/audit_data.py
 #, python-format
 msgid "%(count)s platform logins failed. Review the affected users, source addresses, and recorded reasons."
-msgstr "Не удалось выполнить %(count)s входов на платформу. Проверьте затронутых пользователей, адреса источников и зафиксированные причины."
+msgstr "Неудачных входов на платформу: %(count)s. Проверка затронутых пользователей, адресов источников и зафиксированных причин."
 
 #: reports/services/audit_data.py
 #, python-format
 msgid "%(failed)s of %(total)s file operations failed (%(rate)s%%). Review the affected assets, accounts, file paths, and original sessions."
-msgstr "Не удалось выполнить %(failed)s из %(total)s операций с файлами (%(rate)s%%). Проверьте затронутые активы, учётные записи, пути к файлам и исходные сеансы."
+msgstr "Неудачных операций с файлами: %(failed)s из %(total)s (%(rate)s%%). Проверка затронутых активов, УЗ, путей к файлам и исходных сессий."
 
 #: reports/services/audit_data.py
 #, python-format
 msgid "%(sessions)s asset sessions were recorded: %(success)s connections succeeded and %(failed)s failed, involving %(users)s users and %(assets)s assets."
-msgstr "Зафиксировано %(sessions)s сеансов доступа к активам: %(success)s успешных подключений и %(failed)s неудачных, с участием %(users)s пользователей и %(assets)s активов."
+msgstr "Зафиксировано %(sessions)s сессий активов: %(success)s успешных подключений и %(failed)s сбоев, задействовано %(users)s пользователей и %(assets)s активов."
 
 #: reports/services/audit_data.py
 #, python-format
 msgid "%(total)s account tasks were executed: %(success)s succeeded, %(failed)s failed or errored, and %(pending)s remain incomplete."
-msgstr "Выполнено %(total)s задач для учётных записей: %(success)s успешно, %(failed)s с неудачей или ошибкой, %(pending)s ещё не завершены."
+msgstr "Выполнено %(total)s задач УЗ: %(success)s успешно, %(failed)s со сбоем или ошибкой, %(pending)s ещё не завершено."
 
 #: reports/services/audit_data.py
 msgid "Account Risks to Review"
-msgstr "Риски учётных записей для проверки"
+msgstr "Риски УЗ для проверки"
 
 #: reports/services/audit_data.py
 msgid "Accounts Identified in Pending Risks"
-msgstr "Учётные записи с рисками, ожидающими обработки"
+msgstr "УЗ, затронутые необработанными рисками"
 
 #: reports/services/audit_data.py
 msgid "Affected Accounts"
-msgstr "Затронутые учётные записи"
+msgstr "Затронутые УЗ"
 
 #: reports/services/audit_data.py
 msgid "Affected Assets"
@@ -16557,7 +16557,7 @@ msgstr "Активы с успешной последней проверкой"
 
 #: reports/services/audit_data.py
 msgid "Assign a unique credential to each affected account, synchronize dependent services, and verify access."
-msgstr "Назначьте уникальные учётные данные каждой затронутой учётной записи, синхронизируйте зависимые службы и проверьте доступ."
+msgstr "Назначение уникальных учётных данных для каждой затронутой УЗ, синхронизация зависимых служб и проверка доступа."
 
 #: reports/services/audit_data.py
 msgid "Check Result"
@@ -16565,40 +16565,40 @@ msgstr "Результат проверки"
 
 #: reports/services/audit_data.py
 msgid "Compare authorized keys with approved keys, and remove unapproved keys."
-msgstr "Сравните разрешённые ключи с утверждёнными и удалите неутверждённые ключи."
+msgstr "Сверка авторизованных ключей с одобренными и удаление неодобренных ключей."
 
 #: reports/services/audit_data.py
 msgid "Compare group membership changes with approved access, and remove unapproved privileges."
-msgstr "Сравните изменения членства в группах с утверждёнными правами доступа и удалите неутверждённые привилегии."
+msgstr "Сверка изменений состава групп с одобренными правами доступа и удаление неодобренных привилегий."
 
 #: reports/services/audit_data.py
 msgid "Compare sudo permission changes with approved access, and remove unapproved privileges."
-msgstr "Сравните изменения прав sudo с утверждёнными правами доступа и удалите неутверждённые привилегии."
+msgstr "Сверка изменений прав sudo с одобренными правами доступа и удаление неодобренных привилегий."
 
 #: reports/services/audit_data.py
 msgid "Confirm the account owner and purpose, then manage approved accounts or disable unauthorized accounts."
-msgstr "Уточните владельца и назначение учётной записи, затем добавьте утверждённые записи в управление или отключите неавторизованные."
+msgstr "Подтверждение владельца и назначения УЗ. Затем - принятие одобренных УЗ под управление или отключение неавторизованных УЗ."
 
 #: reports/services/audit_data.py
 msgid "Confirm whether deletion was approved, then reconcile the managed account inventory."
-msgstr "Уточните, было ли удаление утверждено, затем приведите в соответствие перечень управляемых учётных записей."
+msgstr "Подтверждение согласования удаления УЗ. Затем - сверка списка управляемых УЗ."
 
 #: reports/services/audit_data.py
 msgid "Confirm whether the account is still needed, then disable unused accounts after approval."
-msgstr "Уточните, нужна ли учётная запись, и после согласования отключите неиспользуемые записи."
+msgstr "Подтверждение необходимости дальнейшего использования УЗ. Затем - отключение неиспользуемых УЗ после согласования."
 
 #: reports/services/audit_data.py
 msgid "Current Managed Accounts"
-msgstr "Текущие управляемые учётные записи"
+msgstr "Текущие управляемые УЗ"
 
 #: reports/services/audit_data.py
 #, python-format
 msgid "Currently, %(pending)s pending account risk records involve %(accounts)s distinct accounts on %(assets)s assets. Review the affected accounts by risk type."
-msgstr "Сейчас %(pending)s записей о рисках, ожидающих обработки, относятся к %(accounts)s различным учётным записям на %(assets)s активах. Проверьте затронутые учётные записи по типам риска."
+msgstr "Сейчас необработанные записи о рисках УЗ (%(pending)s) затрагивают %(accounts)s отдельных УЗ на %(assets)s активах. Проверьте затронутые УЗ по типам рисков."
 
 #: reports/services/audit_data.py
 msgid "Latest Check Failed"
-msgstr "Последняя проверка неуспешна"
+msgstr "Сбой последней проверки"
 
 #: reports/services/audit_data.py
 msgid "Latest Check Successful"
@@ -16606,7 +16606,7 @@ msgstr "Последняя проверка успешна"
 
 #: reports/services/audit_data.py
 msgid "Managed Accounts with Latest Check Successful"
-msgstr "Управляемые учётные записи с успешной последней проверкой"
+msgstr "Управляемые УЗ с успешной последней проверкой"
 
 #: reports/services/audit_data.py
 msgid "Most Recent Stored Check"
@@ -16614,15 +16614,15 @@ msgstr "Последняя сохранённая проверка"
 
 #: reports/services/audit_data.py
 msgid "No Check Result"
-msgstr "Результат проверки отсутствует"
+msgstr "Нет результата проверки"
 
 #: reports/services/audit_data.py
 msgid "No listed security events were found in the available records for this period."
-msgstr "В доступных записях за этот период перечисленные события безопасности не обнаружены."
+msgstr "В доступных записях за этот период не обнаружено указанных событий безопасности."
 
 #: reports/services/audit_data.py
 msgid "Not Applicable"
-msgstr "Не применимо"
+msgstr "Неприменимо"
 
 #: reports/services/audit_data.py
 msgid "Password Changes with Subsequent Progress"
@@ -16630,31 +16630,31 @@ msgstr "Смена паролей с последующим прогрессом
 
 #: reports/services/audit_data.py
 msgid "Renew the expired credential and verify dependent tasks and account access."
-msgstr "Обновите просроченные учётные данные и проверьте зависимые задачи и доступ к учётной записи."
+msgstr "Обновление истёкших учётных данных и проверка зависимых задач и доступа УЗ."
 
 #: reports/services/audit_data.py
 msgid "Replace the weak password with a strong unique password, then verify account access."
-msgstr "Замените слабый пароль надёжным уникальным паролем, затем проверьте доступ к учётной записи."
+msgstr "Замена слабого пароля на уникальный надёжный пароль. Затем - проверка доступа УЗ."
 
 #: reports/services/audit_data.py
 msgid "Review failed task logs and affected accounts; prioritize unresolved items before records with subsequent progress."
-msgstr "Проверьте журналы неудачных задач и затронутые учётные записи; сначала рассмотрите нерешённые вопросы, затем записи с последующим прогрессом."
+msgstr "Проверка журналов неудачных задач и затронутых УЗ; приоритетная обработка нерешённых проблем перед проверкой записей с последующим прогрессом."
 
 #: reports/services/audit_data.py
 msgid "Review risks"
-msgstr "Просмотреть риски"
+msgstr "Просмотр рисков"
 
 #: reports/services/audit_data.py
 msgid "Review the confirmed finding and verify the current account state."
-msgstr "Проверьте подтверждённое наблюдение и текущее состояние учётной записи."
+msgstr "Проверка подтверждённого риска и контроль текущего состояния УЗ."
 
 #: reports/services/audit_data.py
 msgid "Risk Accounts Matched to Managed Accounts"
-msgstr "Учётные записи с рисками, сопоставленные с управляемыми"
+msgstr "УЗ с риском, сопоставленные с управляемыми УЗ"
 
 #: reports/services/audit_data.py
 msgid "Risk Accounts Not Matched to Managed Accounts"
-msgstr "Учётные записи с рисками, не сопоставленные с управляемыми"
+msgstr "УЗ с риском, не сопоставленные с управляемыми УЗ"
 
 #: reports/services/audit_data.py
 msgid "Risk List"
@@ -16666,62 +16666,62 @@ msgstr "Записи о рисках"
 
 #: reports/services/audit_data.py
 msgid "Rotate the credential according to the rotation policy and verify dependent services."
-msgstr "Смените учётные данные в соответствии с политикой ротации и проверьте зависимые службы."
+msgstr "Смена учётных данных согласно политике ротации и проверка зависимых служб."
 
 #: reports/services/audit_data.py
 msgid "Rotate the potentially exposed credential, review recent access, and verify dependent services."
-msgstr "Смените потенциально раскрытые учётные данные, проверьте недавние обращения и зависимые службы."
+msgstr "Смена потенциально скомпрометированных учётных данных, проверка недавних обращений и зависимых служб."
 
 #: reports/services/audit_data.py
 msgid "Stored Asset Connectivity Results"
-msgstr "Сохранённые результаты проверки связности активов"
+msgstr "Результаты проверки связности активов"
 
 #: reports/services/audit_data.py
 msgid "Stored Managed Account Connectivity Results"
-msgstr "Сохранённые результаты проверки связности управляемых учётных записей"
+msgstr "Результаты проверки связности управляемых УЗ"
 
 #: reports/services/audit_data.py
 #, python-format
 msgid "There are currently %(total)s assets, of which %(active)s are enabled."
-msgstr "Сейчас имеется %(total)s активов, из которых %(active)s включены."
+msgstr "Сейчас имеется %(total)s активов, из них включено %(active)s."
 
 #: reports/services/audit_data.py
 #, python-format
 msgid "There are currently %(total)s managed account records, of which %(active)s are enabled."
-msgstr "Сейчас имеется %(total)s записей об управляемых учётных записях, из которых %(active)s включены."
+msgstr "Сейчас имеется %(total)s управляемых УЗ, из них включено %(active)s."
 
 #: reports/services/audit_data.py
 msgid "There are currently no pending account risk records."
-msgstr "Сейчас нет записей о рисках учётных записей, ожидающих обработки."
+msgstr "Сейчас нет необработанных записей о рисках УЗ."
 
 #: reports/services/audit_data.py
 #, python-format
 msgid "%(count)s account task executions were canceled."
-msgstr "Отменено %(count)s запусков задач для учётных записей."
+msgstr "Отменено выполнений задач УЗ: %(count)s."
 
 msgid "Please upgrade the JumpServer client to use the configured login policy."
-msgstr "Обновите клиент JumpServer, чтобы использовать настроенную политику входа."
+msgstr "Обновите клиент JumpServer для использования текущей политики входа."
 
 msgid "Client login session expired. Please authenticate again."
-msgstr "Срок действия сеанса клиента истёк. Пройдите аутентификацию повторно."
+msgstr "Сессия входа клиента истекла. Пройдите аутентификацию повторно."
 
 msgid "Log in again after exiting the client"
 msgstr "Повторный вход после выхода из приложения"
 
 msgid "When enabled, log in again after the desktop application exits and restarts. Minimizing or hiding the application does not count as exiting."
-msgstr "Если включено, после завершения и повторного запуска настольного приложения необходимо войти заново. Сворачивание или скрытие приложения не считается выходом."
+msgstr "Если включено, после завершения и перезапуска приложения потребуется войти заново. Сворачивание или скрытие приложения не считается выходом."
 
 msgid "Client login idle timeout (minute)"
 msgstr "Тайм-аут бездействия (минуты)"
 
 msgid "Log in again when the idle timeout is reached. 0 disables the limit (default). Real keyboard and mouse input in the main window, separate asset windows and built-in websites counts as activity. An open connection, background output and automatic refresh do not count. Input in external software such as Xshell or MSTSC, and in some cross-origin embedded pages, cannot be captured. Using only these areas, watching without input for a long time, or failed reports due to network issues may still trigger the idle timeout. Time is measured from the last activity confirmed by the server."
-msgstr "При достижении тайм-аута бездействия войдите снова. 0 отключает ограничение (по умолчанию). Реальные действия с клавиатурой и мышью в главном окне, отдельных окнах ресурсов и на встроенных веб-сайтах считаются активностью. Открытое соединение, фоновый вывод и автоматическое обновление не считаются активностью. Действия во внешних программах, например Xshell или MSTSC, и на некоторых встроенных страницах другого источника не могут быть зарегистрированы. Работа только в этих областях, длительный просмотр без действий или сбой отправки из-за проблем с сетью могут привести к тайм-ауту бездействия. Отсчёт ведётся от последней активности, подтверждённой сервером."
+msgstr "По достижении тайм-аута бездействия потребуется войти снова. Значение 0 отключает ограничение (по умолчанию). Активностью считаются реальные действия клавиатурой и мышью в главном окне, отдельных окнах активов и встроенных веб-сайтах. Активное подключение, фоновый вывод и автообновление активностью не считаются. Действия во внешних программах, таких как Xshell или MSTSC, и на некоторых встроенных страницах другого источника не фиксируются. Работа только в этих областях, длительный просмотр без ввода или сбои отправки данных из-за проблем с сетью могут вызвать срабатывание тайм-аута бездействия. Отсчёт ведётся от последней активности, подтверждённой сервером."
 
 msgid "Maximum client login lifetime (minute)"
-msgstr "Максимальный срок действия входа (минуты)"
+msgstr "Максимальный срок действия входа (мин)"
 
 msgid "Measured from client login; activity and token refresh do not extend it. 0 disables the lifetime limit (default). Exit and idle timeout settings still apply. Log in again when the lifetime ends."
-msgstr "Отсчитывается с момента входа в клиент; активность и обновление токена его не продлевают. Значение 0 отключает ограничение срока действия (по умолчанию). Настройки выхода и тайм-аута бездействия продолжают действовать. По истечении срока необходимо войти заново."
+msgstr "Отсчитывается с момента входа в клиент; действия пользователя и обновление токена не продлевают срок действия. Значение 0 снимает ограничение (по умолчанию), при этом настройки выхода и тайм-аута бездействия продолжают работать. По истечении срока требуется повторный вход."
 
 msgid "Client exit"
 msgstr "Выход из клиента"
@@ -16740,37 +16740,37 @@ msgstr "Авторизация отозвана"
 
 #: assets/models/asset/common.py assets/serializers/asset/common.py
 msgid "Asset owner"
-msgstr "Ответственный за актив"
+msgstr "Владелец актива"
 
 msgid "Manager"
-msgstr "Manager"
+msgstr "Руководитель"
 
 msgid "Workflow"
-msgstr "Workflow"
+msgstr "Процесс согласования"
 
 msgid "Approval workflow"
-msgstr "Approval workflow"
+msgstr "Процесс согласования"
 
 msgid "Workflow version"
-msgstr "Workflow version"
+msgstr "Версия процесса"
 
 msgid "Workflow instance"
-msgstr "Workflow instance"
+msgstr "Экземпляр процесса"
 
 msgid "Workflow node"
-msgstr "Workflow node"
+msgstr "Папка процесса"
 
 msgid "Workflow edge"
-msgstr "Workflow edge"
+msgstr "Переход процесса"
 
 msgid "Workflow node instance"
-msgstr "Workflow node instance"
+msgstr "Экземпляр папки"
 
 msgid "Approval task"
-msgstr "Approval task"
+msgstr "Запрос на согласование"
 
 msgid "Workflow event"
-msgstr "Workflow event"
+msgstr "Событие процесса"
 
 #: tickets/plugins
 msgid "View account password"
@@ -16885,7 +16885,7 @@ msgstr ""
 
 #: jumpserver/context_processor.py:31
 msgid "FIT2CLOUD"
-msgstr ""
+msgstr "FIT2CLOUD"
 
 #: ops/api/celery.py:211
 msgid "Verification code tasks cannot be run again. Please request a new code from the verification page."
@@ -17843,41 +17843,41 @@ msgid "Client idle lock (minute)"
 msgstr "Блокировка при бездействии (мин.)"
 
 msgid "0 disables idle locking (default). When enabled, the client starts locked. Only the active site and account are checked for system keyboard or mouse inactivity. Lock the main page and managed asset windows without ending login or connections. Unlock only on the main page with the current account client lock password. Set the password in Personal settings > Login authentication > Client credentials. External applications are not covered by the client lock."
-msgstr "0 отключает автоматическую блокировку. Главная страница и управляемые окна блокируются вместе; разблокировка доступна только на главной странице. Сеанс и соединения сохраняются. Внешние приложения не защищены. При включении новые и восстановленные сеансы запускаются заблокированными. Ввод с клавиатуры и мыши системы, включая внешние приложения, сбрасывает таймер только активного сайта и учётной записи. Активность не передаётся на сервер."
+msgstr "0 отключает блокировку при бездействии (по умолчанию). При включении клиент запускается заблокированным. Бездействие клавиатуры и мыши проверяется только для активного сайта и пользователя. Блокируются главная страница и управляемые окна активов без выхода и разрыва подключений. Разблокировка возможна только на главной странице паролем блокировки клиента текущего пользователя. Задайте пароль в разделе «Персональные настройки > Аутентификация при входе > Учётные данные клиента». Внешние приложения этой блокировкой не защищаются."
 
 msgid "Client lock password"
 msgstr "Пароль блокировки клиента"
 
 msgid "Set a client lock password in the web personal settings first."
-msgstr "Пароль блокировки не задан. Задайте его в веб-настройках этой учётной записи на этом сайте, затем вернитесь и обновите."
+msgstr "Пароль блокировки клиента ещё не задан. Задайте его в личных веб-настройках для этого сайта и пользователя, затем вернитесь и обновите."
 
 msgid "The client lock password is incorrect."
 msgstr "Не удалось разблокировать. Проверьте пароль и соединение."
 
 msgid "Calculated from each login time using the latest setting. Activity and token refresh do not extend it. 0 means unlimited. If a change makes a login overdue, allow up to 10 minutes before sign-out and signing in again."
-msgstr "Рассчитывается от времени каждого входа по актуальной настройке. Активность и обновление токена не продлевают срок. 0 означает без ограничений. Если новый срок уже превышен, до выхода даётся не более 10 минут, затем нужно войти снова."
+msgstr "Отсчитывается с момента каждого входа по актуальным настройкам. Действия пользователя и обновление токена не продлевают срок. 0 означает без ограничений. Если новый заданный срок входа уже превышен, сессия сохраняется максимум на 10 минут, после чего потребуется войти заново."
 
 msgid "{} - Encryption password not set - Please go to Personal Settings → Login authentication → Client credentials → File Encryption Password to set it."
-msgstr "{} - Пароль шифрования не задан. Откройте Личные настройки → Аутентификация входа → Учётные данные клиента → Пароль шифрования файлов."
+msgstr "{} — Пароль шифрования не задан — Перейдите в «Персональные настройки → Аутентификация при входе → Учётные данные клиента → Пароль шифрования файлов», чтобы задать его."
 
 msgid "0 disables automatic idle locking (default). System keyboard and mouse input determines inactivity for the active site and account only. Activity is not reported for each action; an idle timeout or manual lock sends one request to lock this login on the server. Idle timeout locks the main page and its managed asset windows even without a lock password. Unlock only on the main page after server password verification. New logins open normally; previously locked logins stay locked after restoration. External application windows are not protected."
-msgstr "0 отключает автоблокировку (по умолчанию). Ввод с системной клавиатуры и мыши определяет простой только активного сайта и аккаунта. Каждое действие не отправляется; при истечении простоя или ручной блокировке сервер получает запрос на блокировку текущего входа. При простое блокируются главная страница и управляемые окна ресурсов, даже если пароль не задан. Разблокировка доступна только на главной странице после проверки пароля сервером. Новый вход открывается обычно; заблокированный вход остаётся таким после восстановления. Внешние окна не защищены."
+msgstr "0 отключает автоблокировку при бездействии (по умолчанию). Бездействие клавиатуры и мыши определяется только для активного сайта и пользователя. Активность отправляется не при каждом действии; при тайм-ауте или ручной блокировке на сервер отправляется запрос на блокировку входа. По тайм-ауту главная страница и управляемые окна активов блокируются даже без пароля блокировки. Разблокировка возможна только на главной странице после проверки пароля на сервере. Новый вход открывается как обычно; заблокированный ранее вход остаётся заблокированными. Окна внешних приложений не защищаются."
 
 msgid "The web session is locked. Unlock it before authorizing a client."
-msgstr "Веб-сеанс заблокирован. Разблокируйте его перед авторизацией клиента."
+msgstr "Веб-сессия заблокирована. Разблокируйте её перед авторизацией клиента."
 
 msgid "Client is locked. Unlock it on the main page."
 msgstr "Клиент заблокирован. Разблокируйте его на главной странице."
 
 msgid "Default: 15 minutes. 0 disables automatic locking. After the configured period without system keyboard or mouse input, lock the main page and asset windows for the current site and account. Unlock on the main page by verifying the lock password online. Locking also applies if no password is configured; set it in web personal settings. External application windows are not protected."
-msgstr "По умолчанию — 15 минут. 0 отключает автоблокировку. Если в течение заданного времени нет ввода с системной клавиатуры или мыши, блокируются главная страница и окна ресурсов текущего сайта и аккаунта. Для разблокировки проверьте пароль онлайн на главной странице. Блокировка действует и без заданного пароля; задайте его в личных настройках Web. Внешние окна не защищены."
+msgstr "По умолчанию: 15 минут. 0 отключает автоблокировку. По истечении заданного времени без ввода с клавиатуры и мыши главная страница и окна активов для текущих сайта и пользователя блокируются. Разблокировка выполняется на главной странице паролем блокировки. Блокировка срабатывает, даже если пароль не задан; задайте его в персональных настройках веб-интерфейса. Окна внешних приложений не защищаются."
 
 msgid "{} - Encryption password not set - Please go to Personal Settings → User authentication → File Encryption to set it."
-msgstr "{} - Пароль шифрования не задан. Откройте Личные настройки → Аутентификация пользователя → Шифрование файлов."
+msgstr "{} - Пароль шифрования не задан. Откройте Персональные настройки → Аутентификация пользователя → Шифрование файлов, чтобы задать его."
 
 #: rbac/tree.py
 msgid "Audit reports"
-msgstr "Аудиторские отчёты"
+msgstr "Отчёты аудита"
 
 #: rbac/tree.py
 msgid "Legacy reports"
@@ -17885,35 +17885,35 @@ msgstr "Устаревшие отчёты"
 
 #: rbac/models/menu.py
 msgid "Can view comprehensive audit report"
-msgstr "Может просматривать комплексный аудиторский отчёт"
+msgstr "Просмотр комплексного отчёта аудита"
 
 #: rbac/models/menu.py
 msgid "Can view operations activity report"
-msgstr "Может просматривать отчёт об операционной активности"
+msgstr "Просмотр отчёта об активности эксплуатации"
 
 #: rbac/models/menu.py
 msgid "Can view security event report"
-msgstr "Может просматривать отчёт о событиях безопасности"
+msgstr "Просмотр отчёта о событиях безопасности"
 
 #: rbac/models/menu.py
 msgid "Can view asset and account overview"
-msgstr "Может просматривать обзор активов и учётных записей"
+msgstr "Просмотр обзора активов и УЗ"
 
 #: rbac/models/menu.py
 msgid "Can view account operations report"
-msgstr "Может просматривать отчёт об операциях с учётными записями"
+msgstr "Просмотр отчёта по эксплуатации УЗ"
 
 msgid "Locked"
-msgstr "Блокировка"
+msgstr "Заблокировано"
 
 msgid "Screen lock password"
 msgstr "Пароль блокировки экрана"
 
 msgid "Idle screen lock (minute)"
-msgstr "Блокировка при бездействии (мин)"
+msgstr "Блокировка экрана при бездействии (мин)"
 
 msgid "Set a lock password after signing in again."
-msgstr "Войдите снова, чтобы задать пароль блокировки."
+msgstr "Войдите заново и задайте пароль блокировки."
 
 msgid "The lock password is incorrect."
 msgstr "Неверный пароль блокировки."
@@ -17925,107 +17925,110 @@ msgid "This verification method is not available."
 msgstr "Этот способ проверки недоступен."
 
 msgid "Default: 15 minutes. 0 disables automatic locking. Shared by the desktop client, console and Web terminal. Desktop uses system keyboard/mouse activity; Web combines activity in tabs on this site. Idle locks even without a password. Unlock requires online password verification; if unset, sign out and sign in again to set it. External applications are not protected."
-msgstr "По умолчанию 15 минут; 0 отключает автоблокировку. Общая настройка для клиента, консоли и Web-терминала. Клиент учитывает системный ввод, Web — ввод во вкладках этого сайта. Бездействие блокирует даже без пароля. Для разблокировки пароль проверяется онлайн; если он не задан, выйдите и войдите снова для настройки. Окна внешних приложений не защищены."
+msgstr "По умолчанию: 15 минут. 0 отключает автоблокировку. Общая настройка для клиента, консоли и веб-терминала. Клиент отслеживает активность клавиатуры и мыши в системе; веб-интерфейс учитывает активность на вкладках этого сайта. Блокировка при бездействии срабатывает даже без пароля. Для разблокировки требуется онлайн-проверка пароля; если он не задан, выйдите и войдите заново, чтобы задать его. Внешние приложения не защищаются."
 
 msgid "Too many incorrect screen lock passwords. This session has been signed out."
-msgstr "Пять неверных паролей блокировки подряд. Этот сеанс завершён."
+msgstr "Превышено количество неверных вводов паролей. Данная сессия завершена."
 
 msgid "Default: 15 minutes. 0 disables automatic locking. Uses system keyboard/mouse activity. Locks the desktop client and its asset windows even without a lock password. Unlock on the main window with online password verification. External applications are not protected."
-msgstr "По умолчанию 15 минут. 0 отключает автоблокировку. Используются системные события клавиатуры и мыши. Клиент и его окна ресурсов блокируются даже без пароля. Разблокировка выполняется в главном окне с проверкой пароля сервером. Внешние приложения не защищены."
+msgstr "По умолчанию: 15 минут. 0 отключает автоблокировку. Учитывает активность клавиатуры и мыши в системе. Блокирует клиент и его окна активов даже без пароля блокировки. Разблокировка выполняется в главном окне с онлайн-проверкой пароля. Внешние приложения не защищаются."
 
 msgid "Default: 15 minutes. 0 disables automatic locking. Shared by the console and Web terminal. Uses keyboard/mouse activity across tabs on this site; other sites and external applications cannot be monitored. Locks the current Web login even without a lock password. If unset, sign out and sign in again."
-msgstr "По умолчанию 15 минут. 0 отключает автоблокировку. Консоль и Web-терминал используют общий параметр и активность вкладок этого сайта. Другие сайты и внешние приложения не отслеживаются. Блокировка действует даже без пароля; в этом случае выйдите и войдите снова."
+msgstr "По умолчанию: 15 минут. 0 отключает автоблокировку. Общая настройка для консоли и веб-терминала. Учитывает активность клавиатуры и мыши на вкладках этого сайта; действия на других сайтах и во внешних приложениях не отслеживаются. Блокирует текущую веб-сессию даже без пароля блокировки. Если пароль не задан, выйдите и войдите заново."
 
 #~ msgid "Ticket already closed"
 #~ msgstr "工单已经关闭"
 
 msgid "Web session lifetime (second)"
-msgstr "Срок действия Web-сеанса (секунда)"
+msgstr "Время жизни веб-сессии (сек)"
 
 msgid "Renew session on request"
-msgstr "Продлевать сеанс при запросах"
+msgstr "Продлевать сессию при запросе"
 
 msgid "SESSION_COOKIE_AGE, in seconds. Change it in Core config.yml and restart Core. New or renewed sessions use the new duration; stored expiry times are not immediately rewritten. This is not a fixed maximum since login. Web and desktop login policies are independent."
-msgstr "SESSION_COOKIE_AGE, в секундах. Измените config.yml Core и перезапустите Core. Новые и продлённые сеансы используют новый срок; сохранённые сроки не переписываются сразу. Это не фиксированный максимум с момента входа. Политики Web и клиента независимы."
+msgstr "Параметр SESSION_COOKIE_AGE в секундах. Измените config.yml Core и перезапустите Core. Новые и продлённые сеансы используют новый срок; сохранённые сроки не переписываются сразу. Это не фиксированный максимальный срок входа. Политики входа для веб-интерфейса и клиента независимы."
 
 msgid "SESSION_SAVE_EVERY_REQUEST. Change it in Core config.yml and restart Core. When enabled, ordinary requests renew the Web session for the configured duration. Disabling it does not impose a fixed maximum: writing to the session can still renew it. Keyboard/mouse inactivity does not sign out the user; idle screen locking is configured separately."
-msgstr "SESSION_SAVE_EVERY_REQUEST. Измените config.yml Core и перезапустите Core. При включении обычные запросы продлевают сеанс на заданный срок. Отключение не задаёт фиксированный максимум: запись в Session также может продлить сеанс. Бездействие клавиатуры и мыши не завершает вход; автоблокировка настраивается отдельно."
+msgstr "Параметр SESSION_SAVE_EVERY_REQUEST. Измените config.yml Core и перезапустите Core. При включении обычные запросы продлевают веб-сессию на заданный срок. Отключение не задаёт фиксированный максимум: запись в сессию всё равно может её продлить. Бездействие клавиатуры и мыши не приводит к выходу пользователя; блокировка экрана при бездействии настраивается отдельно."
 
 msgid "0 means unlimited. Calculated from each login time using the latest setting. Activity and token refresh do not extend it. Settings sync about every 60 seconds. If a change makes a login overdue, allow up to 10 minutes before sign-out. Extending the limit during grace cancels sign-out if the login is within the new limit."
-msgstr "0 означает без ограничений. Срок рассчитывается от каждого входа по последним настройкам. Активность и обновление Token его не продлевают. Настройки синхронизируются примерно каждые 60 секунд. Если после изменения срок уже истёк, до выхода даётся не более 10 минут. Увеличение срока в этот период отменяет выход, если вход укладывается в новый лимит."
+msgstr "0 означает без ограничений. Отсчитывается с момента каждого входа по актуальным настройкам. Действия пользователя и обновление токена не продлевают срок. Настройки синхронизируются примерно каждые 60 секунд. Если после изменения настроек вход оказывается просроченным, до выхода даётся до 10 минут. Увеличение срока в этот период отменяет выход, если вход укладывается в новый лимит."
 
 msgid "Web idle screen lock (minute)"
-msgstr "Блокировка Web при бездействии (мин)"
+msgstr "Блокировка веб-экрана при бездействии (мин)"
 
 msgid "Client idle screen lock (minute)"
-msgstr "Блокировка клиента при бездействии (мин)"
+msgstr "Блокировка экрана клиента при бездействии (мин)"
 
 msgid "Leave blank to follow the administrator. A personal value must not exceed the administrator limit."
-msgstr "Оставьте пустым для настройки администратора. Личное значение не может превышать его предел."
+msgstr "Оставьте пустым для настройки от администратора. Личное значение не может превышать его предел."
 
 #, python-format
 msgid "The administrator limit is %(minutes)s minutes. Leave blank to follow it."
-msgstr "Предел администратора — %(minutes)s мин. Оставьте пустым, чтобы следовать ему."
+msgstr "Лимит администратора: %(minutes)s мин. Оставьте пустым, чтобы следовать ему."
 
 msgid "Global default and maximum. Users who have not customized it follow this value. Personal values must not exceed it. Lowering the maximum also lowers larger personal values; raising it keeps customized values."
-msgstr "Общее значение по умолчанию и верхний предел. Пользователи без личных настроек всегда следуют ему. Личные значения не могут его превышать. Уменьшение предела также уменьшает большие личные значения; увеличение сохраняет заданные личные значения."
+msgstr "Общее значение по умолчанию и верхний предел. Пользователи без личных настроек всегда следуют ему. Личные значения не могут его превышать. Уменьшение предела также уменьшает большие личные значения; увеличение сохраняет заданные личные значения.\n\n"
+"Глобальное значение по умолчанию и максимум. Пользователи, не задавшие своё значение, используют его. Личные значения не должны превышать его. Уменьшение максимума также снижает большие личные значения; увеличение сохраняет заданные пользователем значения."
 
 msgid "Choose either setting or clearing the lock password."
-msgstr "Нельзя одновременно задать и удалить пароль блокировки."
+msgstr "Выберите либо установку, либо очистку пароля блокировки."
 
 msgid "When the global value is 0, users may choose 0 to disable locking or a positive personal timeout."
 msgstr "Если общее значение равно 0, пользователи могут выбрать 0 для отключения блокировки или положительное личное время."
 
 msgid "The administrator requires reauthentication after client exit."
-msgstr "Администратор требует повторного входа после выхода из клиента."
+msgstr "Администратор требует повторной аутентификации после выхода из клиента."
 
 msgid "Users may enable it themselves when the administrator does not require it."
-msgstr "Пользователи могут включить это сами, если администратор не требует этого."
+msgstr "Пользователи могут включить этот параметр, если администратор не требует его обязательного включения."
 
 msgid "SESSION_COOKIE_AGE, in seconds. Change it in Core config.yml and restart Core. New logins use the new duration. Existing expiry times are not immediately rewritten. Renewals use the new duration unless the session has its own saved duration; sign in again to apply the new duration to those sessions. This is not a fixed maximum since login. Web and desktop login policies are independent."
-msgstr "Измените срок и продление в config.yml Core и перезапустите Core. Новые входы используют новые значения; сохранённые сроки не переписываются массово. Сессия со своим сроком может сохранить его при продлении; войдите заново для применения нового срока. SESSION_COOKIE_AGE — срок в секундах, применяемый при сохранении сессии. Это не фиксированный предел от первого входа. Текущее время истечения в личных данных — срок, сохранённый на сервере."
+msgstr "Параметр SESSION_COOKIE_AGE в секундах. Измените config.yml Core и перезапустите Core. Новые входы используют новые значения. Существующее время истечения не перезаписывается сразу. При продлении используется новая длительность, если для сессии не сохранена собственная; для применения новой длительности к таким сессиям войдите заново. Это не фиксированный максимальный срок с момента входа. Политики входа для веб-интерфейса и клиента независимы."
 
 msgid "Default Web session duration, in seconds, after login or renewal. It is not a fixed maximum since the first login. Change SESSION_COOKIE_AGE in Core config.yml and restart Core. Existing sessions may keep their saved duration; sign in again to apply the new duration."
-msgstr "Срок Web-сессии по умолчанию после входа или продления, в секундах. Это не фиксированный предел от первого входа. Измените SESSION_COOKIE_AGE в config.yml Core и перезапустите Core. Существующие сессии могут сохранить прежний срок; войдите заново для применения нового."
+msgstr "Длительность веб-сессии по умолчанию (в секундах) после входа или продления. Это не фиксированный максимальный срок с момента первого входа. Измените SESSION_COOKIE_AGE в config.yml Core и перезапустите Core. Существующие сессии могут сохранить прежнюю длительность; войдите заново для применения нового."
 
 msgid "Enabled: ordinary HTTP requests, including background requests, renew the session. Disabled: ordinary read-only requests do not renew it, but session writes such as identity verification still can. Change SESSION_SAVE_EVERY_REQUEST in Core config.yml and restart Core."
-msgstr "Включено: обычные HTTP-запросы продлевают сессию, в том числе фоновые. Отключено: обычное чтение не продлевает срок, но запись в Session, например при подтверждении личности, всё ещё может продлить его. Измените SESSION_SAVE_EVERY_REQUEST в config.yml Core и перезапустите Core."
+msgstr "Включено: обычные HTTP-запросы, включая фоновые, продлевают сессию. Отключено: обычные запросы только на чтение не продлевают её, но операции записи в сессию, такие как подтверждение личности, могут это делать. Измените SESSION_SAVE_EVERY_REQUEST в файле config.yml Core и перезапустите Core."
 
 msgid "Enabled: closing the browser normally requires signing in again. Browser session restore may keep login cookies; use Sign out to end the login reliably. This does not set a fixed maximum login duration."
-msgstr "При включении после закрытия браузера обычно нужен новый вход. Восстановление браузера может сохранить cookies; для надёжного завершения используйте «Выход». Эта настройка не задаёт фиксированное максимальное время входа."
+msgstr "При включении после закрытия браузера обычно нужен новый вход. Восстановление браузера может сохранить cookies; для надёжного завершения используйте «Выход». Эта настройка не задаёт фиксированное максимальное время входа.\n\n"
+"Включено: закрытие браузера обычно требует повторного входа. Восстановление сеанса браузера может сохранять файлы cookie входа; для надёжного завершения сессии используйте кнопку «Выйти». Этот параметр не задаёт фиксированную максимальную длительность входа"
 
 msgid "Default duration, in seconds.<br>Each renewal restarts the clock: expiry = renewal time + duration.<br>Ordinary requests renew it when request renewal is enabled; session writes such as identity verification can still renew it when disabled.<br>This is not a fixed maximum from the first login.<br>Change SESSION_COOKIE_AGE in Core config.yml and restart Core. Existing sessions may retain their saved duration; sign in again to apply the new duration."
-msgstr "Срок по умолчанию, в секундах.<br>При каждом продлении отсчёт начинается заново: истечение = время продления + срок.<br>Если продление по запросам включено, обычные запросы продлевают срок. Даже при отключении запись в Session, например подтверждение личности, может продлить его.<br>Это не фиксированный максимум от первого входа.<br>Измените SESSION_COOKIE_AGE в config.yml Core и перезапустите Core. Существующие сессии могут сохранить свой срок; войдите заново для применения нового."
+msgstr "Длительность по умолчанию в секундах.<br>Каждое продление перезапускает отсчёт: время истечения = время продления + длительность.<br>сли продление по запросам включено, обычные запросы продлевают срок; при отключённом — операции записи в сессию, такие как подтверждение личности, могут её продлить.<br>Это не фиксированный максимум от первого входа.<br>Измените SESSION_COOKIE_AGE в config.yml Core и перезапустите Core. Существующие сессии могут сохранить прежнюю длительность; войдите заново, чтобы применить новую."
 
 msgid "Enabled: most API requests using a valid Web session renew it, including GET queries and background business polling. Mouse or keyboard activity is not required.<br>Excluded read-only queries: profile, online status (user-session), and lock status (session-lock/status).<br>Disabled: ordinary read-only requests do not renew it, but identity verification and other session writes still can.<br>Why: the project writes the verification result to Session; Django saves the modified session and recalculates its relative expiry by default.<br>Change SESSION_SAVE_EVERY_REQUEST in Core config.yml and restart Core."
-msgstr "Включено: большинство API-запросов с действующей Web-сессией продлевает срок, включая GET и фоновые бизнес-запросы. Клавиатура и мышь не обязательны.<br>Исключённые запросы чтения: профиль, онлайн-статус (user-session), состояние блокировки (session-lock/status).<br>Отключено: обычное чтение не продлевает срок, но проверка личности и другая запись в Session всё ещё могут его продлить.<br>Причина: проект записывает результат проверки в Session; Django сохраняет изменённую сессию и по умолчанию пересчитывает её относительный срок.<br>Измените SESSION_SAVE_EVERY_REQUEST в config.yml Core и перезапустите Core."
+msgstr "Включено: большинство API-запросов с действующей веб-сессией продлевают её, включая GET и фоновый опрос. Действия мышью или клавиатурой не требуются.<br>Исключённые запросы на чтение: профиль, статус онлайн (user-session) и статус блокировки (session-lock/status).<br>Отключено: обычные запросы на чтение не продлевают сессию, но подтверждение личности и другие операции записи в сессию могут это делать.<br>ричина: система записывает результат проверки в сессию; по умолчанию Django сохраняет изменённую сессию и пересчитывает её относительный срок действия.<br>Измените SESSION_SAVE_EVERY_REQUEST в  config.yml Core и перезапустите Core."
 
 msgid "Enabled: after quitting the entire browser application, opening it again normally requires signing in.<br>Closing a tab or window, or minimizing it, is not the same as quitting the application; the browser may still be running in the background.<br>Browser session restore may preserve login cookies. Use the site Sign out action to reliably end the login.<br>This does not set a fixed maximum login duration."
-msgstr "При включении после полного выхода из приложения браузера обычно нужен новый вход при его открытии.<br>Закрытие вкладки или окна и сворачивание не равны выходу из приложения: браузер может работать в фоне.<br>Восстановление браузера может сохранить cookies. Используйте «Выход» на сайте для надёжного завершения входа.<br>Эта настройка не задаёт фиксированное максимальное время входа."
+msgstr "Включено: после полного закрытия браузера его повторное открытие обычно требует нового входа.<br>Закрытие вкладки или окна, а также сворачивание не равнозначно выходу из приложения — браузер может продолжать работать в фоне.<br>Восстановление сеанса браузера может сохранять файлы cookie входа. Для надёжного завершения сессии используйте действие «Выйти» на сайте.<br>Этот параметр не задаёт фиксированную максимальную длительность входа."
 
 #: apps/settings/serializers/security.py
 msgid "Require a new login after exiting and restarting. Minimizing or hiding the client does not count as exiting."
-msgstr "После выхода и повторного запуска требуется вход. Сворачивание или скрытие клиента не считается выходом."
+msgstr "Требовать повторный вход после выхода и перезапуска. Сворачивание или скрытие клиента не считается выходом."
 
 #: apps/settings/serializers/security.py
 msgid "0 means unlimited. Counted from login. Sign in again when it expires; activity does not extend it. A login already overdue after a change gets up to 10 more minutes."
-msgstr "0 — без ограничений. Отсчёт от входа. По истечении войдите снова; активность не продлевает срок. Если после изменения вход уже просрочен, даётся не более 10 дополнительных минут."
+msgstr "0 — без ограничений. Отсчитывается с момента входа. По истечении срока войдите заново; действия пользователя не продлевают его. Если после изменения настроек вход уже просрочен, предоставляется ещё до 10 минут."
 
 #: apps/settings/serializers/security.py
 msgid "0 disables automatic locking. Locks after the specified idle time. Enter the lock password in the main window to unlock. External application windows are not protected."
-msgstr "0 отключает автоблокировку. Блокируется после заданного простоя. Для разблокировки введите пароль блокировки в главном окне. Окна внешних приложений не защищены."
+msgstr "0 отключает автоблокировку. Блокирует экран по истечении заданного времени бездействия. Для разблокировки - ввод пароля блокировки в главном окне. Окна внешних приложений не защищаются."
 
 #: apps/settings/serializers/security.py
 msgid "0 disables automatic locking. Locks the console and Web terminal after the specified idle time. Enter the lock password to unlock. Administrator settings are defaults and limits. Users may choose stricter settings; otherwise they follow the administrator."
-msgstr "0 отключает автоблокировку. Блокирует консоль и Web-терминал после заданного простоя. Для разблокировки введите пароль блокировки. Администратор задаёт значения по умолчанию и ограничения. Пользователь может выбрать более строгие настройки, иначе следовать администратору."
+msgstr "0 отключает автоблокировку. Блокирует консоль и Web-терминал после заданного простоя. Для разблокировки введите пароль блокировки. Администратор задаёт значения по умолчанию и ограничения. Пользователь может выбрать более строгие настройки, иначе следовать администратору.\n\n"
+"0 отключает автоблокировку. Блокирует консоль и веб-терминал по истечении заданного времени бездействия. Для разблокировки введите пароль блокировки. Настройки администратора являются значениями по умолчанию и лимитами. Пользователи могут задать более строгие параметры; в противном случае используются настройки администратора."
 
 #: settings/serializers/feature.py
 msgid "Asset application scope"
-msgstr "Область запроса доступа к активам"
+msgstr "Область запроса активов"
 
 #: settings/serializers/feature.py
 msgid "Specifies which assets users can select when requesting access via a ticket.<br><b>All assets:</b> All assets in the ticket's organization, even if the user has no existing permission.<br><b>Permed assets:</b> Assets included in permission rules assigned to the user or their user groups, including inactive, expired and not-yet-effective rules.<br><b>Permed valid assets:</b> Assets included in valid permission rules assigned to the user or their user groups. The rule must be enabled, and the current time must be between its start and end times."
-msgstr "Определяет, какие активы пользователи могут выбрать при запросе доступа через заявку.<br><b>Все активы:</b> можно выбрать любой актив в организации заявки, даже если у пользователя ещё нет разрешения.<br><b>Разрешённые активы:</b> можно выбрать активы из правил доступа, назначенных пользователю или его группам, включая отключённые, истёкшие и ещё не вступившие в силу правила.<br><b>Активы с действующим разрешением:</b> можно выбрать только активы из действующих правил, назначенных пользователю или его группам. Правило должно быть включено, а текущее время должно находиться между временем начала и окончания его действия."
+msgstr "Определяет, какие активы пользователи могут выбирать при запросе доступа через заявку.<br><b>Все активы:</b> все активы в организации заявки, даже если у пользователя ещё нет прав доступа.<br><b>Разрешённые активы:</b> активы, включённые в правила доступа, назначенные пользователю или его группам, включая отключённые, просроченные и ещё не вступившие в силу правила.<br><b>Активы с действующими правами:</b> активы, включённые в действующие правила доступа, назначенные пользователю или его группам. Правило должно быть включено, а текущее время должно находиться между временем его начала и окончания."
 
 msgid "Can view verify account execution"
 msgstr ""
@@ -18067,7 +18070,7 @@ msgstr ""
 
 #: chat_ai/models.py
 msgid "Chat AI conversation audit"
-msgstr "Аудит диалогов с ИИ"
+msgstr "Аудит чата с ИИ"
 
 #: accounts/api/account/application.py:60
 msgid "Credential policies currently support the Python SDK only."
