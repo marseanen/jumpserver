@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: jumpserver\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-19 10:30+0800\n"
-"PO-Revision-Date: 2026-11-19 10:44\n"
+"PO-Revision-Date: 2026-11-19 16:53\n"
 "Last-Translator: ibuler <ibuler@qq.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -15350,39 +15350,39 @@ msgstr "Текст письма"
 #: terminal/session_lifecycle.py
 #, python-format
 msgid "Connect to asset %s success (direct connection)"
-msgstr ""
+msgstr "Подключение к активу %s успешно (напрямую)"
 
 #: terminal/session_lifecycle.py
 #, python-format
 msgid "Connect to asset %s success (SSH gateway forwarding)"
-msgstr ""
+msgstr "Подключение к активу %s успешно (через SSH-шлюз)"
 
 #: terminal/session_lifecycle.py
 #, python-format
 msgid "Connect to asset %s success (SSH gateway forwarding; configured gateways: %s)"
-msgstr ""
+msgstr "Подключение к активу %s успешно (через SSH-шлюз; шлюзы: %s)"
 
 #: authentication/notifications.py
 msgid "Login failure alert"
-msgstr ""
+msgstr "Оповещение о неудачной попытке входа"
 
 #: authentication/notifications.py
 #: authentication/templates/authentication/_msg_login_blocked.html
 msgid "Lockout type"
-msgstr ""
+msgstr "Тип блокировки"
 
 #: authentication/notifications.py
 #: authentication/templates/authentication/_msg_login_blocked.html
 msgid "Lockout duration (minutes)"
-msgstr ""
+msgstr "Длительность блокировки (в минутах)"
 
 #: authentication/templates/authentication/_msg_login_blocked.html
 msgid "The maximum number of failed login attempts has been reached. Login has been temporarily blocked."
-msgstr ""
+msgstr "Достигнуто максимальное количество неудачных попыток входа. Вход временно заблокирован."
 
 #: authentication/templates/authentication/_msg_login_blocked.html
 msgid "Please review the login logs and check for suspicious activity."
-msgstr ""
+msgstr "Просмотрите журналы входа и проверьте наличие подозрительной активности."
 
 #: reports/audit_contract.py
 msgid "Management Summary and Recommendations"
@@ -16774,114 +16774,115 @@ msgstr "Событие процесса"
 
 #: tickets/plugins
 msgid "View account password"
-msgstr ""
+msgstr "Просмотр пароля УЗ"
 
 #: tickets/plugins
 msgid "Change account password"
-msgstr ""
+msgstr "Смена пароля УЗ"
 
 #: tickets/plugins
 msgid "File upload / download"
-msgstr ""
+msgstr "Загрузка и скачивание файлов"
 
 #: tickets/plugins
 msgid "Download session recording"
-msgstr ""
+msgstr "Скачивание записи сессии"
 
 #: tickets/plugins
 msgid "Authorized users"
-msgstr ""
+msgstr "Авторизованные пользователи"
 
 #: tickets/plugins
 msgid "Request parameters"
-msgstr ""
+msgstr "Параметры запроса"
 
 #: tickets/plugins
 msgid "Validity (seconds)"
-msgstr ""
+msgstr "Срок действия (сек)"
 
 #: tickets/plugins
 msgid "File paths"
-msgstr ""
+msgstr "Пути к файлам"
 
 #: tickets/plugins
 msgid "Direction"
-msgstr ""
+msgstr "Направление"
 
 #: tickets/serializers/ticket/ticket.py
 #: tickets/serializers/ticket/apply_asset.py
 #: tickets/plugins/view_secret/serializer.py
 msgid "Purpose and resource description"
-msgstr ""
+msgstr "Цель запроса и описание ресурсов"
 
 #: apps/perms/templates/perms/_asset_permission_renewal_links.html:3
 msgid "Apply for renewal"
-msgstr ""
+msgstr "Запрос продления"
 
 msgid "WinRM file transfer root"
-msgstr ""
+msgstr "Корневой каталог передачи файлов WinRM"
 
 msgid "Absolute Windows directory; home uses the connected account home directory."
-msgstr ""
+msgstr "Абсолютный каталог Windows; home - домашний каталог подключённой УЗ."
 
 msgid "Select one Linux SSH/SFTP or Windows WinRM account."
-msgstr ""
+msgstr "Выберите одну УЗ Linux SSH/SFTP или Windows WinRM."
 
 #: accounts/api/account/ticket_secret.py:46 accounts/ticket_secret.py:21
 #: tickets/plugins/view_secret/plugin.py:31
 #: tickets/plugins/view_secret/plugin.py:41
 msgid "Account password viewing is disabled."
-msgstr ""
+msgstr "Просмотр паролей УЗ отключён."
 
 #: accounts/api/account/ticket_secret.py:53
 msgid "The requested password account is no longer available."
-msgstr ""
+msgstr "УЗ с запрашиваемым паролем больше недоступна."
 
 #: accounts/api/account/ticket_secret.py:91
 #, python-format
 msgid "View password for %(account)s"
-msgstr ""
+msgstr "Просмотр пароля %(account)s"
 
 #: accounts/ticket_secret.py:28 accounts/ticket_secret.py:30
 msgid "No active approval for this account."
-msgstr ""
+msgstr "Для этой УЗ нет действующего согласования."
 
 #: accounts/ticket_secret.py:32
 msgid "The approved user is no longer in this organization."
-msgstr ""
+msgstr "Одобренный пользователь уже не состоит в этой организации."
 
 #: accounts/ticket_secret.py:40
 msgid "The approved account is no longer available."
-msgstr ""
+msgstr "Одобренная УЗ больше недоступна."
 
 #: accounts/ticket_secret.py:43
 msgid "The approved account has no password."
-msgstr ""
+msgstr "У одобренной УЗ нет пароля."
 
 #: assets/serializers/asset/common.py:216
 msgid "Select an organization before assigning an asset owner."
-msgstr ""
+msgstr "Выберите организацию, затем назначьте владельца актива."
 
 #: assets/serializers/asset/common.py:219
 msgid "The asset owner must be an active user in the asset organization."
-msgstr ""
+msgstr "Владелец актива должен быть активным пользователем в той же организации."
 
 #: authentication/backends/drf.py:98
 msgid "Invalid token."
-msgstr ""
+msgstr "Недействительный токен."
 
 #: authentication/utils.py:46
 msgid "Invalid RDP security layer."
-msgstr ""
+msgstr "Недопустимый уровень безопасности RDP."
 
 #: common/utils/verify_code.py:51
 msgid "Send verify code email"
-msgstr ""
+msgstr "Отправка письма с кодом подтверждения"
 
 #: common/utils/verify_code.py:55
 msgid "When resetting a password, forgetting a password, or verifying MFA, this task needs to\n"
 "        be executed to send verification code emails"
-msgstr ""
+msgstr "При сбросе пароля, восстановлении забытого пароля или проверке МФА\n"
+"        это задание выполняется для отправки писем с кодом подтверждения"
 
 #: jumpserver/context_processor.py:31
 msgid "FIT2CLOUD"
@@ -16889,83 +16890,83 @@ msgstr "FIT2CLOUD"
 
 #: ops/api/celery.py:211
 msgid "Verification code tasks cannot be run again. Please request a new code from the verification page."
-msgstr ""
+msgstr "Задания отправки кода подтверждения нельзя запустить повторно. Запросите новый код на странице проверки."
 
 #: settings/serializers/feature.py:28
 #, python-format
 msgid "Run Ansible jobs in the persistent container (%(image)s) over SSH. To run jobs locally instead, disable \"Docker isolation for Ansible\" under System Settings > Feature Settings > Job Center. Configure the executor address and SSH credentials before enabling isolation."
-msgstr ""
+msgstr "Запуск задач Ansible в постоянном контейнере (%(image)s) по SSH. Чтобы запускать задачи локально, отключите параметр «Изоляция Docker для Ansible» в разделе «Настройки системы > Функций > Центр заданий». Перед включением изоляции настройте адрес исполнителя и учётные данные SSH."
 
 #: terminal/api/applet/host.py:120
 msgid "This builtin applet is retired and cannot be published again."
-msgstr ""
+msgstr "Этот встроенный апплет устарел и не может быть опубликован повторно."
 
 #: tickets/api/plugin.py:24 tickets/api/plugin.py:44
 #: tickets/serializers/ticket/ticket.py:298
 msgid "Select a concrete organization."
-msgstr ""
+msgstr "Выберите конкретную организацию."
 
 #: tickets/api/plugin.py:38
 msgid "This ticket type does not accept files."
-msgstr ""
+msgstr "Этот тип заявки не поддерживает загрузку файлов."
 
 #: tickets/api/plugin.py:49
 msgid "Upload one file at a time."
-msgstr ""
+msgstr "Загружайте по одному файлу за раз."
 
 #: tickets/api/ticket.py:169 tickets/api/ticket.py:173
 msgid "Use the approval-task endpoint with an exact task ID."
-msgstr ""
+msgstr "Используйте конечную точку задачи на согласование с ID задачи."
 
 #: tickets/api/ticket.py:185
 msgid "Use exact approval-task IDs."
-msgstr ""
+msgstr "Укажите ID задач на согласование."
 
 #: tickets/api/workflow.py:146 tickets/serializers/ticket/ticket.py:305
 msgid "Select an active member of this organization."
-msgstr ""
+msgstr "Выберите активного участника этой организации."
 
 #: tickets/const.py:32
 msgid "Manual request"
-msgstr ""
+msgstr "Запрос вручную"
 
 #: tickets/const.py:33
 msgid "System triggered"
-msgstr ""
+msgstr "Системный триггер"
 
 #: tickets/filters.py:20
 msgid "Beneficiary ID"
-msgstr ""
+msgstr "ID пользователя"
 
 #: tickets/filters.py:48 tickets/models/ticket/general.py:280
 #: tickets/serializers/ticket/ticket.py:97
 msgid "Ticket origin"
-msgstr ""
+msgstr "Источник заявки"
 
 #: tickets/models/instance.py:17 tickets/models/instance.py:37
 msgid "Workflow context and identity are immutable."
-msgstr ""
+msgstr "Контекст процесса и идентификационные данные нельзя менять"
 
 #: tickets/models/relation.py:30
 msgid "Ticket beneficiary"
-msgstr ""
+msgstr "Пользователь по заявке"
 
 #: tickets/models/workflow.py:31
 msgid "Apply for asset access on behalf of another user"
-msgstr ""
+msgstr "Запрос доступа к активам от имени другого пользователя"
 
 #: tickets/models/workflow.py:52 tickets/workflow/const.py:6
 msgid "Start"
-msgstr ""
+msgstr "Начало"
 
 #: tickets/models/workflow.py:52 tickets/workflow/const.py:10
 msgid "End"
-msgstr ""
+msgstr "Конец"
 
 #: tickets/models/workflow.py:57
 #, python-brace-format
 msgid "Approval {level}"
-msgstr ""
+msgstr "Согласование {level}"
 
 #: tickets/models/workflow.py:78
 msgid "Published workflow versions are immutable. Create a new version."
