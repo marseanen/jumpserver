@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: jumpserver\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-19 10:30+0800\n"
-"PO-Revision-Date: 2026-11-18 15:45\n"
+"PO-Revision-Date: 2026-11-19 10:44\n"
 "Last-Translator: ibuler <ibuler@qq.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -14801,7 +14801,7 @@ msgstr "Недопустимые ресурсы автономного разв�
 
 #: terminal/models/virtualapp/provider.py:130
 msgid "Select a Panda image already loaded on the provider or prepare the Installer offline resources"
-msgstr "Выберите образ Panda, уже загруженный на поставщика, или подготовьте автономные ресурсы Installer"
+msgstr "Выберите образ Panda, уже загруженный на поставщика, или подготовьте автономные ресурсы установщиков"
 
 #: terminal/models/virtualapp/provider.py:135
 msgid "Container port range must not include the SSH port"
