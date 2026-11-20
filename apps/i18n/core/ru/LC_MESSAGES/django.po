@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: jumpserver\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-19 10:30+0800\n"
-"PO-Revision-Date: 2026-11-19 16:53\n"
+"PO-Revision-Date: 2026-11-20 09:22\n"
 "Last-Translator: ibuler <ibuler@qq.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -7051,6 +7051,9 @@ msgstr "MariaDB"
 msgid "Oracle"
 msgstr "Oracle"
 
+msgid "OceanBase tenant mode"
+msgstr ""
+
 #: ops/const.py:76 settings/serializers/feature.py:103
 msgid "Timeout"
 msgstr "Тайм-аут"
@@ -8184,7 +8187,15 @@ msgstr "Письмо отправлено {}, пожалуйста, провер
 msgid "Test smtp setting"
 msgstr "Проверка настройки smtp"
 
-#: settings/api/ldap.py:92
+#: settings/api/ldap.py:41
+msgid "LDAP server is not configured. Please configure it in Authentication settings."
+msgstr ""
+
+#: settings/api/ldap.py:52
+msgid "Unable to load LDAP users. Please try again later or contact the administrator."
+msgstr ""
+
+#: settings/api/ldap.py:58
 msgid "Users are not synchronized, please click the user synchronization button"
 msgstr "Пользователь не синхронизирован, нажмите кнопку синхронизации пользователей"
 
@@ -17429,6 +17440,11 @@ msgstr ""
 msgid "A configured approver is inactive, missing, or outside the organization."
 msgstr ""
 
+#: tickets/workflow/approvers.py
+#, python-brace-format
+msgid "Approval {level} has no eligible approvers after excluding the applicant or authorized users. Adjust the approvers or select another workflow."
+msgstr ""
+
 #: tickets/workflow/approvers.py:85
 msgid "An approval node must resolve between 1 and 1000 eligible approvers."
 msgstr ""
@@ -17482,7 +17498,8 @@ msgid "Invalid condition field path."
 msgstr ""
 
 #: tickets/workflow/conditions.py:34
-msgid "Unknown workflow context field."
+#, python-brace-format
+msgid "Unknown workflow context field: {field}."
 msgstr ""
 
 #: tickets/workflow/conditions.py:36
@@ -17603,6 +17620,11 @@ msgstr ""
 msgid "Quorum requires a positive approval count up to 1000."
 msgstr ""
 
+#: tickets/workflow/definition.py:57
+#, python-brace-format
+msgid "Select at least {required} approvers; currently {count} selected."
+msgstr ""
+
 #: tickets/workflow/definition.py:55
 msgid "Only quorum accepts a required approval count."
 msgstr ""
@@ -17613,7 +17635,7 @@ msgid "{key} must be a boolean."
 msgstr ""
 
 #: tickets/workflow/definition.py:61
-msgid "Timeout must be seconds between 0 and 31536000."
+msgid "Timeout must be whole minutes between 1 and 525600, or 0 for no deadline."
 msgstr ""
 
 #: tickets/workflow/definition.py:63
@@ -17840,6 +17862,10 @@ msgstr ""
 msgid "Legacy ticket approval"
 msgstr ""
 
+#: tickets/models/workflow.py:46
+msgid "Combined approval workflow"
+msgstr ""
+
 msgid "Client idle lock (minute)"
 msgstr "Блокировка при бездействии (мин.)"
 
@@ -18015,13 +18041,8 @@ msgid "0 means unlimited. Counted from login. Sign in again when it expires; act
 msgstr "0 — без ограничений. Отсчитывается с момента входа. По истечении срока войдите заново; действия пользователя не продлевают его. Если после изменения настроек вход уже просрочен, предоставляется ещё до 10 минут."
 
 #: apps/settings/serializers/security.py
-msgid "0 disables automatic locking. Locks after the specified idle time. Enter the lock password in the main window to unlock. External application windows are not protected."
-msgstr "0 отключает автоблокировку. Блокирует экран по истечении заданного времени бездействия. Для разблокировки - ввод пароля блокировки в главном окне. Окна внешних приложений не защищаются."
-
-#: apps/settings/serializers/security.py
-msgid "0 disables automatic locking. Locks the console and Web terminal after the specified idle time. Enter the lock password to unlock. Administrator settings are defaults and limits. Users may choose stricter settings; otherwise they follow the administrator."
-msgstr "0 отключает автоблокировку. Блокирует консоль и Web-терминал после заданного простоя. Для разблокировки введите пароль блокировки. Администратор задаёт значения по умолчанию и ограничения. Пользователь может выбрать более строгие настройки, иначе следовать администратору.\n\n"
-"0 отключает автоблокировку. Блокирует консоль и веб-терминал по истечении заданного времени бездействия. Для разблокировки введите пароль блокировки. Настройки администратора являются значениями по умолчанию и лимитами. Пользователи могут задать более строгие параметры; в противном случае используются настройки администратора."
+msgid "0 disables automatic locking. Locks after the idle timeout. Switching accounts does not reset the previous account’s idle time. Enter the lock password to unlock. External application windows are not protected."
+msgstr ""
 
 #: settings/serializers/feature.py
 msgid "Asset application scope"
@@ -19269,5 +19290,860 @@ msgstr ""
 #: authentication/permissions.py
 #, python-format
 msgid "Confirm the current user with %(confirm_type)s, then retry with the same session cookie. This confirmation is valid for %(ttl)s seconds while the session remains valid."
+msgstr ""
+
+#: apps/settings/serializers/security.py
+msgid "0 disables idle locking. Locks the console and Web terminal after the specified idle time. Enter the lock password to unlock. With idle locking enabled, closing all pages also locks this login after 10 seconds. Close-page sign-out takes priority. Refreshing or reopening within 10 seconds cancels this. Administrator settings are defaults and limits. Users may choose stricter settings; otherwise they follow the administrator."
+msgstr ""
+
+#: apps/settings/serializers/security.py:222
+msgid "When renewal is disabled, the login expires after this duration, even if the session is saved or identity is verified again. When renewal is enabled, each renewal grants this duration again. Changes apply to new logins without restarting Core."
+msgstr ""
+
+#: apps/settings/serializers/security.py:230
+msgid "Requests can extend the session at most once per minute. Background business requests also count; profile, online-status and lock-status polling do not. Disabled: the expiry time stays fixed. Changes apply to new logins without restarting Core."
+msgstr ""
+
+#: apps/settings/serializers/security.py:299
+msgid "Log in again after exiting the browser"
+msgstr ""
+
+#: apps/settings/serializers/security.py:299
+msgid "Require a new login after quitting the browser application. Closing a tab or window does not count. Browser session restore may preserve the login; use Sign out to reliably end it. Changes apply to new logins."
+msgstr ""
+
+msgid "Log in again after exiting the browser or closing all JumpServer pages"
+msgstr ""
+
+msgid "End this login 10 seconds after all console and Web terminal pages for it close. Refreshing or reopening a page within 10 seconds cancels sign-out. A browser crash may prevent the close report; use Sign out to reliably end the login. Changes apply to new logins."
+msgstr ""
+
+msgid "Session policy"
+msgstr ""
+
+msgid "Log in again when the browser closes"
+msgstr ""
+
+#: xpack/plugins/cloud/models.py xpack/plugins/cloud/serializers/task.py
+msgid "External ID"
+msgstr ""
+
+#: xpack/plugins/cloud/models.py xpack/plugins/cloud/serializers/task.py
+msgid "Last seen at"
+msgstr ""
+
+#: xpack/plugins/cloud/models.py xpack/plugins/cloud/serializers/task.py
+msgid "Stale since"
+msgstr ""
+
+#: xpack/plugins/cloud/models.py xpack/plugins/cloud/serializers/task.py
+msgid "Missing count"
+msgstr ""
+
+#: xpack/plugins/cloud/models.py xpack/plugins/cloud/serializers/task.py
+msgid "Stale"
+msgstr ""
+
+#: xpack/plugins/cloud/models.py xpack/plugins/cloud/serializers/task.py
+msgid "Conflict"
+msgstr ""
+
+#: xpack/plugins/cloud/models.py xpack/plugins/cloud/serializers/task.py
+msgid "Cloud resource was not found in a complete scan"
+msgstr ""
+
+#: xpack/plugins/cloud/models.py xpack/plugins/cloud/serializers/task.py
+msgid "The resource no longer matches the synchronization strategy"
+msgstr ""
+
+#: xpack/plugins/cloud/models.py xpack/plugins/cloud/serializers/task.py
+msgid "The region was removed from the synchronization scope"
+msgstr ""
+
+#: xpack/plugins/cloud/models.py xpack/plugins/cloud/serializers/task.py
+msgid "The cloud resource binding needs manual review"
+msgstr ""
+
+#: xpack/plugins/cloud/models.py xpack/plugins/cloud/serializers/task.py
+msgid "The discovered resource was not selected for import"
+msgstr ""
+
+#: xpack/plugins/cloud/models.py xpack/plugins/cloud/serializers/task.py
+msgid "The resource was discovered but was not imported"
+msgstr ""
+
+#: xpack/plugins/cloud/models.py xpack/plugins/cloud/serializers/task.py
+msgid "The cloud resource changed, but automatic update is disabled"
+msgstr ""
+
+#: xpack/plugins/cloud/models.py xpack/plugins/cloud/serializers/task.py
+msgid "The cloud region scan timed out"
+msgstr ""
+
+#: xpack/plugins/cloud/models.py xpack/plugins/cloud/serializers/task.py
+msgid "The cloud region scan did not return a complete result"
+msgstr ""
+
+#: xpack/plugins/cloud/models.py xpack/plugins/cloud/serializers/task.py
+msgid "The cloud region scan returned an invalid result"
+msgstr ""
+
+#: xpack/plugins/cloud/models.py xpack/plugins/cloud/serializers/task.py
+msgid "The cloud region could not be scanned"
+msgstr ""
+
+#: xpack/plugins/cloud/models.py xpack/plugins/cloud/serializers/task.py
+msgid "No additional details"
+msgstr ""
+
+#: xpack/plugins/cloud/models.py xpack/plugins/cloud/serializers/task.py
+msgid "First seen at"
+msgstr ""
+
+#: settings/api/settings.py
+msgid "Invalid settings category."
+msgstr ""
+
+#: settings/serializers/security.py
+msgid "Provide either ip or a non-empty ips list."
+msgstr ""
+
+#: settings/serializers/security.py
+msgid "Provide only one of ip or ips."
+msgstr ""
+
+#: terminal/api/component/storage.py
+msgid "Deleting storage of type \"{}\" is not allowed"
+msgstr ""
+
+#: xpack/plugins/cloud/manager.py
+#, python-format
+msgid "Resources: new %(new)s, updated %(updated)s, unchanged %(nochange)s, to review %(stale)s, failed %(failed)s, skipped %(skip)s, released %(released)s"
+msgstr ""
+
+#: xpack/plugins/cloud/manager.py
+#, python-format
+msgid "Regions: total %(total)s, succeeded %(succeeded)s, failed %(failed)s, incomplete %(incomplete)s, not scanned %(unscanned)s"
+msgstr ""
+
+#: xpack/plugins/cloud/manager.py
+msgid "Interactive import does not automatically release assets."
+msgstr ""
+
+#: xpack/plugins/cloud/manager.py
+msgid "Automatic release is enabled for resources confirmed missing by a complete scan."
+msgstr ""
+
+#: xpack/plugins/cloud/manager.py
+msgid "Automatic release is disabled; missing cloud resources require manual review."
+msgstr ""
+
+#: xpack/plugins/cloud/manager.py
+msgid "Resource failures and scan or task errors are counted separately. A task can fail even when no individual resource failed."
+msgstr ""
+
+#: xpack/plugins/cloud/const.py
+msgid "Partial"
+msgstr ""
+
+#: tickets/workflow/approvers.py
+#, python-brace-format
+msgid "Asset \"{asset}\" has no owner. Set its owner on the asset edit page."
+msgstr ""
+
+#: tickets/workflow/approvers.py
+#, python-brace-format
+msgid "Asset \"{asset}\" has invalid owner information. Set its owner on the asset edit page."
+msgstr ""
+
+#: tickets/workflow/approvers.py
+msgid "This request has no assets. Select assets or use another approver source."
+msgstr ""
+
+#: tickets/workflow/approvers.py
+msgid "Invalid asset information in the request."
+msgstr ""
+
+#: tickets/workflow/approvers.py
+#, python-brace-format
+msgid "The owners of these assets are unavailable (inactive, expired, deleted, or outside this organization): {assets}. Set valid owners on the asset edit page."
+msgstr ""
+
+#: authentication/views/login.py
+msgid "The login approval workflow is misconfigured. Unable to log in. Please contact your administrator."
+msgstr ""
+
+#: tickets/workflow/publication.py
+#, python-brace-format
+msgid "Login confirmation cannot use organization administrators in node \"{node}\". Select specific users or a system role."
+msgstr ""
+
+#: tickets/workflow/publication.py
+#, python-brace-format
+msgid "Login confirmation has no assets and cannot use asset owners in node \"{node}\". Select another approver source."
+msgstr ""
+
+#: tickets/serializers/workflow.py tickets/workflow/publication.py
+msgid "Login confirmation workflows can only be configured in the global organization."
+msgstr ""
+
+msgid "Unable to cancel the login request. Please try again."
+msgstr ""
+
+#: authentication/serializers/connection_token.py
+msgid "Account preparation required"
+msgstr ""
+
+msgid "ClickHouse HTTP backend port for DBX and the default DBeaver driver. The protocol port remains the Native TCP port."
+msgstr ""
+
+#: terminal/tasks.py:42
+#, python-format
+msgid "Checking terminal status records older than %(days)s days."
+msgstr ""
+
+#: terminal/tasks.py:47 ops/tasks.py:235
+#, python-format
+msgid "Expired records matched: %(checked)s; deleted: %(deleted)s."
+msgstr ""
+
+#: terminal/tasks.py:65
+msgid "Checking unfinished sessions; active sessions will be kept."
+msgstr ""
+
+#: terminal/tasks.py:82
+#, python-format
+msgid "Sessions checked: %(checked)s; marked finished: %(finished)s; skipped because still active: %(active)s; related tasks marked finished: %(tasks)s."
+msgstr ""
+
+#: terminal/tasks.py:51 ops/tasks.py:239
+msgid "Nothing to clean: no records exceeded the retention period."
+msgstr ""
+
+#: terminal/tasks.py:87
+msgid "Nothing to process: no unfinished sessions."
+msgstr ""
+
+#: ops/celery/utils.py:38
+#, python-format
+msgid "Checking periodic task: %(name)s."
+msgstr ""
+
+#: ops/celery/utils.py:61
+#, python-format
+msgid "Schedule: every %(seconds)s seconds."
+msgstr ""
+
+#: ops/celery/utils.py:46
+#, python-format
+msgid "Skipped periodic task %(name)s: the scheduling database is unavailable."
+msgstr ""
+
+#: ops/celery/utils.py:77
+#, python-format
+msgid "Schedule (cron): %(cron)s; time zone: %(timezone)s."
+msgstr ""
+
+#: ops/celery/utils.py:81
+#, python-format
+msgid "Skipped periodic task %(name)s: no valid interval or cron expression is configured."
+msgstr ""
+
+#: ops/celery/utils.py:66
+#, python-format
+msgid "Skipped periodic task %(name)s: the cron expression must contain five fields."
+msgstr ""
+
+#: ops/tasks.py:123
+msgid "Checking periodic tasks; tasks still registered in the worker will be kept."
+msgstr ""
+
+#: ops/tasks.py:144
+#, python-format
+msgid "Periodic tasks checked: %(checked)s; deleted: %(cleaned)s; kept because still registered: %(kept)s; cleanup failures: %(failed)s."
+msgstr ""
+
+#: ops/tasks.py:161
+msgid "Starting periodic task registration."
+msgstr ""
+
+#: ops/tasks.py:172
+#, python-format
+msgid "Periodic tasks checked: %(checked)s; created: %(created)s; updated: %(updated)s; skipped: %(skipped)s."
+msgstr ""
+
+#: ops/tasks.py:203
+#, python-format
+msgid "Checking running jobs; jobs older than %(hours)s hours will be marked failed."
+msgstr ""
+
+#: ops/tasks.py:208
+#, python-format
+msgid "Jobs checked: %(checked)s; marked failed: %(cleaned)s; skipped because within the time limit: %(skipped)s."
+msgstr ""
+
+#: ops/tasks.py:229
+#, python-format
+msgid "Checking job execution records older than %(days)s days."
+msgstr ""
+
+#: ops/tasks.py:133
+#, python-format
+msgid "Removing periodic task %(name)s: its task is no longer registered."
+msgstr ""
+
+#: ops/tasks.py:213
+msgid "Nothing to process: no running jobs."
+msgstr ""
+
+#: ops/tasks.py:143
+#, python-format
+msgid "Periodic task %(name)s still exists after cleanup."
+msgstr ""
+
+#: settings/tasks/ldap.py:88
+#, python-format
+msgid "Checking LDAP periodic sync configuration: %(name)s."
+msgstr ""
+
+#: settings/tasks/ldap.py:95
+#, python-format
+msgid "Skipped registration: LDAP periodic sync is disabled; schedules kept disabled: %(count)s."
+msgstr ""
+
+#: users/tasks.py:97
+msgid "Checking active local users with unexpired accounts and passwords."
+msgstr ""
+
+#: users/tasks.py:113 users/tasks.py:187
+#, python-format
+msgid "Users checked: %(checked)s; reminders queued: %(notified)s; skipped because inactive or expired: %(invalid)s; skipped because outside the reminder window: %(outside)s."
+msgstr ""
+
+#: users/tasks.py:156
+#, python-format
+msgid "Checking active local users expiring within %(first)s days; remind %(first)s days before expiry and daily within %(daily)s days."
+msgstr ""
+
+#: users/tasks.py:107
+#, python-format
+msgid "Queuing a password expiration reminder for %(user)s: %(days)s days remaining."
+msgstr ""
+
+#: users/tasks.py:119 users/tasks.py:193
+msgid "Nothing to process: no users matched the check criteria."
+msgstr ""
+
+#: users/tasks.py:181
+#, python-format
+msgid "Queuing an account expiration reminder for %(user)s: %(days)s days remaining."
+msgstr ""
+
+#: accounts/tasks/openbao.py:114
+#, python-format
+msgid "OpenBao tokens checked: 1; rotated: 1; new TTL: %(ttl)s seconds."
+msgstr ""
+
+#: accounts/tasks/openbao.py:124
+msgid "Checking OpenBao token rotation configuration."
+msgstr ""
+
+#: accounts/tasks/openbao.py:126
+msgid "Skipped token rotation: the OpenBao vault backend is not enabled."
+msgstr ""
+
+#: accounts/tasks/openbao.py:130
+msgid "Skipped token rotation: no enabled rotation AppRole is configured."
+msgstr ""
+
+#: accounts/tasks/openbao.py:137
+msgid "Skipped token rotation: another rotation task is running."
+msgstr ""
+
+#: accounts/tasks/openbao.py:82
+#, python-format
+msgid "OpenBao tokens checked: 1; rotated: 0; skipped: 1. The token is still valid for %(ttl)s seconds, above the rotation threshold of %(threshold)s seconds."
+msgstr ""
+
+#: ops/celery/utils.py
+#, python-format
+msgid "Created periodic task %(name)s; enabled: %(enabled)s."
+msgstr ""
+
+#: ops/celery/utils.py
+#, python-format
+msgid "Updated periodic task %(name)s; enabled: %(enabled)s."
+msgstr ""
+
+#: tickets/tasks.py perms/tasks.py tickets/plugins/file_transfer/execution.py
+msgid "The batch limit was reached; remaining records will be checked next time."
+msgstr ""
+
+#: perms/tasks.py
+msgid "No reminder was queued; recipients are missing or publication failed."
+msgstr ""
+
+#: perms/tasks.py
+msgid "No users or administrators are available to receive reminders."
+msgstr ""
+
+#: perms/tasks.py authentication/tasks.py
+msgid "Notifications queued"
+msgstr ""
+
+#: perms/tasks.py
+msgid "The permission is outside the reminder window."
+msgstr ""
+
+#: perms/tasks.py
+msgid "Unable to queue a notification."
+msgstr ""
+
+#: terminal/tasks.py
+msgid "Alert notifications queued"
+msgstr ""
+
+#: terminal/tasks.py
+#, python-format
+msgid "Storage check failed: %(name)s (%(type)s)."
+msgstr ""
+
+#: terminal/tasks.py
+msgid "Storage connectivity or credential validation failed."
+msgstr ""
+
+#: users/tasks.py
+msgid "Automatic disabling of unused users is not enabled."
+msgstr ""
+
+#: users/tasks.py
+#, python-format
+msgid "Checking users with no login or API key use for %(days)s days; admin is excluded."
+msgstr ""
+
+#: users/tasks.py ops/celery/task_logging.py accounts/tasks/automation.py tickets/plugins/file_transfer/execution.py
+msgid "The record was already handled by another task."
+msgstr ""
+
+#: users/tasks.py
+msgid "The unused-user threshold is outside the enabled range of 1–998 days."
+msgstr ""
+
+#: users/tasks.py
+msgid "Users disabled"
+msgstr ""
+
+#: users/signal_handlers.py
+msgid "Sessions deleted"
+msgstr ""
+
+#: ops/tasks.py
+msgid "Components with health alerts"
+msgstr ""
+
+#: ops/tasks.py
+msgid "No health alerts to send."
+msgstr ""
+
+#: ops/tasks.py
+msgid "Service performance checks are disabled by configuration."
+msgstr ""
+
+#: ops/tasks.py
+msgid "The component is inactive."
+msgstr ""
+
+#: authentication/tasks.py
+msgid "Client login session cleanup"
+msgstr ""
+
+#: authentication/tasks.py
+msgid "Credential activity records included"
+msgstr ""
+
+#: authentication/tasks.py
+msgid "No recent credential activity matched this user."
+msgstr ""
+
+#: authentication/tasks.py
+msgid "OAuth credential cleanup categories"
+msgstr ""
+
+#: authentication/oauth_cleanup_logging.py
+msgid "Expired ID tokens deleted"
+msgstr ""
+
+#: authentication/oauth_cleanup_logging.py
+msgid "Expired access tokens deleted"
+msgstr ""
+
+#: authentication/oauth_cleanup_logging.py
+msgid "Expired grant tokens deleted"
+msgstr ""
+
+#: authentication/oauth_cleanup_logging.py
+msgid "Expired refresh tokens deleted"
+msgstr ""
+
+#: authentication/oauth_cleanup_logging.py
+msgid "No expired records in this credential category."
+msgstr ""
+
+#: authentication/oauth_cleanup_logging.py
+msgid "Orphaned refresh tokens deleted"
+msgstr ""
+
+#: authentication/oauth_cleanup_logging.py
+msgid "Refresh-token retention settings require these tokens to be kept."
+msgstr ""
+
+#: authentication/oauth_cleanup_logging.py
+msgid "Revoked refresh tokens deleted"
+msgstr ""
+
+#: notifications/notifications.py
+#, python-format
+msgid "Channel %(channel)s: matched recipients %(matched)s; recipients with a channel account %(bound)s; unbound %(unbound)s."
+msgstr ""
+
+#: notifications/notifications.py
+msgid "No recipients have an account for this notification channel."
+msgstr ""
+
+#: notifications/notifications.py
+msgid "Notification channel calls completed"
+msgstr ""
+
+#: notifications/notifications.py
+msgid "The notification channel does not support this message."
+msgstr ""
+
+#: notifications/notifications.py
+msgid "The notification channel raised an error."
+msgstr ""
+
+#: authentication/services/client_login_session.py
+msgid "Client sessions revoked"
+msgstr ""
+
+#: authentication/services/client_login_session.py
+msgid "The client login session is still valid."
+msgstr ""
+
+#: ops/celery/task_logging.py
+#, python-format
+msgid "Failed %(count)s: %(reason)s"
+msgstr ""
+
+#: ops/celery/task_logging.py
+msgid "No matching records to process."
+msgstr ""
+
+#: ops/celery/task_logging.py
+#, python-format
+msgid "Result count — %(name)s: %(count)s."
+msgstr ""
+
+#: ops/celery/task_logging.py
+#, python-format
+msgid "Skipped %(count)s: %(reason)s"
+msgstr ""
+
+#: ops/celery/task_logging.py
+#, python-format
+msgid "Task interrupted after %(checked)s checks; changes may have been rolled back. See the task error for details."
+msgstr ""
+
+#: ops/celery/task_logging.py
+#, python-format
+msgid "Task started: %(name)s."
+msgstr ""
+
+#: ops/celery/task_logging.py
+#, python-format
+msgid "Task summary: checked %(checked)s; processed %(processed)s; skipped %(skipped)s; failed %(failed)s."
+msgstr ""
+
+#: accounts/tasks/remove_account.py
+msgid "History cleanup is disabled by the retention limit."
+msgstr ""
+
+#: accounts/tasks/remove_account.py
+#, python-format
+msgid "Keeping %(count)s history records per account, including the current version."
+msgstr ""
+
+#: accounts/tasks/automation.py
+msgid "Another instance of this maintenance task is running."
+msgstr ""
+
+#: accounts/tasks/automation.py
+msgid "Records belong to a credential rotation that is still running."
+msgstr ""
+
+#: accounts/tasks/automation.py xpack/plugins/cloud/tasks.py
+#, python-format
+msgid "Retention period: %(days)s days."
+msgstr ""
+
+#: accounts/tasks/automation.py
+msgid "The latest unsuccessful first-login result must be retained."
+msgstr ""
+
+#: accounts/tasks/automation.py
+msgid "The owning worker has not replied and the hard timeout has not elapsed."
+msgstr ""
+
+#: accounts/tasks/automation.py
+msgid "The task is still running on a worker."
+msgstr ""
+
+#: accounts/tasks/automation.py
+msgid "The task is still within the startup grace period."
+msgstr ""
+
+#: accounts/tasks/automation.py
+msgid "Unable to acquire the task lock."
+msgstr ""
+
+#: accounts/tasks/automation.py
+msgid "Unable to release the task lock."
+msgstr ""
+
+#: accounts/tasks/automation.py
+msgid "Waiting for repeated confirmation that the task is missing."
+msgstr ""
+
+#: accounts/tasks/automation.py
+msgid "Worker status is unavailable; recovery cannot be confirmed."
+msgstr ""
+
+#: accounts/tasks/application_events.py
+msgid "Deliveries marked expired"
+msgstr ""
+
+#: accounts/tasks/application_events.py tickets/plugins/change_secret/execution.py tickets/plugins/file_transfer/execution.py
+msgid "Executions queued"
+msgstr ""
+
+#: accounts/tasks/application_events.py tickets/plugins/change_secret/execution.py tickets/plugins/file_transfer/execution.py
+msgid "Unable to queue an execution; it will be retried later."
+msgstr ""
+
+#: accounts/tasks/credential_preparation.py
+msgid "Unable to check credential rotation readiness."
+msgstr ""
+
+#: accounts/tasks/credential_preparation.py
+msgid "Waiting for client confirmation or the source-account quiet period."
+msgstr ""
+
+#: tickets/workflow/engine.py
+msgid "The workflow has changed or its approval deadline has not elapsed."
+msgstr ""
+
+#: tickets/plugins/change_secret/execution.py tickets/plugins/file_transfer/execution.py
+msgid "The execution is no longer eligible for dispatch."
+msgstr ""
+
+#: tickets/plugins/file_transfer/execution.py
+msgid "Files belong to a transfer that is still running."
+msgstr ""
+
+#: tickets/plugins/file_transfer/execution.py
+msgid "Interrupted transfers marked for verification"
+msgstr ""
+
+#: tickets/plugins/file_transfer/execution.py
+msgid "Unable to remove a temporary file; it will be retried later."
+msgstr ""
+
+#: xpack/plugins/cloud/tasks.py
+msgid "Cleanup is disabled because the retention period is not positive."
+msgstr ""
+
+#: ops/celery/task_logging.py
+#, python-format
+msgid "Reason: %(reason)s"
+msgstr ""
+
+#: notifications/notifications.py
+msgid "No notification channels are configured."
+msgstr ""
+
+#: accounts/tasks/application_events.py:46
+#, python-format
+msgid "Unable to dispatch application webhook delivery %(delivery)s."
+msgstr ""
+
+#: accounts/tasks/automation.py:139
+msgid "Skipped interrupted account task inspection: no Celery worker replied."
+msgstr ""
+
+#: accounts/tasks/automation.py:132
+msgid "Unable to inspect active Celery tasks."
+msgstr ""
+
+#: accounts/tasks/automation.py:169
+#, python-format
+msgid "Unable to confirm interrupted task status: execution=%(execution)s."
+msgstr ""
+
+#: accounts/tasks/automation.py:180
+#, python-format
+msgid "Unable to clear the interrupted task confirmation marker: execution=%(execution)s."
+msgstr ""
+
+#: accounts/tasks/automation.py:202
+msgid "Unable to acquire the interrupted account task recovery lock."
+msgstr ""
+
+#: accounts/tasks/automation.py:218
+msgid "Unable to release the interrupted account task recovery lock."
+msgstr ""
+
+#: accounts/tasks/credential_preparation.py:12 accounts/tasks/credential_preparation.py:15
+msgid "Check credential rotation readiness"
+msgstr ""
+
+#: accounts/tasks/credential_preparation.py:33
+#, python-format
+msgid "Unable to check rotation readiness: credential=%(credential)s."
+msgstr ""
+
+#: accounts/tasks/openbao.py:28
+msgid "JumpServer must use the OpenBao vault backend."
+msgstr ""
+
+#: accounts/tasks/openbao.py:30
+msgid "OpenBao token rotation requires HTTPS with TLS verification."
+msgstr ""
+
+#: accounts/tasks/openbao.py:62
+#, python-format
+msgid "OpenBao token lookup returned HTTP %(status)s."
+msgstr ""
+
+#: accounts/tasks/openbao.py:70
+msgid "OpenBao address changed. Reconfigure the rotation AppRole."
+msgstr ""
+
+#: accounts/tasks/openbao.py:98
+msgid "OpenBao did not issue a distinct token."
+msgstr ""
+
+#: accounts/tasks/openbao.py:102
+msgid "The new OpenBao token must support self lookup and last over seven days."
+msgstr ""
+
+#: accounts/tasks/openbao.py:104
+msgid "The new token failed the JumpServer OpenBao operation check."
+msgstr ""
+
+#: accounts/tasks/openbao.py:94
+#, python-format
+msgid "OpenBao AppRole login returned HTTP %(status)s."
+msgstr ""
+
+#: accounts/tasks/openbao.py:109
+msgid "The configured OpenBao token changed during rotation."
+msgstr ""
+
+#: accounts/tasks/openbao.py:120
+msgid "Check and rotate the OpenBao vault token"
+msgstr ""
+
+#: accounts/tasks/openbao.py:133
+msgid "OpenBao rotation requires encrypted AppRole credentials."
+msgstr ""
+
+#: authentication/services/client_login_session.py:411
+msgid "Access tokens deleted"
+msgstr ""
+
+#: authentication/services/client_login_session.py:412
+msgid "Refresh tokens deleted"
+msgstr ""
+
+#: authentication/services/client_login_session.py:419
+msgid "Client login sessions deleted"
+msgstr ""
+
+#: perms/tasks.py:141
+#, python-format
+msgid "Unable to queue an asset permission expiration reminder: permission=%(permission)s; user=%(user)s."
+msgstr ""
+
+#: terminal/tasks.py:268
+#, python-brace-format
+msgid "Test failure: {error}"
+msgstr ""
+
+#: tickets/plugins/change_secret/execution.py:100
+#, python-format
+msgid "Unable to queue password change for ticket %(ticket)s (%(error)s)."
+msgstr ""
+
+#: tickets/plugins/file_transfer/execution.py:50
+#, python-format
+msgid "Unable to queue ticket transfer %(ticket)s (%(error)s)."
+msgstr ""
+
+#: tickets/plugins/file_transfer/execution.py:249
+#, python-format
+msgid "Unable to purge ticket transfer file %(file)s (%(error)s)."
+msgstr ""
+
+#: accounts/automations/recovery.py:38
+msgid "Invalid interrupted automation runtime path."
+msgstr ""
+
+#: accounts/automations/recovery.py:269
+#, python-format
+msgid "Interrupted account automation finalized: execution=%(execution)s; status=%(status)s; password change records=%(changes)s; password push records=%(pushes)s."
+msgstr ""
+
+#: accounts/automations/recovery.py:264
+#, python-format
+msgid "Unable to clean the interrupted automation runtime: execution=%(execution)s."
+msgstr ""
+
+#: accounts/automations/recovery.py:244
+#, python-format
+msgid "Unable to clear interrupted account task status: execution=%(execution)s; account=%(account)s."
+msgstr ""
+
+#: accounts/automations/recovery.py:257
+#, python-format
+msgid "Unable to release the interrupted account lock: execution=%(execution)s; account=%(account)s."
+msgstr ""
+
+#: accounts/models/application.py:56
+msgid "The application account scope exceeds the configured limit."
+msgstr ""
+
+#: accounts/serializers/account/service.py:127
+#, python-format
+msgid "The application account scope has %(count)s accounts; the configured limit is %(limit)s."
+msgstr ""
+
+#: accounts/serializers/account/service.py
+msgid "Select at least one account."
+msgstr ""
+
+#: tickets/workflow/definition.py tickets/workflow/approvers.py
+msgid "Invalid user filter."
+msgstr ""
+
+#: tickets/workflow/publication.py
+msgid "ACL reviewers are only available for ACL approval workflows."
+msgstr ""
+
+#: assets/api/asset/asset.py
+msgid "Not accessed for over three months"
+msgstr ""
+
+#: assets/api/asset/asset.py
+msgid "No valid permission"
 msgstr ""
 
