@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: jumpserver\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-19 10:30+0800\n"
-"PO-Revision-Date: 2026-11-20 09:22\n"
+"PO-Revision-Date: 2026-11-20 15:35\n"
 "Last-Translator: ibuler <ibuler@qq.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -16956,7 +16956,7 @@ msgstr "Источник заявки"
 
 #: tickets/models/instance.py:17 tickets/models/instance.py:37
 msgid "Workflow context and identity are immutable."
-msgstr "Контекст процесса и идентификационные данные нельзя менять"
+msgstr "Нельзя изменять контекст процесса и идентификации."
 
 #: tickets/models/relation.py:30
 msgid "Ticket beneficiary"
